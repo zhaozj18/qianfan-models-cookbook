@@ -12,6 +12,7 @@ Note that this is a python code only repository.
   - [DeepSeek-Distill-Qianfan-8B, DeepSeek-Distill-Qianfan-70B](deepseek-distilled-qianfan-llms/DeepSeek-Distilled-Qianfan-LLMs.ipynb)
 - **Multimodal Model**: 
   - [Qianfan-VL-8B](qianfan-vl/qianfan_vl_example.ipynb)
+    
 All models feature a 32K context length. Please note that only model access is provided; open sourced model weights coming soon!
 
 ## License
