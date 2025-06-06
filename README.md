@@ -8,6 +8,7 @@ Note that this is a python code only repository.
 **2025.06.06**: QianfanHuijin and QianfanHuijin-Reason series financial augmented models have been added to ModelBuilder ([Link to apply for a trial​](https://cloud.baidu.com/survey/qianfanhuijin.html)):
   - [Financial knowledge augmented model: QianfanHuijin-70B-32K](qianfan-llms/qianfan-llms-notebook.ipynb)
   - [Financial reasoning augmented model: QianfanHuijin-Reason-70B-32K](qianfan-llms/qianfan-llms-notebook.ipynb)
+  - QianfanHuijin-8B-32K and QianfanHuijin-Reason-8B-32K is coming soon.
 
 **2025.04.25**: Five new Qianfan series models have been added to ModelBuilder:
 - **Text Models**: 

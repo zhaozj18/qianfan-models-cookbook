@@ -5,9 +5,10 @@
 请注意，这是一个仅包含Python代码的仓库。
 
 ## 最新动态
-**2025.06.06**: 千帆慧金-千帆金融增强大模型已上线至 ModelBuilder 平台（[测试申请链接](https://cloud.baidu.com/survey/qianfanhuijin.html)）:
-  - [千帆慧金-金融知识增强大模型: QianfanHuijin-70B-32K](qianfan-llms/qianfan-llms-notebook.ipynb)
-  - [千帆慧金-金融推理增强大模型: QianfanHuijin-Reason-70B-32K](qianfan-llms/qianfan-llms-notebook.ipynb)
+**2025.06.06**: 千帆慧金-千帆金融行业大模型已上线至 ModelBuilder 平台（[测试申请链接](https://cloud.baidu.com/survey/qianfanhuijin.html)）:
+  - [金融知识增强: QianfanHuijin-70B-32K](qianfan-llms/qianfan-llms-notebook.ipynb)
+  - [金融推理增强: QianfanHuijin-Reason-70B-32K](qianfan-llms/qianfan-llms-notebook.ipynb)
+  - QianfanHuijin-8B-32K, QianfanHuijin-Reason-8B-32K 即将推出
 
 **2025.04.25**：五个全新的千帆系列模型已上线至ModelBuilder平台：
 - **文本模型**：
