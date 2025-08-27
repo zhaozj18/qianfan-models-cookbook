@@ -407,43 +407,244 @@
             </section>
 
             <section id="applications" class="section">
-                <h2>Real-World Applications</h2>
+                <h2>Model Capabilities</h2>
                 
-                <div class="use-cases-grid">
-                    <div class="use-case">
-                        <h3>Educational Problem Solving</h3>
-                        <p>
-                            Qianfan-VL excels at complex educational scenarios, providing detailed step-by-step solutions with reasoning traces. 
-                            The model can identify problems in images, understand context, and generate comprehensive explanations suitable for teaching purposes.
-                        </p>
-                        <code>model.solve_educational_problem(image, grade_level="K-12")</code>
-                    </div>
+                <!-- OCR Capabilities -->
+                <div class="capability-group">
+                    <h3>OCR Capabilities</h3>
                     
-                    <div class="use-case">
-                        <h3>Document Intelligence</h3>
-                        <p>
-                            From complex tables to charts, Qianfan-VL accurately extracts and structures information. 
-                            The model can convert visual data into markdown tables, understand chart relationships, and maintain formatting integrity.
-                        </p>
-                        <code>model.extract_document_structure(pdf_path, output_format="markdown")</code>
+                    <div class="showcase-grid">
+                        <div class="capability-showcase">
+                            <h4>Handwritten Recognition</h4>
+                            <div class="showcase-content">
+                                <div class="showcase-image">
+                                    <img src="placeholder_handwritten.jpg" alt="Handwritten text example">
+                                </div>
+                                <div class="showcase-dialogue">
+                                    <div class="user-prompt">
+                                        <strong>User:</strong> Please recognize the handwritten text in this image.
+                                    </div>
+                                    <div class="model-response">
+                                        <strong>Qianfan-VL:</strong> [Model accurately transcribes handwritten notes with proper formatting]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="capability-showcase">
+                            <h4>Scene OCR</h4>
+                            <div class="showcase-content">
+                                <div class="showcase-image">
+                                    <img src="placeholder_scene.jpg" alt="Street scene with text">
+                                </div>
+                                <div class="showcase-dialogue">
+                                    <div class="user-prompt">
+                                        <strong>User:</strong> Extract all text visible in this street scene.
+                                    </div>
+                                    <div class="model-response">
+                                        <strong>Qianfan-VL:</strong> [Detects and extracts text from signs, storefronts, and advertisements]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="capability-showcase">
+                            <h4>Math Equation Recognition</h4>
+                            <div class="showcase-content">
+                                <div class="showcase-image">
+                                    <img src="placeholder_equation.jpg" alt="Mathematical equations">
+                                </div>
+                                <div class="showcase-dialogue">
+                                    <div class="user-prompt">
+                                        <strong>User:</strong> Convert these mathematical equations to LaTeX format.
+                                    </div>
+                                    <div class="model-response">
+                                        <strong>Qianfan-VL:</strong> [Converts complex equations to precise LaTeX notation]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="capability-showcase">
+                            <h4>Information Extraction</h4>
+                            <div class="showcase-content">
+                                <div class="showcase-image">
+                                    <img src="placeholder_form.jpg" alt="Business form">
+                                </div>
+                                <div class="showcase-dialogue">
+                                    <div class="user-prompt">
+                                        <strong>User:</strong> Extract key information from this form into structured JSON.
+                                    </div>
+                                    <div class="model-response">
+                                        <strong>Qianfan-VL:</strong> [Extracts and structures form data with field names and values]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
+
+                <!-- Math Problem Solving -->
+                <div class="capability-group">
+                    <h3>Math Problem Solving</h3>
                     
-                    <div class="use-case">
-                        <h3>Enterprise Automation</h3>
-                        <p>
-                            The model's strong OCR and document understanding capabilities make it ideal for automating document processing workflows, 
-                            from invoice extraction to report generation.
-                        </p>
-                        <code>model.process_enterprise_document(doc, workflow="invoice_extraction")</code>
+                    <div class="showcase-grid">
+                        <div class="capability-showcase">
+                            <h4>Photo Search Math Problem Solving</h4>
+                            <div class="showcase-content">
+                                <div class="showcase-image">
+                                    <img src="placeholder_math_photo.jpg" alt="Math problem photo">
+                                </div>
+                                <div class="showcase-dialogue">
+                                    <div class="user-prompt">
+                                        <strong>User:</strong> Solve this math problem and show the steps.
+                                    </div>
+                                    <div class="model-response">
+                                        <strong>Qianfan-VL:</strong> [Provides step-by-step solution with clear explanations]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="capability-showcase">
+                            <h4>Geometry Problem Solving</h4>
+                            <div class="showcase-content">
+                                <div class="showcase-image">
+                                    <img src="placeholder_geometry.jpg" alt="Geometry diagram">
+                                </div>
+                                <div class="showcase-dialogue">
+                                    <div class="user-prompt">
+                                        <strong>User:</strong> Find the area of the shaded region in this geometric figure.
+                                    </div>
+                                    <div class="model-response">
+                                        <strong>Qianfan-VL:</strong> [Analyzes geometric relationships and calculates with reasoning]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                </div>
+
+                <!-- Document Understanding -->
+                <div class="capability-group">
+                    <h3>Document Understanding</h3>
                     
-                    <div class="use-case">
-                        <h3>Natural Scene Understanding</h3>
-                        <p>
-                            Advanced text detection and recognition in natural scenes, supporting multiple languages and complex layouts 
-                            for real-world applications.
-                        </p>
-                        <code>model.analyze_scene_text(image, languages=["zh", "en"])</code>
+                    <div class="showcase-grid">
+                        <div class="capability-showcase">
+                            <h4>Document Content Understanding</h4>
+                            <div class="showcase-content">
+                                <div class="showcase-image">
+                                    <img src="placeholder_document.jpg" alt="Complex document">
+                                </div>
+                                <div class="showcase-dialogue">
+                                    <div class="user-prompt">
+                                        <strong>User:</strong> Summarize the key points of this document.
+                                    </div>
+                                    <div class="model-response">
+                                        <strong>Qianfan-VL:</strong> [Provides comprehensive summary with main insights]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="capability-showcase">
+                            <h4>Table Understanding</h4>
+                            <div class="showcase-content">
+                                <div class="showcase-image">
+                                    <img src="placeholder_table.jpg" alt="Complex table">
+                                </div>
+                                <div class="showcase-dialogue">
+                                    <div class="user-prompt">
+                                        <strong>User:</strong> Convert this table to markdown format and analyze the trends.
+                                    </div>
+                                    <div class="model-response">
+                                        <strong>Qianfan-VL:</strong> [Accurately converts table and provides data analysis]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="capability-showcase">
+                            <h4>Chart Understanding</h4>
+                            <div class="showcase-content">
+                                <div class="showcase-image">
+                                    <img src="placeholder_chart.jpg" alt="Business chart">
+                                </div>
+                                <div class="showcase-dialogue">
+                                    <div class="user-prompt">
+                                        <strong>User:</strong> What insights can you derive from this chart?
+                                    </div>
+                                    <div class="model-response">
+                                        <strong>Qianfan-VL:</strong> [Interprets chart data and identifies patterns and trends]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Understanding -->
+                <div class="capability-group">
+                    <h3>Video Understanding</h3>
+                    
+                    <div class="showcase-grid">
+                        <div class="capability-showcase full-width">
+                            <h4>Video Content Analysis</h4>
+                            <div class="showcase-content">
+                                <div class="showcase-image">
+                                    <img src="placeholder_video_frames.jpg" alt="Video frames">
+                                </div>
+                                <div class="showcase-dialogue">
+                                    <div class="user-prompt">
+                                        <strong>User:</strong> Describe what happens in this video sequence.
+                                    </div>
+                                    <div class="model-response">
+                                        <strong>Qianfan-VL:</strong> [Provides temporal understanding and action description across frames]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grounding and Counting -->
+                <div class="capability-group">
+                    <h3>Grounding and Counting</h3>
+                    
+                    <div class="showcase-grid">
+                        <div class="capability-showcase">
+                            <h4>Object Grounding</h4>
+                            <div class="showcase-content">
+                                <div class="showcase-image">
+                                    <img src="placeholder_grounding.jpg" alt="Scene with multiple objects">
+                                </div>
+                                <div class="showcase-dialogue">
+                                    <div class="user-prompt">
+                                        <strong>User:</strong> Locate all the red objects in this image.
+                                    </div>
+                                    <div class="model-response">
+                                        <strong>Qianfan-VL:</strong> [Identifies and describes locations of specified objects]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="capability-showcase">
+                            <h4>Object Counting</h4>
+                            <div class="showcase-content">
+                                <div class="showcase-image">
+                                    <img src="placeholder_counting.jpg" alt="Crowded scene">
+                                </div>
+                                <div class="showcase-dialogue">
+                                    <div class="user-prompt">
+                                        <strong>User:</strong> How many people are in this image?
+                                    </div>
+                                    <div class="model-response">
+                                        <strong>Qianfan-VL:</strong> [Accurately counts objects with spatial reasoning]
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
