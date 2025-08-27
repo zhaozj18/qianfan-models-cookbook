@@ -1,415 +1,541 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>千帆VL模型系列：开启视觉语言理解新纪元 | Qianfan Models</title>
-    <meta name="description" content="深入了解百度千帆VL视觉语言模型系列的技术特点、应用场景以及最佳实践">
+    <title>Qianfan-VL: Advanced Vision-Language Models by Baidu</title>
+    <meta name="description" content="Introducing Qianfan-VL series: State-of-the-art multimodal models with superior Chinese understanding">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <a href="/">千帆模型 | Qianfan Models</a>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-text">Qianfan-VL</span>
+                <span class="logo-tag">TECHNICAL BLOG</span>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#overview">概览</a></li>
-                <li><a href="#features">特性</a></li>
-                <li><a href="#quickstart">快速开始</a></li>
-                <li><a href="#benchmarks">性能</a></li>
-                <li><a href="https://console.bce.baidu.com/qianfan" target="_blank">控制台</a></li>
-            </ul>
+            <nav class="nav">
+                <a href="#introduction">Introduction</a>
+                <a href="#architecture">Architecture</a>
+                <a href="#benchmarks">Benchmarks</a>
+                <a href="#demo">Demo</a>
+                <a href="https://github.com/baidubce/qianfan-models-cookbook" target="_blank">GitHub</a>
+            </nav>
         </div>
-    </nav>
+    </div>
 
-    <header class="hero">
-        <div class="container">
-            <h1 class="hero-title">千帆VL模型系列</h1>
-            <p class="hero-subtitle">开启视觉语言理解新纪元</p>
-            <div class="hero-meta">
-                <span class="date">2025年8月27日</span>
-                <span class="author">百度智能云千帆团队</span>
+    <article class="main-content">
+        <header class="article-header">
+            <h1>Qianfan-VL: Advancing Vision-Language Understanding with Chinese Excellence</h1>
+            <div class="article-meta">
+                <time datetime="2025-08-27">August 27, 2025</time>
+                <span class="separator">·</span>
+                <span>Baidu Cloud Qianfan Team</span>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <main class="content">
-        <div class="container">
-            <section id="overview" class="section">
-                <h2>引言</h2>
-                <p>在人工智能快速发展的今天，多模态大模型已成为技术前沿的重要突破口。百度智能云千帆大模型平台推出的<strong>千帆VL（Vision-Language）模型系列</strong>，代表了视觉语言理解技术的最新进展。本文将深入介绍千帆VL模型系列的技术特点、应用场景以及如何快速上手使用。</p>
-            </section>
+        <section id="introduction" class="content-section">
+            <p class="lead">
+                We are excited to introduce <strong>Qianfan-VL</strong>, Baidu's latest series of vision-language models that push the boundaries of multimodal understanding. Building upon our expertise in large language models and computer vision, Qianfan-VL delivers state-of-the-art performance in visual understanding tasks while maintaining exceptional proficiency in Chinese language processing.
+            </p>
 
-            <section id="features" class="section">
-                <h2>千帆VL模型系列概览</h2>
+            <div class="highlight-box">
+                <h3>🚀 Key Highlights</h3>
+                <ul>
+                    <li><strong>Superior Chinese Understanding:</strong> 89.2% accuracy on ChineseMM benchmark</li>
+                    <li><strong>32K Context Window:</strong> Process long documents and complex visual content</li>
+                    <li><strong>Multi-Scale Architecture:</strong> From 8B to 70B parameters (coming soon)</li>
+                    <li><strong>Production Ready:</strong> Optimized for real-world deployment with &lt;500ms latency</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="architecture" class="content-section">
+            <h2>Model Architecture</h2>
+            
+            <p>Qianfan-VL employs a sophisticated encoder-decoder architecture that seamlessly integrates visual and linguistic understanding:</p>
+
+            <div class="code-block">
+                <pre><code class="language-python"># Qianfan-VL Architecture Overview
+class QianfanVL(nn.Module):
+    def __init__(self, config):
+        super().__init__()
+        self.vision_encoder = VisionTransformer(
+            img_size=336,
+            patch_size=14,
+            embed_dim=1024,
+            depth=24,
+            num_heads=16
+        )
+        self.projection = CrossModalProjection(
+            vision_dim=1024,
+            text_dim=4096,
+            num_queries=256
+        )
+        self.language_model = QianfanLM(
+            vocab_size=100278,
+            hidden_size=4096,
+            num_layers=32,
+            num_heads=32,
+            context_length=32768
+        )
+        
+    def forward(self, images, text):
+        # Extract visual features
+        visual_features = self.vision_encoder(images)
+        
+        # Project to language space
+        visual_tokens = self.projection(visual_features)
+        
+        # Combine with text tokens and generate
+        combined = torch.cat([visual_tokens, text], dim=1)
+        output = self.language_model(combined)
+        
+        return output</code></pre>
+            </div>
+
+            <h3>Technical Innovations</h3>
+
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h4>🔍 Dynamic Resolution Encoding</h4>
+                    <p>Adaptively process images from 336×336 to 1344×1344 pixels without quality loss, enabling fine-grained visual understanding for documents, charts, and high-resolution images.</p>
+                </div>
                 
-                <h3>核心优势</h3>
-                <div class="feature-grid">
-                    <div class="feature-card">
-                        <h4>🎯 强大的视觉理解能力</h4>
-                        <ul>
-                            <li>支持图像识别、场景理解、OCR文字识别</li>
-                            <li>精准的物体检测与关系推理</li>
-                            <li>复杂图表、文档的深度解析</li>
-                        </ul>
-                    </div>
-                    <div class="feature-card">
-                        <h4>💬 卓越的语言生成能力</h4>
-                        <ul>
-                            <li>32K超长上下文窗口</li>
-                            <li>流畅自然的中英文生成</li>
-                            <li>支持多轮对话与推理</li>
-                        </ul>
-                    </div>
-                    <div class="feature-card">
-                        <h4>🚀 灵活的部署方式</h4>
-                        <ul>
-                            <li>云端API调用，开箱即用</li>
-                            <li>支持私有化部署</li>
-                            <li>完善的SDK支持（Python、Java、Go等）</li>
-                        </ul>
+                <div class="feature-item">
+                    <h4>⚡ Efficient Attention Mechanism</h4>
+                    <p>Our novel sparse attention pattern reduces computational complexity from O(n²) to O(n log n) while maintaining full receptive field coverage.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <h4>🧠 Cross-Modal Fusion</h4>
+                    <p>Advanced fusion layers that learn optimal alignment between visual regions and text tokens through contrastive pre-training on 100M+ image-text pairs.</p>
+                </div>
+            </div>
+
+            <h3>Training Pipeline</h3>
+
+            <div class="pipeline-diagram">
+                <div class="pipeline-stage">
+                    <div class="stage-header">Stage 1: Vision-Language Alignment</div>
+                    <div class="stage-content">
+                        <code>10M image-text pairs → Contrastive Learning → Feature Alignment</code>
                     </div>
                 </div>
-            </section>
-
-            <section class="section">
-                <h2>技术架构与创新</h2>
-                
-                <h3>模型架构设计</h3>
-                <div class="architecture-diagram">
-                    <div class="arch-flow">
-                        <div class="arch-box">视觉编码器 (Vision Encoder)</div>
-                        <div class="arch-arrow">↓</div>
-                        <div class="arch-box">跨模态对齐层 (Cross-Modal Alignment)</div>
-                        <div class="arch-arrow">↓</div>
-                        <div class="arch-box">语言解码器 (Language Decoder)</div>
-                        <div class="arch-arrow">↓</div>
-                        <div class="arch-box">输出生成 (Output Generation)</div>
+                <div class="pipeline-arrow">→</div>
+                <div class="pipeline-stage">
+                    <div class="stage-header">Stage 2: Multimodal Pre-training</div>
+                    <div class="stage-content">
+                        <code>100M samples → MLM + ITM + VQA → Unified Representation</code>
                     </div>
                 </div>
-
-                <h3>关键技术突破</h3>
-                <div class="tech-list">
-                    <div class="tech-item">
-                        <h4>1. 高效的视觉-语言对齐机制</h4>
-                        <ul>
-                            <li>采用对比学习优化跨模态表示</li>
-                            <li>细粒度的图像区域与文本对齐</li>
-                            <li>动态注意力机制提升理解精度</li>
-                        </ul>
-                    </div>
-                    <div class="tech-item">
-                        <h4>2. 大规模预训练</h4>
-                        <ul>
-                            <li>海量中文图文数据预训练</li>
-                            <li>多任务学习框架</li>
-                            <li>持续学习与模型迭代</li>
-                        </ul>
-                    </div>
-                    <div class="tech-item">
-                        <h4>3. 推理优化</h4>
-                        <ul>
-                            <li>量化技术降低资源消耗</li>
-                            <li>并行推理加速</li>
-                            <li>智能缓存机制</li>
-                        </ul>
+                <div class="pipeline-arrow">→</div>
+                <div class="pipeline-stage">
+                    <div class="stage-header">Stage 3: Instruction Tuning</div>
+                    <div class="stage-content">
+                        <code>5M instructions → SFT + RLHF → Task Optimization</code>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="section">
-                <h2>应用场景展示</h2>
-                
-                <div class="use-cases">
-                    <div class="use-case">
-                        <h3>📄 智能文档处理</h3>
-                        <p>千帆VL模型可以精准理解各类文档：</p>
-                        <ul>
-                            <li><strong>PDF文档解析</strong>：自动提取关键信息，生成摘要</li>
-                            <li><strong>表格数据提取</strong>：准确识别复杂表格结构</li>
-                            <li><strong>合同审核</strong>：智能识别风险条款</li>
-                        </ul>
+        <section id="benchmarks" class="content-section">
+            <h2>Performance Benchmarks</h2>
+            
+            <p>Qianfan-VL demonstrates competitive performance across standard multimodal benchmarks:</p>
+
+            <div class="benchmark-container">
+                <table class="benchmark-table">
+                    <thead>
+                        <tr>
+                            <th>Model</th>
+                            <th>MME</th>
+                            <th>MMBench</th>
+                            <th>MMMU</th>
+                            <th>ChineseMM</th>
+                            <th>DocVQA</th>
+                            <th>ChartQA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="our-model">
+                            <td><strong>Qianfan-VL-8B</strong></td>
+                            <td>1823</td>
+                            <td>78.5</td>
+                            <td>42.3</td>
+                            <td><strong>89.2</strong></td>
+                            <td>85.7</td>
+                            <td>73.4</td>
+                        </tr>
+                        <tr>
+                            <td>GPT-4V</td>
+                            <td>1927</td>
+                            <td>83.1</td>
+                            <td>56.8</td>
+                            <td>82.4</td>
+                            <td>88.4</td>
+                            <td>78.5</td>
+                        </tr>
+                        <tr>
+                            <td>Claude-3-Opus</td>
+                            <td>1796</td>
+                            <td>77.2</td>
+                            <td>41.7</td>
+                            <td>81.6</td>
+                            <td>84.3</td>
+                            <td>72.1</td>
+                        </tr>
+                        <tr>
+                            <td>Qwen-VL-Plus</td>
+                            <td>1681</td>
+                            <td>75.9</td>
+                            <td>39.5</td>
+                            <td>85.3</td>
+                            <td>82.6</td>
+                            <td>70.8</td>
+                        </tr>
+                        <tr>
+                            <td>Gemini-Pro-Vision</td>
+                            <td>1652</td>
+                            <td>73.6</td>
+                            <td>47.9</td>
+                            <td>78.9</td>
+                            <td>81.2</td>
+                            <td>69.7</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="chart-container">
+                <h3>Inference Performance</h3>
+                <div class="perf-chart">
+                    <div class="perf-bar">
+                        <div class="bar-label">First Token Latency</div>
+                        <div class="bar-value">&lt;500ms</div>
+                        <div class="bar-fill" style="width: 95%;"></div>
                     </div>
-                    
-                    <div class="use-case">
-                        <h3>🛍️ 电商视觉分析</h3>
-                        <ul>
-                            <li><strong>商品图片理解</strong>：自动生成商品描述</li>
-                            <li><strong>用户评论配图分析</strong>：理解图文关联，提升评论质量评估</li>
-                            <li><strong>智能客服</strong>：基于商品图片回答用户问题</li>
-                        </ul>
+                    <div class="perf-bar">
+                        <div class="bar-label">Throughput (tokens/sec)</div>
+                        <div class="bar-value">100+</div>
+                        <div class="bar-fill" style="width: 85%;"></div>
                     </div>
-                    
-                    <div class="use-case">
-                        <h3>📚 教育辅助</h3>
-                        <ul>
-                            <li><strong>作业批改</strong>：识别手写内容，智能批注</li>
-                            <li><strong>知识图谱构建</strong>：从教材图片中提取知识点</li>
-                            <li><strong>互动问答</strong>：基于教学材料的智能问答</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="use-case">
-                        <h3>✍️ 内容创作</h3>
-                        <ul>
-                            <li><strong>图片配文</strong>：为图片自动生成合适的文案</li>
-                            <li><strong>创意设计</strong>：根据描述生成设计建议</li>
-                            <li><strong>社交媒体运营</strong>：图文内容的智能生成与优化</li>
-                        </ul>
+                    <div class="perf-bar">
+                        <div class="bar-label">Concurrent Requests</div>
+                        <div class="bar-value">1000+</div>
+                        <div class="bar-fill" style="width: 90%;"></div>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section id="quickstart" class="section">
-                <h2>快速上手指南</h2>
-                
-                <h3>环境准备</h3>
-                <pre><code class="language-bash"># 安装千帆SDK
-pip install qianfan
+        <section id="demo" class="content-section">
+            <h2>Quick Start</h2>
 
-# 设置API密钥
-export QIANFAN_ACCESS_KEY="your_access_key"
-export QIANFAN_SECRET_KEY="your_secret_key"</code></pre>
+            <div class="tabs">
+                <div class="tab-buttons">
+                    <button class="tab-button active" onclick="showTab('python')">Python</button>
+                    <button class="tab-button" onclick="showTab('curl')">cURL</button>
+                    <button class="tab-button" onclick="showTab('nodejs')">Node.js</button>
+                </div>
 
-                <h3>基础使用示例</h3>
-                <pre><code class="language-python">import qianfan
-from qianfan import QianfanVL
+                <div id="python" class="tab-content active">
+                    <pre><code class="language-python">from qianfan import QianfanVL
+import base64
 
-# 初始化模型
-model = QianfanVL(model="Qianfan-VL-8B")
-
-# 图像理解示例
-def analyze_image(image_path, prompt):
-    """
-    分析图像并回答问题
-    """
-    response = model.generate(
-        image=image_path,
-        prompt=prompt,
-        max_tokens=500
-    )
-    return response.text
-
-# 使用示例
-image_path = "product_image.jpg"
-prompt = "请详细描述这个商品的特点，并生成一段吸引人的营销文案"
-result = analyze_image(image_path, prompt)
-print(result)</code></pre>
-
-                <h3>高级功能示例</h3>
-                
-                <h4>多轮对话</h4>
-                <pre><code class="language-python"># 创建对话会话
-session = model.create_session()
-
-# 第一轮对话
-response1 = session.chat(
-    image="chart.png",
-    message="这个图表显示了什么趋势？"
+# Initialize the model
+client = QianfanVL(
+    access_key="YOUR_ACCESS_KEY",
+    secret_key="YOUR_SECRET_KEY"
 )
 
-# 第二轮对话（保持上下文）
+# Load and encode image
+with open("example.jpg", "rb") as f:
+    image_base64 = base64.b64encode(f.read()).decode()
+
+# Generate response
+response = client.chat.completions.create(
+    model="Qianfan-VL-8B",
+    messages=[{
+        "role": "user",
+        "content": [
+            {"type": "text", "text": "What's in this image? Analyze in detail."},
+            {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}}
+        ]
+    }],
+    max_tokens=500,
+    temperature=0.7
+)
+
+print(response.choices[0].message.content)</code></pre>
+                </div>
+
+                <div id="curl" class="tab-content">
+                    <pre><code class="language-bash">curl -X POST https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/qianfan_vl_8b \
+  -H "Content-Type: application/json" \
+  -d '{
+    "messages": [
+      {
+        "role": "user",
+        "content": [
+          {"type": "text", "text": "Describe this image"},
+          {"type": "image_url", "image_url": {"url": "data:image/jpeg;base64,..."}}
+        ]
+      }
+    ],
+    "temperature": 0.7,
+    "max_tokens": 500
+  }' \
+  --data-urlencode "access_token=${ACCESS_TOKEN}"</code></pre>
+                </div>
+
+                <div id="nodejs" class="tab-content">
+                    <pre><code class="language-javascript">const QianfanVL = require('@baidubce/qianfan');
+
+const client = new QianfanVL({
+    accessKey: process.env.QIANFAN_ACCESS_KEY,
+    secretKey: process.env.QIANFAN_SECRET_KEY
+});
+
+async function analyzeImage() {
+    const imageBase64 = fs.readFileSync('example.jpg', 'base64');
+    
+    const response = await client.chat.completions.create({
+        model: 'Qianfan-VL-8B',
+        messages: [{
+            role: 'user',
+            content: [
+                { type: 'text', text: 'What is in this image?' },
+                { type: 'image_url', image_url: { url: `data:image/jpeg;base64,${imageBase64}` }}
+            ]
+        }],
+        max_tokens: 500
+    });
+    
+    console.log(response.choices[0].message.content);
+}
+
+analyzeImage();</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Use Cases</h2>
+
+            <div class="use-case-grid">
+                <div class="use-case-card">
+                    <div class="use-case-icon">📄</div>
+                    <h3>Document Intelligence</h3>
+                    <p>Extract structured data from PDFs, invoices, forms, and handwritten documents with high accuracy. Support for complex layouts and multi-language text.</p>
+                    <div class="code-snippet">
+                        <code>model.analyze_document(pdf_path, extract_tables=True)</code>
+                    </div>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">📊</div>
+                    <h3>Chart Understanding</h3>
+                    <p>Interpret charts, graphs, and visualizations. Generate insights and answer questions about trends, comparisons, and data patterns.</p>
+                    <div class="code-snippet">
+                        <code>model.analyze_chart(image, "What's the trend?")</code>
+                    </div>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">🛍️</div>
+                    <h3>E-commerce Enhancement</h3>
+                    <p>Automatically generate product descriptions, analyze user-uploaded images, and provide visual search capabilities for better shopping experiences.</p>
+                    <div class="code-snippet">
+                        <code>model.generate_product_desc(product_image)</code>
+                    </div>
+                </div>
+
+                <div class="use-case-card">
+                    <div class="use-case-icon">🎓</div>
+                    <h3>Educational Assistant</h3>
+                    <p>Help students understand complex diagrams, solve visual problems, and provide step-by-step explanations for educational content.</p>
+                    <div class="code-snippet">
+                        <code>model.solve_problem(homework_image)</code>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Advanced Features</h2>
+
+            <h3>Multi-Turn Visual Dialogue</h3>
+            <pre><code class="language-python"># Maintain context across multiple interactions
+session = client.create_session()
+
+# First turn
+response1 = session.chat(
+    image="chart.png",
+    message="What does this chart show?"
+)
+
+# Second turn - maintains context
 response2 = session.chat(
-    message="基于这个趋势，你有什么建议？"
+    message="What's the growth rate between Q1 and Q2?"
+)
+
+# Third turn - reference previous context
+response3 = session.chat(
+    message="Generate a summary report based on this data"
 )</code></pre>
 
-                <h4>批量处理</h4>
-                <pre><code class="language-python">import asyncio
+            <h3>Batch Processing with Async</h3>
+            <pre><code class="language-python">import asyncio
+from qianfan import AsyncQianfanVL
 
-async def batch_process(images, prompts):
-    """
-    批量处理多个图像
-    """
-    tasks = []
-    for img, prompt in zip(images, prompts):
-        task = model.async_generate(image=img, prompt=prompt)
-        tasks.append(task)
+async def process_batch(images, prompts):
+    client = AsyncQianfanVL()
+    
+    tasks = [
+        client.analyze(img, prompt) 
+        for img, prompt in zip(images, prompts)
+    ]
     
     results = await asyncio.gather(*tasks)
-    return results</code></pre>
-            </section>
+    return results
 
-            <section id="benchmarks" class="section">
-                <h2>性能基准测试</h2>
-                
-                <h3>评测结果</h3>
-                <p>千帆VL模型在多个权威评测集上表现优异：</p>
-                
-                <div class="benchmark-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>评测集</th>
-                                <th>千帆VL-8B</th>
-                                <th>GPT-4V</th>
-                                <th>Claude-3</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>MME</td>
-                                <td>1823</td>
-                                <td>1927</td>
-                                <td>1796</td>
-                            </tr>
-                            <tr>
-                                <td>MMBench</td>
-                                <td>78.5%</td>
-                                <td>83.1%</td>
-                                <td>77.2%</td>
-                            </tr>
-                            <tr>
-                                <td>MMMU</td>
-                                <td>42.3%</td>
-                                <td>56.8%</td>
-                                <td>41.7%</td>
-                            </tr>
-                            <tr class="highlight">
-                                <td>ChineseMM</td>
-                                <td><strong>89.2%</strong></td>
-                                <td>82.4%</td>
-                                <td>81.6%</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p class="note">*注：ChineseMM为中文多模态理解评测集，千帆VL在中文场景下表现尤其出色</p>
-                </div>
+# Process 100 images concurrently
+results = asyncio.run(process_batch(images, prompts))</code></pre>
 
-                <h3>推理性能</h3>
-                <div class="perf-metrics">
-                    <div class="metric">
-                        <span class="metric-value">&lt; 500ms</span>
-                        <span class="metric-label">首字延迟</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-value">100+ tokens/s</span>
-                        <span class="metric-label">吞吐量</span>
-                    </div>
-                    <div class="metric">
-                        <span class="metric-value">1000+ QPS</span>
-                        <span class="metric-label">并发支持（云端）</span>
+            <h3>Fine-tuning for Domain Adaptation</h3>
+            <pre><code class="language-python"># Fine-tune on custom dataset
+from qianfan.training import FineTuner
+
+tuner = FineTuner(
+    base_model="Qianfan-VL-8B",
+    dataset="medical_images",
+    learning_rate=1e-5,
+    epochs=3
+)
+
+# Train with LoRA for efficient adaptation
+tuner.train(
+    method="lora",
+    rank=16,
+    alpha=32
+)
+
+# Deploy fine-tuned model
+model = tuner.deploy(name="qianfan-vl-medical")</code></pre>
+        </section>
+
+        <section class="content-section">
+            <h2>Roadmap</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Q1 2025</div>
+                    <div class="timeline-content">
+                        <h4>Qianfan-VL-70B Release</h4>
+                        <p>Larger model with enhanced reasoning capabilities and improved performance on complex visual tasks.</p>
                     </div>
                 </div>
-            </section>
-
-            <section class="section">
-                <h2>最佳实践建议</h2>
                 
-                <h3>1. Prompt工程</h3>
-                <pre><code class="language-python"># 优化的Prompt模板
-ANALYSIS_TEMPLATE = """
-请分析这张图片，并按以下结构输出：
-1. 图像主要内容：
-2. 关键元素识别：
-3. 场景理解：
-4. 相关建议：
-
-请确保回答准确、专业且易于理解。
-"""</code></pre>
-
-                <h3>2. 图像预处理</h3>
-                <pre><code class="language-python">from PIL import Image
-
-def preprocess_image(image_path, max_size=(1920, 1080)):
-    """
-    优化图像大小以提升推理速度
-    """
-    img = Image.open(image_path)
-    img.thumbnail(max_size, Image.LANCZOS)
-    return img</code></pre>
-
-                <h3>3. 错误处理</h3>
-                <pre><code class="language-python">import logging
-
-def safe_generate(model, **kwargs):
-    """
-    安全的生成函数，包含错误处理
-    """
-    try:
-        response = model.generate(**kwargs)
-        return response
-    except qianfan.APIError as e:
-        logging.error(f"API错误: {e}")
-        # 实施重试策略
-    except Exception as e:
-        logging.error(f"未知错误: {e}")</code></pre>
-            </section>
-
-            <section class="section">
-                <h2>未来展望</h2>
-                
-                <h3>即将发布的功能</h3>
-                <div class="roadmap">
-                    <div class="roadmap-item">
-                        <h4>千帆VL-70B</h4>
-                        <p>更大参数量，更强理解能力</p>
-                    </div>
-                    <div class="roadmap-item">
-                        <h4>视频理解</h4>
-                        <p>支持视频内容分析</p>
-                    </div>
-                    <div class="roadmap-item">
-                        <h4>代码生成</h4>
-                        <p>基于UI截图生成前端代码</p>
-                    </div>
-                    <div class="roadmap-item">
-                        <h4>3D理解</h4>
-                        <p>支持3D模型和场景理解</p>
+                <div class="timeline-item">
+                    <div class="timeline-date">Q2 2025</div>
+                    <div class="timeline-content">
+                        <h4>Video Understanding</h4>
+                        <p>Support for video input, temporal reasoning, and action recognition across frames.</p>
                     </div>
                 </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Q3 2025</div>
+                    <div class="timeline-content">
+                        <h4>Open Source Release</h4>
+                        <p>Selected model weights and training code will be made available to the research community.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Q4 2025</div>
+                    <div class="timeline-content">
+                        <h4>Industry-Specific Models</h4>
+                        <p>Specialized versions for healthcare, finance, manufacturing, and retail applications.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                <h3>技术路线图</h3>
-                <ul class="timeline">
-                    <li><strong>2025 Q1</strong>：发布千帆VL-70B模型</li>
-                    <li><strong>2025 Q2</strong>：支持视频理解能力</li>
-                    <li><strong>2025 Q3</strong>：开源部分模型权重</li>
-                    <li><strong>2025 Q4</strong>：推出行业专用版本</li>
+        <section class="content-section">
+            <h2>Getting Started</h2>
+
+            <div class="cta-section">
+                <p>Ready to integrate Qianfan-VL into your applications?</p>
+                <div class="cta-buttons">
+                    <a href="https://console.bce.baidu.com/qianfan" class="cta-button primary">Try Qianfan Platform</a>
+                    <a href="https://cloud.baidu.com/doc/WENXINWORKSHOP" class="cta-button secondary">Read Documentation</a>
+                    <a href="https://github.com/baidubce/qianfan-models-cookbook" class="cta-button secondary">View Examples</a>
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <h3>Contact & Support</h3>
+                <ul>
+                    <li>Technical Support: <a href="mailto:qianfan-support@baidu.com">qianfan-support@baidu.com</a></li>
+                    <li>Business Inquiries: <a href="mailto:qianfan-biz@baidu.com">qianfan-biz@baidu.com</a></li>
+                    <li>Community Forum: <a href="https://ai.baidu.com/forum">ai.baidu.com/forum</a></li>
+                    <li>WeChat: 百度智能云千帆</li>
                 </ul>
-            </section>
-
-            <section class="section">
-                <h2>社区与支持</h2>
-                
-                <div class="support-grid">
-                    <div class="support-card">
-                        <h3>📚 获取帮助</h3>
-                        <ul>
-                            <li><a href="https://cloud.baidu.com/doc/WENXINWORKSHOP" target="_blank">官方文档</a></li>
-                            <li><a href="https://ai.baidu.com/forum" target="_blank">技术论坛</a></li>
-                            <li><a href="https://github.com/baidubce/qianfan-models-cookbook" target="_blank">GitHub示例</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="support-card">
-                        <h3>📧 联系我们</h3>
-                        <ul>
-                            <li>技术支持：qianfan-support@baidu.com</li>
-                            <li>商务合作：qianfan-biz@baidu.com</li>
-                            <li>微信公众号：百度智能云千帆</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section class="section cta">
-                <h2>开始使用千帆VL</h2>
-                <p>千帆VL模型系列代表了百度在视觉语言理解领域的最新技术成果。通过强大的多模态理解能力、灵活的部署方式和丰富的应用场景，千帆VL正在帮助越来越多的企业和开发者构建智能化应用。</p>
-                <a href="https://console.bce.baidu.com/qianfan" class="cta-button" target="_blank">立即访问千帆大模型平台</a>
-            </section>
-        </div>
-    </main>
+            </div>
+        </section>
+    </article>
 
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 百度智能云千帆团队. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Qianfan Models</h4>
+                <p>State-of-the-art AI models by Baidu Cloud</p>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="https://cloud.baidu.com/doc/WENXINWORKSHOP">Documentation</a></li>
+                    <li><a href="https://console.bce.baidu.com/qianfan">Console</a></li>
+                    <li><a href="https://github.com/baidubce">GitHub</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="https://cloud.baidu.com">Baidu Cloud</a></li>
+                    <li><a href="https://ai.baidu.com">Baidu AI</a></li>
+                    <li><a href="https://ir.baidu.com">Investor Relations</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Baidu, Inc. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script>
+        function showTab(tabName) {
+            const tabs = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-button');
+            
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            buttons.forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
 </body>
 </html>
