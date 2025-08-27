@@ -1,67 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qianfan-VL: Advanced Vision-Language Models by Baidu</title>
-    <meta name="description" content="Introducing Qianfan-VL series: State-of-the-art multimodal models with superior Chinese understanding">
+    <title>Qianfan-VL: Vision-Language Models | Baidu Cloud</title>
+    <meta name="description" content="Qianfan-VL series: State-of-the-art multimodal models with superior Chinese understanding">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
 </head>
 <body>
-    <div class="header">
-        <div class="header-content">
-            <div class="logo">
-                <span class="logo-text">Qianfan-VL</span>
-                <span class="logo-tag">TECHNICAL BLOG</span>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="site-title">Qianfan-VL Technical Documentation</h1>
+                <nav class="main-nav">
+                    <a href="#overview">Overview</a>
+                    <a href="#architecture">Architecture</a>
+                    <a href="#benchmarks">Benchmarks</a>
+                    <a href="#quickstart">Quick Start</a>
+                    <a href="#api">API</a>
+                    <a href="https://github.com/baidubce/qianfan-models-cookbook">GitHub</a>
+                </nav>
             </div>
-            <nav class="nav">
-                <a href="#introduction">Introduction</a>
-                <a href="#architecture">Architecture</a>
-                <a href="#benchmarks">Benchmarks</a>
-                <a href="#demo">Demo</a>
-                <a href="https://github.com/baidubce/qianfan-models-cookbook" target="_blank">GitHub</a>
-            </nav>
         </div>
-    </div>
+    </header>
 
-    <article class="main-content">
-        <header class="article-header">
-            <h1>Qianfan-VL: Advancing Vision-Language Understanding with Chinese Excellence</h1>
-            <div class="article-meta">
-                <time datetime="2025-08-27">August 27, 2025</time>
-                <span class="separator">·</span>
-                <span>Baidu Cloud Qianfan Team</span>
+    <main class="main-content">
+        <div class="container">
+            <div class="hero-section">
+                <h2 class="hero-title">Qianfan-VL: Advanced Vision-Language Understanding</h2>
+                <p class="hero-subtitle">Baidu Cloud's State-of-the-Art Multimodal AI Models</p>
+                <p class="hero-meta">Version 1.0 | Released August 2025</p>
             </div>
-        </header>
 
-        <section id="introduction" class="content-section">
-            <p class="lead">
-                We are excited to introduce <strong>Qianfan-VL</strong>, Baidu's latest series of vision-language models that push the boundaries of multimodal understanding. Building upon our expertise in large language models and computer vision, Qianfan-VL delivers state-of-the-art performance in visual understanding tasks while maintaining exceptional proficiency in Chinese language processing.
-            </p>
-
-            <div class="highlight-box">
-                <h3>🚀 Key Highlights</h3>
-                <ul>
-                    <li><strong>Superior Chinese Understanding:</strong> 89.2% accuracy on ChineseMM benchmark</li>
-                    <li><strong>32K Context Window:</strong> Process long documents and complex visual content</li>
-                    <li><strong>Multi-Scale Architecture:</strong> From 8B to 70B parameters (coming soon)</li>
-                    <li><strong>Production Ready:</strong> Optimized for real-world deployment with &lt;500ms latency</li>
+            <section id="overview" class="section">
+                <h2>Overview</h2>
+                <p>
+                    Qianfan-VL represents Baidu's latest advancement in vision-language modeling, delivering exceptional performance 
+                    in multimodal understanding tasks. Built on years of research in large language models and computer vision, 
+                    Qianfan-VL achieves state-of-the-art results particularly in Chinese language and vision tasks.
+                </p>
+                
+                <h3>Key Features</h3>
+                <ul class="feature-list">
+                    <li><strong>Model Sizes:</strong> 8B parameters (70B coming Q1 2025)</li>
+                    <li><strong>Context Window:</strong> 32,768 tokens</li>
+                    <li><strong>Image Resolution:</strong> Dynamic 336×336 to 1344×1344 pixels</li>
+                    <li><strong>Languages:</strong> Chinese, English (optimized for Chinese)</li>
+                    <li><strong>Deployment:</strong> Cloud API, Private deployment available</li>
                 </ul>
-            </div>
-        </section>
 
-        <section id="architecture" class="content-section">
-            <h2>Model Architecture</h2>
-            
-            <p>Qianfan-VL employs a sophisticated encoder-decoder architecture that seamlessly integrates visual and linguistic understanding:</p>
+                <h3>Performance Highlights</h3>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">89.2%</div>
+                        <div class="metric-label">ChineseMM Accuracy</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">&lt;500ms</div>
+                        <div class="metric-label">First Token Latency</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">100+</div>
+                        <div class="metric-label">Tokens/Second</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">32K</div>
+                        <div class="metric-label">Context Window</div>
+                    </div>
+                </div>
+            </section>
 
-            <div class="code-block">
-                <pre><code class="language-python"># Qianfan-VL Architecture Overview
-class QianfanVL(nn.Module):
+            <section id="architecture" class="section">
+                <h2>Model Architecture</h2>
+                
+                <p>
+                    Qianfan-VL employs a sophisticated encoder-decoder architecture with advanced cross-modal attention mechanisms. 
+                    The model consists of three main components:
+                </p>
+
+                <h3>Architecture Components</h3>
+                
+                <div class="architecture-overview">
+                    <pre class="architecture-diagram">
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│ Vision Encoder  │────▶│  Cross-Modal    │────▶│ Language Model  │
+│  (ViT-based)    │     │   Projection    │     │   (32 layers)   │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+     336-1344px              256 queries            32K context
+                    </pre>
+                </div>
+
+                <h4>Implementation Details</h4>
+                <pre><code class="language-python">class QianfanVL(nn.Module):
     def __init__(self, config):
         super().__init__()
+        # Vision Transformer for image encoding
         self.vision_encoder = VisionTransformer(
             img_size=336,
             patch_size=14,
@@ -69,190 +103,135 @@ class QianfanVL(nn.Module):
             depth=24,
             num_heads=16
         )
+        
+        # Cross-modal projection layer
         self.projection = CrossModalProjection(
             vision_dim=1024,
             text_dim=4096,
             num_queries=256
         )
+        
+        # Language model backbone
         self.language_model = QianfanLM(
             vocab_size=100278,
             hidden_size=4096,
             num_layers=32,
             num_heads=32,
             context_length=32768
-        )
-        
-    def forward(self, images, text):
-        # Extract visual features
-        visual_features = self.vision_encoder(images)
-        
-        # Project to language space
-        visual_tokens = self.projection(visual_features)
-        
-        # Combine with text tokens and generate
-        combined = torch.cat([visual_tokens, text], dim=1)
-        output = self.language_model(combined)
-        
-        return output</code></pre>
-            </div>
+        )</code></pre>
 
-            <h3>Technical Innovations</h3>
+                <h3>Training Process</h3>
+                <ol class="training-stages">
+                    <li>
+                        <strong>Stage 1: Vision-Language Alignment</strong>
+                        <p>Pre-training on 10M image-text pairs using contrastive learning</p>
+                    </li>
+                    <li>
+                        <strong>Stage 2: Multimodal Pre-training</strong>
+                        <p>Training on 100M+ samples with MLM, ITM, and VQA objectives</p>
+                    </li>
+                    <li>
+                        <strong>Stage 3: Instruction Tuning</strong>
+                        <p>Fine-tuning on 5M instructions using SFT and RLHF</p>
+                    </li>
+                </ol>
+            </section>
 
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <h4>🔍 Dynamic Resolution Encoding</h4>
-                    <p>Adaptively process images from 336×336 to 1344×1344 pixels without quality loss, enabling fine-grained visual understanding for documents, charts, and high-resolution images.</p>
+            <section id="benchmarks" class="section">
+                <h2>Performance Benchmarks</h2>
+                
+                <p>
+                    Qianfan-VL has been extensively evaluated on standard multimodal benchmarks. 
+                    The model demonstrates competitive performance across all metrics, with particularly strong results on Chinese tasks.
+                </p>
+
+                <h3>Benchmark Results</h3>
+                <div class="table-wrapper">
+                    <table class="benchmark-table">
+                        <thead>
+                            <tr>
+                                <th>Model</th>
+                                <th>MME</th>
+                                <th>MMBench</th>
+                                <th>MMMU</th>
+                                <th>ChineseMM</th>
+                                <th>DocVQA</th>
+                                <th>ChartQA</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="highlight-row">
+                                <td><strong>Qianfan-VL-8B</strong></td>
+                                <td>1823</td>
+                                <td>78.5%</td>
+                                <td>42.3%</td>
+                                <td><strong>89.2%</strong></td>
+                                <td>85.7%</td>
+                                <td>73.4%</td>
+                            </tr>
+                            <tr>
+                                <td>GPT-4V</td>
+                                <td>1927</td>
+                                <td>83.1%</td>
+                                <td>56.8%</td>
+                                <td>82.4%</td>
+                                <td>88.4%</td>
+                                <td>78.5%</td>
+                            </tr>
+                            <tr>
+                                <td>Claude-3-Opus</td>
+                                <td>1796</td>
+                                <td>77.2%</td>
+                                <td>41.7%</td>
+                                <td>81.6%</td>
+                                <td>84.3%</td>
+                                <td>72.1%</td>
+                            </tr>
+                            <tr>
+                                <td>Qwen-VL-Plus</td>
+                                <td>1681</td>
+                                <td>75.9%</td>
+                                <td>39.5%</td>
+                                <td>85.3%</td>
+                                <td>82.6%</td>
+                                <td>70.8%</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
                 
-                <div class="feature-item">
-                    <h4>⚡ Efficient Attention Mechanism</h4>
-                    <p>Our novel sparse attention pattern reduces computational complexity from O(n²) to O(n log n) while maintaining full receptive field coverage.</p>
-                </div>
-                
-                <div class="feature-item">
-                    <h4>🧠 Cross-Modal Fusion</h4>
-                    <p>Advanced fusion layers that learn optimal alignment between visual regions and text tokens through contrastive pre-training on 100M+ image-text pairs.</p>
-                </div>
-            </div>
-
-            <h3>Training Pipeline</h3>
-
-            <div class="pipeline-diagram">
-                <div class="pipeline-stage">
-                    <div class="stage-header">Stage 1: Vision-Language Alignment</div>
-                    <div class="stage-content">
-                        <code>10M image-text pairs → Contrastive Learning → Feature Alignment</code>
-                    </div>
-                </div>
-                <div class="pipeline-arrow">→</div>
-                <div class="pipeline-stage">
-                    <div class="stage-header">Stage 2: Multimodal Pre-training</div>
-                    <div class="stage-content">
-                        <code>100M samples → MLM + ITM + VQA → Unified Representation</code>
-                    </div>
-                </div>
-                <div class="pipeline-arrow">→</div>
-                <div class="pipeline-stage">
-                    <div class="stage-header">Stage 3: Instruction Tuning</div>
-                    <div class="stage-content">
-                        <code>5M instructions → SFT + RLHF → Task Optimization</code>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="benchmarks" class="content-section">
-            <h2>Performance Benchmarks</h2>
-            
-            <p>Qianfan-VL demonstrates competitive performance across standard multimodal benchmarks:</p>
-
-            <div class="benchmark-container">
-                <table class="benchmark-table">
-                    <thead>
-                        <tr>
-                            <th>Model</th>
-                            <th>MME</th>
-                            <th>MMBench</th>
-                            <th>MMMU</th>
-                            <th>ChineseMM</th>
-                            <th>DocVQA</th>
-                            <th>ChartQA</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="our-model">
-                            <td><strong>Qianfan-VL-8B</strong></td>
-                            <td>1823</td>
-                            <td>78.5</td>
-                            <td>42.3</td>
-                            <td><strong>89.2</strong></td>
-                            <td>85.7</td>
-                            <td>73.4</td>
-                        </tr>
-                        <tr>
-                            <td>GPT-4V</td>
-                            <td>1927</td>
-                            <td>83.1</td>
-                            <td>56.8</td>
-                            <td>82.4</td>
-                            <td>88.4</td>
-                            <td>78.5</td>
-                        </tr>
-                        <tr>
-                            <td>Claude-3-Opus</td>
-                            <td>1796</td>
-                            <td>77.2</td>
-                            <td>41.7</td>
-                            <td>81.6</td>
-                            <td>84.3</td>
-                            <td>72.1</td>
-                        </tr>
-                        <tr>
-                            <td>Qwen-VL-Plus</td>
-                            <td>1681</td>
-                            <td>75.9</td>
-                            <td>39.5</td>
-                            <td>85.3</td>
-                            <td>82.6</td>
-                            <td>70.8</td>
-                        </tr>
-                        <tr>
-                            <td>Gemini-Pro-Vision</td>
-                            <td>1652</td>
-                            <td>73.6</td>
-                            <td>47.9</td>
-                            <td>78.9</td>
-                            <td>81.2</td>
-                            <td>69.7</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="chart-container">
                 <h3>Inference Performance</h3>
-                <div class="perf-chart">
-                    <div class="perf-bar">
-                        <div class="bar-label">First Token Latency</div>
-                        <div class="bar-value">&lt;500ms</div>
-                        <div class="bar-fill" style="width: 95%;"></div>
-                    </div>
-                    <div class="perf-bar">
-                        <div class="bar-label">Throughput (tokens/sec)</div>
-                        <div class="bar-value">100+</div>
-                        <div class="bar-fill" style="width: 85%;"></div>
-                    </div>
-                    <div class="perf-bar">
-                        <div class="bar-label">Concurrent Requests</div>
-                        <div class="bar-value">1000+</div>
-                        <div class="bar-fill" style="width: 90%;"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                <ul class="performance-list">
+                    <li><strong>Latency:</strong> &lt;500ms first token, ~10ms/token thereafter</li>
+                    <li><strong>Throughput:</strong> 100+ tokens/second (single GPU)</li>
+                    <li><strong>Concurrency:</strong> 1000+ QPS (cloud deployment)</li>
+                    <li><strong>Memory:</strong> 16GB VRAM (INT8 quantized)</li>
+                </ul>
+            </section>
 
-        <section id="demo" class="content-section">
-            <h2>Quick Start</h2>
+            <section id="quickstart" class="section">
+                <h2>Quick Start Guide</h2>
+                
+                <h3>Installation</h3>
+                <pre><code class="language-bash"># Install Qianfan SDK
+pip install qianfan
 
-            <div class="tabs">
-                <div class="tab-buttons">
-                    <button class="tab-button active" onclick="showTab('python')">Python</button>
-                    <button class="tab-button" onclick="showTab('curl')">cURL</button>
-                    <button class="tab-button" onclick="showTab('nodejs')">Node.js</button>
-                </div>
+# Set up authentication
+export QIANFAN_ACCESS_KEY="your_access_key"
+export QIANFAN_SECRET_KEY="your_secret_key"</code></pre>
 
-                <div id="python" class="tab-content active">
-                    <pre><code class="language-python">from qianfan import QianfanVL
+                <h3>Basic Usage</h3>
+                <pre><code class="language-python">from qianfan import QianfanVL
 import base64
 
-# Initialize the model
+# Initialize client
 client = QianfanVL(
     access_key="YOUR_ACCESS_KEY",
     secret_key="YOUR_SECRET_KEY"
 )
 
 # Load and encode image
-with open("example.jpg", "rb") as f:
+with open("image.jpg", "rb") as f:
     image_base64 = base64.b64encode(f.read()).decode()
 
 # Generate response
@@ -261,7 +240,7 @@ response = client.chat.completions.create(
     messages=[{
         "role": "user",
         "content": [
-            {"type": "text", "text": "What's in this image? Analyze in detail."},
+            {"type": "text", "text": "Describe this image in detail."},
             {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}}
         ]
     }],
@@ -270,105 +249,11 @@ response = client.chat.completions.create(
 )
 
 print(response.choices[0].message.content)</code></pre>
-                </div>
 
-                <div id="curl" class="tab-content">
-                    <pre><code class="language-bash">curl -X POST https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/qianfan_vl_8b \
-  -H "Content-Type: application/json" \
-  -d '{
-    "messages": [
-      {
-        "role": "user",
-        "content": [
-          {"type": "text", "text": "Describe this image"},
-          {"type": "image_url", "image_url": {"url": "data:image/jpeg;base64,..."}}
-        ]
-      }
-    ],
-    "temperature": 0.7,
-    "max_tokens": 500
-  }' \
-  --data-urlencode "access_token=${ACCESS_TOKEN}"</code></pre>
-                </div>
-
-                <div id="nodejs" class="tab-content">
-                    <pre><code class="language-javascript">const QianfanVL = require('@baidubce/qianfan');
-
-const client = new QianfanVL({
-    accessKey: process.env.QIANFAN_ACCESS_KEY,
-    secretKey: process.env.QIANFAN_SECRET_KEY
-});
-
-async function analyzeImage() {
-    const imageBase64 = fs.readFileSync('example.jpg', 'base64');
-    
-    const response = await client.chat.completions.create({
-        model: 'Qianfan-VL-8B',
-        messages: [{
-            role: 'user',
-            content: [
-                { type: 'text', text: 'What is in this image?' },
-                { type: 'image_url', image_url: { url: `data:image/jpeg;base64,${imageBase64}` }}
-            ]
-        }],
-        max_tokens: 500
-    });
-    
-    console.log(response.choices[0].message.content);
-}
-
-analyzeImage();</code></pre>
-                </div>
-            </div>
-        </section>
-
-        <section class="content-section">
-            <h2>Use Cases</h2>
-
-            <div class="use-case-grid">
-                <div class="use-case-card">
-                    <div class="use-case-icon">📄</div>
-                    <h3>Document Intelligence</h3>
-                    <p>Extract structured data from PDFs, invoices, forms, and handwritten documents with high accuracy. Support for complex layouts and multi-language text.</p>
-                    <div class="code-snippet">
-                        <code>model.analyze_document(pdf_path, extract_tables=True)</code>
-                    </div>
-                </div>
-
-                <div class="use-case-card">
-                    <div class="use-case-icon">📊</div>
-                    <h3>Chart Understanding</h3>
-                    <p>Interpret charts, graphs, and visualizations. Generate insights and answer questions about trends, comparisons, and data patterns.</p>
-                    <div class="code-snippet">
-                        <code>model.analyze_chart(image, "What's the trend?")</code>
-                    </div>
-                </div>
-
-                <div class="use-case-card">
-                    <div class="use-case-icon">🛍️</div>
-                    <h3>E-commerce Enhancement</h3>
-                    <p>Automatically generate product descriptions, analyze user-uploaded images, and provide visual search capabilities for better shopping experiences.</p>
-                    <div class="code-snippet">
-                        <code>model.generate_product_desc(product_image)</code>
-                    </div>
-                </div>
-
-                <div class="use-case-card">
-                    <div class="use-case-icon">🎓</div>
-                    <h3>Educational Assistant</h3>
-                    <p>Help students understand complex diagrams, solve visual problems, and provide step-by-step explanations for educational content.</p>
-                    <div class="code-snippet">
-                        <code>model.solve_problem(homework_image)</code>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="content-section">
-            <h2>Advanced Features</h2>
-
-            <h3>Multi-Turn Visual Dialogue</h3>
-            <pre><code class="language-python"># Maintain context across multiple interactions
+                <h3>Advanced Features</h3>
+                
+                <h4>Multi-turn Conversation</h4>
+                <pre><code class="language-python"># Create a session for multi-turn dialogue
 session = client.create_session()
 
 # First turn
@@ -377,165 +262,247 @@ response1 = session.chat(
     message="What does this chart show?"
 )
 
-# Second turn - maintains context
+# Second turn (maintains context)
 response2 = session.chat(
-    message="What's the growth rate between Q1 and Q2?"
-)
-
-# Third turn - reference previous context
-response3 = session.chat(
-    message="Generate a summary report based on this data"
+    message="What's the trend between Q1 and Q2?"
 )</code></pre>
 
-            <h3>Batch Processing with Async</h3>
-            <pre><code class="language-python">import asyncio
+                <h4>Batch Processing</h4>
+                <pre><code class="language-python">import asyncio
 from qianfan import AsyncQianfanVL
 
-async def process_batch(images, prompts):
+async def batch_process(images, prompts):
     client = AsyncQianfanVL()
-    
     tasks = [
-        client.analyze(img, prompt) 
+        client.analyze(img, prompt)
         for img, prompt in zip(images, prompts)
     ]
-    
-    results = await asyncio.gather(*tasks)
-    return results
+    return await asyncio.gather(*tasks)
 
-# Process 100 images concurrently
-results = asyncio.run(process_batch(images, prompts))</code></pre>
+# Process multiple images concurrently
+results = asyncio.run(batch_process(images, prompts))</code></pre>
+            </section>
 
-            <h3>Fine-tuning for Domain Adaptation</h3>
-            <pre><code class="language-python"># Fine-tune on custom dataset
-from qianfan.training import FineTuner
-
-tuner = FineTuner(
-    base_model="Qianfan-VL-8B",
-    dataset="medical_images",
-    learning_rate=1e-5,
-    epochs=3
-)
-
-# Train with LoRA for efficient adaptation
-tuner.train(
-    method="lora",
-    rank=16,
-    alpha=32
-)
-
-# Deploy fine-tuned model
-model = tuner.deploy(name="qianfan-vl-medical")</code></pre>
-        </section>
-
-        <section class="content-section">
-            <h2>Roadmap</h2>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">Q1 2025</div>
-                    <div class="timeline-content">
-                        <h4>Qianfan-VL-70B Release</h4>
-                        <p>Larger model with enhanced reasoning capabilities and improved performance on complex visual tasks.</p>
-                    </div>
-                </div>
+            <section id="api" class="section">
+                <h2>API Reference</h2>
                 
-                <div class="timeline-item">
-                    <div class="timeline-date">Q2 2025</div>
-                    <div class="timeline-content">
-                        <h4>Video Understanding</h4>
-                        <p>Support for video input, temporal reasoning, and action recognition across frames.</p>
-                    </div>
-                </div>
+                <h3>REST API Endpoint</h3>
+                <pre><code class="language-bash">POST https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/qianfan_vl_8b</code></pre>
+
+                <h3>Request Format</h3>
+                <pre><code class="language-json">{
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {"type": "text", "text": "Your question here"},
+        {"type": "image_url", "image_url": {"url": "data:image/jpeg;base64,..."}}
+      ]
+    }
+  ],
+  "temperature": 0.7,
+  "max_tokens": 500,
+  "top_p": 0.95
+}</code></pre>
+
+                <h3>Response Format</h3>
+                <pre><code class="language-json">{
+  "id": "chat-abc123",
+  "object": "chat.completion",
+  "created": 1693435600,
+  "model": "Qianfan-VL-8B",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The generated response text..."
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 256,
+    "completion_tokens": 128,
+    "total_tokens": 384
+  }
+}</code></pre>
+
+                <h3>Parameters</h3>
+                <table class="api-table">
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Type</th>
+                            <th>Default</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>model</code></td>
+                            <td>string</td>
+                            <td>required</td>
+                            <td>Model identifier (e.g., "Qianfan-VL-8B")</td>
+                        </tr>
+                        <tr>
+                            <td><code>messages</code></td>
+                            <td>array</td>
+                            <td>required</td>
+                            <td>Array of message objects</td>
+                        </tr>
+                        <tr>
+                            <td><code>temperature</code></td>
+                            <td>float</td>
+                            <td>0.7</td>
+                            <td>Sampling temperature (0.0 to 2.0)</td>
+                        </tr>
+                        <tr>
+                            <td><code>max_tokens</code></td>
+                            <td>integer</td>
+                            <td>2048</td>
+                            <td>Maximum tokens to generate</td>
+                        </tr>
+                        <tr>
+                            <td><code>top_p</code></td>
+                            <td>float</td>
+                            <td>0.95</td>
+                            <td>Nucleus sampling parameter</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="use-cases" class="section">
+                <h2>Use Cases</h2>
                 
-                <div class="timeline-item">
-                    <div class="timeline-date">Q3 2025</div>
-                    <div class="timeline-content">
-                        <h4>Open Source Release</h4>
-                        <p>Selected model weights and training code will be made available to the research community.</p>
+                <div class="use-cases-grid">
+                    <div class="use-case">
+                        <h3>Document Intelligence</h3>
+                        <p>Extract structured information from PDFs, invoices, forms, and handwritten documents with high accuracy.</p>
+                        <code>model.analyze_document(pdf_path, extract_tables=True)</code>
+                    </div>
+                    
+                    <div class="use-case">
+                        <h3>Visual Question Answering</h3>
+                        <p>Answer complex questions about images, charts, and diagrams with detailed explanations.</p>
+                        <code>model.vqa(image, "What is the main topic?")</code>
+                    </div>
+                    
+                    <div class="use-case">
+                        <h3>E-commerce Applications</h3>
+                        <p>Generate product descriptions, analyze user photos, and provide visual search capabilities.</p>
+                        <code>model.generate_product_desc(product_image)</code>
+                    </div>
+                    
+                    <div class="use-case">
+                        <h3>Educational Tools</h3>
+                        <p>Help students understand complex diagrams, solve visual problems, and provide tutoring.</p>
+                        <code>model.explain_diagram(educational_image)</code>
                     </div>
                 </div>
+            </section>
+
+            <section id="roadmap" class="section">
+                <h2>Development Roadmap</h2>
                 
-                <div class="timeline-item">
-                    <div class="timeline-date">Q4 2025</div>
-                    <div class="timeline-content">
-                        <h4>Industry-Specific Models</h4>
-                        <p>Specialized versions for healthcare, finance, manufacturing, and retail applications.</p>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-date">Q1 2025</div>
+                        <div class="timeline-content">
+                            <strong>Qianfan-VL-70B Release</strong>
+                            <p>Larger model with enhanced reasoning capabilities</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">Q2 2025</div>
+                        <div class="timeline-content">
+                            <strong>Video Understanding</strong>
+                            <p>Support for video input and temporal reasoning</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">Q3 2025</div>
+                        <div class="timeline-content">
+                            <strong>Open Source Release</strong>
+                            <p>Selected model weights available to researchers</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-date">Q4 2025</div>
+                        <div class="timeline-content">
+                            <strong>Industry Models</strong>
+                            <p>Specialized versions for healthcare, finance, and retail</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <section class="content-section">
-            <h2>Getting Started</h2>
-
-            <div class="cta-section">
-                <p>Ready to integrate Qianfan-VL into your applications?</p>
-                <div class="cta-buttons">
-                    <a href="https://console.bce.baidu.com/qianfan" class="cta-button primary">Try Qianfan Platform</a>
-                    <a href="https://cloud.baidu.com/doc/WENXINWORKSHOP" class="cta-button secondary">Read Documentation</a>
-                    <a href="https://github.com/baidubce/qianfan-models-cookbook" class="cta-button secondary">View Examples</a>
+            <section id="resources" class="section">
+                <h2>Resources & Support</h2>
+                
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h3>Documentation</h3>
+                        <ul>
+                            <li><a href="https://cloud.baidu.com/doc/WENXINWORKSHOP">API Documentation</a></li>
+                            <li><a href="https://github.com/baidubce/qianfan-models-cookbook">Code Examples</a></li>
+                            <li><a href="https://console.bce.baidu.com/qianfan">Console</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>Community</h3>
+                        <ul>
+                            <li><a href="https://ai.baidu.com/forum">Discussion Forum</a></li>
+                            <li><a href="https://github.com/baidubce">GitHub Organization</a></li>
+                            <li>WeChat: 百度智能云千帆</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="resource-card">
+                        <h3>Contact</h3>
+                        <ul>
+                            <li>Technical: qianfan-support@baidu.com</li>
+                            <li>Business: qianfan-biz@baidu.com</li>
+                            <li>Research: qianfan-research@baidu.com</li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
 
-            <div class="contact-info">
-                <h3>Contact & Support</h3>
-                <ul>
-                    <li>Technical Support: <a href="mailto:qianfan-support@baidu.com">qianfan-support@baidu.com</a></li>
-                    <li>Business Inquiries: <a href="mailto:qianfan-biz@baidu.com">qianfan-biz@baidu.com</a></li>
-                    <li>Community Forum: <a href="https://ai.baidu.com/forum">ai.baidu.com/forum</a></li>
-                    <li>WeChat: 百度智能云千帆</li>
-                </ul>
-            </div>
-        </section>
-    </article>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Qianfan Models</h4>
-                <p>State-of-the-art AI models by Baidu Cloud</p>
-            </div>
-            <div class="footer-section">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="https://cloud.baidu.com/doc/WENXINWORKSHOP">Documentation</a></li>
-                    <li><a href="https://console.bce.baidu.com/qianfan">Console</a></li>
-                    <li><a href="https://github.com/baidubce">GitHub</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="https://cloud.baidu.com">Baidu Cloud</a></li>
-                    <li><a href="https://ai.baidu.com">Baidu AI</a></li>
-                    <li><a href="https://ir.baidu.com">Investor Relations</a></li>
-                </ul>
-            </div>
+                <div class="cta-section">
+                    <h3>Get Started with Qianfan-VL</h3>
+                    <p>Experience the power of advanced vision-language understanding</p>
+                    <a href="https://console.bce.baidu.com/qianfan" class="btn btn-primary">Access Console</a>
+                    <a href="https://cloud.baidu.com/doc/WENXINWORKSHOP" class="btn btn-secondary">Read Documentation</a>
+                </div>
+            </section>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Baidu, Inc. All rights reserved.</p>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2025 Baidu, Inc. All rights reserved.</p>
+                    <p>Qianfan-VL is a product of Baidu Cloud.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="https://cloud.baidu.com">Baidu Cloud</a>
+                    <a href="https://ai.baidu.com">Baidu AI</a>
+                    <a href="https://ir.baidu.com">Investor Relations</a>
+                    <a href="https://www.baidu.com/duty">Legal</a>
+                </div>
+            </div>
         </div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-bash.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
-    <script>
-        function showTab(tabName) {
-            const tabs = document.querySelectorAll('.tab-content');
-            const buttons = document.querySelectorAll('.tab-button');
-            
-            tabs.forEach(tab => {
-                tab.classList.remove('active');
-            });
-            buttons.forEach(button => {
-                button.classList.remove('active');
-            });
-            
-            document.getElementById(tabName).classList.add('active');
-            event.target.classList.add('active');
-        }
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-json.min.js"></script>
 </body>
 </html>
