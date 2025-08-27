@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qianfan-VL: Vision-Language Models | Baidu Cloud</title>
-    <meta name="description" content="Qianfan-VL series: State-of-the-art multimodal models with superior Chinese understanding">
+    <title>Qianfan-VL: Domain-Enhanced Multimodal Models | Baidu AI Cloud</title>
+    <meta name="description" content="Qianfan-VL series: A comprehensive family of vision-language models with domain-specific excellence">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
 </head>
@@ -15,11 +15,12 @@
                 <h1 class="site-title">Qianfan-VL Technical Documentation</h1>
                 <nav class="main-nav">
                     <a href="#overview">Overview</a>
+                    <a href="#innovations">Innovations</a>
                     <a href="#architecture">Architecture</a>
+                    <a href="#training">Training</a>
                     <a href="#benchmarks">Benchmarks</a>
-                    <a href="#quickstart">Quick Start</a>
+                    <a href="#applications">Applications</a>
                     <a href="#api">API</a>
-                    <a href="https://github.com/baidubce/qianfan-models-cookbook">GitHub</a>
                 </nav>
             </div>
         </div>
@@ -28,189 +29,335 @@
     <main class="main-content">
         <div class="container">
             <div class="hero-section">
-                <h2 class="hero-title">Qianfan-VL: Advanced Vision-Language Understanding</h2>
-                <p class="hero-subtitle">Baidu Cloud's State-of-the-Art Multimodal AI Models</p>
-                <p class="hero-meta">Version 1.0 | Released August 2025</p>
+                <h2 class="hero-title">Qianfan-VL: A Domain-Enhanced Multimodal Model Series from Baidu AI Cloud</h2>
+                <p class="hero-subtitle">Bridging the Gap Between General-Purpose Capabilities and Domain-Specific Excellence</p>
+                <p class="hero-meta">3B to 70B Parameters | Released August 2025</p>
             </div>
 
             <section id="overview" class="section">
-                <h2>Overview</h2>
+                <h2>Introduction</h2>
                 <p>
-                    Qianfan-VL represents Baidu's latest advancement in vision-language modeling, delivering exceptional performance 
-                    in multimodal understanding tasks. Built on years of research in large language models and computer vision, 
-                    Qianfan-VL achieves state-of-the-art results particularly in Chinese language and vision tasks.
+                    In the rapidly evolving landscape of multimodal large language models, Baidu AI Cloud introduces the <strong>Qianfan-VL series</strong> - 
+                    a comprehensive family of vision-language models designed to bridge the gap between general-purpose capabilities and domain-specific excellence. 
+                    With model sizes ranging from 3B to 70B parameters, Qianfan-VL represents a significant advancement in making multimodal AI both powerful 
+                    and practical for enterprise applications.
                 </p>
                 
-                <h3>Key Features</h3>
-                <ul class="feature-list">
-                    <li><strong>Model Sizes:</strong> 8B parameters (70B coming Q1 2025)</li>
-                    <li><strong>Context Window:</strong> 32,768 tokens</li>
-                    <li><strong>Image Resolution:</strong> Dynamic 336×336 to 1344×1344 pixels</li>
-                    <li><strong>Languages:</strong> Chinese, English (optimized for Chinese)</li>
-                    <li><strong>Deployment:</strong> Cloud API, Private deployment available</li>
-                </ul>
+                <p>
+                    The multimodal understanding capability has become essential for enterprise intelligence transformation. While the past year has witnessed 
+                    remarkable progress in multimodal models, several challenges continue to hinder widespread deployment. Qianfan-VL addresses these challenges 
+                    head-on with innovative solutions in cross-modal alignment, domain enhancement, and efficient training on Kunlun chips.
+                </p>
 
-                <h3>Performance Highlights</h3>
+                <h3>Model Family</h3>
                 <div class="metrics-grid">
                     <div class="metric-card">
-                        <div class="metric-value">89.2%</div>
-                        <div class="metric-label">ChineseMM Accuracy</div>
+                        <div class="metric-value">Qianfan-VL-3B</div>
+                        <div class="metric-label">Lightweight deployment for edge and mobile</div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value">&lt;500ms</div>
-                        <div class="metric-label">First Token Latency</div>
+                        <div class="metric-value">Qianfan-VL-8B</div>
+                        <div class="metric-label">Balanced performance for enterprise</div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value">100+</div>
-                        <div class="metric-label">Tokens/Second</div>
+                        <div class="metric-value">Qianfan-VL-70B</div>
+                        <div class="metric-label">Maximum capability for complex tasks</div>
                     </div>
                     <div class="metric-card">
-                        <div class="metric-value">32K</div>
-                        <div class="metric-label">Context Window</div>
+                        <div class="metric-value">3.5T Tokens</div>
+                        <div class="metric-label">Multimodal pre-training data</div>
                     </div>
                 </div>
             </section>
 
-            <section id="architecture" class="section">
-                <h2>Model Architecture</h2>
+            <section id="innovations" class="section">
+                <h2>Key Innovations</h2>
                 
+                <h3>1. Domain-Enhanced Training Paradigm</h3>
                 <p>
-                    Qianfan-VL employs a sophisticated encoder-decoder architecture with advanced cross-modal attention mechanisms. 
-                    The model consists of three main components:
+                    Unlike traditional multimodal models that focus solely on general capabilities, Qianfan-VL introduces a unique domain-enhanced 
+                    training approach. The model specifically optimizes for high-frequency enterprise tasks while maintaining strong general performance.
                 </p>
+                
+                <div class="feature-card">
+                    <h4>Training Approach Components</h4>
+                    <ul>
+                        <li><strong>Continuous Multimodal Pre-training:</strong> Starting with 3.5T image-text tokens for comprehensive knowledge injection</li>
+                        <li><strong>Domain-Enhanced Data Synthesis:</strong> Targeted enhancement for OCR, document understanding, K-12 education, and more</li>
+                        <li><strong>Task-Specific Scenario Expansion:</strong> Systematic coverage of diverse application scenarios within each domain</li>
+                    </ul>
+                </div>
 
-                <h3>Architecture Components</h3>
+                <h3>2. Three-Stage Training Strategy</h3>
+                <p>Qianfan-VL employs a sophisticated three-stage training process:</p>
+                
+                <ol class="training-stages">
+                    <li>
+                        <strong>Stage 1: Cross-Modal Alignment</strong>
+                        <ul>
+                            <li>Establishes fundamental connections between vision and language modalities</li>
+                            <li>Trains only the MLP adapter while keeping other components frozen</li>
+                            <li>Uses general-purpose data for robust cross-modal bridging</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Stage 1.5: Knowledge Injection</strong>
+                        <ul>
+                            <li>Massive injection of multimodal knowledge (300B VLM tokens + 30B text tokens)</li>
+                            <li>Domain-specific enhancement for OCR, mathematics, and document understanding</li>
+                            <li>Multi-task learning framework for comprehensive capability development</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Stage 2: Quality Refinement</strong>
+                        <ul>
+                            <li>High-quality instruction fine-tuning with 1B carefully curated tokens</li>
+                            <li>Preference learning to reduce hallucinations</li>
+                            <li>Integration of thinking data to enhance reasoning capabilities</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>3. Advanced Architecture Design</h3>
+                <p>The Qianfan-VL architecture builds upon proven foundations while introducing key enhancements:</p>
                 
                 <div class="architecture-overview">
                     <pre class="architecture-diagram">
 ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│ Vision Encoder  │────▶│  Cross-Modal    │────▶│ Language Model  │
-│  (ViT-based)    │     │   Projection    │     │   (32 layers)   │
+│ Vision Encoder  │────▶│  MLP Adapter    │────▶│  Qianfan-LLM    │
+│  Dynamic Tiling │     │                 │     │ Based on Llama  │
+│  2×2 Pooling    │     │                 │     │ 3.1 + Chinese   │
 └─────────────────┘     └─────────────────┘     └─────────────────┘
-     336-1344px              256 queries            32K context
                     </pre>
                 </div>
 
-                <h4>Implementation Details</h4>
-                <pre><code class="language-python">class QianfanVL(nn.Module):
-    def __init__(self, config):
-        super().__init__()
-        # Vision Transformer for image encoding
-        self.vision_encoder = VisionTransformer(
-            img_size=336,
-            patch_size=14,
-            embed_dim=1024,
-            depth=24,
-            num_heads=16
-        )
-        
-        # Cross-modal projection layer
-        self.projection = CrossModalProjection(
-            vision_dim=1024,
-            text_dim=4096,
-            num_queries=256
-        )
-        
-        # Language model backbone
-        self.language_model = QianfanLM(
-            vocab_size=100278,
-            hidden_size=4096,
-            num_layers=32,
-            num_heads=32,
-            context_length=32768
-        )</code></pre>
+                <div class="feature-card">
+                    <h4>Key Architectural Features</h4>
+                    <ul>
+                        <li><strong>Dynamic Resolution Support:</strong> Adaptive tiling for images of varying sizes</li>
+                        <li><strong>Unified Input Processing:</strong> Seamless handling of single images, multiple images, and video frames</li>
+                        <li><strong>Enhanced Base LLM:</strong> Qianfan-LLM built on Llama 3.1 with 3T tokens of multilingual continued pre-training</li>
+                    </ul>
+                </div>
+            </section>
 
-                <h3>Training Process</h3>
-                <ol class="training-stages">
-                    <li>
-                        <strong>Stage 1: Vision-Language Alignment</strong>
-                        <p>Pre-training on 10M image-text pairs using contrastive learning</p>
-                    </li>
-                    <li>
-                        <strong>Stage 2: Multimodal Pre-training</strong>
-                        <p>Training on 100M+ samples with MLM, ITM, and VQA objectives</p>
-                    </li>
-                    <li>
-                        <strong>Stage 3: Instruction Tuning</strong>
-                        <p>Fine-tuning on 5M instructions using SFT and RLHF</p>
-                    </li>
-                </ol>
+            <section id="domain-enhancement" class="section">
+                <h2>Domain Enhancement in Action</h2>
+                
+                <h3>OCR and Document Understanding</h3>
+                <p>
+                    Qianfan-VL's domain enhancement shines particularly in OCR and document understanding tasks. 
+                    The model employs a sophisticated data synthesis pipeline:
+                </p>
+                
+                <div class="enhancement-grid">
+                    <div class="enhancement-card">
+                        <h4>Natural Scene Text Recognition</h4>
+                        <p>Combining internet document images with traditional vision models and programmatic generation</p>
+                    </div>
+                    <div class="enhancement-card">
+                        <h4>Structured Information Extraction</h4>
+                        <p>Automated generation of table recognition and form extraction datasets</p>
+                    </div>
+                    <div class="enhancement-card">
+                        <h4>Multi-scenario Coverage</h4>
+                        <p>From natural scenes to office documents, handwritten text, and complex layouts</p>
+                    </div>
+                </div>
+
+                <div class="performance-improvement">
+                    <h4>Performance Improvements After Domain Enhancement</h4>
+                    <table class="improvement-table">
+                        <thead>
+                            <tr>
+                                <th>Task</th>
+                                <th>Before</th>
+                                <th>After</th>
+                                <th>Improvement</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>DocOCR2Markdown</td>
+                                <td>73.7%</td>
+                                <td>75.0%</td>
+                                <td class="positive">+1.3%</td>
+                            </tr>
+                            <tr>
+                                <td>DocTable2HTML (Hard)</td>
+                                <td>69.1%</td>
+                                <td>68.4%</td>
+                                <td class="neutral">-0.7%</td>
+                            </tr>
+                            <tr>
+                                <td>Educational Tasks Average</td>
+                                <td>80.09%</td>
+                                <td>85.35%</td>
+                                <td class="positive">+5.26%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Mathematical Reasoning</h3>
+                <p>The model introduces comprehensive mathematical task coverage through:</p>
+                
+                <ul class="math-features">
+                    <li>Multi-language problem rewriting for broader understanding</li>
+                    <li>Long Chain-of-Thought (LongCoT) synthesis for complex reasoning</li>
+                    <li>Rejection sampling and filtering for quality control</li>
+                    <li>Coverage of problem recognition, solving, analysis, and grading tasks</li>
+                </ul>
+                
+                <p>
+                    This results in superior performance on educational scenarios, with the domain-enhanced version achieving 
+                    <strong>85.35% average accuracy</strong> across multiple mathematical tasks.
+                </p>
+            </section>
+
+            <section id="training" class="section">
+                <h2>Training at Scale with Kunlun Chips</h2>
+                
+                <p>
+                    A remarkable achievement of Qianfan-VL is its complete training on Baidu's self-developed <strong>Kunlun P800 chips</strong>, 
+                    representing a significant milestone in achieving AI infrastructure independence while maintaining world-class performance.
+                </p>
+                
+                <div class="kunlun-features">
+                    <div class="feature-card">
+                        <h3>Training Infrastructure</h3>
+                        <ul>
+                            <li><strong>Massive Parallelism:</strong> 1k/2k/5k P800 cards for different model sizes</li>
+                            <li><strong>End-to-End Training:</strong> All stages from pre-training to fine-tuning completed on P800</li>
+                            <li><strong>Production Ready:</strong> Demonstrates the maturity of domestic AI infrastructure</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>Training Data Scale</h3>
+                        <ul>
+                            <li><strong>Pre-training:</strong> 3.5T image-text tokens</li>
+                            <li><strong>Knowledge Injection:</strong> 300B VLM tokens + 30B text tokens</li>
+                            <li><strong>Fine-tuning:</strong> 1B carefully curated tokens</li>
+                        </ul>
+                    </div>
+                </div>
             </section>
 
             <section id="benchmarks" class="section">
                 <h2>Performance Benchmarks</h2>
                 
                 <p>
-                    Qianfan-VL has been extensively evaluated on standard multimodal benchmarks. 
-                    The model demonstrates competitive performance across all metrics, with particularly strong results on Chinese tasks.
+                    Qianfan-VL demonstrates competitive performance across standard benchmarks while excelling in domain-specific tasks:
                 </p>
 
-                <h3>Benchmark Results</h3>
+                <h3>General Benchmarks</h3>
                 <div class="table-wrapper">
                     <table class="benchmark-table">
                         <thead>
                             <tr>
-                                <th>Model</th>
-                                <th>MME</th>
-                                <th>MMBench</th>
-                                <th>MMMU</th>
-                                <th>ChineseMM</th>
-                                <th>DocVQA</th>
-                                <th>ChartQA</th>
+                                <th>Benchmark</th>
+                                <th>Qianfan-VL-8B</th>
+                                <th>Qianfan-VL-70B</th>
+                                <th>GPT-4V</th>
+                                <th>Claude-3</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="highlight-row">
-                                <td><strong>Qianfan-VL-8B</strong></td>
-                                <td>1823</td>
-                                <td>78.5%</td>
-                                <td>42.3%</td>
-                                <td><strong>89.2%</strong></td>
-                                <td>85.7%</td>
-                                <td>73.4%</td>
+                            <tr>
+                                <td>SEEDBench_IMG</td>
+                                <td>77.82</td>
+                                <td><strong>78.77</strong></td>
+                                <td>71.60</td>
+                                <td>72.30</td>
                             </tr>
                             <tr>
-                                <td>GPT-4V</td>
-                                <td>1927</td>
-                                <td>83.1%</td>
-                                <td>56.8%</td>
-                                <td>82.4%</td>
-                                <td>88.4%</td>
-                                <td>78.5%</td>
+                                <td>AI2D_TEST</td>
+                                <td>84.62</td>
+                                <td><strong>86.14</strong></td>
+                                <td>78.20</td>
+                                <td>80.80</td>
                             </tr>
                             <tr>
-                                <td>Claude-3-Opus</td>
-                                <td>1796</td>
-                                <td>77.2%</td>
-                                <td>41.7%</td>
-                                <td>81.6%</td>
-                                <td>84.3%</td>
-                                <td>72.1%</td>
+                                <td>ChartQA_TEST</td>
+                                <td>87.96</td>
+                                <td><strong>88.44</strong></td>
+                                <td>78.50</td>
+                                <td>72.10</td>
                             </tr>
                             <tr>
-                                <td>Qwen-VL-Plus</td>
-                                <td>1681</td>
-                                <td>75.9%</td>
-                                <td>39.5%</td>
-                                <td>85.3%</td>
-                                <td>82.6%</td>
-                                <td>70.8%</td>
+                                <td>MMMU_VAL</td>
+                                <td>70.67</td>
+                                <td>71.78</td>
+                                <td><strong>56.80</strong></td>
+                                <td>41.70</td>
+                            </tr>
+                            <tr>
+                                <td>OCRBench</td>
+                                <td><strong>850</strong></td>
+                                <td>846</td>
+                                <td>645</td>
+                                <td>694</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 
-                <h3>Inference Performance</h3>
+                <h3>Domain-Specific Performance</h3>
+                <p>The domain-enhanced version shows significant improvements over the general version:</p>
+                
                 <ul class="performance-list">
-                    <li><strong>Latency:</strong> &lt;500ms first token, ~10ms/token thereafter</li>
-                    <li><strong>Throughput:</strong> 100+ tokens/second (single GPU)</li>
-                    <li><strong>Concurrency:</strong> 1000+ QPS (cloud deployment)</li>
-                    <li><strong>Memory:</strong> 16GB VRAM (INT8 quantized)</li>
+                    <li>Educational task average: 80.09% → 85.35% (+5.26%)</li>
+                    <li>Document understanding tasks show 5-15% improvement</li>
+                    <li>Superior performance compared to both general VL models and specialized models</li>
+                    <li>OCR accuracy significantly outperforms general-purpose VL models</li>
                 </ul>
             </section>
 
-            <section id="quickstart" class="section">
-                <h2>Quick Start Guide</h2>
+            <section id="applications" class="section">
+                <h2>Real-World Applications</h2>
+                
+                <div class="use-cases-grid">
+                    <div class="use-case">
+                        <h3>Educational Problem Solving</h3>
+                        <p>
+                            Qianfan-VL excels at complex educational scenarios, providing detailed step-by-step solutions with reasoning traces. 
+                            The model can identify problems in images, understand context, and generate comprehensive explanations suitable for teaching purposes.
+                        </p>
+                        <code>model.solve_educational_problem(image, grade_level="K-12")</code>
+                    </div>
+                    
+                    <div class="use-case">
+                        <h3>Document Intelligence</h3>
+                        <p>
+                            From complex tables to charts, Qianfan-VL accurately extracts and structures information. 
+                            The model can convert visual data into markdown tables, understand chart relationships, and maintain formatting integrity.
+                        </p>
+                        <code>model.extract_document_structure(pdf_path, output_format="markdown")</code>
+                    </div>
+                    
+                    <div class="use-case">
+                        <h3>Enterprise Automation</h3>
+                        <p>
+                            The model's strong OCR and document understanding capabilities make it ideal for automating document processing workflows, 
+                            from invoice extraction to report generation.
+                        </p>
+                        <code>model.process_enterprise_document(doc, workflow="invoice_extraction")</code>
+                    </div>
+                    
+                    <div class="use-case">
+                        <h3>Natural Scene Understanding</h3>
+                        <p>
+                            Advanced text detection and recognition in natural scenes, supporting multiple languages and complex layouts 
+                            for real-world applications.
+                        </p>
+                        <code>model.analyze_scene_text(image, languages=["zh", "en"])</code>
+                    </div>
+                </div>
+            </section>
+
+            <section id="api" class="section">
+                <h2>Getting Started</h2>
                 
                 <h3>Installation</h3>
                 <pre><code class="language-bash"># Install Qianfan SDK
@@ -224,111 +371,55 @@ export QIANFAN_SECRET_KEY="your_secret_key"</code></pre>
                 <pre><code class="language-python">from qianfan import QianfanVL
 import base64
 
-# Initialize client
+# Initialize client with model selection
 client = QianfanVL(
+    model="Qianfan-VL-8B",  # Options: 3B, 8B, 70B
     access_key="YOUR_ACCESS_KEY",
     secret_key="YOUR_SECRET_KEY"
 )
 
-# Load and encode image
-with open("image.jpg", "rb") as f:
-    image_base64 = base64.b64encode(f.read()).decode()
+# Example: Document Understanding
+with open("document.pdf", "rb") as f:
+    doc_base64 = base64.b64encode(f.read()).decode()
 
-# Generate response
-response = client.chat.completions.create(
-    model="Qianfan-VL-8B",
-    messages=[{
-        "role": "user",
-        "content": [
-            {"type": "text", "text": "Describe this image in detail."},
-            {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}}
-        ]
-    }],
-    max_tokens=500,
-    temperature=0.7
+response = client.analyze_document(
+    document=doc_base64,
+    task="extract_tables",
+    output_format="markdown"
 )
 
-print(response.choices[0].message.content)</code></pre>
+print(response.content)</code></pre>
 
-                <h3>Advanced Features</h3>
+                <h3>Domain-Specific Examples</h3>
                 
-                <h4>Multi-turn Conversation</h4>
-                <pre><code class="language-python"># Create a session for multi-turn dialogue
-session = client.create_session()
-
-# First turn
-response1 = session.chat(
-    image="chart.png",
-    message="What does this chart show?"
+                <h4>OCR and Text Extraction</h4>
+                <pre><code class="language-python"># Extract text from complex document
+response = client.ocr(
+    image=image_base64,
+    mode="document",  # Options: document, scene, handwritten
+    languages=["zh", "en"],
+    preserve_layout=True
 )
 
-# Second turn (maintains context)
-response2 = session.chat(
-    message="What's the trend between Q1 and Q2?"
-)</code></pre>
+# Convert to structured format
+markdown_output = response.to_markdown()
+html_tables = response.extract_tables()</code></pre>
 
-                <h4>Batch Processing</h4>
-                <pre><code class="language-python">import asyncio
-from qianfan import AsyncQianfanVL
+                <h4>Mathematical Problem Solving</h4>
+                <pre><code class="language-python"># Solve mathematical problems with step-by-step explanation
+response = client.solve_math(
+    image=problem_image,
+    show_steps=True,
+    output_format="latex",
+    education_level="high_school"
+)
 
-async def batch_process(images, prompts):
-    client = AsyncQianfanVL()
-    tasks = [
-        client.analyze(img, prompt)
-        for img, prompt in zip(images, prompts)
-    ]
-    return await asyncio.gather(*tasks)
+# Get detailed solution
+solution = response.solution
+steps = response.step_by_step
+final_answer = response.answer</code></pre>
 
-# Process multiple images concurrently
-results = asyncio.run(batch_process(images, prompts))</code></pre>
-            </section>
-
-            <section id="api" class="section">
-                <h2>API Reference</h2>
-                
-                <h3>REST API Endpoint</h3>
-                <pre><code class="language-bash">POST https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/qianfan_vl_8b</code></pre>
-
-                <h3>Request Format</h3>
-                <pre><code class="language-json">{
-  "messages": [
-    {
-      "role": "user",
-      "content": [
-        {"type": "text", "text": "Your question here"},
-        {"type": "image_url", "image_url": {"url": "data:image/jpeg;base64,..."}}
-      ]
-    }
-  ],
-  "temperature": 0.7,
-  "max_tokens": 500,
-  "top_p": 0.95
-}</code></pre>
-
-                <h3>Response Format</h3>
-                <pre><code class="language-json">{
-  "id": "chat-abc123",
-  "object": "chat.completion",
-  "created": 1693435600,
-  "model": "Qianfan-VL-8B",
-  "choices": [
-    {
-      "index": 0,
-      "message": {
-        "role": "assistant",
-        "content": "The generated response text..."
-      },
-      "finish_reason": "stop"
-    }
-  ],
-  "usage": {
-    "prompt_tokens": 256,
-    "completion_tokens": 128,
-    "total_tokens": 384
-  }
-}</code></pre>
-
-                <h3>Parameters</h3>
+                <h3>API Parameters</h3>
                 <table class="api-table">
                     <thead>
                         <tr>
@@ -343,13 +434,13 @@ results = asyncio.run(batch_process(images, prompts))</code></pre>
                             <td><code>model</code></td>
                             <td>string</td>
                             <td>required</td>
-                            <td>Model identifier (e.g., "Qianfan-VL-8B")</td>
+                            <td>Model size: "Qianfan-VL-3B", "Qianfan-VL-8B", "Qianfan-VL-70B"</td>
                         </tr>
                         <tr>
-                            <td><code>messages</code></td>
-                            <td>array</td>
-                            <td>required</td>
-                            <td>Array of message objects</td>
+                            <td><code>task</code></td>
+                            <td>string</td>
+                            <td>"general"</td>
+                            <td>Task type: "ocr", "document", "education", "general"</td>
                         </tr>
                         <tr>
                             <td><code>temperature</code></td>
@@ -364,80 +455,77 @@ results = asyncio.run(batch_process(images, prompts))</code></pre>
                             <td>Maximum tokens to generate</td>
                         </tr>
                         <tr>
-                            <td><code>top_p</code></td>
-                            <td>float</td>
-                            <td>0.95</td>
-                            <td>Nucleus sampling parameter</td>
+                            <td><code>domain_enhance</code></td>
+                            <td>boolean</td>
+                            <td>true</td>
+                            <td>Enable domain-specific enhancements</td>
                         </tr>
                     </tbody>
                 </table>
             </section>
 
-            <section id="use-cases" class="section">
-                <h2>Use Cases</h2>
-                
-                <div class="use-cases-grid">
-                    <div class="use-case">
-                        <h3>Document Intelligence</h3>
-                        <p>Extract structured information from PDFs, invoices, forms, and handwritten documents with high accuracy.</p>
-                        <code>model.analyze_document(pdf_path, extract_tables=True)</code>
-                    </div>
-                    
-                    <div class="use-case">
-                        <h3>Visual Question Answering</h3>
-                        <p>Answer complex questions about images, charts, and diagrams with detailed explanations.</p>
-                        <code>model.vqa(image, "What is the main topic?")</code>
-                    </div>
-                    
-                    <div class="use-case">
-                        <h3>E-commerce Applications</h3>
-                        <p>Generate product descriptions, analyze user photos, and provide visual search capabilities.</p>
-                        <code>model.generate_product_desc(product_image)</code>
-                    </div>
-                    
-                    <div class="use-case">
-                        <h3>Educational Tools</h3>
-                        <p>Help students understand complex diagrams, solve visual problems, and provide tutoring.</p>
-                        <code>model.explain_diagram(educational_image)</code>
-                    </div>
-                </div>
-            </section>
-
             <section id="roadmap" class="section">
-                <h2>Development Roadmap</h2>
+                <h2>Looking Forward</h2>
+                
+                <p>The future roadmap for Qianfan-VL includes:</p>
                 
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="timeline-date">Q1 2025</div>
                         <div class="timeline-content">
-                            <strong>Qianfan-VL-70B Release</strong>
-                            <p>Larger model with enhanced reasoning capabilities</p>
+                            <strong>Architecture Evolution</strong>
+                            <p>Continuous exploration of optimal architectures for different scenarios</p>
                         </div>
                     </div>
                     
                     <div class="timeline-item">
                         <div class="timeline-date">Q2 2025</div>
                         <div class="timeline-content">
-                            <strong>Video Understanding</strong>
-                            <p>Support for video input and temporal reasoning</p>
+                            <strong>Domain Expansion</strong>
+                            <p>From OCR/Doc/K-12 education to e-commerce, vocational training, and beyond</p>
                         </div>
                     </div>
                     
                     <div class="timeline-item">
                         <div class="timeline-date">Q3 2025</div>
                         <div class="timeline-content">
-                            <strong>Open Source Release</strong>
-                            <p>Selected model weights available to researchers</p>
+                            <strong>Capability Enhancement</strong>
+                            <p>Evolution from image-text understanding to full multimodal understanding and multimodal agents</p>
                         </div>
                     </div>
                     
                     <div class="timeline-item">
                         <div class="timeline-date">Q4 2025</div>
                         <div class="timeline-content">
-                            <strong>Industry Models</strong>
-                            <p>Specialized versions for healthcare, finance, and retail</p>
+                            <strong>Open Source Release</strong>
+                            <p>Selected model weights and training frameworks available to the community</p>
                         </div>
                     </div>
+                </div>
+            </section>
+
+            <section id="conclusion" class="section">
+                <h2>Conclusion</h2>
+                
+                <p>
+                    Qianfan-VL represents a significant step forward in making multimodal AI practical for enterprise applications. 
+                    By combining general capabilities with domain-specific enhancements, efficient training on domestic hardware, 
+                    and a comprehensive model family, Qianfan-VL offers a compelling solution for organizations looking to leverage multimodal AI.
+                </p>
+                
+                <p>
+                    The model's success in bridging the gap between research and production, particularly in challenging domains like OCR 
+                    and document understanding, demonstrates the value of targeted enhancement while maintaining broad capabilities. 
+                    As multimodal understanding becomes essential for enterprise intelligence, Qianfan-VL provides a robust foundation 
+                    for the next generation of AI applications.
+                </p>
+
+                <div class="cta-section">
+                    <h3>Get Started with Qianfan-VL</h3>
+                    <p>Experience the power of domain-enhanced multimodal understanding</p>
+                    <a href="https://console.bce.baidu.com/qianfan" class="btn btn-primary">Access Console</a>
+                    <a href="https://cloud.baidu.com/doc/WENXINWORKSHOP" class="btn btn-secondary">Read Documentation</a>
+                    <a href="https://github.com/baidubce/qianfan-models-cookbook" class="btn btn-secondary">View Examples</a>
                 </div>
             </section>
 
@@ -472,13 +560,6 @@ results = asyncio.run(batch_process(images, prompts))</code></pre>
                         </ul>
                     </div>
                 </div>
-
-                <div class="cta-section">
-                    <h3>Get Started with Qianfan-VL</h3>
-                    <p>Experience the power of advanced vision-language understanding</p>
-                    <a href="https://console.bce.baidu.com/qianfan" class="btn btn-primary">Access Console</a>
-                    <a href="https://cloud.baidu.com/doc/WENXINWORKSHOP" class="btn btn-secondary">Read Documentation</a>
-                </div>
             </section>
         </div>
     </main>
@@ -488,7 +569,7 @@ results = asyncio.run(batch_process(images, prompts))</code></pre>
             <div class="footer-content">
                 <div class="footer-info">
                     <p>&copy; 2025 Baidu, Inc. All rights reserved.</p>
-                    <p>Qianfan-VL is a product of Baidu Cloud.</p>
+                    <p>Qianfan-VL is a product of Baidu AI Cloud.</p>
                 </div>
                 <div class="footer-links">
                     <a href="https://cloud.baidu.com">Baidu Cloud</a>
