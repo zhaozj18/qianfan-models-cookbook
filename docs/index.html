@@ -250,11 +250,14 @@
                     <table class="benchmark-table">
                         <thead>
                             <tr>
-                                <th>Benchmark</th>
+                                <th>Benchmark/Model</th>
                                 <th>Qianfan-VL-8B</th>
                                 <th>Qianfan-VL-70B</th>
-                                <th>GPT-4V</th>
-                                <th>Claude-3</th>
+                                <th>Qwen2.5-VL-7B</th>
+                                <th>Qwen2.5-VL-72B</th>
+                                <th>InternVL3-8B</th>
+                                <th>InternVL3-78B</th>
+                                <th>Claude-3.5-Sonnet</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -262,36 +265,131 @@
                                 <td>SEEDBench_IMG</td>
                                 <td>77.82</td>
                                 <td><strong>78.77</strong></td>
-                                <td>71.60</td>
-                                <td>72.30</td>
+                                <td>76.98</td>
+                                <td><strong>78.34</strong></td>
+                                <td>77.00</td>
+                                <td>77.52</td>
+                                <td>71.18</td>
                             </tr>
                             <tr>
                                 <td>AI2D_TEST</td>
                                 <td>84.62</td>
                                 <td><strong>86.14</strong></td>
-                                <td>78.20</td>
-                                <td>80.80</td>
+                                <td>80.47</td>
+                                <td>83.84</td>
+                                <td><strong>85.07</strong></td>
+                                <td>83.55</td>
+                                <td>60.75</td>
                             </tr>
                             <tr>
                                 <td>ChartQA_TEST</td>
                                 <td>87.96</td>
                                 <td><strong>88.44</strong></td>
-                                <td>78.50</td>
-                                <td>72.10</td>
+                                <td>86.68</td>
+                                <td><strong>87.16</strong></td>
+                                <td>85.76</td>
+                                <td>82.04</td>
+                                <td>23.96</td>
+                            </tr>
+                            <tr>
+                                <td>MathVista_MINI</td>
+                                <td>66.70</td>
+                                <td><strong>74.00</strong></td>
+                                <td>67.50</td>
+                                <td><strong>74.30</strong></td>
+                                <td>69.60</td>
+                                <td>69.40</td>
+                                <td>72.30</td>
                             </tr>
                             <tr>
                                 <td>MMMU_VAL</td>
-                                <td>70.67</td>
-                                <td>71.78</td>
-                                <td><strong>56.80</strong></td>
-                                <td>41.70</td>
+                                <td><strong>70.67</strong></td>
+                                <td><strong>71.78</strong></td>
+                                <td>51.00</td>
+                                <td>65.78</td>
+                                <td>56.11</td>
+                                <td>60.78</td>
+                                <td>52.33</td>
+                            </tr>
+                            <tr>
+                                <td>MMT-Bench_VAL</td>
+                                <td>63.61</td>
+                                <td><strong>71.38</strong></td>
+                                <td>61.40</td>
+                                <td><strong>69.49</strong></td>
+                                <td>65.17</td>
+                                <td>63.67</td>
+                                <td>53.95</td>
+                            </tr>
+                            <tr>
+                                <td>MMStar</td>
+                                <td>65.73</td>
+                                <td><strong>70.93</strong></td>
+                                <td>61.53</td>
+                                <td>66.00</td>
+                                <td><strong>68.40</strong></td>
+                                <td>66.07</td>
+                                <td>51.53</td>
                             </tr>
                             <tr>
                                 <td>OCRBench</td>
-                                <td><strong>850</strong></td>
+                                <td>850</td>
                                 <td>846</td>
-                                <td>645</td>
-                                <td>694</td>
+                                <td><strong>883</strong></td>
+                                <td>874</td>
+                                <td><strong>881</strong></td>
+                                <td>847</td>
+                                <td>731</td>
+                            </tr>
+                            <tr>
+                                <td>OCRVQA_TESTCORE</td>
+                                <td>69.08</td>
+                                <td><strong>72.79</strong></td>
+                                <td><strong>71.02</strong></td>
+                                <td>66.80</td>
+                                <td>39.03</td>
+                                <td>35.58</td>
+                                <td>26.79</td>
+                            </tr>
+                            <tr>
+                                <td>TextVQA_VAL</td>
+                                <td>82.87</td>
+                                <td>81.84</td>
+                                <td><strong>84.96</strong></td>
+                                <td>83.26</td>
+                                <td>82.15</td>
+                                <td>83.52</td>
+                                <td>61.20</td>
+                            </tr>
+                            <tr>
+                                <td>InfoVQA_VAL</td>
+                                <td>76.48</td>
+                                <td>76.70</td>
+                                <td>82.45</td>
+                                <td><strong>85.46</strong></td>
+                                <td>75.84</td>
+                                <td>77.58</td>
+                                <td>43.96</td>
+                            </tr>
+                            <tr>
+                                <td>DocVQA</td>
+                                <td>93.83</td>
+                                <td>93.40</td>
+                                <td>94.91</td>
+                                <td><strong>95.75</strong></td>
+                                <td>92.04</td>
+                                <td>83.82</td>
+                                <td>78.75</td>
+                            </tr>
+                            <tr>
+                                <td>CharXiv_DQ</td>
+                                <td><strong>95.22</strong></td>
+                                <td><strong>96.20</strong></td>
+                                <td>78.60</td>
+                                <td>10.00</td>
+                                <td>75.70</td>
+                                <td>84.90</td>
+                                <td>88.32</td>
                             </tr>
                         </tbody>
                     </table>
