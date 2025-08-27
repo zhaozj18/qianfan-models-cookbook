@@ -116,21 +116,15 @@
                 <p>The Qianfan-VL architecture builds upon proven foundations while introducing key enhancements:</p>
                 
                 <div class="architecture-overview">
-                    <pre class="architecture-diagram">
-┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│ Vision Encoder  │────▶│  MLP Adapter    │────▶│  Qianfan-LLM    │
-│  Dynamic Tiling │     │                 │     │ Based on Llama  │
-│  2×2 Pooling    │     │                 │     │ 3.1 + Chinese   │
-└─────────────────┘     └─────────────────┘     └─────────────────┘
-                    </pre>
+                    <img src="images/qianfan_vl_arch.png" alt="Qianfan-VL Architecture" class="architecture-image">
                 </div>
 
-                <div class="feature-card">
-                    <h4>Key Architectural Features</h4>
+                <div class="architecture-details">
+                    <h4>Architecture Components</h4>
                     <ul>
-                        <li><strong>Dynamic Resolution Support:</strong> Adaptive tiling for images of varying sizes</li>
-                        <li><strong>Unified Input Processing:</strong> Seamless handling of single images, multiple images, and video frames</li>
-                        <li><strong>Enhanced Base LLM:</strong> Qianfan-LLM built on Llama 3.1 with 3T tokens of multilingual continued pre-training</li>
+                        <li><strong>Language Model:</strong> The language model adopts the Llama 3.1 architecture with an expanded vocabulary. It was obtained through vocabulary expansion and Chinese localization based on 3T Chinese-English corpus.</li>
+                        <li><strong>Vision Encoder:</strong> The ViT employs dynamic tiling for processing images with dynamic resolution. We referenced InternVL's approach, and the Vision Encoder uses InternViT as initialization parameters for learning.</li>
+                        <li><strong>Cross-Modal Fusion:</strong> MLP adapter bridges the vision and language modalities, enabling seamless multimodal understanding.</li>
                     </ul>
                 </div>
             </section>

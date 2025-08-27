@@ -189,6 +189,42 @@ li {
 /* Architecture Diagram */
 .architecture-overview {
     margin: 2rem 0;
+    text-align: center;
+}
+
+.architecture-image {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: white;
+    padding: 1rem;
+}
+
+.architecture-details {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.architecture-details h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.architecture-details ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.architecture-details li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.architecture-details li:last-child {
+    border-bottom: none;
 }
 
 .architecture-diagram {
