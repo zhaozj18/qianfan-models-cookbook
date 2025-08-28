@@ -434,6 +434,22 @@ td {
     margin-bottom: 0.25rem;
 }
 
+.model-response pre {
+    background: var(--bg-code);
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin: 0.5rem 0;
+    font-size: 0.75rem;
+    overflow-x: auto;
+}
+
+.model-response code {
+    background: var(--bg-code);
+    padding: 0.125rem 0.25rem;
+    border-radius: 2px;
+    font-size: 0.8rem;
+}
+
 @media (max-width: 1024px) {
     .showcase-grid {
         grid-template-columns: 1fr;
