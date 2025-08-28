@@ -563,17 +563,34 @@
                         </div>
 
                         <div class="capability-showcase">
-                            <h4>Chart Understanding</h4>
+                            <h4>Chart Reasoning</h4>
                             <div class="showcase-content">
                                 <div class="showcase-image">
-                                    <img src="placeholder_chart.jpg" alt="Business chart">
+                                    <img src="images/chart_gift_reasoning.jpeg" alt="Gift selection chart">
                                 </div>
                                 <div class="showcase-dialogue">
                                     <div class="user-prompt">
-                                        <strong>User:</strong> What insights can you derive from this chart?
+                                        <strong>User:</strong> 小明是一位男生，下面哪样物品最适合作为他的七夕节礼物 a) Iphone 17 b) Dior香水 c) 一束美丽的鲜花 d) 巧克力套装
                                     </div>
                                     <div class="model-response">
-                                        <strong>Qianfan-VL:</strong> [Interprets chart data and identifies patterns and trends]
+                                        <strong>Qianfan-VL:</strong> 根据图表数据，男生最想收到的礼物中，手机的热度指数为44.36，高于香水（47.62）、巧克力套装（42.48）和鲜花（41.22）。最适合的礼物是a) iphone17。
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="capability-showcase">
+                            <h4>Chart Calculation</h4>
+                            <div class="showcase-content">
+                                <div class="showcase-image">
+                                    <img src="images/chart_math_calculation.png" alt="AI sentiment chart">
+                                </div>
+                                <div class="showcase-dialogue">
+                                    <div class="user-prompt">
+                                        <strong>User:</strong> What is the average percentage of U.S. adults who feel equally excited and concerned about AI over the three years?
+                                    </div>
+                                    <div class="model-response">
+                                        <strong>Qianfan-VL:</strong> From the chart, the percentage who feel "equally excited and concerned" is: 2021: 45%, 2022: 46%, 2023: 36%. Average = (45 + 46 + 36) / 3 = 42.33%
                                     </div>
                                 </div>
                             </div>
@@ -590,14 +607,17 @@
                             <h4>Video Content Analysis</h4>
                             <div class="showcase-content">
                                 <div class="showcase-image">
-                                    <img src="placeholder_video_frames.jpg" alt="Video frames">
+                                    <video controls style="width: 100%;">
+                                        <source src="images/video_understanding.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
                                 </div>
                                 <div class="showcase-dialogue">
                                     <div class="user-prompt">
-                                        <strong>User:</strong> Describe what happens in this video sequence.
+                                        <strong>User:</strong> 请描述一下视频中的内容
                                     </div>
                                     <div class="model-response">
-                                        <strong>Qianfan-VL:</strong> [Provides temporal understanding and action description across frames]
+                                        <strong>Qianfan-VL:</strong> 在这段宁静祥和的视频中，一片宽阔的湖泊映入眼帘，湖面波光粼粼，反射着温暖的阳光。几艘小船散布在湖面上，有的靠近岸边，有的在湖心悠然行驶。远处，茂密的树林和连绵起伏的山脉构成了一幅美丽的画卷…
                                     </div>
                                 </div>
                             </div>
@@ -614,14 +634,14 @@
                             <h4>Object Grounding</h4>
                             <div class="showcase-content">
                                 <div class="showcase-image">
-                                    <img src="placeholder_grounding.jpg" alt="Scene with multiple objects">
+                                    <img src="images/object_grounding_result.jpg" alt="Animals with cat localization">
                                 </div>
                                 <div class="showcase-dialogue">
                                     <div class="user-prompt">
-                                        <strong>User:</strong> Locate all the red objects in this image.
+                                        <strong>User:</strong> Please provide the bounding box coordinate of the region this sentence describes: &lt;ref&gt;cat in the middle&lt;/ref&gt;
                                     </div>
                                     <div class="model-response">
-                                        <strong>Qianfan-VL:</strong> [Identifies and describes locations of specified objects]
+                                        <strong>Qianfan-VL:</strong> &lt;ref&gt;cat in the middle&lt;/ref&gt;&lt;box&gt;[[416, 577, 694, 804]]&lt;/box&gt;
                                     </div>
                                 </div>
                             </div>
@@ -631,14 +651,14 @@
                             <h4>Object Counting</h4>
                             <div class="showcase-content">
                                 <div class="showcase-image">
-                                    <img src="placeholder_counting.jpg" alt="Crowded scene">
+                                    <img src="images/object_counting.jpg" alt="Multiple watermelons">
                                 </div>
                                 <div class="showcase-dialogue">
                                     <div class="user-prompt">
-                                        <strong>User:</strong> How many people are in this image?
+                                        <strong>User:</strong> 图中有几个西瓜
                                     </div>
                                     <div class="model-response">
-                                        <strong>Qianfan-VL:</strong> [Accurately counts objects with spatial reasoning]
+                                        <strong>Qianfan-VL:</strong> 10
                                     </div>
                                 </div>
                             </div>
