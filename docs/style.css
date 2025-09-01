@@ -236,10 +236,11 @@ li {
     overflow-x: auto;
 }
 
-/* Code Blocks */
-pre {
-    background: var(--bg-code);
-    border: 1px solid var(--border-color);
+/* Code Blocks - Override Prism styles */
+pre,
+pre[class*="language-"] {
+    background: #1e1e1e !important;
+    border: 1px solid #3e3e42;
     border-radius: 6px;
     padding: 1rem;
     overflow-x: auto;
@@ -249,14 +250,88 @@ pre {
 code {
     font-family: var(--font-mono);
     font-size: 0.875rem;
-    background: var(--bg-code);
+    background: #2d2d30;
+    color: #d4d4d4;
     padding: 0.125rem 0.25rem;
     border-radius: 3px;
 }
 
-pre code {
-    background: transparent;
+pre code,
+pre[class*="language-"] code {
+    background: transparent !important;
+    color: #d4d4d4 !important;
     padding: 0;
+    line-height: 1.5;
+}
+
+/* Prism token colors for dark theme */
+.token {
+    text-shadow: none !important;
+    font-weight: normal !important;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #6a9955 !important;
+    text-shadow: none !important;
+}
+
+.token.punctuation {
+    color: #d4d4d4 !important;
+    text-shadow: none !important;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #b5cea8 !important;
+    text-shadow: none !important;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #ce9178 !important;
+    text-shadow: none !important;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #d7ba7d !important;
+    text-shadow: none !important;
+    background: transparent !important;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #569cd6 !important;
+    text-shadow: none !important;
+}
+
+.token.function,
+.token.class-name {
+    color: #dcdcaa !important;
+    text-shadow: none !important;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #c586c0 !important;
+    text-shadow: none !important;
 }
 
 /* Training Stages */
@@ -343,7 +418,150 @@ td {
     margin: 2rem 0;
 }
 
-/* Capability Showcase Styles */
+/* Tab Navigation Styles */
+.capabilities-container {
+    margin-top: 2rem;
+}
+
+.capability-tabs {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 2rem;
+    overflow-x: auto;
+    padding-bottom: 0;
+}
+
+.capability-tab {
+    padding: 0.75rem 1.5rem;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    position: relative;
+    bottom: -2px;
+}
+
+.capability-tab:hover {
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+}
+
+.capability-tab.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Capability Panels */
+.capability-panels {
+    position: relative;
+}
+
+.capability-panel {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.capability-panel.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Carousel Container */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    padding: 0 50px;
+}
+
+.carousel-wrapper {
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+/* Carousel Navigation Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--bg-primary);
+    border: 2px solid var(--border-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn:hover:not(:disabled) {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.carousel-prev {
+    left: 0;
+}
+
+.carousel-next {
+    right: 0;
+}
+
+/* Capability Cards */
+.capability-card {
+    flex: 0 0 500px;  /* Increased width for better table display */
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    height: 650px;  /* Fixed height for all cards */
+    display: flex;
+    flex-direction: column;
+}
+
+.capability-card h4 {
+    background: linear-gradient(135deg, var(--primary-color), #3b82f6);
+    color: white;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    flex-shrink: 0;  /* Prevent header from shrinking */
+}
+
+/* Legacy styles for backward compatibility */
 .capability-group {
     margin: 3rem 0;
 }
@@ -385,6 +603,29 @@ td {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    padding: 1.5rem;
+    flex: 1;
+    overflow-y: auto;  /* Enable vertical scrolling */
+    min-height: 0;  /* Important for flexbox scrolling */
+}
+
+/* Custom scrollbar styling */
+.showcase-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.showcase-content::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+    border-radius: 4px;
+}
+
+.showcase-content::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.showcase-content::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
 }
 
 .showcase-image {
@@ -393,14 +634,17 @@ td {
     border-radius: 6px;
     padding: 1rem;
     min-height: 200px;
+    max-height: 250px;  /* Limit image height */
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;  /* Prevent image from shrinking */
 }
 
 .showcase-image img {
     max-width: 100%;
-    height: auto;
+    max-height: 100%;
+    object-fit: contain;
     border-radius: 4px;
 }
 
@@ -408,6 +652,7 @@ td {
     background: white;
     border-radius: 6px;
     padding: 1rem;
+    flex-shrink: 0;  /* Prevent dialogue from excessive shrinking */
 }
 
 .user-prompt,
@@ -435,16 +680,184 @@ td {
 }
 
 .model-response pre {
-    background: var(--bg-code);
+    background: #1e1e1e;
     padding: 0.5rem;
     border-radius: 4px;
     margin: 0.5rem 0;
     font-size: 0.75rem;
     overflow-x: auto;
+    color: #d4d4d4;
+}
+
+/* Table inside model response */
+.model-response table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    margin: 0.5rem 0;
+}
+
+.model-response table th,
+.model-response table td {
+    padding: 0.5rem;
+    border: 1px solid var(--border-color);
+    text-align: left;
+}
+
+.model-response table th {
+    background: var(--bg-secondary);
+    font-weight: 600;
+}
+
+.model-response table td {
+    background: white;
+}
+
+/* Ensure tables don't overflow */
+.showcase-dialogue table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+/* Code Examples Tabs */
+.code-examples-container {
+    margin-top: 2rem;
+}
+
+.code-tabs {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+    margin-bottom: 2rem;
+    overflow-x: auto;
+    padding-bottom: 0;
+}
+
+.code-tab {
+    padding: 0.75rem 1.5rem;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    position: relative;
+    bottom: -2px;
+    font-family: var(--font-mono);
+}
+
+.code-tab:hover {
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+}
+
+.code-tab.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+    font-weight: 600;
+}
+
+.code-panels {
+    position: relative;
+}
+
+.code-panel {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.code-panel.active {
+    display: block;
+}
+
+.code-panel h4 {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.code-panel pre,
+.code-panel pre[class*="language-"] {
+    background: #1e1e1e !important;
+    border: 1px solid #3e3e42 !important;
+    border-radius: 8px;
+    padding: 1.5rem;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+}
+
+.code-panel pre code,
+.code-panel pre[class*="language-"] code {
+    color: #d4d4d4 !important;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    background: transparent !important;
+}
+
+/* Responsive Design for Tabs and Carousel */
+@media (max-width: 1024px) {
+    .capability-card {
+        flex: 0 0 450px;  /* Slightly smaller on tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .capability-tabs {
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+    }
+    
+    .capability-tab {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .carousel-container {
+        padding: 0 30px;
+    }
+    
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+    
+    .capability-card {
+        flex: 0 0 350px;
+        height: 600px;  /* Slightly shorter on mobile */
+    }
+    
+    .showcase-image {
+        max-height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .capability-card {
+        flex: 0 0 calc(100vw - 80px);  /* Full width minus button space */
+        height: 550px;
+    }
+    
+    .carousel-container {
+        padding: 0 25px;
+    }
+    
+    .carousel-btn {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
 }
 
 .model-response code {
-    background: var(--bg-code);
+    background: #2d2d30;
+    color: #d4d4d4;
     padding: 0.125rem 0.25rem;
     border-radius: 2px;
     font-size: 0.8rem;

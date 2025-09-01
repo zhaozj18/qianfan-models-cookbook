@@ -5,8 +5,142 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Qianfan-VL: Domain-Enhanced Multimodal Models | Baidu AI Cloud</title>
     <meta name="description" content="Qianfan-VL series: A comprehensive family of vision-language models with domain-specific excellence">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Override Prism theme for dark code blocks */
+        pre[class*="language-"],
+        code[class*="language-"] {
+            background: #1e1e1e !important;
+            color: #d4d4d4 !important;
+            text-shadow: none !important;
+            -webkit-font-smoothing: auto !important;
+            -moz-osx-font-smoothing: auto !important;
+        }
+        
+        :not(pre) > code[class*="language-"],
+        pre[class*="language-"] {
+            background: #1e1e1e !important;
+            text-shadow: none !important;
+        }
+        
+        /* Ensure all code blocks have dark background */
+        pre {
+            background: #1e1e1e !important;
+            border: 1px solid #3e3e42 !important;
+            text-shadow: none !important;
+        }
+        
+        pre code {
+            background: transparent !important;
+            color: #d4d4d4 !important;
+            text-shadow: none !important;
+            font-weight: normal !important;
+        }
+        
+        /* Remove any text shadows and backgrounds from tokens */
+        .token {
+            text-shadow: none !important;
+            background: transparent !important;
+        }
+        
+        /* Ensure operators have no background */
+        .token.operator {
+            background: transparent !important;
+        }
+    </style>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Tab switching functionality
+            const tabs = document.querySelectorAll('.capability-tab');
+            const panels = document.querySelectorAll('.capability-panel');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const targetTab = tab.dataset.tab;
+                    
+                    // Remove active class from all tabs and panels
+                    tabs.forEach(t => t.classList.remove('active'));
+                    panels.forEach(p => p.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding panel
+                    tab.classList.add('active');
+                    document.getElementById(targetTab + '-panel').classList.add('active');
+                });
+            });
+            
+            // Code tab switching functionality
+            const codeTabs = document.querySelectorAll('.code-tab');
+            const codePanels = document.querySelectorAll('.code-panel');
+            
+            codeTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const targetTab = tab.dataset.tab;
+                    
+                    // Remove active class from all tabs and panels
+                    codeTabs.forEach(t => t.classList.remove('active'));
+                    codePanels.forEach(p => p.classList.remove('active'));
+                    
+                    // Add active class to clicked tab and corresponding panel
+                    tab.classList.add('active');
+                    document.getElementById(targetTab + '-panel').classList.add('active');
+                });
+            });
+            
+            // Carousel functionality
+            const carousels = document.querySelectorAll('.carousel-container');
+            
+            carousels.forEach(carousel => {
+                const track = carousel.querySelector('.carousel-track');
+                const cards = track.querySelectorAll('.capability-card');
+                const prevBtn = carousel.querySelector('.carousel-prev');
+                const nextBtn = carousel.querySelector('.carousel-next');
+                
+                let currentIndex = 0;
+                const cardWidth = 520; // Card width (500px) + gap (20px)
+                const visibleCards = Math.floor(carousel.offsetWidth / cardWidth);
+                const maxIndex = Math.max(0, cards.length - visibleCards);
+                
+                function updateCarousel() {
+                    const offset = -currentIndex * cardWidth;
+                    track.style.transform = `translateX(${offset}px)`;
+                    
+                    // Update button states
+                    prevBtn.disabled = currentIndex === 0;
+                    nextBtn.disabled = currentIndex >= maxIndex;
+                }
+                
+                prevBtn.addEventListener('click', () => {
+                    if (currentIndex > 0) {
+                        currentIndex--;
+                        updateCarousel();
+                    }
+                });
+                
+                nextBtn.addEventListener('click', () => {
+                    if (currentIndex < maxIndex) {
+                        currentIndex++;
+                        updateCarousel();
+                    }
+                });
+                
+                // Initialize carousel
+                updateCarousel();
+                
+                // Update on window resize
+                window.addEventListener('resize', () => {
+                    const newVisibleCards = Math.floor(carousel.offsetWidth / cardWidth);
+                    const newMaxIndex = Math.max(0, cards.length - newVisibleCards);
+                    if (currentIndex > newMaxIndex) {
+                        currentIndex = newMaxIndex;
+                    }
+                    updateCarousel();
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <header class="site-header">
@@ -403,13 +537,27 @@
             <section id="applications" class="section">
                 <h2 id="model-capabilities">Model Capabilities</h2>
                 
-                <!-- OCR Capabilities -->
-                <div class="capability-group">
-                    <h3>OCR Capabilities</h3>
-                    
-                    <div class="showcase-grid">
-                        <div class="capability-showcase">
-                            <h4>Handwritten Recognition</h4>
+                <div class="capabilities-container">
+                    <!-- Tab Navigation -->
+                    <div class="capability-tabs">
+                        <button class="capability-tab active" data-tab="ocr">OCR</button>
+                        <button class="capability-tab" data-tab="math">Math Problem Solving</button>
+                        <button class="capability-tab" data-tab="document">Document Understanding</button>
+                        <button class="capability-tab" data-tab="video">Video Understanding</button>
+                        <button class="capability-tab" data-tab="grounding">Grounding & Counting</button>
+                    </div>
+
+                    <!-- Tab Content -->
+                    <div class="capability-panels">
+                        <!-- OCR Panel -->
+                        <div class="capability-panel active" id="ocr-panel">
+                            <div class="carousel-container">
+                                <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
+                                <div class="carousel-wrapper">
+                                    <div class="carousel-track">
+                                        <!-- Handwritten OCR -->
+                                        <div class="capability-card">
+                                            <h4>Handwritten Recognition</h4>
                             <div class="showcase-content">
                                 <div class="showcase-image">
                                     <img src="images/handwritten_recognition.png" alt="Handwritten text example">
@@ -423,10 +571,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                                        </div>
 
-                        <div class="capability-showcase">
-                            <h4>Scene OCR</h4>
+                                        <!-- Scene OCR -->
+                                        <div class="capability-card">
+                                            <h4>Scene OCR</h4>
                             <div class="showcase-content">
                                 <div class="showcase-image">
                                     <img src="images/scene_ocr.png" alt="Street scene with text">
@@ -443,10 +592,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                                        </div>
 
-                        <div class="capability-showcase">
-                            <h4>Math Equation Recognition</h4>
+                                        <!-- Math Equation Recognition -->
+                                        <div class="capability-card">
+                                            <h4>Math Equation Recognition</h4>
                             <div class="showcase-content">
                                 <div class="showcase-image">
                                     <img src="images/math_equation_recognition.jpg" alt="Mathematical equations">
@@ -460,10 +610,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                                        </div>
 
-                        <div class="capability-showcase">
-                            <h4>Information Extraction</h4>
+                                        <!-- Information Extraction -->
+                                        <div class="capability-card">
+                                            <h4>Information Extraction</h4>
                             <div class="showcase-content">
                                 <div class="showcase-image">
                                     <img src="images/information_extraction.jpeg" alt="Business form">
@@ -477,17 +628,22 @@
                                     </div>
                                 </div>
                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-btn carousel-next" aria-label="Next">›</button>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Math Problem Solving -->
-                <div class="capability-group">
-                    <h3>Math Problem Solving</h3>
-                    
-                    <div class="showcase-grid">
-                        <div class="capability-showcase">
-                            <h4>Photo Search Math Problem Solving</h4>
+                        <!-- Math Problem Solving Panel -->
+                        <div class="capability-panel" id="math-panel">
+                            <div class="carousel-container">
+                                <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
+                                <div class="carousel-wrapper">
+                                    <div class="carousel-track">
+                                        <!-- Photo Search Math Problem -->
+                                        <div class="capability-card">
+                                            <h4>Photo Search Math Problem Solving</h4>
                             <div class="showcase-content">
                                 <div class="showcase-image">
                                     <img src="placeholder_math_photo.jpg" alt="Math problem photo">
@@ -501,10 +657,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                                        </div>
 
-                        <div class="capability-showcase">
-                            <h4>Geometry Problem Solving</h4>
+                                        <!-- Geometry Problem -->
+                                        <div class="capability-card">
+                                            <h4>Geometry Problem Solving</h4>
                             <div class="showcase-content">
                                 <div class="showcase-image">
                                     <img src="images/geometry_problem_solving.jpg" alt="Geometry diagram">
@@ -544,17 +701,22 @@
                                     </div>
                                 </div>
                             </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-btn carousel-next" aria-label="Next">›</button>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Document Understanding -->
-                <div class="capability-group">
-                    <h3>Document Understanding</h3>
-                    
-                    <div class="showcase-grid">
-                        <div class="capability-showcase">
-                            <h4>Document Content Understanding</h4>
+                        <!-- Document Understanding Panel -->
+                        <div class="capability-panel" id="document-panel">
+                            <div class="carousel-container">
+                                <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
+                                <div class="carousel-wrapper">
+                                    <div class="carousel-track">
+                                        <!-- Document Content Understanding -->
+                                        <div class="capability-card">
+                                            <h4>Document Content Understanding</h4>
                             <div class="showcase-content">
                                 <div class="showcase-image">
                                     <img src="images/document_content_understanding.png" alt="Complex document">
@@ -568,10 +730,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                                        </div>
 
-                        <div class="capability-showcase">
-                            <h4>Table Understanding</h4>
+                                        <!-- Table Understanding -->
+                                        <div class="capability-card">
+                                            <h4>Table Understanding</h4>
                             <div class="showcase-content">
                                 <div class="showcase-image">
                                     <img src="images/table_understanding.png" alt="Complex table">
@@ -626,8 +789,9 @@
                             </div>
                         </div>
 
-                        <div class="capability-showcase">
-                            <h4>Chart Reasoning</h4>
+                                        <!-- Chart Reasoning -->
+                                        <div class="capability-card">
+                                            <h4>Chart Reasoning</h4>
                             <div class="showcase-content">
                                 <div class="showcase-image">
                                     <img src="images/chart_gift_reasoning.jpeg" alt="Gift selection chart">
@@ -650,10 +814,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                                        </div>
 
-                        <div class="capability-showcase">
-                            <h4>Chart Calculation</h4>
+                                        <!-- Chart Calculation -->
+                                        <div class="capability-card">
+                                            <h4>Chart Calculation</h4>
                             <div class="showcase-content">
                                 <div class="showcase-image">
                                     <img src="images/chart_math_calculation.png" alt="AI sentiment chart">
@@ -680,10 +845,11 @@ Answer: Approximately 42.3% (or 42.33%).
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                                        </div>
 
-                        <div class="capability-showcase">
-                            <h4>Stock Chart Analysis</h4>
+                                        <!-- Stock Chart Analysis -->
+                                        <div class="capability-card">
+                                            <h4>Stock Chart Analysis</h4>
                             <div class="showcase-content">
                                 <div class="showcase-image">
                                     <img src="images/chart_stock_elaboration.png" alt="Shanghai stock index chart">
@@ -697,73 +863,89 @@ Answer: Approximately 42.3% (or 42.33%).
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Video Understanding -->
-                <div class="capability-group">
-                    <h3>Video Understanding</h3>
-                    
-                    <div class="showcase-grid">
-                        <div class="capability-showcase full-width">
-                            <h4>Video Content Analysis</h4>
-                            <div class="showcase-content">
-                                <div class="showcase-image">
-                                    <video controls style="width: 100%;">
-                                        <source src="images/video_understanding.mp4" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>
-                                </div>
-                                <div class="showcase-dialogue">
-                                    <div class="user-prompt">
-                                        <strong>User:</strong> 请描述一下视频中的内容
-                                    </div>
-                                    <div class="model-response">
-                                        <strong>Qianfan-VL:</strong> 在这段宁静祥和的视频中，一片宽阔的湖泊映入眼帘，湖面波光粼粼，反射着温暖的阳光。几艘小船散布在湖面上，有的靠近岸边，有的在湖心悠然行驶。远处，茂密的树林和连绵起伏的山脉构成了一幅美丽的画卷…
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Grounding and Counting -->
-                <div class="capability-group">
-                    <h3>Grounding and Counting</h3>
-                    
-                    <div class="showcase-grid">
-                        <div class="capability-showcase">
-                            <h4>Object Grounding</h4>
-                            <div class="showcase-content">
-                                <div class="showcase-image">
-                                    <img src="images/object_grounding_result.jpg" alt="Animals with cat localization">
-                                </div>
-                                <div class="showcase-dialogue">
-                                    <div class="user-prompt">
-                                        <strong>User:</strong> Please provide the bounding box coordinate of the region this sentence describes: &lt;ref&gt;cat in the middle&lt;/ref&gt;
-                                    </div>
-                                    <div class="model-response">
-                                        <strong>Qianfan-VL:</strong> &lt;ref&gt;cat in the middle&lt;/ref&gt;&lt;box&gt;[[416, 577, 694, 804]]&lt;/box&gt;
-                                    </div>
-                                </div>
+                                <button class="carousel-btn carousel-next" aria-label="Next">›</button>
                             </div>
                         </div>
 
-                        <div class="capability-showcase">
-                            <h4>Object Counting</h4>
-                            <div class="showcase-content">
-                                <div class="showcase-image">
-                                    <img src="images/object_counting.jpg" alt="Multiple watermelons">
-                                </div>
-                                <div class="showcase-dialogue">
-                                    <div class="user-prompt">
-                                        <strong>User:</strong> 图中有几个西瓜
+                        <!-- Video Understanding Panel -->
+                        <div class="capability-panel" id="video-panel">
+                            <div class="carousel-container">
+                                <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
+                                <div class="carousel-wrapper">
+                                    <div class="carousel-track">
+                                        <!-- Video Content Analysis -->
+                                        <div class="capability-card">
+                                            <h4>Video Content Analysis</h4>
+                                            <div class="showcase-content">
+                                                <div class="showcase-image">
+                                                    <video controls style="width: 100%;">
+                                                        <source src="images/video_understanding.mp4" type="video/mp4">
+                                                        Your browser does not support the video tag.
+                                                    </video>
+                                                </div>
+                                                <div class="showcase-dialogue">
+                                                    <div class="user-prompt">
+                                                        <strong>User:</strong> 请描述一下视频中的内容
+                                                    </div>
+                                                    <div class="model-response">
+                                                        <strong>Qianfan-VL:</strong> 在这段宁静祥和的视频中，一片宽阔的湖泊映入眼帘，湖面波光粼粼，反射着温暖的阳光。几艘小船散布在湖面上，有的靠近岸边，有的在湖心悠然行驶。远处，茂密的树林和连绵起伏的山脉构成了一幅美丽的画卷…
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="model-response">
-                                        <strong>Qianfan-VL:</strong> 10
+                                </div>
+                                <button class="carousel-btn carousel-next" aria-label="Next">›</button>
+                            </div>
+                        </div>
+
+                        <!-- Grounding and Counting Panel -->
+                        <div class="capability-panel" id="grounding-panel">
+                            <div class="carousel-container">
+                                <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
+                                <div class="carousel-wrapper">
+                                    <div class="carousel-track">
+                                        <!-- Object Grounding -->
+                                        <div class="capability-card">
+                                            <h4>Object Grounding</h4>
+                                            <div class="showcase-content">
+                                                <div class="showcase-image">
+                                                    <img src="images/object_grounding_result.jpg" alt="Animals with cat localization">
+                                                </div>
+                                                <div class="showcase-dialogue">
+                                                    <div class="user-prompt">
+                                                        <strong>User:</strong> Please provide the bounding box coordinate of the region this sentence describes: &lt;ref&gt;cat in the middle&lt;/ref&gt;
+                                                    </div>
+                                                    <div class="model-response">
+                                                        <strong>Qianfan-VL:</strong> &lt;ref&gt;cat in the middle&lt;/ref&gt;&lt;box&gt;[[416, 577, 694, 804]]&lt;/box&gt;
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Object Counting -->
+                                        <div class="capability-card">
+                                            <h4>Object Counting</h4>
+                                            <div class="showcase-content">
+                                                <div class="showcase-image">
+                                                    <img src="images/object_counting.jpg" alt="Multiple watermelons">
+                                                </div>
+                                                <div class="showcase-dialogue">
+                                                    <div class="user-prompt">
+                                                        <strong>User:</strong> 图中有几个西瓜
+                                                    </div>
+                                                    <div class="model-response">
+                                                        <strong>Qianfan-VL:</strong> 10
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <button class="carousel-btn carousel-next" aria-label="Next">›</button>
                             </div>
                         </div>
                     </div>
@@ -774,64 +956,467 @@ Answer: Approximately 42.3% (or 42.33%).
                 <h2>Getting Started</h2>
                 
                 <h3>Installation</h3>
-                <pre><code class="language-bash"># Install Qianfan SDK
-pip install qianfan
+                <pre><code class="language-bash"># Install OpenAI SDK
+pip install openai
 
-# Set up authentication
+# Set up authentication (using Qianfan credentials)
 export QIANFAN_ACCESS_KEY="your_access_key"
 export QIANFAN_SECRET_KEY="your_secret_key"</code></pre>
 
-                <h3>Basic Usage</h3>
-                <pre><code class="language-python">from qianfan import QianfanVL
+                <h3>Basic Setup</h3>
+                <pre><code class="language-python">from openai import OpenAI
 import base64
+import os
 
-# Initialize client with model selection
-client = QianfanVL(
-    model="Qianfan-VL-8B",  # Options: 3B, 8B, 70B
-    access_key="YOUR_ACCESS_KEY",
-    secret_key="YOUR_SECRET_KEY"
+# Initialize client with Qianfan endpoint
+client = OpenAI(
+    api_key = os.environ.get("QIANFAN_SECRET_KEY"),
+    base_url = "https://api.qianfan.com/v1",
+    default_headers = {
+        "X-Access-Key": os.environ.get("QIANFAN_ACCESS_KEY")
+    }
 )
 
-# Example: Document Understanding
-with open("document.pdf", "rb") as f:
-    doc_base64 = base64.b64encode(f.read()).decode()
+# Available models: Qianfan-VL-8B, Qianfan-VL-70B
+# Note: Qianfan-VL-3B will be available soon
+model = "Qianfan-VL-8B"</code></pre>
 
-response = client.analyze_document(
-    document=doc_base64,
-    task="extract_tables",
-    output_format="markdown"
-)
-
-print(response.content)</code></pre>
-
-                <h3>Domain-Specific Examples</h3>
+                <h3>Code Examples by Capability</h3>
                 
-                <h4>OCR and Text Extraction</h4>
-                <pre><code class="language-python"># Extract text from complex document
-response = client.ocr(
-    image=image_base64,
-    mode="document",  # Options: document, scene, handwritten
-    languages=["zh", "en"],
-    preserve_layout=True
+                <div class="code-examples-container">
+                    <!-- Code Example Tabs -->
+                    <div class="code-tabs">
+                        <button class="code-tab active" data-tab="ocr-code">OCR</button>
+                        <button class="code-tab" data-tab="math-code">Math Solving</button>
+                        <button class="code-tab" data-tab="document-code">Document Understanding</button>
+                        <button class="code-tab" data-tab="video-code">Video Analysis</button>
+                        <button class="code-tab" data-tab="grounding-code">Grounding & Counting</button>
+                    </div>
+
+                    <!-- Code Panels -->
+                    <div class="code-panels">
+                        <!-- OCR Code Panel -->
+                        <div class="code-panel active" id="ocr-code-panel">
+                            <h4>OCR and Text Extraction</h4>
+                            <pre><code class="language-python">from openai import OpenAI
+import base64
+import os
+
+client = OpenAI(
+    api_key = os.environ.get("QIANFAN_SECRET_KEY"),
+    base_url = "https://api.qianfan.com/v1",
+    default_headers = {"X-Access-Key": os.environ.get("QIANFAN_ACCESS_KEY")}
 )
 
-# Convert to structured format
-markdown_output = response.to_markdown()
-html_tables = response.extract_tables()</code></pre>
+# Read and encode image
+with open("handwritten_text.jpg", "rb") as image_file:
+    image_base64 = base64.b64encode(image_file.read()).decode('utf-8')
 
-                <h4>Mathematical Problem Solving</h4>
-                <pre><code class="language-python"># Solve mathematical problems with step-by-step explanation
-response = client.solve_math(
-    image=problem_image,
-    show_steps=True,
-    output_format="latex",
-    education_level="high_school"
+# OCR for handwritten text
+response = client.chat.completions.create(
+    model = "Qianfan-VL-8B",
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {"type": "text", "text": "请识别图中的手写文字，并转换为简体中文"},
+                {
+                    "type": "image_url",
+                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
+                }
+            ]
+        }
+    ],
+    temperature = 0.1,  # Lower temperature for accurate OCR
+    max_tokens = 2048
 )
 
-# Get detailed solution
-solution = response.solution
-steps = response.step_by_step
-final_answer = response.answer</code></pre>
+print(response.choices[0].message.content)
+
+# Scene text extraction
+scene_response = client.chat.completions.create(
+    model = "Qianfan-VL-8B",
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {"type": "text", "text": "提取图片中所有的文字信息，包括招牌、标语等"},
+                {
+                    "type": "image_url",
+                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
+                }
+            ]
+        }
+    ]
+)
+
+# Extract structured information from forms
+form_response = client.chat.completions.create(
+    model = "Qianfan-VL-8B",
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {"type": "text", "text": "提取表单中的关键信息，输出为JSON格式"},
+                {
+                    "type": "image_url",
+                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
+                }
+            ]
+        }
+    ]
+)</code></pre>
+                        </div>
+
+                        <!-- Math Code Panel -->
+                        <div class="code-panel" id="math-code-panel">
+                            <h4>Mathematical Problem Solving</h4>
+                            <pre><code class="language-python">from openai import OpenAI
+import base64
+import os
+
+client = OpenAI(
+    api_key = os.environ.get("QIANFAN_SECRET_KEY"),
+    base_url = "https://api.qianfan.com/v1",
+    default_headers = {"X-Access-Key": os.environ.get("QIANFAN_ACCESS_KEY")}
+)
+
+# Read math problem image
+with open("math_problem.jpg", "rb") as image_file:
+    image_base64 = base64.b64encode(image_file.read()).decode('utf-8')
+
+# Solve with step-by-step explanation
+response = client.chat.completions.create(
+    model = "Qianfan-VL-70B",  # Use larger model for complex math
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text", 
+                    "text": """请解决这道数学题，要求：
+1. 详细说明解题思路
+2. 给出每一步的推导过程
+3. 使用LaTeX格式书写数学公式
+4. 最后给出答案"""
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
+                }
+            ]
+        }
+    ],
+    temperature = 0.2,
+    max_tokens = 4096
+)
+
+print(response.choices[0].message.content)
+
+# Geometry problem solving
+geometry_response = client.chat.completions.create(
+    model = "Qianfan-VL-70B",
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "分析这道几何题，画出辅助线并说明解题步骤"
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
+                }
+            ]
+        }
+    ]
+)
+
+# Extract mathematical equations
+equation_response = client.chat.completions.create(
+    model = "Qianfan-VL-8B",
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {"type": "text", "text": "将图中的数学公式转换为LaTeX格式"},
+                {
+                    "type": "image_url",
+                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
+                }
+            ]
+        }
+    ]
+)</code></pre>
+                        </div>
+
+                        <!-- Document Code Panel -->
+                        <div class="code-panel" id="document-code-panel">
+                            <h4>Document Understanding</h4>
+                            <pre><code class="language-python">from openai import OpenAI
+import base64
+import os
+
+client = OpenAI(
+    api_key = os.environ.get("QIANFAN_SECRET_KEY"),
+    base_url = "https://api.qianfan.com/v1",
+    default_headers = {"X-Access-Key": os.environ.get("QIANFAN_ACCESS_KEY")}
+)
+
+# Read document image
+with open("document.jpg", "rb") as image_file:
+    image_base64 = base64.b64encode(image_file.read()).decode('utf-8')
+
+# Extract and analyze document content
+response = client.chat.completions.create(
+    model = "Qianfan-VL-8B",
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": """请分析这份文档：
+1. 提取文档的主要内容和关键信息
+2. 识别文档类型（合同、报告、财务报表等）
+3. 总结核心要点
+4. 标注重要条款或数据"""
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
+                }
+            ]
+        }
+    ],
+    temperature = 0.1,
+    max_tokens = 3000
+)
+
+print(response.choices[0].message.content)
+
+# Table extraction and analysis
+table_response = client.chat.completions.create(
+    model = "Qianfan-VL-8B",
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": """请提取表格内容：
+1. 将表格转换为Markdown格式
+2. 保留所有合并单元格的结构
+3. 计算关键指标（如有）
+4. 分析数据趋势"""
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
+                }
+            ]
+        }
+    ]
+)
+
+# Chart analysis
+chart_response = client.chat.completions.create(
+    model = "Qianfan-VL-70B",
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "分析这个图表，提取数据并给出洞察"
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
+                }
+            ]
+        }
+    ]
+)</code></pre>
+                        </div>
+
+                        <!-- Video Code Panel -->
+                        <div class="code-panel" id="video-code-panel">
+                            <h4>Video Understanding</h4>
+                            <pre><code class="language-python">from openai import OpenAI
+import base64
+import os
+import cv2
+
+client = OpenAI(
+    api_key = os.environ.get("QIANFAN_SECRET_KEY"),
+    base_url = "https://api.qianfan.com/v1",
+    default_headers = {"X-Access-Key": os.environ.get("QIANFAN_ACCESS_KEY")}
+)
+
+# Extract key frames from video
+def extract_frames(video_path, num_frames = 8):
+    cap = cv2.VideoCapture(video_path)
+    total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+    frame_indices = [i * total_frames // num_frames for i in range(num_frames)]
+    
+    frames = []
+    for idx in frame_indices:
+        cap.set(cv2.CAP_PROP_POS_FRAMES, idx)
+        ret, frame = cap.read()
+        if ret:
+            _, buffer = cv2.imencode('.jpg', frame)
+            frame_base64 = base64.b64encode(buffer).decode('utf-8')
+            frames.append(frame_base64)
+    
+    cap.release()
+    return frames
+
+# Extract frames
+frames = extract_frames("video.mp4", num_frames = 8)
+
+# Analyze video content
+content = []
+for i, frame in enumerate(frames):
+    content.append({"type": "text", "text": f"Frame {i+1}:"})
+    content.append({
+        "type": "image_url",
+        "image_url": {"url": f"data:image/jpeg;base64,{frame}"}
+    })
+
+content.append({"type": "text", "text": """请分析这个视频：
+1. 描述视频的整体内容
+2. 识别主要场景和活动
+3. 提取关键时刻
+4. 总结视频的主题"""})
+
+response = client.chat.completions.create(
+    model = "Qianfan-VL-70B",
+    messages=[{"role": "user", "content": content}],
+    temperature = 0.3,
+    max_tokens = 2048
+)
+
+print(response.choices[0].message.content)
+
+# Action recognition
+action_response = client.chat.completions.create(
+    model = "Qianfan-VL-8B",
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {"type": "text", "text": "识别视频中的动作和行为"},
+                *[{"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{f}"}} for f in frames[:4]]
+            ]
+        }
+    ]
+)</code></pre>
+                        </div>
+
+                        <!-- Grounding Code Panel -->
+                        <div class="code-panel" id="grounding-code-panel">
+                            <h4>Grounding and Counting</h4>
+                            <pre><code class="language-python">from openai import OpenAI
+import base64
+import os
+import json
+
+client = OpenAI(
+    api_key = os.environ.get("QIANFAN_SECRET_KEY"),
+    base_url = "https://api.qianfan.com/v1",
+    default_headers = {"X-Access-Key": os.environ.get("QIANFAN_ACCESS_KEY")}
+)
+
+# Read image
+with open("objects.jpg", "rb") as image_file:
+    image_base64 = base64.b64encode(image_file.read()).decode('utf-8')
+
+# Object grounding with bounding boxes
+grounding_response = client.chat.completions.create(
+    model = "Qianfan-VL-8B",
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": "Please provide the bounding box coordinates for: <ref>the red car in the middle</ref>"
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
+                }
+            ]
+        }
+    ],
+    temperature = 0.1,
+    max_tokens = 512
+)
+
+# Parse bounding box from response
+response_text = grounding_response.choices[0].message.content
+print(f"Grounding result: {response_text}")
+
+# Object counting
+counting_response = client.chat.completions.create(
+    model = "Qianfan-VL-8B",
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {"type": "text", "text": "请数一下图中有多少个人、多少辆车、多少棵树"},
+                {
+                    "type": "image_url",
+                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
+                }
+            ]
+        }
+    ],
+    temperature = 0.1,
+    max_tokens = 256
+)
+
+print(f"Counting result: {counting_response.choices[0].message.content}")
+
+# Detailed object detection
+detection_response = client.chat.completions.create(
+    model = "Qianfan-VL-70B",
+    messages=[
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": """请检测图中所有对象，输出JSON格式：
+{
+  "objects": [
+    {"name": "对象名称", "count": 数量, "location": "位置描述"},
+    ...
+  ]
+}"""
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
+                }
+            ]
+        }
+    ],
+    temperature = 0.1,
+    max_tokens = 1024
+)
+
+# Parse JSON response
+try:
+    objects = json.loads(detection_response.choices[0].message.content)
+    print(json.dumps(objects, ensure_ascii = False, indent = 2))
+except json.JSONDecodeError:
+    print(detection_response.choices[0].message.content)</code></pre>
+                        </div>
+                    </div>
+                </div>
 
                 <h3>API Parameters</h3>
                 <table class="api-table">
@@ -848,13 +1433,13 @@ final_answer = response.answer</code></pre>
                             <td><code>model</code></td>
                             <td>string</td>
                             <td>required</td>
-                            <td>Model size: "Qianfan-VL-3B", "Qianfan-VL-8B", "Qianfan-VL-70B"</td>
+                            <td>Available models: "Qianfan-VL-8B", "Qianfan-VL-70B" (3B coming soon)</td>
                         </tr>
                         <tr>
-                            <td><code>task</code></td>
-                            <td>string</td>
-                            <td>"general"</td>
-                            <td>Task type: "ocr", "document", "education", "general"</td>
+                            <td><code>messages</code></td>
+                            <td>array</td>
+                            <td>required</td>
+                            <td>Array of message objects with role and content</td>
                         </tr>
                         <tr>
                             <td><code>temperature</code></td>
@@ -869,53 +1454,19 @@ final_answer = response.answer</code></pre>
                             <td>Maximum tokens to generate</td>
                         </tr>
                         <tr>
-                            <td><code>domain_enhance</code></td>
+                            <td><code>top_p</code></td>
+                            <td>float</td>
+                            <td>1.0</td>
+                            <td>Nucleus sampling parameter</td>
+                        </tr>
+                        <tr>
+                            <td><code>stream</code></td>
                             <td>boolean</td>
-                            <td>true</td>
-                            <td>Enable domain-specific enhancements</td>
+                            <td>false</td>
+                            <td>Enable streaming responses</td>
                         </tr>
                     </tbody>
                 </table>
-            </section>
-
-            <section id="roadmap" class="section">
-                <h2>Looking Forward</h2>
-                
-                <p>The future roadmap for Qianfan-VL includes:</p>
-                
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">Q1 2025</div>
-                        <div class="timeline-content">
-                            <strong>Architecture Evolution</strong>
-                            <p>Continuous exploration of optimal architectures for different scenarios</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">Q2 2025</div>
-                        <div class="timeline-content">
-                            <strong>Domain Expansion</strong>
-                            <p>From OCR/Doc/K-12 education to e-commerce, vocational training, and beyond</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">Q3 2025</div>
-                        <div class="timeline-content">
-                            <strong>Capability Enhancement</strong>
-                            <p>Evolution from image-text understanding to full multimodal understanding and multimodal agents</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">Q4 2025</div>
-                        <div class="timeline-content">
-                            <strong>Open Source Release</strong>
-                            <p>Selected model weights and training frameworks available to the community</p>
-                        </div>
-                    </div>
-                </div>
             </section>
 
             <section id="conclusion" class="section">
