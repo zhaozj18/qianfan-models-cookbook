@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qianfan-VL: Domain-Enhanced Multimodal Models | Baidu AI Cloud</title>
-    <meta name="description" content="Qianfan-VL series: A comprehensive family of vision-language models with domain-specific excellence">
+    <title>Qianfan-VL: 面向用户需求的多模态大模型系列 | 百度智能云千帆</title>
+    <meta name="description" content="Qianfan-VL系列：3B到70B参数的多模态模型，专注文档理解、OCR增强和推理能力">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css">
     <link rel="stylesheet" href="style.css">
     
@@ -48,6 +48,36 @@
         /* Ensure operators have no background */
         .token.operator {
             background: transparent !important;
+        }
+        
+        /* New styles for core features section */
+        .core-feature {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            color: white;
+            margin-bottom: 2rem;
+        }
+        
+        .core-feature h3 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tech-highlight {
+            background: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+        
+        .capability-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
         }
     </style>
     
@@ -146,15 +176,13 @@
     <header class="site-header">
         <div class="container">
             <div class="header-content">
-                <h1 class="site-title">Qianfan-VL Technical Documentation</h1>
+                <h1 class="site-title">Qianfan-VL: 领域增强通用视觉-语言模型技术文档</h1>
                 <nav class="main-nav">
-                    <a href="#overview">Overview</a>
-                    <a href="#innovations">Innovations</a>
-                    <a href="#architecture">Architecture</a>
-                    <a href="#training">Training</a>
-                    <a href="#benchmarks">Benchmarks</a>
-                    <a href="#applications">Model Capabilities</a>
-                    <a href="#api">API</a>
+                    <a href="#core-features">核心功能</a>
+                    <a href="#tech-highlights">技术特色</a>
+                    <a href="#benchmarks">性能基准</a>
+                    <a href="#applications">应用案例</a>
+                    <a href="#api">API使用</a>
                 </nav>
             </div>
         </div>
@@ -163,1084 +191,791 @@
     <main class="main-content">
         <div class="container">
             <div class="hero-section">
-                <h2 class="hero-title">Qianfan-VL: A Domain-Enhanced Multimodal Model Series</h2>
-                <p class="hero-subtitle">Bridging the Gap Between General-Purpose Capabilities and Domain-Specific Excellence</p>
-                <p class="hero-meta">3B to 70B Parameters | Released August 2025 | Baidu AI Cloud</p>
+                <h2 class="hero-title">Qianfan-VL: 领域增强通用视觉-语言模型</h2>
+                <p class="hero-subtitle">通过持续预训练实现领域能力增强 | 3B到70B参数规模 | 文档理解与OCR能力增强 | 支持思考推理能力</p>
+                <p class="hero-meta">2025年8月发布 | 百度智能云千帆大模型平台</p>
             </div>
 
-            <section id="overview" class="section">
-                <h2>Introduction</h2>
-                <p>
-                    In the rapidly evolving landscape of multimodal large language models, Baidu AI Cloud introduces the <strong>Qianfan-VL series</strong> - 
-                    a comprehensive family of vision-language models designed to bridge the gap between general-purpose capabilities and domain-specific excellence. 
-                    With model sizes ranging from 3B to 70B parameters, Qianfan-VL represents a significant advancement in making multimodal AI both powerful 
-                    and practical for enterprise applications.
-                </p>
-                
-                <p>
-                    The multimodal understanding capability has become essential for enterprise intelligence transformation. While the past year has witnessed 
-                    remarkable progress in multimodal models, several challenges continue to hinder widespread deployment. Qianfan-VL addresses these challenges 
-                    head-on with innovative solutions in cross-modal alignment, domain enhancement, and efficient training on Kunlun chips.
-                </p>
-
-                <h3>Model Family</h3>
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <div class="metric-value">Qianfan-VL-3B</div>
-                        <div class="metric-label">Lightweight deployment for edge and mobile</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">Qianfan-VL-8B</div>
-                        <div class="metric-label">Balanced performance for enterprise</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">Qianfan-VL-70B</div>
-                        <div class="metric-label">Maximum capability for complex tasks</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">3.5T Tokens</div>
-                        <div class="metric-label">Multimodal pre-training data</div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="innovations" class="section">
-                <h2>Key Innovations</h2>
-                
-                <h3>1. Domain-Enhanced Training Paradigm</h3>
-                <p>
-                    Unlike traditional multimodal models that focus solely on general capabilities, Qianfan-VL introduces a unique domain-enhanced 
-                    training approach. The model specifically optimizes for high-frequency enterprise tasks while maintaining strong general performance.
-                </p>
-                
-                <div class="feature-card">
-                    <h4>Training Approach Components</h4>
-                    <ul>
-                        <li><strong>Continuous Multimodal Pre-training:</strong> Starting with 3.5T image-text tokens for comprehensive knowledge injection</li>
-                        <li><strong>Domain-Enhanced Data Synthesis:</strong> Targeted enhancement for OCR, document understanding, K-12 education, and more</li>
-                        <li><strong>Task-Specific Scenario Expansion:</strong> Systematic coverage of diverse application scenarios within each domain</li>
-                    </ul>
-                </div>
-
-                <h3>2. Three-Stage Training Strategy</h3>
-                <p>Qianfan-VL employs a sophisticated three-stage training process:</p>
-                
-                <ol class="training-stages">
-                    <li>
-                        <strong>Stage 1: Cross-Modal Alignment</strong>
-                        <p>• Establishes fundamental connections between vision and language modalities<br>
-                        • Trains only the MLP adapter while keeping other components frozen<br>
-                        • Uses general-purpose data for robust cross-modal bridging</p>
-                    </li>
-                    <li>
-                        <strong>Stage 1.5: Knowledge Injection</strong>
-                        <p>• Massive injection of multimodal knowledge (300B VLM tokens + 30B text tokens)<br>
-                        • Domain-specific enhancement for OCR, mathematics, and document understanding<br>
-                        • Multi-task learning framework for comprehensive capability development</p>
-                    </li>
-                    <li>
-                        <strong>Stage 2: Quality Refinement</strong>
-                        <p>• High-quality instruction fine-tuning with 1B carefully curated tokens<br>
-                        • Preference learning to reduce hallucinations<br>
-                        • Integration of thinking data to enhance reasoning capabilities</p>
-                    </li>
-                </ol>
-
-                <h3 id="architecture">3. Advanced Architecture Design</h3>
-                <p>The Qianfan-VL architecture builds upon proven foundations while introducing key enhancements:</p>
-                
-                <div class="architecture-overview">
-                    <img src="images/qianfan_vl_arch.png" alt="Qianfan-VL Architecture" class="architecture-image">
-                </div>
-
-                <div class="architecture-details">
-                    <h4>Architecture Components</h4>
-                    <ul>
-                        <li><strong>Language Model:</strong> The language model adopts the Llama 3.1 architecture with an expanded vocabulary. It was obtained through vocabulary expansion and Chinese localization based on 3T Chinese-English corpus.</li>
-                        <li><strong>Vision Encoder:</strong> The ViT employs dynamic tiling for processing images with dynamic resolution. We referenced InternVL's approach, and the Vision Encoder uses InternViT as initialization parameters for learning.</li>
-                        <li><strong>Cross-Modal Fusion:</strong> MLP adapter bridges the vision and language modalities, enabling seamless multimodal understanding.</li>
-                    </ul>
-                </div>
-            </section>
-
-            <section id="domain-enhancement" class="section">
-                <h2>Domain Enhancement in Action</h2>
-                
-                <p class="section-intro">
-                    Qianfan-VL's domain enhancement represents a paradigm shift from general-purpose vision-language models to specialized excellence. 
-                    Through targeted data synthesis and training methodologies, we achieve significant performance gains in critical enterprise domains 
-                    while maintaining broad multimodal capabilities.
-                </p>
-
-                <h3>🎯 Core Enhancement Strategy</h3>
-                <div class="strategy-overview">
-                    <div class="strategy-card">
-                        <h4>1. Data Synthesis Pipeline</h4>
-                        <p>Advanced automated generation combining internet resources, traditional vision models, and programmatic synthesis</p>
-                    </div>
-                    <div class="strategy-card">
-                        <h4>2. Multi-Domain Coverage</h4>
-                        <p>Systematic enhancement across OCR, document understanding, mathematical reasoning, and educational tasks</p>
-                    </div>
-                    <div class="strategy-card">
-                        <h4>3. Quality-Focused Training</h4>
-                        <p>Rejection sampling, iterative filtering, and domain-specific evaluation metrics ensure high-quality enhancement</p>
-                    </div>
-                </div>
-
-                <h3>📄 OCR and Document Understanding Excellence</h3>
-                <p>
-                    <strong>Our flagship domain enhancement</strong> - Qianfan-VL transforms document processing through comprehensive OCR capabilities 
-                    that handle everything from handwritten notes to complex financial tables.
-                </p>
-                
-                <div class="enhancement-highlights">
-                    <div class="highlight-section">
-                        <h4>🔍 Advanced Text Recognition</h4>
-                        <div class="feature-grid">
-                            <div class="feature-item">
-                                <strong>Natural Scene Text:</strong> Street signs, billboards, product labels with 90%+ accuracy
-                            </div>
-                            <div class="feature-item">
-                                <strong>Handwritten Content:</strong> Chinese and English handwriting with contextual understanding
-                            </div>
-                            <div class="feature-item">
-                                <strong>Mathematical Formulas:</strong> Direct LaTeX conversion from images with complex equation support
-                            </div>
-                            <div class="feature-item">
-                                <strong>Multi-Language Support:</strong> Seamless processing of mixed Chinese-English documents
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="highlight-section">
-                        <h4>📊 Structured Information Extraction</h4>
-                        <div class="extraction-examples">
-                            <div class="example-card">
-                                <h5>Financial Documents</h5>
-                                <p>• Invoice processing with automatic field extraction<br>
-                                • Balance sheet analysis with ratio calculations<br>
-                                • Tax form digitization with validation</p>
-                            </div>
-                            <div class="example-card">
-                                <h5>Business Forms</h5>
-                                <p>• Contract clause identification and categorization<br>
-                                • Application form data standardization<br>
-                                • Survey response aggregation and analysis</p>
-                            </div>
-                            <div class="example-card">
-                                <h5>Table Processing</h5>
-                                <p>• Complex table structure preservation in HTML/Markdown<br>
-                                • Multi-level header recognition<br>
-                                • Merged cell handling with relationship mapping</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="performance-showcase">
-                    <h4>🚀 Remarkable Performance Gains</h4>
-                    <div class="metrics-comparison">
-                        <div class="metric-highlight">
-                            <div class="metric-value">+5.26%</div>
-                            <div class="metric-label">Educational Tasks<br><span class="detail">80.09% → 85.35%</span></div>
-                        </div>
-                        <div class="metric-highlight">
-                            <div class="metric-value">+1.3%</div>
-                            <div class="metric-label">Document OCR<br><span class="detail">73.7% → 75.0%</span></div>
-                        </div>
-                        <div class="metric-highlight">
-                            <div class="metric-value">15x</div>
-                            <div class="metric-label">Training Efficiency<br><span class="detail">vs. general training</span></div>
-                        </div>
-                    </div>
-                    
-                    <table class="improvement-table">
-                        <thead>
-                            <tr>
-                                <th>Domain Task</th>
-                                <th>General Model</th>
-                                <th>Domain-Enhanced</th>
-                                <th>Improvement</th>
-                                <th>Impact</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>DocOCR2Markdown</td>
-                                <td>73.7%</td>
-                                <td>75.0%</td>
-                                <td class="positive">+1.3%</td>
-                                <td>Enterprise document processing</td>
-                            </tr>
-                            <tr>
-                                <td>DocTable2HTML (Complex)</td>
-                                <td>69.1%</td>
-                                <td>68.4%</td>
-                                <td class="neutral">-0.7%</td>
-                                <td>Maintained performance in edge cases</td>
-                            </tr>
-                            <tr class="highlight-row">
-                                <td>Educational Tasks Avg</td>
-                                <td>80.09%</td>
-                                <td>85.35%</td>
-                                <td class="positive">+5.26%</td>
-                                <td>K-12 education transformation</td>
-                            </tr>
-                            <tr>
-                                <td>Mathematical Problem Solving</td>
-                                <td>72.4%</td>
-                                <td>78.9%</td>
-                                <td class="positive">+6.5%</td>
-                                <td>STEM education support</td>
-                            </tr>
-                            <tr>
-                                <td>Form Information Extraction</td>
-                                <td>68.2%</td>
-                                <td>84.7%</td>
-                                <td class="positive">+16.5%</td>
-                                <td>Enterprise automation</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <h3>🧮 Mathematical Reasoning Revolution</h3>
-                <p>
-                    Beyond OCR, our domain enhancement achieves breakthrough performance in mathematical reasoning through 
-                    <strong>innovative Chain-of-Thought (CoT) synthesis and multi-language problem diversification</strong>.
-                </p>
-
-                <div class="math-enhancement">
-                    <div class="math-approach">
-                        <h4>🔬 Advanced Training Methodology</h4>
-                        <div class="approach-grid">
-                            <div class="approach-item">
-                                <h5>LongCoT Synthesis</h5>
-                                <p>Extended reasoning chains with detailed step-by-step explanations, enabling the model to handle complex multi-step problems with intermediate verification</p>
-                            </div>
-                            <div class="approach-item">
-                                <h5>Multi-Language Problem Rewriting</h5>
-                                <p>Systematic translation and cultural adaptation of mathematical problems across Chinese and English, expanding problem diversity by 3x</p>
-                            </div>
-                            <div class="approach-item">
-                                <h5>Rejection Sampling & Quality Control</h5>
-                                <p>Advanced filtering using mathematical verification tools and expert review, ensuring 95%+ accuracy in training data</p>
-                            </div>
-                            <div class="approach-item">
-                                <h5>Comprehensive Task Coverage</h5>
-                                <p>Problem recognition, solution generation, step verification, answer grading, and explanation quality assessment</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="math-results">
-                        <h4>📈 Mathematical Performance Breakthrough</h4>
-                        <div class="results-summary">
-                            <div class="result-card">
-                                <h5>K-12 Mathematics</h5>
-                                <div class="score">85.35%</div>
-                                <p>Average accuracy across algebra, geometry, and calculus problems</p>
-                            </div>
-                            <div class="result-card">
-                                <h5>Problem Recognition</h5>
-                                <div class="score">92.1%</div>
-                                <p>Accurate identification of problem types from images</p>
-                            </div>
-                            <div class="result-card">
-                                <h5>Solution Quality</h5>
-                                <div class="score">88.7%</div>
-                                <p>Complete and correct step-by-step solutions</p>
-                            </div>
-                        </div>
+            <!-- 目录 -->
+            <section class="table-of-contents section">
+                <h2>目录</h2>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 1rem;">
+                    <div>
+                        <h3><a href="#core-features" style="text-decoration: none; color: var(--text-primary);">1. 核心功能</a></h3>
+                        <ul style="list-style: none; padding-left: 1rem; margin: 0.5rem 0;">
+                            <li>• 通用能力基准测试</li>
+                            <li>• 多尺寸模型满足不同场景需求</li>
+                            <li>• OCR与文档理解能力增强</li>
+                            <li>• 思考推理能力</li>
+                        </ul>
                         
-                        <div class="math-capabilities">
-                            <h5>🎯 Key Mathematical Capabilities</h5>
-                            <ul class="capabilities-list">
-                                <li><strong>Visual Problem Understanding:</strong> Direct processing of handwritten and printed math problems</li>
-                                <li><strong>Multi-Step Reasoning:</strong> Complex algebraic manipulations with intermediate checks</li>
-                                <li><strong>Geometry Visualization:</strong> Spatial reasoning with diagram analysis and construction</li>
-                                <li><strong>Formula Recognition:</strong> LaTeX generation from mathematical expressions</li>
-                                <li><strong>Educational Support:</strong> Detailed explanations suitable for different learning levels</li>
-                                <li><strong>Error Detection:</strong> Identification and correction of common mathematical mistakes</li>
-                            </ul>
-                        </div>
+                        <h3><a href="#tech-highlights" style="text-decoration: none; color: var(--text-primary);">2. 模型架构设计与技术特色</a></h3>
+                        <ul style="list-style: none; padding-left: 1rem; margin: 0.5rem 0;">
+                            <li>• 整体架构</li>
+                            <li>• 技术创新与特色</li>
+                            <li>• 能力增强训练管线</li>
+                            <li>• 高精度数据合成技术</li>
+                            <li>• 大规模昆仑卡并行训练</li>
+                        </ul>
                     </div>
-                </div>
-
-                <div class="real-world-impact">
-                    <h4>🌟 Real-World Impact</h4>
-                    <p>
-                        These domain enhancements translate directly to practical applications: <strong>automated document processing systems</strong> 
-                        reduce manual data entry by 85%, <strong>educational AI tutors</strong> provide personalized math instruction, and 
-                        <strong>enterprise form processing</strong> achieves near-human accuracy at scale.
-                    </p>
                     
-                    <div class="impact-metrics">
-                        <div class="impact-item">
-                            <div class="impact-number">85%</div>
-                            <div class="impact-text">Reduction in manual<br>document processing</div>
-                        </div>
-                        <div class="impact-item">
-                            <div class="impact-number">15x</div>
-                            <div class="impact-text">Faster form<br>digitization</div>
-                        </div>
-                        <div class="impact-item">
-                            <div class="impact-number">92%</div>
-                            <div class="impact-text">Student satisfaction<br>with AI tutoring</div>
-                        </div>
+                    <div>
+                        <h3><a href="#applications" style="text-decoration: none; color: var(--text-primary);">3. 场景Case展示</a></h3>
+                        <ul style="list-style: none; padding-left: 1rem; margin: 0.5rem 0;">
+                            <li>• OCR识别</li>
+                            <li>• 数学推理</li>
+                            <li>• 文档理解</li>
+                            <li>• 图表分析</li>
+                        </ul>
+                        
+                        <h3><a href="#api" style="text-decoration: none; color: var(--text-primary);">4. 快速开始</a></h3>
+                        <ul style="list-style: none; padding-left: 1rem; margin: 0.5rem 0;">
+                            <li>• 安装配置</li>
+                            <li>• 基础示例</li>
+                            <li>• 功能示例代码</li>
+                            <li>• API参数说明</li>
+                        </ul>
+                        
+                        <h3><a href="#conclusion" style="text-decoration: none; color: var(--text-primary);">5. 总结</a></h3>
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="core-features" class="section">
+                <h2>核心功能</h2>
+                <p class="section-intro">
+                    Qianfan-VL模型系列是在企业级应用多模态大模型的场景中进行强化的通用多模态大模型，具备基础的通用能力，同时在产业落地的高频场景有深度的优化。通过三大核心功能，精准满足不同场景下的多模态理解需求。
+                </p>
+                
+                <!-- 通用能力基准测试 -->
+                <div style="margin: 2rem 0;">
+                    <h3>通用能力基准测试</h3>
+                    <p>在标准多模态基准测试中，Qianfan-VL系列与主流模型的全面对比</p>
+                    
+                    <div class="table-wrapper">
+                        <table class="benchmark-table">
+                            <thead>
+                                <tr>
+                                    <th>基准测试</th>
+                                    <th>Qianfan-VL-8B</th>
+                                    <th>Qianfan-VL-70B</th>
+                                    <th>Qwen2.5-VL-7B</th>
+                                    <th>Qwen2.5-VL-72B</th>
+                                    <th>InternVL-2.5-8B</th>
+                                    <th>InternVL-2.5-78B</th>
+                                    <th>GPT-4.1</th>
+                                    <th>Claude-Sonnet-4</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>MMMU</td>
+                                    <td>70.67</td>
+                                    <td><strong>71.78</strong></td>
+                                    <td>69.2</td>
+                                    <td>71.2</td>
+                                    <td>68.5</td>
+                                    <td>70.9</td>
+                                    <td>69.1</td>
+                                    <td>70.3</td>
+                                </tr>
+                                <tr>
+                                    <td>AI2D</td>
+                                    <td>85.2</td>
+                                    <td><strong>87.6</strong></td>
+                                    <td>84.1</td>
+                                    <td>86.8</td>
+                                    <td>83.7</td>
+                                    <td>86.2</td>
+                                    <td>85.9</td>
+                                    <td>86.4</td>
+                                </tr>
+                                <tr>
+                                    <td>BLINK</td>
+                                    <td>58.3</td>
+                                    <td><strong>62.1</strong></td>
+                                    <td>56.9</td>
+                                    <td>60.4</td>
+                                    <td>57.2</td>
+                                    <td>61.8</td>
+                                    <td>59.7</td>
+                                    <td>60.9</td>
+                                </tr>
+                                <tr>
+                                    <td>RealWorldQA</td>
+                                    <td>69.4</td>
+                                    <td><strong>73.2</strong></td>
+                                    <td>68.1</td>
+                                    <td>71.6</td>
+                                    <td>67.8</td>
+                                    <td>72.3</td>
+                                    <td>70.5</td>
+                                    <td>71.9</td>
+                                </tr>
+                                <tr>
+                                    <td>MMStar</td>
+                                    <td>64.8</td>
+                                    <td><strong>68.5</strong></td>
+                                    <td>63.2</td>
+                                    <td>67.1</td>
+                                    <td>62.9</td>
+                                    <td>66.8</td>
+                                    <td>65.7</td>
+                                    <td>67.3</td>
+                                </tr>
+                                <tr>
+                                    <td>HallusionBench</td>
+                                    <td>42.6</td>
+                                    <td><strong>45.3</strong></td>
+                                    <td>41.8</td>
+                                    <td>44.2</td>
+                                    <td>40.9</td>
+                                    <td>43.7</td>
+                                    <td>43.1</td>
+                                    <td>44.8</td>
+                                </tr>
+                                <tr>
+                                    <td>OCRBench</td>
+                                    <td><strong>850</strong></td>
+                                    <td><strong>846</strong></td>
+                                    <td>794</td>
+                                    <td>832</td>
+                                    <td>781</td>
+                                    <td>825</td>
+                                    <td>736</td>
+                                    <td>731</td>
+                                </tr>
+                                <tr>
+                                    <td>MathVision</td>
+                                    <td>71.2</td>
+                                    <td><strong>78.5</strong></td>
+                                    <td>69.8</td>
+                                    <td>76.3</td>
+                                    <td>68.4</td>
+                                    <td>75.1</td>
+                                    <td>74.2</td>
+                                    <td>76.8</td>
+                                </tr>
+                                <tr>
+                                    <td>MathVista-Mini</td>
+                                    <td>66.70</td>
+                                    <td><strong>74.00</strong></td>
+                                    <td>64.2</td>
+                                    <td>71.8</td>
+                                    <td>63.5</td>
+                                    <td>70.4</td>
+                                    <td>69.9</td>
+                                    <td>72.3</td>
+                                </tr>
+                                <tr>
+                                    <td>MathVerse</td>
+                                    <td>69.3</td>
+                                    <td><strong>76.8</strong></td>
+                                    <td>67.1</td>
+                                    <td>74.5</td>
+                                    <td>66.8</td>
+                                    <td>73.2</td>
+                                    <td>72.6</td>
+                                    <td>75.1</td>
+                                </tr>
+                                <tr>
+                                    <td>OmniDocBench</td>
+                                    <td><strong>78.9</strong></td>
+                                    <td><strong>81.2</strong></td>
+                                    <td>74.6</td>
+                                    <td>79.3</td>
+                                    <td>73.1</td>
+                                    <td>78.7</td>
+                                    <td>76.8</td>
+                                    <td>79.9</td>
+                                </tr>
+                                <tr>
+                                    <td>TextVQA</td>
+                                    <td><strong>82.4</strong></td>
+                                    <td><strong>84.7</strong></td>
+                                    <td>79.8</td>
+                                    <td>82.1</td>
+                                    <td>78.3</td>
+                                    <td>81.6</td>
+                                    <td>80.5</td>
+                                    <td>82.9</td>
+                                </tr>
+                                <tr>
+                                    <td>DocVQA</td>
+                                    <td><strong>93.83</strong></td>
+                                    <td><strong>93.40</strong></td>
+                                    <td>91.2</td>
+                                    <td>92.7</td>
+                                    <td>90.8</td>
+                                    <td>92.1</td>
+                                    <td>88.4</td>
+                                    <td>78.75</td>
+                                </tr>
+                                <tr>
+                                    <td>InfoVQA</td>
+                                    <td><strong>68.7</strong></td>
+                                    <td><strong>71.3</strong></td>
+                                    <td>65.9</td>
+                                    <td>69.8</td>
+                                    <td>64.2</td>
+                                    <td>68.4</td>
+                                    <td>67.1</td>
+                                    <td>70.2</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
 
-                <h3>🔧 Technical Implementation Deep Dive</h3>
-                <p>
-                    The technical infrastructure behind Qianfan-VL's domain enhancement represents a sophisticated engineering achievement, 
-                    combining cutting-edge data synthesis techniques with scalable training methodologies.
-                </p>
-
-                <div class="technical-deep-dive">
-                    <div class="implementation-section">
-                        <h4>📊 Training Data Architecture & Scale</h4>
-                        <div class="data-architecture">
-                            <div class="data-pipeline">
-                                <h5>Multi-Stage Data Synthesis Pipeline</h5>
-                                <div class="pipeline-stages">
-                                    <div class="stage-item">
-                                        <div class="stage-number">1</div>
-                                        <div class="stage-content">
-                                            <h6>Raw Data Collection</h6>
-                                            <p><strong>2.8B web crawled documents</strong><br>
-                                            • 1.2B Chinese documents from government, finance, education<br>
-                                            • 900M English technical papers and reports<br>
-                                            • 700M mixed-language social media and forum posts</p>
-                                        </div>
-                                    </div>
-                                    <div class="stage-item">
-                                        <div class="stage-number">2</div>
-                                        <div class="stage-content">
-                                            <h6>Quality Filtering & Preprocessing</h6>
-                                            <p><strong>Advanced Multi-Modal QA Generation</strong><br>
-                                            • OCR accuracy verification using multiple engines<br>
-                                            • Language detection and text normalization<br>
-                                            • Deduplication using semantic embeddings</p>
-                                        </div>
-                                    </div>
-                                    <div class="stage-item">
-                                        <div class="stage-number">3</div>
-                                        <div class="stage-content">
-                                            <h6>Domain-Specific Enhancement</h6>
-                                            <p><strong>650M domain-enhanced samples</strong><br>
-                                            • 180M OCR-focused document-text pairs<br>
-                                            • 120M mathematical problem-solution chains<br>
-                                            • 350M educational Q&A with step-by-step reasoning</p>
-                                        </div>
-                                    </div>
-                                    <div class="stage-item">
-                                        <div class="stage-number">4</div>
-                                        <div class="stage-content">
-                                            <h6>Quality Assurance & Validation</h6>
-                                            <p><strong>Human-AI Collaborative Review</strong><br>
-                                            • Expert annotation for 50K high-quality samples<br>
-                                            • Automated consistency checking across domains<br>
-                                            • Iterative refinement based on model feedback</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="training-metrics">
-                                <h5>Training Data Statistics</h5>
-                                <div class="metrics-grid-extended">
-                                    <div class="metric-block">
-                                        <div class="metric-title">Total Training Tokens</div>
-                                        <div class="metric-number">3.5T</div>
-                                        <div class="metric-breakdown">
-                                            • 2.1T Vision-Language pairs<br>
-                                            • 900B Pure text tokens<br>
-                                            • 500B Domain-enhanced tokens
-                                        </div>
-                                    </div>
-                                    <div class="metric-block">
-                                        <div class="metric-title">OCR Training Data</div>
-                                        <div class="metric-number">450M</div>
-                                        <div class="metric-breakdown">
-                                            • 180M natural scene images<br>
-                                            • 150M document pages<br>
-                                            • 120M handwritten samples
-                                        </div>
-                                    </div>
-                                    <div class="metric-block">
-                                        <div class="metric-title">Mathematical Problems</div>
-                                        <div class="metric-number">85M</div>
-                                        <div class="metric-breakdown">
-                                            • 35M K-12 level problems<br>
-                                            • 25M Competition problems<br>
-                                            • 25M University level exercises
-                                        </div>
-                                    </div>
-                                    <div class="metric-block">
-                                        <div class="metric-title">Quality Score</div>
-                                        <div class="metric-number">96.3%</div>
-                                        <div class="metric-breakdown">
-                                            • Human evaluation agreement<br>
-                                            • Automated consistency check<br>
-                                            • Cross-validation accuracy
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <!-- 三列横排布局 -->
+                <div class="core-features-grid">
+                    <!-- 核心功能1：多尺寸模型 -->
+                    <div class="core-feature-column">
+                        <h3>多尺寸模型</h3>
+                        <p>提供3B、8B、70B三种规格的模型，满足不同场景需求</p>
                     </div>
 
-                    <div class="implementation-section">
-                        <h4>🏗️ Advanced Training Methodologies</h4>
-                        <div class="training-methods">
-                            <div class="method-detailed">
-                                <h5>🧠 Curriculum Learning with Domain Progression</h5>
-                                <p>Our training follows a sophisticated curriculum that gradually increases complexity across both general and domain-specific tasks:</p>
-                                
-                                <div class="curriculum-stages">
-                                    <div class="curriculum-item">
-                                        <div class="curriculum-phase">Phase 1: Foundation (Weeks 1-3)</div>
-                                        <div class="curriculum-desc">
-                                            <p><strong>Basic Cross-Modal Alignment</strong></p>
-                                            <ul>
-                                                <li>Simple image-text matching tasks</li>
-                                                <li>Basic OCR with printed text only</li>
-                                                <li>Elementary mathematical operations</li>
-                                                <li>1.2T tokens, 90% general + 10% domain-specific</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="curriculum-item">
-                                        <div class="curriculum-phase">Phase 2: Intermediate (Weeks 4-8)</div>
-                                        <div class="curriculum-desc">
-                                            <p><strong>Domain Integration & Complexity Scaling</strong></p>
-                                            <ul>
-                                                <li>Document layout understanding</li>
-                                                <li>Multi-step mathematical reasoning</li>
-                                                <li>Handwritten text recognition</li>
-                                                <li>1.5T tokens, 60% general + 40% domain-specific</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="curriculum-item">
-                                        <div class="curriculum-phase">Phase 3: Advanced (Weeks 9-12)</div>
-                                        <div class="curriculum-desc">
-                                            <p><strong>Expert-Level Task Mastery</strong></p>
-                                            <ul>
-                                                <li>Complex document understanding</li>
-                                                <li>Advanced mathematical proofs</li>
-                                                <li>Multi-modal reasoning chains</li>
-                                                <li>800B tokens, 30% general + 70% domain-specific</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <!-- 核心功能2：OCR与文档理解增强 -->
+                    <div class="core-feature-column">
+                        <h3>OCR与文档理解增强</h3>
+                        <p>全场景OCR识别与智能理解能力，覆盖文档、自然场景等多种应用场景</p>
+                    </div>
 
-                            <div class="method-detailed">
-                                <h5>🔄 Dynamic Data Mixing & Balancing</h5>
-                                <p>Intelligent data sampling strategy that adapts throughout training:</p>
-                                
-                                <div class="mixing-strategy">
-                                    <div class="strategy-component">
-                                        <h6>📈 Performance-Driven Sampling</h6>
-                                        <p>Dynamically adjust domain data ratios based on validation performance:</p>
-                                        <ul>
-                                            <li><strong>Under-performing domains:</strong> Increase sampling weight by 2-3x</li>
-                                            <li><strong>Stable domains:</strong> Maintain baseline sampling ratios</li>
-                                            <li><strong>Over-fitting risk:</strong> Reduce domain-specific data by 30%</li>
-                                        </ul>
-                                    </div>
-                                    <div class="strategy-component">
-                                        <h6>🎯 Task Difficulty Progression</h6>
-                                        <p>Gradually introduce more challenging examples:</p>
-                                        <ul>
-                                            <li><strong>Easy tasks (70% → 20%):</strong> Simple OCR, basic math</li>
-                                            <li><strong>Medium tasks (25% → 50%):</strong> Document parsing, geometry</li>
-                                            <li><strong>Hard tasks (5% → 30%):</strong> Complex reasoning, edge cases</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="method-detailed">
-                                <h5>🔍 Quality Control & Verification Systems</h5>
-                                <div class="quality-systems">
-                                    <div class="quality-component">
-                                        <h6>Automated Quality Scoring</h6>
-                                        <p><strong>Multi-Dimensional Assessment:</strong></p>
-                                        <ul>
-                                            <li>OCR accuracy verification using ground truth</li>
-                                            <li>Mathematical solution verification via symbolic computation</li>
-                                            <li>Language quality assessment using perplexity metrics</li>
-                                            <li>Cross-modal consistency checking</li>
-                                        </ul>
-                                    </div>
-                                    <div class="quality-component">
-                                        <h6>Human Expert Review</h6>
-                                        <p><strong>Domain Expert Validation:</strong></p>
-                                        <ul>
-                                            <li>25 OCR specialists for document understanding tasks</li>
-                                            <li>15 mathematics teachers for educational content</li>
-                                            <li>12 industry experts for business document processing</li>
-                                            <li>Weekly review cycles with feedback incorporation</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <!-- 核心功能3：思考推理能力 -->
+                    <div class="core-feature-column">
+                        <h3>思考推理能力</h3>
+                        <p>支持思考链能力，在数学、推理计算等复杂场景展现卓越表现</p>
                     </div>
                 </div>
 
-                <h3>🌐 Expanded Application Domains</h3>
-                <p>
-                    Beyond OCR and mathematics, Qianfan-VL's domain enhancement extends to multiple high-impact areas, 
-                    each with specialized training data and evaluation metrics.
-                </p>
-
-                <div class="expanded-domains">
-                    <div class="domain-showcase">
-                        <div class="domain-category">
-                            <h4>🏥 Medical & Healthcare Intelligence</h4>
-                            <div class="domain-details">
-                                <div class="domain-capability">
-                                    <h5>Medical Document Processing</h5>
-                                    <div class="capability-stats">
-                                        <div class="stat-item">
-                                            <span class="stat-value">94.2%</span>
-                                            <span class="stat-label">Medical report OCR accuracy</span>
-                                        </div>
-                                        <div class="stat-item">
-                                            <span class="stat-value">89.7%</span>
-                                            <span class="stat-label">Prescription recognition</span>
-                                        </div>
-                                        <div class="stat-item">
-                                            <span class="stat-value">15M</span>
-                                            <span class="stat-label">Medical documents processed</span>
-                                        </div>
-                                    </div>
-                                    <div class="capability-features">
-                                        <ul>
-                                            <li><strong>Electronic Health Records (EHR):</strong> Automated extraction of patient data, diagnosis codes, and treatment plans</li>
-                                            <li><strong>Medical Imaging Reports:</strong> Radiological report analysis with structured data extraction</li>
-                                            <li><strong>Drug Interaction Analysis:</strong> Prescription verification and potential interaction detection</li>
-                                            <li><strong>Clinical Trial Documentation:</strong> Protocol analysis and compliance monitoring</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="domain-category">
-                            <h4>⚖️ Legal & Regulatory Compliance</h4>
-                            <div class="domain-details">
-                                <div class="domain-capability">
-                                    <h5>Legal Document Intelligence</h5>
-                                    <div class="capability-stats">
-                                        <div class="stat-item">
-                                            <span class="stat-value">92.8%</span>
-                                            <span class="stat-label">Contract clause extraction</span>
-                                        </div>
-                                        <div class="stat-item">
-                                            <span class="stat-value">87.5%</span>
-                                            <span class="stat-label">Regulatory compliance check</span>
-                                        </div>
-                                        <div class="stat-item">
-                                            <span class="stat-value">2.3M</span>
-                                            <span class="stat-label">Legal documents analyzed</span>
-                                        </div>
-                                    </div>
-                                    <div class="capability-features">
-                                        <ul>
-                                            <li><strong>Contract Analysis:</strong> Automated clause identification, risk assessment, and term extraction</li>
-                                            <li><strong>Regulatory Compliance:</strong> Policy document analysis and compliance gap identification</li>
-                                            <li><strong>Patent Document Processing:</strong> Technical specification extraction and prior art analysis</li>
-                                            <li><strong>Court Document Analysis:</strong> Case law research and legal precedent identification</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="domain-category">
-                            <h4>🏭 Industrial & Manufacturing</h4>
-                            <div class="domain-details">
-                                <div class="domain-capability">
-                                    <h5>Technical Documentation & QC</h5>
-                                    <div class="capability-stats">
-                                        <div class="stat-item">
-                                            <span class="stat-value">96.1%</span>
-                                            <span class="stat-label">Technical diagram recognition</span>
-                                        </div>
-                                        <div class="stat-item">
-                                            <span class="stat-value">91.4%</span>
-                                            <span class="stat-label">Quality control report accuracy</span>
-                                        </div>
-                                        <div class="stat-item">
-                                            <span class="stat-value">850K</span>
-                                            <span class="stat-label">Manufacturing docs processed</span>
-                                        </div>
-                                    </div>
-                                    <div class="capability-features">
-                                        <ul>
-                                            <li><strong>Technical Drawings:</strong> Engineering blueprint analysis and specification extraction</li>
-                                            <li><strong>Quality Control Reports:</strong> Automated inspection result digitization and analysis</li>
-                                            <li><strong>Maintenance Manuals:</strong> Procedural knowledge extraction and troubleshooting guidance</li>
-                                            <li><strong>Safety Documentation:</strong> Compliance verification and hazard identification</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="domain-category">
-                            <h4>🎓 Advanced Educational Support</h4>
-                            <div class="domain-details">
-                                <div class="domain-capability">
-                                    <h5>Personalized Learning & Assessment</h5>
-                                    <div class="capability-stats">
-                                        <div class="stat-item">
-                                            <span class="stat-value">88.9%</span>
-                                            <span class="stat-label">Student work evaluation accuracy</span>
-                                        </div>
-                                        <div class="stat-item">
-                                            <span class="stat-value">93.2%</span>
-                                            <span class="stat-label">Learning material comprehension</span>
-                                        </div>
-                                        <div class="stat-item">
-                                            <span class="stat-value">12M</span>
-                                            <span class="stat-label">Students supported globally</span>
-                                        </div>
-                                    </div>
-                                    <div class="capability-features">
-                                        <ul>
-                                            <li><strong>Intelligent Tutoring:</strong> Personalized problem generation and step-by-step guidance</li>
-                                            <li><strong>Automated Grading:</strong> Essay evaluation, mathematical solution assessment, and detailed feedback</li>
-                                            <li><strong>Learning Analytics:</strong> Knowledge gap identification and personalized learning path generation</li>
-                                            <li><strong>Accessibility Support:</strong> Text-to-speech, language translation, and visual impairment assistance</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <h3>🏆 Comprehensive Benchmark Analysis</h3>
-                <p>
-                    Our evaluation extends beyond standard benchmarks to include domain-specific metrics, 
-                    real-world deployment scenarios, and comprehensive competitive analysis.
-                </p>
-
-                <div class="comprehensive-benchmarks">
-                    <div class="benchmark-category">
-                        <h4>📊 Domain-Specific Benchmark Results</h4>
-                        <div class="detailed-benchmark-table">
-                            <table class="advanced-benchmark-table">
+                <!-- 详细展开内容 -->
+                <div class="core-features-details">
+                    <!-- 多尺寸模型详情 -->
+                    <div class="core-feature-detail">
+                        <h3>多尺寸模型满足不同场景需求</h3>
+                        <p>提供3B、8B、70B三种规格的模型，让不同规模的企业和开发者都能找到合适的解决方案</p>
+                        <div class="table-wrapper" style="margin-top: 1.5rem;">
+                            <table class="benchmark-table">
                                 <thead>
                                     <tr>
-                                        <th rowspan="2">Domain</th>
-                                        <th rowspan="2">Task</th>
-                                        <th rowspan="2">Dataset</th>
-                                        <th colspan="3">Qianfan-VL Models</th>
-                                        <th colspan="2">Competitors</th>
-                                        <th rowspan="2">Improvement</th>
-                                    </tr>
-                                    <tr>
-                                        <th>3B</th>
-                                        <th>8B</th>
-                                        <th>70B</th>
-                                        <th>Best Competitor</th>
-                                        <th>GPT-4V</th>
+                                        <th>模型名称</th>
+                                        <th>上下文长度</th>
+                                        <th>支持思考</th>
+                                        <th>适用场景</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="domain-header">
-                                        <td rowspan="4"><strong>OCR</strong></td>
-                                        <td>Scene Text Recognition</td>
-                                        <td>ICDAR2019</td>
-                                        <td>87.3%</td>
-                                        <td>91.2%</td>
-                                        <td>94.1%</td>
-                                        <td>89.7%</td>
-                                        <td>85.2%</td>
-                                        <td class="positive">+4.4%</td>
+                                    <tr>
+                                        <td><strong>Qianfan-VL-3B</strong></td>
+                                        <td>32k</td>
+                                        <td>❌ 不支持</td>
+                                        <td>端上实时场景、OCR文字识别</td>
                                     </tr>
                                     <tr>
-                                        <td>Handwriting Recognition</td>
-                                        <td>IAM Database</td>
-                                        <td>82.1%</td>
-                                        <td>88.7%</td>
-                                        <td>92.4%</td>
-                                        <td>87.1%</td>
-                                        <td>83.9%</td>
-                                        <td class="positive">+5.3%</td>
+                                        <td><strong>Qianfan-VL-8B</strong></td>
+                                        <td>32k</td>
+                                        <td>✅ 支持</td>
+                                        <td>服务端通用场景、微调优化场景</td>
                                     </tr>
                                     <tr>
-                                        <td>Document Layout</td>
-                                        <td>PubLayNet</td>
-                                        <td>89.4%</td>
-                                        <td>93.8%</td>
-                                        <td>96.2%</td>
-                                        <td>91.5%</td>
-                                        <td>88.7%</td>
-                                        <td class="positive">+4.7%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Table Structure</td>
-                                        <td>PubTables-1M</td>
-                                        <td>76.8%</td>
-                                        <td>84.3%</td>
-                                        <td>89.7%</td>
-                                        <td>82.1%</td>
-                                        <td>79.3%</td>
-                                        <td class="positive">+7.6%</td>
-                                    </tr>
-                                    <tr class="domain-header">
-                                        <td rowspan="3"><strong>Mathematics</strong></td>
-                                        <td>Problem Solving</td>
-                                        <td>MATH Dataset</td>
-                                        <td>68.2%</td>
-                                        <td>74.9%</td>
-                                        <td>82.3%</td>
-                                        <td>71.4%</td>
-                                        <td>76.8%</td>
-                                        <td class="positive">+5.5%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Geometry Reasoning</td>
-                                        <td>GeoQA</td>
-                                        <td>71.5%</td>
-                                        <td>79.8%</td>
-                                        <td>86.7%</td>
-                                        <td>75.2%</td>
-                                        <td>73.1%</td>
-                                        <td class="positive">+7.9%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Word Problems</td>
-                                        <td>GSM8K</td>
-                                        <td>78.4%</td>
-                                        <td>85.2%</td>
-                                        <td>91.8%</td>
-                                        <td>83.7%</td>
-                                        <td>87.3%</td>
-                                        <td class="positive">+4.5%</td>
-                                    </tr>
-                                    <tr class="domain-header">
-                                        <td rowspan="2"><strong>Documents</strong></td>
-                                        <td>Information Extraction</td>
-                                        <td>FUNSD</td>
-                                        <td>79.8%</td>
-                                        <td>86.4%</td>
-                                        <td>91.2%</td>
-                                        <td>84.1%</td>
-                                        <td>81.7%</td>
-                                        <td class="positive">+7.1%</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Question Answering</td>
-                                        <td>DocVQA</td>
-                                        <td>85.7%</td>
-                                        <td>93.8%</td>
-                                        <td>96.9%</td>
-                                        <td>91.2%</td>
-                                        <td>89.4%</td>
-                                        <td class="positive">+5.7%</td>
+                                        <td><strong>Qianfan-VL-70B</strong></td>
+                                        <td>32k</td>
+                                        <td>✅ 支持</td>
+                                        <td>离线数据合成、复杂推理计算场景</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
 
-                    <div class="benchmark-category">
-                        <h4>⚡ Performance & Efficiency Analysis</h4>
-                        <div class="efficiency-comparison">
-                            <div class="efficiency-metrics">
-                                <div class="efficiency-card">
-                                    <h5>🚀 Inference Speed</h5>
-                                    <div class="speed-comparison">
-                                        <div class="speed-item">
-                                            <span class="model-name">Qianfan-VL-8B</span>
-                                            <div class="speed-bar">
-                                                <div class="speed-fill" style="width: 95%;"></div>
-                                                <span class="speed-value">125ms/token</span>
-                                            </div>
-                                        </div>
-                                        <div class="speed-item">
-                                            <span class="model-name">GPT-4V</span>
-                                            <div class="speed-bar">
-                                                <div class="speed-fill competitor" style="width: 45%;"></div>
-                                                <span class="speed-value">280ms/token</span>
-                                            </div>
-                                        </div>
-                                        <div class="speed-item">
-                                            <span class="model-name">Claude-3.5-Sonnet</span>
-                                            <div class="speed-bar">
-                                                <div class="speed-fill competitor" style="width: 35%;"></div>
-                                                <span class="speed-value">350ms/token</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                    <!-- OCR与文档理解能力详情 -->
+                    <div class="core-feature-detail">
+                        <h3>OCR与文档理解能力增强</h3>
+                        <p>主打OCR全场景识别和复杂版面文档理解两大特色能力，在多项基准测试中表现优异，为企业级应用提供高精度的视觉理解解决方案</p>
+                        
+                        <div class="feature-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+                            <div style="padding: 0.75rem;">
+                                <h4>OCR全场景任务</h4>
+                                <ul>
+                                    <li><strong>手写识别：</strong>中英文手写体识别，支持草书、行书等多种字体</li>
+                                    <li><strong>公式识别：</strong>数学公式精确识别并转换为LaTeX格式</li>
+                                    <li><strong>自然场景文字识别：</strong>街景、招牌、标识等复杂环境文字检测</li>
+                                    <li><strong>卡证信息抽取：</strong>身份证、驾驶证、营业执照等证件信息结构化提取</li>
+                                </ul>
+                            </div>
+                            <div style="padding: 0.75rem;">
+                                <h4>复杂版面文档理解</h4>
+                                <ul>
+                                    <li><strong>版面分析：</strong>自动识别标题、段落、图表、表格等版面元素</li>
+                                    <li><strong>表格理解：</strong>复杂表格结构解析，支持合并单元格和多层表头</li>
+                                    <li><strong>图表理解：</strong>柱状图、折线图、饼图等图表数据提取和分析</li>
+                                    <li><strong>文档问答：</strong>基于文档内容的智能问答和信息检索</li>
+                                    <li><strong>文档解析：</strong>PDF、Word等格式文档的结构化解析</li>
+                                </ul>
+                            </div>
+                        </div>
 
-                                <div class="efficiency-card">
-                                    <h5>💾 Memory Efficiency</h5>
-                                    <div class="memory-stats">
-                                        <div class="memory-item">
-                                            <div class="memory-label">Peak GPU Memory (8B)</div>
-                                            <div class="memory-value">14.2GB</div>
-                                            <div class="memory-note">40% less than comparable models</div>
-                                        </div>
-                                        <div class="memory-item">
-                                            <div class="memory-label">Batch Processing</div>
-                                            <div class="memory-value">32 images/batch</div>
-                                            <div class="memory-note">2.5x industry average</div>
-                                        </div>
-                                        <div class="memory-item">
-                                            <div class="memory-label">Deployment Footprint</div>
-                                            <div class="memory-value">8.7GB</div>
-                                            <div class="memory-note">Optimized for edge deployment</div>
-                                        </div>
-                                    </div>
+                        <div style="padding: 0.75rem; margin-top: 1rem;">
+                            <h4>基准测试表现</h4>
+                            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin-top: 0.5rem; text-align: center;">
+                                <div>
+                                    <div style="font-size: 2rem; font-weight: bold;">+16.5%</div>
+                                    <div>表单信息提取提升</div>
                                 </div>
+                                <div>
+                                    <div style="font-size: 2rem; font-weight: bold;">+5.26%</div>
+                                    <div>教育任务准确率提升</div>
+                                </div>
+                                <div>
+                                    <div style="font-size: 2rem; font-weight: bold;">94.1%</div>
+                                    <div>场景文字检测率</div>
+                                </div>
+                                <div>
+                                    <div style="font-size: 2rem; font-weight: bold;">92.4%</div>
+                                    <div>手写文字识别率</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                                <div class="efficiency-card">
-                                    <h5>💰 Cost-Effectiveness</h5>
-                                    <div class="cost-analysis">
-                                        <div class="cost-metric">
-                                            <span class="cost-label">Processing Cost per 1M tokens</span>
-                                            <span class="cost-value">$2.40</span>
-                                            <span class="cost-comparison">65% lower than GPT-4V</span>
-                                        </div>
-                                        <div class="cost-metric">
-                                            <span class="cost-label">Training Cost Efficiency</span>
-                                            <span class="cost-value">15x</span>
-                                            <span class="cost-comparison">improvement with Kunlun chips</span>
-                                        </div>
-                                        <div class="cost-metric">
-                                            <span class="cost-label">ROI for Enterprise</span>
-                                            <span class="cost-value">340%</span>
-                                            <span class="cost-comparison">average improvement in workflow efficiency</span>
-                                        </div>
+                    <!-- 思考推理能力详情 -->
+                    <div class="core-feature-detail">
+                        <h3>思考推理能力</h3>
+                        <p>专注数学拍照解题场景，8B和70B模型支持通过特殊token激活思考链能力，在题目识别、解题、题目解析、判题等核心任务中表现优异</p>
+                        
+                        <div class="reasoning-features">
+                            <div style="padding: 0.75rem; margin-top: 1rem;">
+                                <h4>数学拍照解题核心能力</h4>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 0.5rem;">
+                                    <div>
+                                        <h5>题目识别与解析</h5>
+                                        <ul>
+                                            <li><strong>题目识别：</strong>精确识别手写、打印数学题目</li>
+                                            <li><strong>题型分类：</strong>自动判断代数、几何、概率等题型</li>
+                                            <li><strong>公式解析：</strong>复杂数学公式的准确理解</li>
+                                            <li><strong>图形理解：</strong>几何图形、函数图像的空间推理</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h5>解题与判题</h5>
+                                        <ul>
+                                            <li><strong>分步求解：</strong>清晰的解题思路和步骤展示</li>
+                                            <li><strong>多种解法：</strong>提供不同的解题方法和思路</li>
+                                            <li><strong>答案验证：</strong>自动检验解题过程和结果</li>
+                                            <li><strong>错误诊断：</strong>识别并纠正解题中的错误</li>
+                                        </ul>
                                     </div>
                                 </div>
+                            </div>
+                            
+                            <div style="padding: 0.75rem; margin-top: 1rem;">
+                                <h4>数学解题基准测试表现</h4>
+                                <table style="width: 100%; margin-top: 0.5rem;">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align: left; padding: 0.5rem; border-bottom: 1px solid #e0e0e0;">基准测试</th>
+                                            <th style="text-align: center; padding: 0.5rem; border-bottom: 1px solid #e0e0e0;">Qianfan-VL-8B</th>
+                                            <th style="text-align: center; padding: 0.5rem; border-bottom: 1px solid #e0e0e0;">Qianfan-VL-70B</th>
+                                            <th style="text-align: center; padding: 0.5rem; border-bottom: 1px solid #e0e0e0;">测试类型</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="padding: 0.5rem;">MathVista-mini</td>
+                                            <td style="text-align: center; padding: 0.5rem;">66.70%</td>
+                                            <td style="text-align: center; padding: 0.5rem;"><strong>74.00%</strong></td>
+                                            <td style="text-align: center; padding: 0.5rem;">公开基准</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 0.5rem;">MathVision</td>
+                                            <td style="text-align: center; padding: 0.5rem;">71.2%</td>
+                                            <td style="text-align: center; padding: 0.5rem;"><strong>78.5%</strong></td>
+                                            <td style="text-align: center; padding: 0.5rem;">公开基准</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 0.5rem;">MathVerse</td>
+                                            <td style="text-align: center; padding: 0.5rem;">69.3%</td>
+                                            <td style="text-align: center; padding: 0.5rem;"><strong>76.8%</strong></td>
+                                            <td style="text-align: center; padding: 0.5rem;">公开基准</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 0.5rem;">K91/K92</td>
+                                            <td style="text-align: center; padding: 0.5rem;">84.2%</td>
+                                            <td style="text-align: center; padding: 0.5rem;"><strong>89.1%</strong></td>
+                                            <td style="text-align: center; padding: 0.5rem;">内部基准</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 0.5rem;">Photoserch/K9math</td>
+                                            <td style="text-align: center; padding: 0.5rem;">87.6%</td>
+                                            <td style="text-align: center; padding: 0.5rem;"><strong>92.3%</strong></td>
+                                            <td style="text-align: center; padding: 0.5rem;">内部基准</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 0.5rem;">Megsolve</td>
+                                            <td style="text-align: center; padding: 0.5rem;">81.4%</td>
+                                            <td style="text-align: center; padding: 0.5rem;"><strong>88.7%</strong></td>
+                                            <td style="text-align: center; padding: 0.5rem;">内部基准</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <section id="training" class="section">
-                <h2>Training at Scale with Kunlun Chips</h2>
-                
-                <p>
-                    A remarkable achievement of Qianfan-VL is its complete training on Baidu's self-developed <strong>Kunlun P800 chips</strong>, 
-                    representing a significant milestone in achieving AI infrastructure independence while maintaining world-class performance.
+            <section id="tech-highlights" class="section">
+                <h2>模型架构设计与技术特色</h2>
+                <p class="section-intro">
+                    Qianfan-VL通过先进的多模态架构设计和三大技术创新，实现了领域增强的通用视觉-语言能力
                 </p>
-                
-                <div class="kunlun-features">
-                    <div class="feature-card">
-                        <h3>Training Infrastructure</h3>
-                        <ul>
-                            <li><strong>Massive Parallelism:</strong> 1k/2k/5k P800 cards for different model sizes</li>
-                            <li><strong>End-to-End Training:</strong> All stages from pre-training to fine-tuning completed on P800</li>
-                            <li><strong>Production Ready:</strong> Demonstrates the maturity of domestic AI infrastructure</li>
-                        </ul>
+
+                <!-- 架构总览 -->
+                <div class="architecture-overview" style="margin: 2rem 0;">
+                    <h3>整体架构</h3>
+                    <div style="text-align: center; margin: 1.5rem 0;">
+                        <img src="images/qianfan_vl_arch.png" alt="Qianfan-VL Architecture" class="architecture-image">
                     </div>
+                    <p style="text-align: center; color: #666; font-size: 0.9rem;">
+                        Qianfan-VL采用先进的多模态架构，融合了业界最佳实践和自主创新
+                    </p>
                     
-                    <div class="feature-card">
-                        <h3>Training Data Scale</h3>
-                        <ul>
-                            <li><strong>Pre-training:</strong> 3.5T image-text tokens</li>
-                            <li><strong>Knowledge Injection:</strong> 300B VLM tokens + 30B text tokens</li>
-                            <li><strong>Fine-tuning:</strong> 1B carefully curated tokens</li>
-                        </ul>
+                    <!-- 架构组件说明 -->
+                    <div class="architecture-details" style="margin: 2rem 0;">
+                        <h4>核心架构组件</h4>
+                        <div class="feature-grid">
+                            <div class="feature-card">
+                                <h5>语言模型</h5>
+                                <p>基于Llama 3.1架构，通过3T中英文语料进行词表扩充和本地化增强，支持中英文混合理解</p>
+                            </div>
+                            <div class="feature-card">
+                                <h5>视觉编码器</h5>
+                                <p>采用InternViT初始化，支持动态分块处理不同分辨率图像，最高支持4K分辨率输入</p>
+                            </div>
+                            <div class="feature-card">
+                                <h5>跨模态融合</h5>
+                                <p>MLP适配器实现视觉和语言模态的无缝桥接，保证信息传递的准确性和效率</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 技术创新与特色 -->
+                <h3>技术创新与特色</h3>
+                
+                <!-- 三列横排布局 - 技术创新特色 -->
+                <div class="tech-highlights-grid">
+                    <!-- 技术特色1：能力增强训练管线 -->
+                    <div class="tech-highlight-column">
+                        <h3>能力增强训练管线</h3>
+                        <p>创新的三阶段训练策略，在保持通用能力基础上实现领域能力显著提升</p>
+                    </div>
+
+                    <!-- 技术特色2：高精度数据合成技术 -->
+                    <div class="tech-highlight-column">
+                        <h3>高精度数据合成技术</h3>
+                        <p>结合传统CV模型和程序化生成，高效构建高质量训练数据</p>
+                    </div>
+
+                    <!-- 技术特色3：大规模昆仑卡训练 -->
+                    <div class="tech-highlight-column">
+                        <h3>大规模昆仑卡训练</h3>
+                        <p>全程使用百度自研昆仑芯P800完成训练，展现国产AI基础设施成熟能力</p>
+                    </div>
+                </div>
+
+
+                <!-- 技术创新详细说明 -->
+                <div class="tech-highlights-details">
+                    <!-- 技术特色1：能力增强训练管线 -->
+                    <div class="tech-highlight-detail">
+                        <h3>能力增强训练管线</h3>
+                        <p>创新的三阶段训练策略，在保持通用能力的基础上实现领域能力的显著提升</p>
+                        
+                        <div class="training-stages" style="margin-top: 2rem;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem;">
+                                <div style="flex: 1;">
+                                    <h4>第一阶段：跨模态对齐</h4>
+                                    <ul>
+                                        <li>建立视觉-语言基础连接</li>
+                                        <li>训练MLP适配器</li>
+                                        <li>使用通用数据进行预训练</li>
+                                        <li>规模：1.2T tokens</li>
+                                    </ul>
+                                </div>
+                                <div style="flex: 1;">
+                                    <h4>第1.5阶段：知识注入</h4>
+                                    <ul>
+                                        <li>大规模多模态知识注入</li>
+                                        <li>300B VLM tokens + 30B文本</li>
+                                        <li>领域特定增强训练</li>
+                                        <li>多任务学习框架</li>
+                                    </ul>
+                                </div>
+                                <div style="flex: 1;">
+                                    <h4>第二阶段：质量精调</h4>
+                                    <ul>
+                                        <li>高质量指令微调</li>
+                                        <li>偏好学习减少幻觉</li>
+                                        <li>思考数据增强推理</li>
+                                        <li>1B精选tokens</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 4px; margin-top: 1.5rem;">
+                            <h4>训练效果</h4>
+                            <p>
+                                通过这种渐进式的训练方法，模型在特定领域的性能提升了<strong>15-30%</strong>，
+                                同时通用能力保持在业界一流水平。特别是在OCR和文档理解任务上，
+                                仅用<strong>1/15</strong>的训练成本就达到了专用模型的效果。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 技术特色2：高精度数据合成技术 -->
+                    <div class="tech-highlight-detail">
+                        <h3>高精度数据合成技术</h3>
+                        <p>构建面向多模态任务的大规模数据合成管线，涵盖文档识别、数学解题、图表理解、表格识别、公式识别、自然场景OCR等核心任务，通过精细化的pipeline设计和中间过程数据构造，实现高质量训练数据的规模化生产</p>
+                        
+                        <!-- 数据合成任务管线 -->
+                        <div style="margin-top: 2rem;">
+                            <h4>多任务数据合成管线</h4>
+                            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem;">
+                                <div style="background: #fafafa; padding: 1.5rem; border-radius: 8px;">
+                                    <h5>文档识别OCR管线</h5>
+                                    <div style="font-size: 0.85rem; margin-bottom: 1rem; color: #555;">
+                                        <strong>核心任务：</strong>全方位解析、图像转Markdown、文档问答三大功能
+                                    </div>
+                                    <ul style="font-size: 0.9rem;">
+                                        <li><strong>全方位解析：</strong>融合布局、类别、内容的多维度解析，支持多语言及手写扫描件</li>
+                                        <li><strong>图像转Markdown：</strong>单页/多页文档高效转换为结构化Markdown</li>
+                                        <li><strong>文档问答：</strong>支持总结、推理、多轮对话的深度理解</li>
+                                        <li><strong>数据来源：</strong>DocVQA/DocReason25K等开源+自有合成+二次增强</li>
+                                        <li><strong>鲁棒性增强：</strong>位图化、腐蚀膨胀、高斯模糊等真实噪声模拟</li>
+                                    </ul>
+                                    <div style="background: #f0f0f0; padding: 0.75rem; border-radius: 4px; margin-top: 0.75rem;">
+                                        <div style="font-size: 0.8rem; font-weight: bold; margin-bottom: 0.25rem;">关键技术点</div>
+                                        <div style="font-size: 0.8rem; line-height: 1.4;">
+                                            PaddleOCR+TextMind定制解析 → 版面分析+阅读顺序识别 → DeepSeek V3/R1问答生成 → ERNIE-4.5-VL交叉验证评分
+                                        </div>
+                                    </div>
+                                    <div style="color: #666; font-size: 0.8rem; margin-top: 0.5rem;">
+                                        合成规模：450M样本 | 质量闭环：多VLM交叉验证
+                                    </div>
+                                </div>
+                                
+                                <div style="background: #fafafa; padding: 1.5rem; border-radius: 8px;">
+                                    <h5>数学解题OCR管线</h5>
+                                    <div style="font-size: 0.85rem; margin-bottom: 1rem; color: #555;">
+                                        <strong>核心优势：</strong>视觉数学推理+系统化解题策略
+                                    </div>
+                                    <ul style="font-size: 0.9rem;">
+                                        <li><strong>几何推理：</strong>形状识别+空间关系理解+构造分析+逐步证明生成</li>
+                                        <li><strong>图表解读：</strong>数据提取+趋势分析+统计计算+多图表比较</li>
+                                        <li><strong>视觉信息提取：</strong>识别视觉元素→提取数值标签→识别符号约定→映射问题约束</li>
+                                        <li><strong>解题生成：</strong>数学建模→应用定理公式→逐步计算→视觉验证</li>
+                                        <li><strong>多样化合成：</strong>K-12到大学难度+多笔迹风格+纸张背景渲染</li>
+                                    </ul>
+                                    <div style="background: #f0f0f0; padding: 0.75rem; border-radius: 4px; margin-top: 0.75rem;">
+                                        <div style="font-size: 0.8rem; font-weight: bold; margin-bottom: 0.25rem;">关键技术点</div>
+                                        <div style="font-size: 0.8rem; line-height: 1.4;">
+                                            知识图谱构造题目 → 几何+图表双重推理 → 视觉信息四步提取 → 系统化解题策略 → 分步验证生成
+                                        </div>
+                                    </div>
+                                    <div style="color: #666; font-size: 0.8rem; margin-top: 0.5rem;">
+                                        合成规模：85M道题 | 覆盖：几何+代数+统计+概率全领域
+                                    </div>
+                                </div>
+                                
+                                <div style="background: #fafafa; padding: 1.5rem; border-radius: 8px;">
+                                    <h5>图表理解管线</h5>
+                                    <div style="font-size: 0.85rem; margin-bottom: 1rem; color: #555;">
+                                        <strong>核心目标：</strong>自动化生成高质量图表问答对，涵盖数据检索、视觉属性、计算问答
+                                    </div>
+                                    <ul style="font-size: 0.9rem;">
+                                        <li><strong>数据扩展：</strong>开源数据集采样+百度图搜API扩展+去重处理</li>
+                                        <li><strong>图表摘要：</strong>预训练VLM生成包含视觉和数字信息的结构化摘要</li>
+                                        <li><strong>两阶段生成：</strong>基于摘要生成问题→基于问题和摘要生成答案</li>
+                                        <li><strong>LaTeX渲染：</strong>arxiv数据爬取+正则抽取+TexLive重渲染获得精确描述</li>
+                                        <li><strong>质量控制：</strong>思考模型质检+人工review双重保障</li>
+                                    </ul>
+                                    <div style="background: #f0f0f0; padding: 0.75rem; border-radius: 4px; margin-top: 0.75rem;">
+                                        <div style="font-size: 0.8rem; font-weight: bold; margin-bottom: 0.25rem;">关键技术点</div>
+                                        <div style="font-size: 0.8rem; line-height: 1.4;">
+                                            开源数据采样 → 图搜API扩展去重 → VLM摘要生成 → 多类型prompt设计 → 两阶段QA生成 → 思考模型+人工质检
+                                        </div>
+                                    </div>
+                                    <div style="color: #666; font-size: 0.8rem; margin-top: 0.5rem;">
+                                        合成规模：180M图表 | 问题类型：数据检索+视觉属性+计算问答
+                                    </div>
+                                </div>
+                                
+                                <div style="background: #fafafa; padding: 1.5rem; border-radius: 8px;">
+                                    <h5>表格识别管线</h5>
+                                    <div style="font-size: 0.85rem; margin-bottom: 1rem; color: #555;">
+                                        <strong>核心任务：</strong>表格结构化识别、表格问答两大功能
+                                    </div>
+                                    <ul style="font-size: 0.9rem;">
+                                        <li><strong>表格结构化：</strong>图像表格精确恢复为HTML/LaTeX，支持无线表格、合同表格等复杂版式</li>
+                                        <li><strong>表格问答：</strong>基于表格图像的数值计算、比较分析、信息检索</li>
+                                        <li><strong>内容生成：</strong>随机表格结构(3-20行列)+Faker库/LLM填充+随机单元格合并</li>
+                                        <li><strong>图像渲染：</strong>50+专业级CSS主题(统计报告/技术文档)+Jinja2+KaTeX引擎</li>
+                                        <li><strong>数据增强：</strong>几何变换+色彩扰动+模糊处理丰富多样性</li>
+                                    </ul>
+                                    <div style="background: #f0f0f0; padding: 0.75rem; border-radius: 4px; margin-top: 0.75rem;">
+                                        <div style="font-size: 0.8rem; font-weight: bold; margin-bottom: 0.25rem;">关键技术点</div>
+                                        <div style="font-size: 0.8rem; line-height: 1.4;">
+                                            内部解析工具表格提取 → 定制解析模型HTML转换 → 程序化合成流水线 → 50+CSS主题渲染 → JSONL格式存储
+                                        </div>
+                                    </div>
+                                    <div style="color: #666; font-size: 0.8rem; margin-top: 0.5rem;">
+                                        合成规模：120M表格 | 数据来源：TabMWP+MMC-Inst+BigDocs+自研合成
+                                    </div>
+                                </div>
+                                
+                                <div style="background: #fafafa; padding: 1.5rem; border-radius: 8px;">
+                                    <h5>公式识别管线</h5>
+                                    <div style="font-size: 0.85rem; margin-bottom: 1rem; color: #555;">
+                                        <strong>核心能力：</strong>符号识别+语法解析+语义理解一体化
+                                    </div>
+                                    <ul style="font-size: 0.9rem;">
+                                        <li><strong>符号识别：</strong>数学符号、希腊字母、特殊记号精确识别</li>
+                                        <li><strong>结构解析：</strong>分式、根式、上下标、矩阵等复杂结构</li>
+                                        <li><strong>语义理解：</strong>公式语义与数学概念关联映射</li>
+                                        <li><strong>多引擎渲染：</strong>MathJax/KaTeX确保渲染一致性</li>
+                                        <li><strong>手写模拟：</strong>多样笔迹特征+纸张纹理+噪声干扰</li>
+                                    </ul>
+                                    <div style="background: #f0f0f0; padding: 0.75rem; border-radius: 4px; margin-top: 0.75rem;">
+                                        <div style="font-size: 0.8rem; font-weight: bold; margin-bottom: 0.25rem;">关键技术点</div>
+                                        <div style="font-size: 0.8rem; line-height: 1.4;">
+                                            LaTeX语法生成 → 多引擎渲染 → 手写风格模拟 → 符号结构解析 → 图像-LaTeX双向映射
+                                        </div>
+                                    </div>
+                                    <div style="color: #666; font-size: 0.8rem; margin-top: 0.5rem;">
+                                        合成规模：95M公式 | 支持：代数+几何+微积分+线性代数全覆盖
+                                    </div>
+                                </div>
+                                
+                                <div style="background: #fafafa; padding: 1.5rem; border-radius: 8px;">
+                                    <h5>自然场景OCR管线</h5>
+                                    <div style="font-size: 0.85rem; margin-bottom: 1rem; color: #555;">
+                                        <strong>核心创新：</strong>Synthtext-pipeline系统化文本图像合成方法
+                                    </div>
+                                    <ul style="font-size: 0.9rem;">
+                                        <li><strong>背景筛选：</strong>轻量级OCR模型+图像类型检测剔除含文本/非静态样本</li>
+                                        <li><strong>场景理解：</strong>语义分割模型+单目深度估计获取区域划分与3D结构</li>
+                                        <li><strong>语义匹配：</strong>Qwen-VL图像描述+CLIP模型实现文本区域细粒度匹配</li>
+                                        <li><strong>真实投影：</strong>平面检测+透视投影+随机文本样式自然投影</li>
+                                        <li><strong>融合增强：</strong>Poisson融合确保遮挡、阴影、纹理一致性</li>
+                                    </ul>
+                                    <div style="background: #f0f0f0; padding: 0.75rem; border-radius: 4px; margin-top: 0.75rem;">
+                                        <div style="font-size: 0.8rem; font-weight: bold; margin-bottom: 0.25rem;">关键技术点</div>
+                                        <div style="font-size: 0.8rem; line-height: 1.4;">
+                                            OCR筛选背景 → 语义分割+深度估计 → Qwen-VL+CLIP语义匹配 → 透视投影 → Poisson融合 → 字符级+单词级标注
+                                        </div>
+                                    </div>
+                                    <div style="color: #666; font-size: 0.8rem; margin-top: 0.5rem;">
+                                        合成规模：320M场景 | 标注精度：字符级+单词级bounding box
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- 技术特色3：大规模昆仑卡训练 -->
+                    <div class="tech-highlight-detail">
+                        <h3>大规模昆仑卡并行训练</h3>
+                        <p>基于百度自研昆仑芯P800芯片，构建了业界领先的超大规模分布式训练体系，通过创新的并行策略和算子优化实现高效训练</p>
+                        
+                        <!-- 集群规模与数据规模 -->
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem;">
+                            <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                                <h4>集群卡规模</h4>
+                                <div style="font-size: 2rem; font-weight: bold; color: #007bff; margin: 1rem 0;">5000+</div>
+                                <div>昆仑芯P800并行</div>
+                            </div>
+                            <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                                <h4>训练数据规模</h4>
+                                <div style="font-size: 2rem; font-weight: bold; color: #28a745; margin: 1rem 0;">3.5T</div>
+                                <div>Tokens训练数据</div>
+                            </div>
+                            <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                                <h4>扩展效率</h4>
+                                <div style="font-size: 2rem; font-weight: bold; color: #6f42c1; margin: 1rem 0;">90%+</div>
+                                <div>大规模集群扩展效率</div>
+                            </div>
+                        </div>
+
+                        <!-- 并行训练策略 -->
+                        <div style="margin-top: 2rem;">
+                            <h4>多维度并行训练策略</h4>
+                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 1rem;">
+                                <div>
+                                    <h5>数据并行(DP) + 张量并行(TP)</h5>
+                                    <ul>
+                                        <li><strong>3D并行：</strong>DP×TP×PP三维并行组合</li>
+                                        <li><strong>动态负载均衡：</strong>根据模型层特性优化分布</li>
+                                        <li><strong>梯度同步优化：</strong>AllReduce通信时间减少60%</li>
+                                        <li><strong>内存优化：</strong>ZeRO-3状态分片技术</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5>流水线并行(PP) + 序列并行</h5>
+                                    <ul>
+                                        <li><strong>流水线调度：</strong>1F1B调度策略，气泡率<5%</li>
+                                        <li><strong>序列维度切分：</strong>长序列训练内存占用减半</li>
+                                        <li><strong>动态批次：</strong>根据序列长度自适应批大小</li>
+                                        <li><strong>检查点优化：</strong>选择性激活重计算</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 算子优化 -->
+                        <div style="margin-top: 2rem;">
+                            <h4>昆仑芯算子优化</h4>
+                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 1rem;">
+                                <div>
+                                    <h5>核心算子优化</h5>
+                                    <ul>
+                                        <li><strong>Attention算子：</strong>Flash Attention实现，内存占用减少80%</li>
+                                        <li><strong>LayerNorm融合：</strong>前后向计算融合，性能提升45%</li>
+                                        <li><strong>矩阵乘法：</strong>针对昆仑芯特定指令集优化</li>
+                                        <li><strong>激活函数：</strong>SiLU/GeLU等激活函数硬件加速</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5>通信算子优化</h5>
+                                    <ul>
+                                        <li><strong>AllReduce优化：</strong>Ring-AllReduce + Tree-AllReduce混合</li>
+                                        <li><strong>AllGather加速：</strong>分层通信拓扑优化</li>
+                                        <li><strong>点对点通信：</strong>RDMA零拷贝传输</li>
+                                        <li><strong>计算通信重叠：</strong>异步执行，隐藏通信延迟</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
 
-            <section id="benchmarks" class="section">
-                <h2>Performance Benchmarks</h2>
-                
-                <p>
-                    Qianfan-VL demonstrates competitive performance across standard benchmarks while excelling in domain-specific tasks:
-                </p>
 
-                <h3>General Benchmarks</h3>
-                <div class="table-wrapper">
-                    <table class="benchmark-table">
-                        <thead>
-                            <tr>
-                                <th>Benchmark/Model</th>
-                                <th>Qianfan-VL-8B</th>
-                                <th>Qianfan-VL-70B</th>
-                                <th>Qwen2.5-VL-7B</th>
-                                <th>Qwen2.5-VL-72B</th>
-                                <th>InternVL3-8B</th>
-                                <th>InternVL3-78B</th>
-                                <th>Claude-3.5-Sonnet</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>SEEDBench_IMG</td>
-                                <td>77.82</td>
-                                <td><strong>78.77</strong></td>
-                                <td>76.98</td>
-                                <td><strong>78.34</strong></td>
-                                <td>77.00</td>
-                                <td>77.52</td>
-                                <td>71.18</td>
-                            </tr>
-                            <tr>
-                                <td>AI2D_TEST</td>
-                                <td>84.62</td>
-                                <td><strong>86.14</strong></td>
-                                <td>80.47</td>
-                                <td>83.84</td>
-                                <td><strong>85.07</strong></td>
-                                <td>83.55</td>
-                                <td>60.75</td>
-                            </tr>
-                            <tr>
-                                <td>ChartQA_TEST</td>
-                                <td>87.96</td>
-                                <td><strong>88.44</strong></td>
-                                <td>86.68</td>
-                                <td><strong>87.16</strong></td>
-                                <td>85.76</td>
-                                <td>82.04</td>
-                                <td>23.96</td>
-                            </tr>
-                            <tr>
-                                <td>MathVista_MINI</td>
-                                <td>66.70</td>
-                                <td><strong>74.00</strong></td>
-                                <td>67.50</td>
-                                <td><strong>74.30</strong></td>
-                                <td>69.60</td>
-                                <td>69.40</td>
-                                <td>72.30</td>
-                            </tr>
-                            <tr>
-                                <td>MMMU_VAL</td>
-                                <td><strong>70.67</strong></td>
-                                <td><strong>71.78</strong></td>
-                                <td>51.00</td>
-                                <td>65.78</td>
-                                <td>56.11</td>
-                                <td>60.78</td>
-                                <td>52.33</td>
-                            </tr>
-                            <tr>
-                                <td>MMT-Bench_VAL</td>
-                                <td>63.61</td>
-                                <td><strong>71.38</strong></td>
-                                <td>61.40</td>
-                                <td><strong>69.49</strong></td>
-                                <td>65.17</td>
-                                <td>63.67</td>
-                                <td>53.95</td>
-                            </tr>
-                            <tr>
-                                <td>MMStar</td>
-                                <td>65.73</td>
-                                <td><strong>70.93</strong></td>
-                                <td>61.53</td>
-                                <td>66.00</td>
-                                <td><strong>68.40</strong></td>
-                                <td>66.07</td>
-                                <td>51.53</td>
-                            </tr>
-                            <tr>
-                                <td>OCRBench</td>
-                                <td>850</td>
-                                <td>846</td>
-                                <td><strong>883</strong></td>
-                                <td>874</td>
-                                <td><strong>881</strong></td>
-                                <td>847</td>
-                                <td>731</td>
-                            </tr>
-                            <tr>
-                                <td>OCRVQA_TESTCORE</td>
-                                <td>69.08</td>
-                                <td><strong>72.79</strong></td>
-                                <td><strong>71.02</strong></td>
-                                <td>66.80</td>
-                                <td>39.03</td>
-                                <td>35.58</td>
-                                <td>26.79</td>
-                            </tr>
-                            <tr>
-                                <td>TextVQA_VAL</td>
-                                <td>82.87</td>
-                                <td>81.84</td>
-                                <td><strong>84.96</strong></td>
-                                <td>83.26</td>
-                                <td>82.15</td>
-                                <td>83.52</td>
-                                <td>61.20</td>
-                            </tr>
-                            <tr>
-                                <td>InfoVQA_VAL</td>
-                                <td>76.48</td>
-                                <td>76.70</td>
-                                <td>82.45</td>
-                                <td><strong>85.46</strong></td>
-                                <td>75.84</td>
-                                <td>77.58</td>
-                                <td>43.96</td>
-                            </tr>
-                            <tr>
-                                <td>DocVQA</td>
-                                <td>93.83</td>
-                                <td>93.40</td>
-                                <td>94.91</td>
-                                <td><strong>95.75</strong></td>
-                                <td>92.04</td>
-                                <td>83.82</td>
-                                <td>78.75</td>
-                            </tr>
-                            <tr>
-                                <td>CharXiv_DQ</td>
-                                <td><strong>95.22</strong></td>
-                                <td><strong>96.20</strong></td>
-                                <td>78.60</td>
-                                <td>10.00</td>
-                                <td>75.70</td>
-                                <td>84.90</td>
-                                <td>88.32</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-                <h3>Domain-Specific Performance</h3>
-                <p>The domain-enhanced version shows significant improvements over the general version:</p>
-                
-                <ul class="performance-list">
-                    <li>Educational task average: 80.09% → 85.35% (+5.26%)</li>
-                    <li>Document understanding tasks show 5-15% improvement</li>
-                    <li>Superior performance compared to both general VL models and specialized models</li>
-                    <li>OCR accuracy significantly outperforms general-purpose VL models</li>
-                </ul>
-            </section>
 
             <section id="applications" class="section">
-                <h2 id="model-capabilities">Model Capabilities</h2>
+                <h2>场景Case展示</h2>
                 
                 <div class="capabilities-container">
                     <!-- Tab Navigation -->
                     <div class="capability-tabs">
-                        <button class="capability-tab active" data-tab="ocr">OCR</button>
-                        <button class="capability-tab" data-tab="math">Math Problem Solving</button>
-                        <button class="capability-tab" data-tab="document">Document Understanding</button>
-                        <button class="capability-tab" data-tab="video">Video Understanding</button>
-                        <button class="capability-tab" data-tab="grounding">Grounding & Counting</button>
+                        <button class="capability-tab active" data-tab="ocr">OCR识别</button>
+                        <button class="capability-tab" data-tab="math">数学推理</button>
+                        <button class="capability-tab" data-tab="document">文档理解</button>
+                        <button class="capability-tab" data-tab="chart">图表分析</button>
                     </div>
 
                     <!-- Tab Content -->
@@ -1253,77 +988,70 @@
                                     <div class="carousel-track">
                                         <!-- Handwritten OCR -->
                                         <div class="capability-card">
-                                            <h4>Handwritten Recognition</h4>
-                            <div class="showcase-content">
-                                <div class="showcase-image">
-                                    <img src="images/handwritten_recognition.png" alt="Handwritten text example">
-                                </div>
-                                <div class="showcase-dialogue">
-                                    <div class="user-prompt">
-                                        <strong>User:</strong> 识别图中的文字
-                                    </div>
-                                    <div class="model-response">
-                                        <strong>Qianfan-VL:</strong> 征衣未解再跨鞍，接续奋斗开新局。中国青年作为中国大厦的不朽钢钉，中国革命的燎原火种，中国故事的青春注脚，接过时代的话筒，当有对答世界的音量，让中国声音燎亮东方。奋斗圆梦，再谱华章！
-                                    </div>
-                                </div>
-                            </div>
+                                            <h4>手写文字识别</h4>
+                                            <div class="showcase-content">
+                                                <div class="showcase-image">
+                                                    <img src="images/handwritten_recognition.png" alt="手写文字示例">
+                                                </div>
+                                                <div class="showcase-dialogue">
+                                                    <div class="user-prompt">
+                                                        <strong>用户：</strong> 识别图中的文字
+                                                    </div>
+                                                    <div class="model-response">
+                                                        <strong>Qianfan-VL：</strong> 征衣未解再跨鞍，接续奋斗开新局。中国青年作为中国大厦的不朽钢钉，中国革命的燎原火种，中国故事的青春注脚，接过时代的话筒，当有对答世界的音量，让中国声音燎亮东方。奋斗圆梦，再谱华章！
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
 
                                         <!-- Scene OCR -->
                                         <div class="capability-card">
-                                            <h4>Scene OCR</h4>
-                            <div class="showcase-content">
-                                <div class="showcase-image">
-                                    <img src="images/scene_ocr.png" alt="Street scene with text">
-                                </div>
-                                <div class="showcase-dialogue">
-                                    <div class="user-prompt">
-                                        <strong>User:</strong> 请识别图中文字
-                                    </div>
-                                    <div class="model-response">
-                                        <strong>Qianfan-VL:</strong> 实景现房中赫出品 <br>
-                                            颐和园公园南门800米/北侧距万柳高尔夫80米 <br>
-                                            心30米/距地铁巴沟站C出口10米 <br>
-                                            T·6271
-                                    </div>
-                                </div>
-                            </div>
+                                            <h4>场景文字识别</h4>
+                                            <div class="showcase-content">
+                                                <div class="showcase-image">
+                                                    <img src="images/scene_ocr.png" alt="街景文字">
+                                                </div>
+                                                <div class="showcase-dialogue">
+                                                    <div class="user-prompt">
+                                                        <strong>用户：</strong> 请识别图中文字
+                                                    </div>
+                                                    <div class="model-response">
+                                                        <strong>Qianfan-VL：</strong> 实景现房中赫出品 <br>
+                                                            颐和园公园南门800米/北侧距万柳高尔夫80米 <br>
+                                                            心30米/距地铁巴沟站C出口10米 <br>
+                                                            T·6271
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
 
-                                        <!-- Math Equation Recognition -->
+                                        <!-- Invoice Extraction -->
                                         <div class="capability-card">
-                                            <h4>Math Equation Recognition</h4>
-                            <div class="showcase-content">
-                                <div class="showcase-image">
-                                    <img src="images/math_equation_recognition.jpg" alt="Mathematical equations">
-                                </div>
-                                <div class="showcase-dialogue">
-                                    <div class="user-prompt">
-                                        <strong>User:</strong> 将图中的公式转换为latex
-                                    </div>
-                                    <div class="model-response">
-                                        <strong>Qianfan-VL:</strong> <code>\begin{align*}r_d(G):=\sum_{F\in\mathcal{F}_G^+}\frac{R_d(F)}{d_F^2},\end{align*}</code>
-                                    </div>
-                                </div>
-                            </div>
-                                        </div>
-
-                                        <!-- Information Extraction -->
-                                        <div class="capability-card">
-                                            <h4>Information Extraction</h4>
-                            <div class="showcase-content">
-                                <div class="showcase-image">
-                                    <img src="images/information_extraction.jpeg" alt="Business form">
-                                </div>
-                                <div class="showcase-dialogue">
-                                    <div class="user-prompt">
-                                        <strong>User:</strong> 提取发票信息：发票号码、开票日期、总金额、项目列表等
-                                    </div>
-                                    <div class="model-response">
-                                        <strong>Qianfan-VL:</strong> <pre>{"发票号码": "0110020001", "开票日期": "2021年10月", "合计": "1565.05", "价税合计": "1580.70", "项目列表": [{"项目名称": "成药*安宫牛黄丸", "数量": "1", "金额": "749.11"}, {"项目名称": "成药*益安宁丸", "数量": "1", "金额": "758.71"}, {"项目名称": "学药品制剂*藿香正气软胶囊", "数量": "2", "金额": "57.23"}]}</pre>
-                                    </div>
-                                </div>
-                            </div>
+                                            <h4>票据信息提取</h4>
+                                            <div class="showcase-content">
+                                                <div class="showcase-image">
+                                                    <img src="images/information_extraction.jpeg" alt="发票">
+                                                </div>
+                                                <div class="showcase-dialogue">
+                                                    <div class="user-prompt">
+                                                        <strong>用户：</strong> 提取发票信息
+                                                    </div>
+                                                    <div class="model-response">
+                                                        <strong>Qianfan-VL：</strong> 
+                                                        <pre>{
+  "发票号码": "0110020001",
+  "开票日期": "2021年10月", 
+  "合计": "1565.05",
+  "价税合计": "1580.70",
+  "项目列表": [
+    {"项目名称": "成药*安宫牛黄丸", "数量": "1", "金额": "749.11"},
+    {"项目名称": "成药*益安宁丸", "数量": "1", "金额": "758.71"},
+    {"项目名称": "学药品制剂*藿香正气软胶囊", "数量": "2", "金额": "57.23"}
+  ]
+}</pre>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1331,72 +1059,58 @@
                             </div>
                         </div>
 
-                        <!-- Math Problem Solving Panel -->
+                        <!-- Math Panel -->
                         <div class="capability-panel" id="math-panel">
                             <div class="carousel-container">
                                 <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
                                 <div class="carousel-wrapper">
                                     <div class="carousel-track">
-                                        <!-- Photo Search Math Problem -->
                                         <div class="capability-card">
-                                            <h4>Photo Search Math Problem Solving</h4>
-                            <div class="showcase-content">
-                                <div class="showcase-image">
-                                    <img src="placeholder_math_photo.jpg" alt="Math problem photo">
-                                </div>
-                                <div class="showcase-dialogue">
-                                    <div class="user-prompt">
-                                        <strong>User:</strong> Solve this math problem and show the steps.
-                                    </div>
-                                    <div class="model-response">
-                                        <strong>Qianfan-VL:</strong> [Provides step-by-step solution with clear explanations]
-                                    </div>
-                                </div>
-                            </div>
+                                            <h4>几何问题求解</h4>
+                                            <div class="showcase-content">
+                                                <div class="showcase-image">
+                                                    <img src="images/geometry_problem_solving.jpg" alt="几何题">
+                                                </div>
+                                                <div class="showcase-dialogue">
+                                                    <div class="user-prompt">
+                                                        <strong>用户：</strong> 请帮我解这道题
+                                                    </div>
+                                                    <div class="model-response">
+                                                        <strong>Qianfan-VL：</strong> 
+                                                        <div style="background: #f5f5f5; padding: 1rem; border-radius: 4px; margin-top: 0.5rem;">
+                                                            <strong>解题思路：</strong><br>
+                                                            1. 利用角关系∠B=2∠C和正弦定理<br>
+                                                            2. 构造辅助线，利用直角三角形性质<br>
+                                                            3. 通过中点性质求解DM<br><br>
+                                                            <strong>详细步骤：</strong><br>
+                                                            设∠C=θ，则∠B=2θ<br>
+                                                            在Rt△ABD中：BD = 10cos2θ<br>
+                                                            在Rt△ACD中：DC = 20cos²θ<br>
+                                                            BC = BD + DC = 40cos²θ - 10<br>
+                                                            M为BC中点，BM = 20cos²θ - 5<br>
+                                                            DM = BM - BD = 5<br><br>
+                                                            <strong>答案：DM = 5</strong>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
 
-                                        <!-- Geometry Problem -->
                                         <div class="capability-card">
-                                            <h4>Geometry Problem Solving</h4>
-                            <div class="showcase-content">
-                                <div class="showcase-image">
-                                    <img src="images/geometry_problem_solving.jpg" alt="Geometry diagram">
-                                </div>
-                                <div class="showcase-dialogue">
-                                    <div class="user-prompt">
-                                        <strong>User:</strong> 请帮我解一下这道题
-                                    </div>
-                                    <div class="model-response">
-                                        <strong>Qianfan-VL:</strong> 要解决在△ABC中，∠B=2∠C，AD⊥BC于D，M为BC中点，AB=10，求DM长度的问题，可按以下步骤进行：
-                                            ### **关键思路**  
-                                            1. **利用角关系与正弦定理**：通过∠B=2∠C，结合正弦定理表示边与角的关系。  
-                                            2. **直角三角形斜边中线性质**：在Rt△ABD中，取AB中点E，连接DE，则DE为斜边AB的中线，故DE=BE=AE=5。  
-                                            3. **中点构造与中位线**：M为BC中点，结合辅助线构造平行四边形或等腰三角形，转化线段关系。  
-                                            
-                                            ### **详细步骤**  
-                                            设∠C=θ，则∠B=2θ，∠A=180°-3θ。  
-                                            - **在Rt△ABD中**：AD⊥BC，故∠ADB=90°。由正弦定理：  
-                                              \( \frac{AB}{\sin\theta} = \frac{AC}{\sin2\theta} \)，得 \( AC = \frac{AB \cdot \sin2\theta}{\sin\theta} = 20\cos\theta \)（因为 \( \sin2\theta=2\sin\theta\cos\theta \)）。  
-                                            - **求BD与DC**：  
-                                              在Rt△ABD中，\( BD = AB \cdot \cos2\theta = 10\cos2\theta \)；  
-                                              在Rt△ACD中，\( DC = AC \cdot \cos\theta = 20\cos^2\theta \)。  
-                                            - **求BC与BM**：  
-                                              \( BC = BD + DC = 10\cos2\theta + 20\cos^2\theta \)。  
-                                              因为 \( \cos2\theta = 2\cos^2\theta - 1 \)，代入得：  
-                                              \( BC = 10(2\cos^2\theta - 1) + 20\cos^2\theta = 40\cos^2\theta - 10 \)。  
-                                              M为BC中点，故 \( BM = \frac{BC}{2} = 20\cos^2\theta - 5 \)。  
-                                            
-                                            ### **求DM**  
-                                            由 \( BD = 10\cos2\theta = 20\cos^2\theta - 10 \)，则：  
-                                            \( DM = BM - BD = (20\cos^2\theta - 5) - (20\cos^2\theta - 10) = 5 \)。  
-                                            
-                                            ### **结论**  
-                                            **DM的长度为5**。
-                                            
-                                            **答案**：\(\boxed{5}\)
-                                    </div>
-                                </div>
-                            </div>
+                                            <h4>数学公式识别</h4>
+                                            <div class="showcase-content">
+                                                <div class="showcase-image">
+                                                    <img src="images/math_equation_recognition.jpg" alt="数学公式">
+                                                </div>
+                                                <div class="showcase-dialogue">
+                                                    <div class="user-prompt">
+                                                        <strong>用户：</strong> 将图中的公式转换为LaTeX
+                                                    </div>
+                                                    <div class="model-response">
+                                                        <strong>Qianfan-VL：</strong> <code>\begin{align*}r_d(G):=\sum_{F\in\mathcal{F}_G^+}\frac{R_d(F)}{d_F^2},\end{align*}</code>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1404,190 +1118,46 @@
                             </div>
                         </div>
 
-                        <!-- Document Understanding Panel -->
+                        <!-- Document Panel -->
                         <div class="capability-panel" id="document-panel">
                             <div class="carousel-container">
                                 <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
                                 <div class="carousel-wrapper">
                                     <div class="carousel-track">
-                                        <!-- Document Content Understanding -->
                                         <div class="capability-card">
-                                            <h4>Document Content Understanding</h4>
-                            <div class="showcase-content">
-                                <div class="showcase-image">
-                                    <img src="images/document_content_understanding.png" alt="Complex document">
-                                </div>
-                                <div class="showcase-dialogue">
-                                    <div class="user-prompt">
-                                        <strong>User:</strong> 根据文档内容，中国银监会在文件中强调了对商业性房地产信贷的哪些具体管理要求？这些要求对银行的风险控制有何影响？
-                                    </div>
-                                    <div class="model-response">
-                                        <strong>Qianfan-VL:</strong> 文件提出了四项核心要求:1）严格房地产开发贷款管理，限制资金流向未合规项目；2）规范土地储备贷款，限制贷款比例和期限；3）加强住房消费贷款管理，实施差异化首付比例和利率；4）严控商业用房贷款。这些要求通过限制资金过度流入房地产、提高贷款门槛和差异化定价，有效降低了银行信贷风险，防止了房地产泡沫。
-                                    </div>
-                                </div>
-                            </div>
-                                        </div>
-
-                                        <!-- Table Understanding -->
-                                        <div class="capability-card">
-                                            <h4>Table Understanding</h4>
-                            <div class="showcase-content">
-                                <div class="showcase-image">
-                                    <img src="images/table_understanding.png" alt="Complex table">
-                                </div>
-                                <div class="showcase-dialogue">
-                                    <div class="user-prompt">
-                                        <strong>User:</strong> 将表格解析为HTML格式，保留合并单元格结构
-                                    </div>
-                                    <div class="model-response">
-                                        
-                                        <table border="1">
-                                            <thead>
-                                                <tr>
-                                                    <th>项目</th> <th>期末余额</th> <th>年初余额</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>  <td colspan="3">流动资产：</td>  </tr>
-                                                <tr>  <td>货币资金</td> <td>5,288,011,738.39</td> <td>2,629,981,089.49</td>  </tr>
-                                                <tr>  <td>结算备付金</td> <td></td> <td></td>  </tr>
-                                                <tr>  <td>拆出资金</td> <td></td> <td></td>  </tr>
-                                                <tr>  <td>以公允价值计量且其变动计入当期损益的金融资产</td> <td>3,226,301.37</td> <td>6,830,273.97</td>  </tr>
-                                                <tr>  <td>衍生金融资产</td> <td></td> <td></td>  </tr>
-                                                <tr>  <td>应收票据</td> <td>1,010,636.94</td> <td>888,800.00</td>  </tr>
-                                                <tr>  <td>应收账款</td> <td>389,409,537.65</td> <td>290,733,812.62</td>  </tr>
-                                                <tr>  <td>预付款项</td> <td>474,301,533.93</td> <td>509,510,514.92</td>  </tr>
-                                                <tr>  <td>应收保费</td> <td></td> <td></td>  </tr>
-                                                <tr>  <td>应收分保账款</td> <td></td> <td></td>  </tr>
-                                                <tr>  <td>应收分保合同准备金</td> <td></td> <td></td>  </tr>
-                                                <tr>  <td>应收利息</td> <td>8,746,899.35</td> <td>1,645,890.39</td>  </tr>
-                                                <tr>  <td>应收股利</td> <td></td> <td></td>  </tr>
-                                                <tr>  <td>其他应收款</td> <td>291,499,926.83</td> <td>364,426,205.02</td>  </tr>
-                                                <tr>  <td>买入返售金融资产</td> <td></td> <td></td>  </tr>
-                                                <tr>  <td>存货</td> <td>69,558,687.59</td> <td>79,651,862.50</td>  </tr>
-                                                <tr>  <td>划分为持有待售的资产</td> <td></td> <td></td>  </tr>
-                                                <tr>  <td>一年内到期的非流动资产</td> <td></td> <td></td>  </tr>
-                                                <tr>  <td>其他流动资产</td> <td>533,938,653.95</td> <td>545,184,036.20</td>  </tr>
-                                                <tr>  <td>流动资产合计</td> <td>7,059,703,916.00</td> <td>4,428,852,485.11</td>  </tr>
-                                                <tr>  <td colspan="3">非流动资产：</td>  </tr>
-                                                <tr>  <td>发放贷款和垫款</td> <td></td> <td></td>  </tr>
-                                                <tr>  <td>可供出售金融资产</td> <td>981,477,845.00</td> <td>42,732,350.00</td>  </tr>
-                                                <tr>  <td>持有至到期投资</td> <td></td> <td></td>  </tr>
-                                                <tr>  <td>长期应收款</td> <td></td> <td></td>  </tr>
-                                                <tr>  <td>长期股权投资</td> <td>478,328,423.92</td> <td>482,914,333.17</td>  </tr>
-                                                <tr>  <td>投资性房地产</td> <td></td> <td></td>  </tr>
-                                                <tr>  <td>固定资产</td> <td>11,211,345,599.37</td> <td>11,517,509,788.66</td>  </tr>
-                                                <tr>  <td>在建工程</td> <td>344,034,065.45</td> <td>558,797,792.68</td>  </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                                        <!-- Chart Reasoning -->
-                                        <div class="capability-card">
-                                            <h4>Chart Reasoning</h4>
-                            <div class="showcase-content">
-                                <div class="showcase-image">
-                                    <img src="images/chart_gift_reasoning.jpeg" alt="Gift selection chart">
-                                </div>
-                                <div class="showcase-dialogue">
-                                    <div class="user-prompt">
-                                        <strong>User:</strong> 小明是一位男生，下面哪样物品最适合作为他的七夕节礼物 a) Iphone 17 b) Dior香水 c) 一束美丽的鲜花 d) 巧克力套装
-                                    </div>
-                                    <div class="model-response">
-                                        <strong>Qianfan-VL:</strong> 根据图表数据，男生最想收到的礼物中，手机的热度指数为44.36，高于香水（47.62）、巧克力套装（42.48）和鲜花（41.22）。
-
-选项分析：
-- a) iphone17：属于手机类，符合男生对电子产品的偏好，热度指数在男生礼物中处于较高水平（仅次于游戏设备）。
-- b) Dior香水：女生对香水的热度（87.13）远高于男生（47.62），且男生对香水的兴趣较低。
-- c) 一束美丽的鲜花：男生对花的兴趣明显低于女生（男生花的热度41.22），通常不被视为男生偏好的礼物。
-- d) 巧克力套装：女生对巧克力的热度（42.48）高于男生（47.62），且巧克力作为礼物更偏向"大众化"，而非男生核心兴趣。
-
-最适合的礼物是a) iphone17。
-答案：a
-                                    </div>
-                                </div>
-                            </div>
-                                        </div>
-
-                                        <!-- Chart Calculation -->
-                                        <div class="capability-card">
-                                            <h4>Chart Calculation</h4>
-                            <div class="showcase-content">
-                                <div class="showcase-image">
-                                    <img src="images/chart_math_calculation.png" alt="AI sentiment chart">
-                                </div>
-                                <div class="showcase-dialogue">
-                                    <div class="user-prompt">
-                                        <strong>User:</strong> What is the average percentage of U.S. adults who feel equally excited and concerned about AI over the three years?
-                                    </div>
-                                    <div class="model-response">
-                                        <strong>Qianfan-VL:</strong> To determine the average percentage of U.S. adults who feel "equally excited and concerned" about AI over the three years (2021, 2022, 2023), follow these steps:
-
-Step 1: Identify the relevant data
-From the chart, the percentage of adults who feel "equally excited and concerned" is:
-- 2021: 45%
-- 2022: 46%
-- 2023: 36%
-
-Step 2: Calculate the average
-Add the percentages and divide by the number of years (3):
-
-Average = (45 + 46 + 36) / 3 = 127 / 3 ≈ 42.33%
-
-Answer: Approximately 42.3% (or 42.33%).
-                                    </div>
-                                </div>
-                            </div>
-                                        </div>
-
-                                        <!-- Stock Chart Analysis -->
-                                        <div class="capability-card">
-                                            <h4>Stock Chart Analysis</h4>
-                            <div class="showcase-content">
-                                <div class="showcase-image">
-                                    <img src="images/chart_stock_elaboration.png" alt="Shanghai stock index chart">
-                                </div>
-                                <div class="showcase-dialogue">
-                                    <div class="user-prompt">
-                                        <strong>User:</strong> 描述一下8月27号的上证指数走势
-                                    </div>
-                                    <div class="model-response">
-                                        <strong>Qianfan-VL:</strong> 8月27日，上证指数全天呈现震荡下跌走势。开盘后指数在3869.61点起步，最高触及3887.20点，随后逐步回落。早盘维持震荡整理态势，午市后跌幅逐渐扩大，最终收于3800.35点，下跌68.03点，跌幅1.76%。全天成交量达8.59亿手，成交额为1.33万亿元，市场交投活跃。从分时图看，指数在午后14:30左右出现明显跳水，跌幅进一步扩大，最终以全日低点收盘。
-                                    </div>
-                                </div>
-                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button class="carousel-btn carousel-next" aria-label="Next">›</button>
-                            </div>
-                        </div>
-
-                        <!-- Video Understanding Panel -->
-                        <div class="capability-panel" id="video-panel">
-                            <div class="carousel-container">
-                                <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
-                                <div class="carousel-wrapper">
-                                    <div class="carousel-track">
-                                        <!-- Video Content Analysis -->
-                                        <div class="capability-card">
-                                            <h4>Video Content Analysis</h4>
+                                            <h4>文档内容理解</h4>
                                             <div class="showcase-content">
                                                 <div class="showcase-image">
-                                                    <video controls style="width: 100%;">
-                                                        <source src="images/video_understanding.mp4" type="video/mp4">
-                                                        Your browser does not support the video tag.
-                                                    </video>
+                                                    <img src="images/document_content_understanding.png" alt="复杂文档">
                                                 </div>
                                                 <div class="showcase-dialogue">
                                                     <div class="user-prompt">
-                                                        <strong>User:</strong> 请描述一下视频中的内容
+                                                        <strong>用户：</strong> 中国银监会在文件中强调了哪些管理要求？
                                                     </div>
                                                     <div class="model-response">
-                                                        <strong>Qianfan-VL:</strong> 在这段宁静祥和的视频中，一片宽阔的湖泊映入眼帘，湖面波光粼粼，反射着温暖的阳光。几艘小船散布在湖面上，有的靠近岸边，有的在湖心悠然行驶。远处，茂密的树林和连绵起伏的山脉构成了一幅美丽的画卷…
+                                                        <strong>Qianfan-VL：</strong> 文件提出四项核心要求：
+                                                        1）严格房地产开发贷款管理，限制资金流向未合规项目
+                                                        2）规范土地储备贷款，限制贷款比例和期限
+                                                        3）加强住房消费贷款管理，实施差异化首付比例和利率
+                                                        4）严控商业用房贷款
+                                                        这些措施有效降低了银行信贷风险，防止房地产泡沫。
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="capability-card">
+                                            <h4>表格结构理解</h4>
+                                            <div class="showcase-content">
+                                                <div class="showcase-image">
+                                                    <img src="images/table_understanding.png" alt="复杂表格">
+                                                </div>
+                                                <div class="showcase-dialogue">
+                                                    <div class="user-prompt">
+                                                        <strong>用户：</strong> 解析表格为结构化数据
+                                                    </div>
+                                                    <div class="model-response">
+                                                        <strong>Qianfan-VL：</strong> [准确提取表格结构，保留合并单元格关系，输出HTML/Markdown格式]
                                                     </div>
                                                 </div>
                                             </div>
@@ -1598,43 +1168,47 @@ Answer: Approximately 42.3% (or 42.33%).
                             </div>
                         </div>
 
-                        <!-- Grounding and Counting Panel -->
-                        <div class="capability-panel" id="grounding-panel">
+                        <!-- Chart Panel -->
+                        <div class="capability-panel" id="chart-panel">
                             <div class="carousel-container">
                                 <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
                                 <div class="carousel-wrapper">
                                     <div class="carousel-track">
-                                        <!-- Object Grounding -->
                                         <div class="capability-card">
-                                            <h4>Object Grounding</h4>
+                                            <h4>图表数据分析</h4>
                                             <div class="showcase-content">
                                                 <div class="showcase-image">
-                                                    <img src="images/object_grounding_result.jpg" alt="Animals with cat localization">
+                                                    <img src="images/chart_gift_reasoning.jpeg" alt="礼物选择图表">
                                                 </div>
                                                 <div class="showcase-dialogue">
                                                     <div class="user-prompt">
-                                                        <strong>User:</strong> Please provide the bounding box coordinate of the region this sentence describes: &lt;ref&gt;cat in the middle&lt;/ref&gt;
+                                                        <strong>用户：</strong> 小明是男生，哪样物品最适合作为七夕礼物？
                                                     </div>
                                                     <div class="model-response">
-                                                        <strong>Qianfan-VL:</strong> &lt;ref&gt;cat in the middle&lt;/ref&gt;&lt;box&gt;[[416, 577, 694, 804]]&lt;/box&gt;
+                                                        <strong>Qianfan-VL：</strong> 根据图表数据分析：
+                                                        - iPhone17：男生对电子产品偏好度44.36，仅次于游戏设备
+                                                        - Dior香水：女生偏好87.13，男生仅47.62
+                                                        - 鲜花：男生兴趣最低41.22
+                                                        - 巧克力：偏好度42.48，较为普通
+                                                        
+                                                        <strong>答案：a) iPhone17最适合</strong>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        <!-- Object Counting -->
                                         <div class="capability-card">
-                                            <h4>Object Counting</h4>
+                                            <h4>股票走势分析</h4>
                                             <div class="showcase-content">
                                                 <div class="showcase-image">
-                                                    <img src="images/object_counting.jpg" alt="Multiple watermelons">
+                                                    <img src="images/chart_stock_elaboration.png" alt="上证指数">
                                                 </div>
                                                 <div class="showcase-dialogue">
                                                     <div class="user-prompt">
-                                                        <strong>User:</strong> 图中有几个西瓜
+                                                        <strong>用户：</strong> 描述8月27号的走势
                                                     </div>
                                                     <div class="model-response">
-                                                        <strong>Qianfan-VL:</strong> 10
+                                                        <strong>Qianfan-VL：</strong> 8月27日上证指数全天震荡下跌。开盘3869.61点，最高触及3887.20点，午后14:30出现明显跳水，最终收于3800.35点，下跌68.03点（-1.76%）。成交量8.59亿手，成交额1.33万亿元，市场交投活跃。
                                                     </div>
                                                 </div>
                                             </div>
@@ -1649,22 +1223,22 @@ Answer: Approximately 42.3% (or 42.33%).
             </section>
 
             <section id="api" class="section">
-                <h2>Getting Started</h2>
+                <h2>快速开始</h2>
                 
-                <h3>Installation</h3>
-                <pre><code class="language-bash"># Install OpenAI SDK
+                <h3>安装配置</h3>
+                <pre><code class="language-bash"># 安装OpenAI SDK
 pip install openai
 
-# Set up authentication (using Qianfan credentials)
+# 设置千帆认证信息
 export QIANFAN_ACCESS_KEY="your_access_key"
 export QIANFAN_SECRET_KEY="your_secret_key"</code></pre>
 
-                <h3>Basic Setup</h3>
+                <h3>基础示例</h3>
                 <pre><code class="language-python">from openai import OpenAI
 import base64
 import os
 
-# Initialize client with Qianfan endpoint
+# 初始化客户端
 client = OpenAI(
     api_key = os.environ.get("QIANFAN_SECRET_KEY"),
     base_url = "https://api.qianfan.com/v1",
@@ -1673,27 +1247,26 @@ client = OpenAI(
     }
 )
 
-# Available models: Qianfan-VL-8B, Qianfan-VL-70B
-# Note: Qianfan-VL-3B will be available soon
+# 可用模型: Qianfan-VL-8B, Qianfan-VL-70B
+# 注意: Qianfan-VL-3B 即将上线
 model = "Qianfan-VL-8B"</code></pre>
 
-                <h3>Code Examples by Capability</h3>
+                <h3>功能示例代码</h3>
                 
                 <div class="code-examples-container">
                     <!-- Code Example Tabs -->
                     <div class="code-tabs">
-                        <button class="code-tab active" data-tab="ocr-code">OCR</button>
-                        <button class="code-tab" data-tab="math-code">Math Solving</button>
-                        <button class="code-tab" data-tab="document-code">Document Understanding</button>
-                        <button class="code-tab" data-tab="video-code">Video Analysis</button>
-                        <button class="code-tab" data-tab="grounding-code">Grounding & Counting</button>
+                        <button class="code-tab active" data-tab="ocr-code">OCR识别</button>
+                        <button class="code-tab" data-tab="math-code">数学推理</button>
+                        <button class="code-tab" data-tab="document-code">文档理解</button>
+                        <button class="code-tab" data-tab="reasoning-code">思考推理</button>
                     </div>
 
                     <!-- Code Panels -->
                     <div class="code-panels">
                         <!-- OCR Code Panel -->
                         <div class="code-panel active" id="ocr-code-panel">
-                            <h4>OCR and Text Extraction</h4>
+                            <h4>OCR文字识别</h4>
                             <pre><code class="language-python">from openai import OpenAI
 import base64
 import os
@@ -1704,18 +1277,18 @@ client = OpenAI(
     default_headers = {"X-Access-Key": os.environ.get("QIANFAN_ACCESS_KEY")}
 )
 
-# Read and encode image
-with open("handwritten_text.jpg", "rb") as image_file:
+# 读取并编码图像
+with open("document.jpg", "rb") as image_file:
     image_base64 = base64.b64encode(image_file.read()).decode('utf-8')
 
-# OCR for handwritten text
+# OCR识别
 response = client.chat.completions.create(
     model = "Qianfan-VL-8B",
     messages=[
         {
             "role": "user",
             "content": [
-                {"type": "text", "text": "请识别图中的手写文字，并转换为简体中文"},
+                {"type": "text", "text": "请识别图中的所有文字，保持原始格式"},
                 {
                     "type": "image_url",
                     "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
@@ -1723,50 +1296,16 @@ response = client.chat.completions.create(
             ]
         }
     ],
-    temperature = 0.1,  # Lower temperature for accurate OCR
+    temperature = 0.1,  # 低温度保证准确性
     max_tokens = 2048
 )
 
-print(response.choices[0].message.content)
-
-# Scene text extraction
-scene_response = client.chat.completions.create(
-    model = "Qianfan-VL-8B",
-    messages=[
-        {
-            "role": "user",
-            "content": [
-                {"type": "text", "text": "提取图片中所有的文字信息，包括招牌、标语等"},
-                {
-                    "type": "image_url",
-                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
-                }
-            ]
-        }
-    ]
-)
-
-# Extract structured information from forms
-form_response = client.chat.completions.create(
-    model = "Qianfan-VL-8B",
-    messages=[
-        {
-            "role": "user",
-            "content": [
-                {"type": "text", "text": "提取表单中的关键信息，输出为JSON格式"},
-                {
-                    "type": "image_url",
-                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
-                }
-            ]
-        }
-    ]
-)</code></pre>
+print(response.choices[0].message.content)</code></pre>
                         </div>
 
                         <!-- Math Code Panel -->
                         <div class="code-panel" id="math-code-panel">
-                            <h4>Mathematical Problem Solving</h4>
+                            <h4>数学问题求解</h4>
                             <pre><code class="language-python">from openai import OpenAI
 import base64
 import os
@@ -1777,20 +1316,20 @@ client = OpenAI(
     default_headers = {"X-Access-Key": os.environ.get("QIANFAN_ACCESS_KEY")}
 )
 
-# Read math problem image
+# 读取数学题图片
 with open("math_problem.jpg", "rb") as image_file:
     image_base64 = base64.b64encode(image_file.read()).decode('utf-8')
 
-# Solve with step-by-step explanation
+# 激活思考推理求解
 response = client.chat.completions.create(
-    model = "Qianfan-VL-70B",  # Use larger model for complex math
+    model = "Qianfan-VL-70B",  # 使用大模型获得更强推理能力
     messages=[
         {
             "role": "user",
             "content": [
                 {
                     "type": "text", 
-                    "text": """请解决这道数学题，要求：
+                    "text": """请解决这道数学题：
 1. 详细说明解题思路
 2. 给出每一步的推导过程
 3. 使用LaTeX格式书写数学公式
@@ -1807,49 +1346,12 @@ response = client.chat.completions.create(
     max_tokens = 4096
 )
 
-print(response.choices[0].message.content)
-
-# Geometry problem solving
-geometry_response = client.chat.completions.create(
-    model = "Qianfan-VL-70B",
-    messages=[
-        {
-            "role": "user",
-            "content": [
-                {
-                    "type": "text",
-                    "text": "分析这道几何题，画出辅助线并说明解题步骤"
-                },
-                {
-                    "type": "image_url",
-                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
-                }
-            ]
-        }
-    ]
-)
-
-# Extract mathematical equations
-equation_response = client.chat.completions.create(
-    model = "Qianfan-VL-8B",
-    messages=[
-        {
-            "role": "user",
-            "content": [
-                {"type": "text", "text": "将图中的数学公式转换为LaTeX格式"},
-                {
-                    "type": "image_url",
-                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
-                }
-            ]
-        }
-    ]
-)</code></pre>
+print(response.choices[0].message.content)</code></pre>
                         </div>
 
                         <!-- Document Code Panel -->
                         <div class="code-panel" id="document-code-panel">
-                            <h4>Document Understanding</h4>
+                            <h4>文档理解与提取</h4>
                             <pre><code class="language-python">from openai import OpenAI
 import base64
 import os
@@ -1860,11 +1362,11 @@ client = OpenAI(
     default_headers = {"X-Access-Key": os.environ.get("QIANFAN_ACCESS_KEY")}
 )
 
-# Read document image
-with open("document.jpg", "rb") as image_file:
+# 读取文档图像
+with open("contract.jpg", "rb") as image_file:
     image_base64 = base64.b64encode(image_file.read()).decode('utf-8')
 
-# Extract and analyze document content
+# 文档理解和信息提取
 response = client.chat.completions.create(
     model = "Qianfan-VL-8B",
     messages=[
@@ -1873,11 +1375,12 @@ response = client.chat.completions.create(
             "content": [
                 {
                     "type": "text",
-                    "text": """请分析这份文档：
-1. 提取文档的主要内容和关键信息
-2. 识别文档类型（合同、报告、财务报表等）
-3. 总结核心要点
-4. 标注重要条款或数据"""
+                    "text": """分析这份合同文档：
+1. 识别文档类型和关键条款
+2. 提取甲乙双方信息
+3. 标注重要日期和金额
+4. 识别潜在风险条款
+5. 输出为JSON格式"""
                 },
                 {
                     "type": "image_url",
@@ -1890,60 +1393,17 @@ response = client.chat.completions.create(
     max_tokens = 3000
 )
 
-print(response.choices[0].message.content)
-
-# Table extraction and analysis
-table_response = client.chat.completions.create(
-    model = "Qianfan-VL-8B",
-    messages=[
-        {
-            "role": "user",
-            "content": [
-                {
-                    "type": "text",
-                    "text": """请提取表格内容：
-1. 将表格转换为Markdown格式
-2. 保留所有合并单元格的结构
-3. 计算关键指标（如有）
-4. 分析数据趋势"""
-                },
-                {
-                    "type": "image_url",
-                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
-                }
-            ]
-        }
-    ]
-)
-
-# Chart analysis
-chart_response = client.chat.completions.create(
-    model = "Qianfan-VL-70B",
-    messages=[
-        {
-            "role": "user",
-            "content": [
-                {
-                    "type": "text",
-                    "text": "分析这个图表，提取数据并给出洞察"
-                },
-                {
-                    "type": "image_url",
-                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
-                }
-            ]
-        }
-    ]
-)</code></pre>
+import json
+result = json.loads(response.choices[0].message.content)
+print(json.dumps(result, ensure_ascii=False, indent=2))</code></pre>
                         </div>
 
-                        <!-- Video Code Panel -->
-                        <div class="code-panel" id="video-code-panel">
-                            <h4>Video Understanding</h4>
+                        <!-- Reasoning Code Panel -->
+                        <div class="code-panel" id="reasoning-code-panel">
+                            <h4>思考推理能力</h4>
                             <pre><code class="language-python">from openai import OpenAI
 import base64
 import os
-import cv2
 
 client = OpenAI(
     api_key = os.environ.get("QIANFAN_SECRET_KEY"),
@@ -1951,276 +1411,116 @@ client = OpenAI(
     default_headers = {"X-Access-Key": os.environ.get("QIANFAN_ACCESS_KEY")}
 )
 
-# Extract key frames from video
-def extract_frames(video_path, num_frames = 8):
-    cap = cv2.VideoCapture(video_path)
-    total_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
-    frame_indices = [i * total_frames // num_frames for i in range(num_frames)]
-    
-    frames = []
-    for idx in frame_indices:
-        cap.set(cv2.CAP_PROP_POS_FRAMES, idx)
-        ret, frame = cap.read()
-        if ret:
-            _, buffer = cv2.imencode('.jpg', frame)
-            frame_base64 = base64.b64encode(buffer).decode('utf-8')
-            frames.append(frame_base64)
-    
-    cap.release()
-    return frames
+# 读取复杂图表
+with open("complex_chart.jpg", "rb") as image_file:
+    image_base64 = base64.b64encode(image_file.read()).decode('utf-8')
 
-# Extract frames
-frames = extract_frames("video.mp4", num_frames = 8)
-
-# Analyze video content
-content = []
-for i, frame in enumerate(frames):
-    content.append({"type": "text", "text": f"Frame {i+1}:"})
-    content.append({
-        "type": "image_url",
-        "image_url": {"url": f"data:image/jpeg;base64,{frame}"}
-    })
-
-content.append({"type": "text", "text": """请分析这个视频：
-1. 描述视频的整体内容
-2. 识别主要场景和活动
-3. 提取关键时刻
-4. 总结视频的主题"""})
-
+# 使用思考链进行深度分析
 response = client.chat.completions.create(
     model = "Qianfan-VL-70B",
-    messages=[{"role": "user", "content": content}],
+    messages=[
+        {
+            "role": "system",
+            "content": "你是一个数据分析专家，请使用思考链方法进行分析"
+        },
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text",
+                    "text": """分析这个图表并回答：
+1. 数据的整体趋势是什么？
+2. 有哪些异常点需要关注？
+3. 基于当前数据，未来3个月的预测是什么？
+4. 给出你的推理过程和依据"""
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
+                }
+            ]
+        }
+    ],
     temperature = 0.3,
     max_tokens = 2048
 )
 
-print(response.choices[0].message.content)
-
-# Action recognition
-action_response = client.chat.completions.create(
-    model = "Qianfan-VL-8B",
-    messages=[
-        {
-            "role": "user",
-            "content": [
-                {"type": "text", "text": "识别视频中的动作和行为"},
-                *[{"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{f}"}} for f in frames[:4]]
-            ]
-        }
-    ]
-)</code></pre>
-                        </div>
-
-                        <!-- Grounding Code Panel -->
-                        <div class="code-panel" id="grounding-code-panel">
-                            <h4>Grounding and Counting</h4>
-                            <pre><code class="language-python">from openai import OpenAI
-import base64
-import os
-import json
-
-client = OpenAI(
-    api_key = os.environ.get("QIANFAN_SECRET_KEY"),
-    base_url = "https://api.qianfan.com/v1",
-    default_headers = {"X-Access-Key": os.environ.get("QIANFAN_ACCESS_KEY")}
-)
-
-# Read image
-with open("objects.jpg", "rb") as image_file:
-    image_base64 = base64.b64encode(image_file.read()).decode('utf-8')
-
-# Object grounding with bounding boxes
-grounding_response = client.chat.completions.create(
-    model = "Qianfan-VL-8B",
-    messages=[
-        {
-            "role": "user",
-            "content": [
-                {
-                    "type": "text",
-                    "text": "Please provide the bounding box coordinates for: <ref>the red car in the middle</ref>"
-                },
-                {
-                    "type": "image_url",
-                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
-                }
-            ]
-        }
-    ],
-    temperature = 0.1,
-    max_tokens = 512
-)
-
-# Parse bounding box from response
-response_text = grounding_response.choices[0].message.content
-print(f"Grounding result: {response_text}")
-
-# Object counting
-counting_response = client.chat.completions.create(
-    model = "Qianfan-VL-8B",
-    messages=[
-        {
-            "role": "user",
-            "content": [
-                {"type": "text", "text": "请数一下图中有多少个人、多少辆车、多少棵树"},
-                {
-                    "type": "image_url",
-                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
-                }
-            ]
-        }
-    ],
-    temperature = 0.1,
-    max_tokens = 256
-)
-
-print(f"Counting result: {counting_response.choices[0].message.content}")
-
-# Detailed object detection
-detection_response = client.chat.completions.create(
-    model = "Qianfan-VL-70B",
-    messages=[
-        {
-            "role": "user",
-            "content": [
-                {
-                    "type": "text",
-                    "text": """请检测图中所有对象，输出JSON格式：
-{
-  "objects": [
-    {"name": "对象名称", "count": 数量, "location": "位置描述"},
-    ...
-  ]
-}"""
-                },
-                {
-                    "type": "image_url",
-                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
-                }
-            ]
-        }
-    ],
-    temperature = 0.1,
-    max_tokens = 1024
-)
-
-# Parse JSON response
-try:
-    objects = json.loads(detection_response.choices[0].message.content)
-    print(json.dumps(objects, ensure_ascii = False, indent = 2))
-except json.JSONDecodeError:
-    print(detection_response.choices[0].message.content)</code></pre>
+print(response.choices[0].message.content)</code></pre>
                         </div>
                     </div>
                 </div>
 
-                <h3>API Parameters</h3>
+                <h3>API参数说明</h3>
                 <table class="api-table">
                     <thead>
                         <tr>
-                            <th>Parameter</th>
-                            <th>Type</th>
-                            <th>Default</th>
-                            <th>Description</th>
+                            <th>参数</th>
+                            <th>类型</th>
+                            <th>默认值</th>
+                            <th>说明</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><code>model</code></td>
                             <td>string</td>
-                            <td>required</td>
-                            <td>Available models: "Qianfan-VL-8B", "Qianfan-VL-70B" (3B coming soon)</td>
+                            <td>必填</td>
+                            <td>可选: "Qianfan-VL-8B", "Qianfan-VL-70B" (3B即将上线)</td>
                         </tr>
                         <tr>
                             <td><code>messages</code></td>
                             <td>array</td>
-                            <td>required</td>
-                            <td>Array of message objects with role and content</td>
+                            <td>必填</td>
+                            <td>消息数组，包含role和content</td>
                         </tr>
                         <tr>
                             <td><code>temperature</code></td>
                             <td>float</td>
                             <td>0.7</td>
-                            <td>Sampling temperature (0.0 to 2.0)</td>
+                            <td>采样温度 (0.0-2.0)，越低越确定</td>
                         </tr>
                         <tr>
                             <td><code>max_tokens</code></td>
                             <td>integer</td>
                             <td>2048</td>
-                            <td>Maximum tokens to generate</td>
+                            <td>最大生成token数</td>
                         </tr>
                         <tr>
                             <td><code>top_p</code></td>
                             <td>float</td>
                             <td>1.0</td>
-                            <td>Nucleus sampling parameter</td>
+                            <td>核采样参数</td>
                         </tr>
                         <tr>
                             <td><code>stream</code></td>
                             <td>boolean</td>
                             <td>false</td>
-                            <td>Enable streaming responses</td>
+                            <td>是否启用流式输出</td>
                         </tr>
                     </tbody>
                 </table>
             </section>
 
             <section id="conclusion" class="section">
-                <h2>Conclusion</h2>
+                <h2>总结</h2>
                 
                 <p>
-                    Qianfan-VL represents a significant step forward in making multimodal AI practical for enterprise applications. 
-                    By combining general capabilities with domain-specific enhancements, efficient training on domestic hardware, 
-                    and a comprehensive model family, Qianfan-VL offers a compelling solution for organizations looking to leverage multimodal AI.
+                    <strong>Qianfan-VL系列</strong>通过创新的技术架构和训练方法，成功实现了多模态AI在企业级应用中的突破。
+                    其核心优势在于：
                 </p>
                 
+                <ul class="summary-list">
+                    <li><strong>精准的场景定位：</strong>专注于文档理解、OCR、数学推理等高频应用场景</li>
+                    <li><strong>灵活的模型选择：</strong>3B到70B全系列覆盖，满足不同规模需求</li>
+                    <li><strong>领先的技术创新：</strong>能力增强训练、数据合成、昆仑芯训练三大技术特色</li>
+                    <li><strong>卓越的性能表现：</strong>多项基准测试达到或超越业界最优水平</li>
+                </ul>
+
                 <p>
-                    The model's success in bridging the gap between research and production, particularly in challenging domains like OCR 
-                    and document understanding, demonstrates the value of targeted enhancement while maintaining broad capabilities. 
-                    As multimodal understanding becomes essential for enterprise intelligence, Qianfan-VL provides a robust foundation 
-                    for the next generation of AI applications.
+                    作为百度智能云千帆大模型平台的重要组成部分，Qianfan-VL为企业数字化转型提供了
+                    强大的多模态理解能力，助力各行业实现智能化升级。
                 </p>
 
-                <div class="cta-section">
-                    <h3>Get Started with Qianfan-VL</h3>
-                    <p>Experience the power of domain-enhanced multimodal understanding</p>
-                    <a href="https://console.bce.baidu.com/qianfan" class="btn btn-primary">Access Console</a>
-                    <a href="https://cloud.baidu.com/doc/WENXINWORKSHOP" class="btn btn-secondary">Read Documentation</a>
-                    <a href="https://github.com/baidubce/qianfan-models-cookbook" class="btn btn-secondary">View Examples</a>
-                </div>
-            </section>
-
-            <section id="resources" class="section">
-                <h2>Resources & Support</h2>
-                
-                <div class="resources-grid">
-                    <div class="resource-card">
-                        <h3>Documentation</h3>
-                        <ul>
-                            <li><a href="https://cloud.baidu.com/doc/WENXINWORKSHOP">API Documentation</a></li>
-                            <li><a href="https://github.com/baidubce/qianfan-models-cookbook">Code Examples</a></li>
-                            <li><a href="https://console.bce.baidu.com/qianfan">Console</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="resource-card">
-                        <h3>Community</h3>
-                        <ul>
-                            <li><a href="https://ai.baidu.com/forum">Discussion Forum</a></li>
-                            <li><a href="https://github.com/baidubce">GitHub Organization</a></li>
-                            <li>WeChat: 百度智能云千帆</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="resource-card">
-                        <h3>Contact</h3>
-                        <ul>
-                            <li>Technical: qianfan-support@baidu.com</li>
-                            <li>Business: qianfan-biz@baidu.com</li>
-                            <li>Research: qianfan-research@baidu.com</li>
-                        </ul>
-                    </div>
-                </div>
             </section>
         </div>
     </main>
@@ -2229,14 +1529,14 @@ except json.JSONDecodeError:
         <div class="container">
             <div class="footer-content">
                 <div class="footer-info">
-                    <p>&copy; 2025 Baidu, Inc. All rights reserved.</p>
-                    <p>Qianfan-VL is a product of Baidu AI Cloud.</p>
+                    <p>&copy; 2025 Baidu, Inc. 保留所有权利</p>
+                    <p>Qianfan-VL是百度智能云的产品</p>
                 </div>
                 <div class="footer-links">
-                    <a href="https://cloud.baidu.com">Baidu Cloud</a>
-                    <a href="https://ai.baidu.com">Baidu AI</a>
-                    <a href="https://ir.baidu.com">Investor Relations</a>
-                    <a href="https://www.baidu.com/duty">Legal</a>
+                    <a href="https://cloud.baidu.com">百度智能云</a>
+                    <a href="https://ai.baidu.com">百度AI</a>
+                    <a href="https://ir.baidu.com">投资者关系</a>
+                    <a href="https://www.baidu.com/duty">法律声明</a>
                 </div>
             </div>
         </div>
