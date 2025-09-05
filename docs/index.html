@@ -203,7 +203,6 @@
                     <div>
                         <h3><a href="#core-features" style="text-decoration: none; color: var(--text-primary);">1. 核心功能</a></h3>
                         <ul style="list-style: none; padding-left: 1rem; margin: 0.5rem 0;">
-                            <li>• 通用能力基准测试</li>
                             <li>• 多尺寸模型满足不同场景需求</li>
                             <li>• OCR与文档理解能力增强</li>
                             <li>• 思考推理能力</li>
@@ -247,186 +246,6 @@
                 <p class="section-intro">
                     Qianfan-VL模型系列是在企业级应用多模态大模型的场景中进行强化的通用多模态大模型，具备基础的通用能力，同时在产业落地的高频场景有深度的优化。通过三大核心功能，精准满足不同场景下的多模态理解需求。
                 </p>
-                
-                <!-- 通用能力基准测试 -->
-                <div style="margin: 2rem 0;">
-                    <h3>通用能力基准测试</h3>
-                    <p>在标准多模态基准测试中，Qianfan-VL系列与主流模型的全面对比</p>
-                    
-                    <div class="table-wrapper">
-                        <table class="benchmark-table">
-                            <thead>
-                                <tr>
-                                    <th>基准测试</th>
-                                    <th>Qianfan-VL-8B</th>
-                                    <th>Qianfan-VL-70B</th>
-                                    <th>Qwen2.5-VL-7B</th>
-                                    <th>Qwen2.5-VL-72B</th>
-                                    <th>InternVL-2.5-8B</th>
-                                    <th>InternVL-2.5-78B</th>
-                                    <th>GPT-4.1</th>
-                                    <th>Claude-Sonnet-4</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>MMMU</td>
-                                    <td>70.67</td>
-                                    <td><strong>71.78</strong></td>
-                                    <td>69.2</td>
-                                    <td>71.2</td>
-                                    <td>68.5</td>
-                                    <td>70.9</td>
-                                    <td>69.1</td>
-                                    <td>70.3</td>
-                                </tr>
-                                <tr>
-                                    <td>AI2D</td>
-                                    <td>85.2</td>
-                                    <td><strong>87.6</strong></td>
-                                    <td>84.1</td>
-                                    <td>86.8</td>
-                                    <td>83.7</td>
-                                    <td>86.2</td>
-                                    <td>85.9</td>
-                                    <td>86.4</td>
-                                </tr>
-                                <tr>
-                                    <td>BLINK</td>
-                                    <td>58.3</td>
-                                    <td><strong>62.1</strong></td>
-                                    <td>56.9</td>
-                                    <td>60.4</td>
-                                    <td>57.2</td>
-                                    <td>61.8</td>
-                                    <td>59.7</td>
-                                    <td>60.9</td>
-                                </tr>
-                                <tr>
-                                    <td>RealWorldQA</td>
-                                    <td>69.4</td>
-                                    <td><strong>73.2</strong></td>
-                                    <td>68.1</td>
-                                    <td>71.6</td>
-                                    <td>67.8</td>
-                                    <td>72.3</td>
-                                    <td>70.5</td>
-                                    <td>71.9</td>
-                                </tr>
-                                <tr>
-                                    <td>MMStar</td>
-                                    <td>64.8</td>
-                                    <td><strong>68.5</strong></td>
-                                    <td>63.2</td>
-                                    <td>67.1</td>
-                                    <td>62.9</td>
-                                    <td>66.8</td>
-                                    <td>65.7</td>
-                                    <td>67.3</td>
-                                </tr>
-                                <tr>
-                                    <td>HallusionBench</td>
-                                    <td>42.6</td>
-                                    <td><strong>45.3</strong></td>
-                                    <td>41.8</td>
-                                    <td>44.2</td>
-                                    <td>40.9</td>
-                                    <td>43.7</td>
-                                    <td>43.1</td>
-                                    <td>44.8</td>
-                                </tr>
-                                <tr>
-                                    <td>OCRBench</td>
-                                    <td><strong>850</strong></td>
-                                    <td><strong>846</strong></td>
-                                    <td>794</td>
-                                    <td>832</td>
-                                    <td>781</td>
-                                    <td>825</td>
-                                    <td>736</td>
-                                    <td>731</td>
-                                </tr>
-                                <tr>
-                                    <td>MathVision</td>
-                                    <td>71.2</td>
-                                    <td><strong>78.5</strong></td>
-                                    <td>69.8</td>
-                                    <td>76.3</td>
-                                    <td>68.4</td>
-                                    <td>75.1</td>
-                                    <td>74.2</td>
-                                    <td>76.8</td>
-                                </tr>
-                                <tr>
-                                    <td>MathVista-Mini</td>
-                                    <td>66.70</td>
-                                    <td><strong>74.00</strong></td>
-                                    <td>64.2</td>
-                                    <td>71.8</td>
-                                    <td>63.5</td>
-                                    <td>70.4</td>
-                                    <td>69.9</td>
-                                    <td>72.3</td>
-                                </tr>
-                                <tr>
-                                    <td>MathVerse</td>
-                                    <td>69.3</td>
-                                    <td><strong>76.8</strong></td>
-                                    <td>67.1</td>
-                                    <td>74.5</td>
-                                    <td>66.8</td>
-                                    <td>73.2</td>
-                                    <td>72.6</td>
-                                    <td>75.1</td>
-                                </tr>
-                                <tr>
-                                    <td>OmniDocBench</td>
-                                    <td><strong>78.9</strong></td>
-                                    <td><strong>81.2</strong></td>
-                                    <td>74.6</td>
-                                    <td>79.3</td>
-                                    <td>73.1</td>
-                                    <td>78.7</td>
-                                    <td>76.8</td>
-                                    <td>79.9</td>
-                                </tr>
-                                <tr>
-                                    <td>TextVQA</td>
-                                    <td><strong>82.4</strong></td>
-                                    <td><strong>84.7</strong></td>
-                                    <td>79.8</td>
-                                    <td>82.1</td>
-                                    <td>78.3</td>
-                                    <td>81.6</td>
-                                    <td>80.5</td>
-                                    <td>82.9</td>
-                                </tr>
-                                <tr>
-                                    <td>DocVQA</td>
-                                    <td><strong>93.83</strong></td>
-                                    <td><strong>93.40</strong></td>
-                                    <td>91.2</td>
-                                    <td>92.7</td>
-                                    <td>90.8</td>
-                                    <td>92.1</td>
-                                    <td>88.4</td>
-                                    <td>78.75</td>
-                                </tr>
-                                <tr>
-                                    <td>InfoVQA</td>
-                                    <td><strong>68.7</strong></td>
-                                    <td><strong>71.3</strong></td>
-                                    <td>65.9</td>
-                                    <td>69.8</td>
-                                    <td>64.2</td>
-                                    <td>68.4</td>
-                                    <td>67.1</td>
-                                    <td>70.2</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
 
                 <!-- 三列横排布局 -->
                 <div class="core-features-grid">
@@ -486,6 +305,188 @@
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+
+                        <!-- 通用能力基准测试 -->
+                        <div style="margin-top: 2rem;">
+                            <h4>通用能力基准测试表现</h4>
+                            <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                                在标准多模态基准测试中，Qianfan-VL各尺寸模型与主流模型的全面对比
+                            </p>
+                            
+                            <div class="table-wrapper">
+                                <table class="benchmark-table">
+                                    <thead>
+                                        <tr>
+                                            <th>基准测试</th>
+                                            <th>Qianfan-VL-8B</th>
+                                            <th>Qianfan-VL-70B</th>
+                                            <th>Qwen2.5-VL-7B</th>
+                                            <th>Qwen2.5-VL-72B</th>
+                                            <th>InternVL-2.5-8B</th>
+                                            <th>InternVL-2.5-78B</th>
+                                            <th>GPT-4.1</th>
+                                            <th>Claude-Sonnet-4</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>MMMU</td>
+                                            <td>70.67</td>
+                                            <td><strong>71.78</strong></td>
+                                            <td>69.2</td>
+                                            <td>71.2</td>
+                                            <td>68.5</td>
+                                            <td>70.9</td>
+                                            <td>69.1</td>
+                                            <td>70.3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>AI2D</td>
+                                            <td>85.2</td>
+                                            <td><strong>87.6</strong></td>
+                                            <td>84.1</td>
+                                            <td>86.8</td>
+                                            <td>83.7</td>
+                                            <td>86.2</td>
+                                            <td>85.9</td>
+                                            <td>86.4</td>
+                                        </tr>
+                                        <tr>
+                                            <td>BLINK</td>
+                                            <td>58.3</td>
+                                            <td><strong>62.1</strong></td>
+                                            <td>56.9</td>
+                                            <td>60.4</td>
+                                            <td>57.2</td>
+                                            <td>61.8</td>
+                                            <td>59.7</td>
+                                            <td>60.9</td>
+                                        </tr>
+                                        <tr>
+                                            <td>RealWorldQA</td>
+                                            <td>69.4</td>
+                                            <td><strong>73.2</strong></td>
+                                            <td>68.1</td>
+                                            <td>71.6</td>
+                                            <td>67.8</td>
+                                            <td>72.3</td>
+                                            <td>70.5</td>
+                                            <td>71.9</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MMStar</td>
+                                            <td>64.8</td>
+                                            <td><strong>68.5</strong></td>
+                                            <td>63.2</td>
+                                            <td>67.1</td>
+                                            <td>62.9</td>
+                                            <td>66.8</td>
+                                            <td>65.7</td>
+                                            <td>67.3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>HallusionBench</td>
+                                            <td>42.6</td>
+                                            <td><strong>45.3</strong></td>
+                                            <td>41.8</td>
+                                            <td>44.2</td>
+                                            <td>40.9</td>
+                                            <td>43.7</td>
+                                            <td>43.1</td>
+                                            <td>44.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>OCRBench</td>
+                                            <td><strong>850</strong></td>
+                                            <td><strong>846</strong></td>
+                                            <td>794</td>
+                                            <td>832</td>
+                                            <td>781</td>
+                                            <td>825</td>
+                                            <td>736</td>
+                                            <td>731</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MathVision</td>
+                                            <td>71.2</td>
+                                            <td><strong>78.5</strong></td>
+                                            <td>69.8</td>
+                                            <td>76.3</td>
+                                            <td>68.4</td>
+                                            <td>75.1</td>
+                                            <td>74.2</td>
+                                            <td>76.8</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MathVista-Mini</td>
+                                            <td>66.70</td>
+                                            <td><strong>74.00</strong></td>
+                                            <td>64.2</td>
+                                            <td>71.8</td>
+                                            <td>63.5</td>
+                                            <td>70.4</td>
+                                            <td>69.9</td>
+                                            <td>72.3</td>
+                                        </tr>
+                                        <tr>
+                                            <td>MathVerse</td>
+                                            <td>69.3</td>
+                                            <td><strong>76.8</strong></td>
+                                            <td>67.1</td>
+                                            <td>74.5</td>
+                                            <td>66.8</td>
+                                            <td>73.2</td>
+                                            <td>72.6</td>
+                                            <td>75.1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>OmniDocBench</td>
+                                            <td><strong>78.9</strong></td>
+                                            <td><strong>81.2</strong></td>
+                                            <td>74.6</td>
+                                            <td>79.3</td>
+                                            <td>73.1</td>
+                                            <td>78.7</td>
+                                            <td>76.8</td>
+                                            <td>79.9</td>
+                                        </tr>
+                                        <tr>
+                                            <td>TextVQA</td>
+                                            <td><strong>82.4</strong></td>
+                                            <td><strong>84.7</strong></td>
+                                            <td>79.8</td>
+                                            <td>82.1</td>
+                                            <td>78.3</td>
+                                            <td>81.6</td>
+                                            <td>80.5</td>
+                                            <td>82.9</td>
+                                        </tr>
+                                        <tr>
+                                            <td>DocVQA</td>
+                                            <td><strong>93.83</strong></td>
+                                            <td><strong>93.40</strong></td>
+                                            <td>91.2</td>
+                                            <td>92.7</td>
+                                            <td>90.8</td>
+                                            <td>92.1</td>
+                                            <td>88.4</td>
+                                            <td>78.75</td>
+                                        </tr>
+                                        <tr>
+                                            <td>InfoVQA</td>
+                                            <td><strong>68.7</strong></td>
+                                            <td><strong>71.3</strong></td>
+                                            <td>65.9</td>
+                                            <td>69.8</td>
+                                            <td>64.2</td>
+                                            <td>68.4</td>
+                                            <td>67.1</td>
+                                            <td>70.2</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
 
@@ -571,54 +572,105 @@
                             
                             <div style="padding: 0.75rem; margin-top: 1rem;">
                                 <h4>数学解题基准测试表现</h4>
-                                <table style="width: 100%; margin-top: 0.5rem;">
-                                    <thead>
-                                        <tr>
-                                            <th style="text-align: left; padding: 0.5rem; border-bottom: 1px solid #e0e0e0;">基准测试</th>
-                                            <th style="text-align: center; padding: 0.5rem; border-bottom: 1px solid #e0e0e0;">Qianfan-VL-8B</th>
-                                            <th style="text-align: center; padding: 0.5rem; border-bottom: 1px solid #e0e0e0;">Qianfan-VL-70B</th>
-                                            <th style="text-align: center; padding: 0.5rem; border-bottom: 1px solid #e0e0e0;">测试类型</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td style="padding: 0.5rem;">MathVista-mini</td>
-                                            <td style="text-align: center; padding: 0.5rem;">66.70%</td>
-                                            <td style="text-align: center; padding: 0.5rem;"><strong>74.00%</strong></td>
-                                            <td style="text-align: center; padding: 0.5rem;">公开基准</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding: 0.5rem;">MathVision</td>
-                                            <td style="text-align: center; padding: 0.5rem;">71.2%</td>
-                                            <td style="text-align: center; padding: 0.5rem;"><strong>78.5%</strong></td>
-                                            <td style="text-align: center; padding: 0.5rem;">公开基准</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding: 0.5rem;">MathVerse</td>
-                                            <td style="text-align: center; padding: 0.5rem;">69.3%</td>
-                                            <td style="text-align: center; padding: 0.5rem;"><strong>76.8%</strong></td>
-                                            <td style="text-align: center; padding: 0.5rem;">公开基准</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding: 0.5rem;">K91/K92</td>
-                                            <td style="text-align: center; padding: 0.5rem;">84.2%</td>
-                                            <td style="text-align: center; padding: 0.5rem;"><strong>89.1%</strong></td>
-                                            <td style="text-align: center; padding: 0.5rem;">内部基准</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding: 0.5rem;">Photoserch/K9math</td>
-                                            <td style="text-align: center; padding: 0.5rem;">87.6%</td>
-                                            <td style="text-align: center; padding: 0.5rem;"><strong>92.3%</strong></td>
-                                            <td style="text-align: center; padding: 0.5rem;">内部基准</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="padding: 0.5rem;">Megsolve</td>
-                                            <td style="text-align: center; padding: 0.5rem;">81.4%</td>
-                                            <td style="text-align: center; padding: 0.5rem;"><strong>88.7%</strong></td>
-                                            <td style="text-align: center; padding: 0.5rem;">内部基准</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="table-wrapper" style="margin-top: 0.5rem;">
+                                    <table class="benchmark-table">
+                                        <thead>
+                                            <tr>
+                                                <th>基准测试</th>
+                                                <th>Qianfan-VL-8B</th>
+                                                <th>Qianfan-VL-70B</th>
+                                                <th>Intern2.5-VL-8B</th>
+                                                <th>Intern2.5-VL-78B</th>
+                                                <th>Intern3-VL-8B</th>
+                                                <th>Intern3-VL-78B</th>
+                                                <th>Qwen2.5-VL-7B</th>
+                                                <th>Qwen2.5-VL-72B</th>
+                                                <th>GPT4.1</th>
+                                                <th>Claude-Sonnet-3.7</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>MathVista-mini</td>
+                                                <td>69.5</td>
+                                                <td><strong>75.30</strong></td>
+                                                <td>69.5</td>
+                                                <td>71.1</td>
+                                                <td>69.5</td>
+                                                <td>70.1</td>
+                                                <td>67.20</td>
+                                                <td>73.9</td>
+                                                <td>54.60</td>
+                                                <td>72.20</td>
+                                            </tr>
+                                            <tr>
+                                                <td>MathVision</td>
+                                                <td>27.46</td>
+                                                <td><strong>47.69</strong></td>
+                                                <td>28.5</td>
+                                                <td>32.96</td>
+                                                <td>29.61</td>
+                                                <td>34.8</td>
+                                                <td>25.95</td>
+                                                <td>39.34</td>
+                                                <td>30.2</td>
+                                                <td>35.4</td>
+                                            </tr>
+                                            <tr>
+                                                <td>MathVerse</td>
+                                                <td>44.7</td>
+                                                <td><strong>58.3</strong></td>
+                                                <td>42.8</td>
+                                                <td>48.6</td>
+                                                <td>43.68</td>
+                                                <td>49.26</td>
+                                                <td>44.21</td>
+                                                <td>55.18</td>
+                                                <td>46.3</td>
+                                                <td>52.1</td>
+                                            </tr>
+                                            <tr>
+                                                <td>PhotoSearch</td>
+                                                <td><strong>78.8</strong></td>
+                                                <td>85.2</td>
+                                                <td>72.4</td>
+                                                <td><strong>61.80</strong></td>
+                                                <td>60.6</td>
+                                                <td>44.4</td>
+                                                <td>74.2</td>
+                                                <td><strong>88.3</strong></td>
+                                                <td>30.4</td>
+                                                <td>46.6</td>
+                                            </tr>
+                                            <tr>
+                                                <td>K9Math</td>
+                                                <td>48.78</td>
+                                                <td><strong>57.38</strong></td>
+                                                <td>45.2</td>
+                                                <td>52.1</td>
+                                                <td>40.64</td>
+                                                <td>41.47</td>
+                                                <td>45.58</td>
+                                                <td><strong>57.20</strong></td>
+                                                <td>38.9</td>
+                                                <td>49.3</td>
+                                            </tr>
+                                            <tr>
+                                                <td>MEGSolve</td>
+                                                <td><strong>61.85</strong></td>
+                                                <td><strong>58.21</strong></td>
+                                                <td>52.8</td>
+                                                <td>56.4</td>
+                                                <td>36.25</td>
+                                                <td>42.65</td>
+                                                <td>30.62</td>
+                                                <td>59.68</td>
+                                                <td>42.1</td>
+                                                <td>51.7</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -635,7 +687,7 @@
                 <div class="architecture-overview" style="margin: 2rem 0;">
                     <h3>整体架构</h3>
                     <div style="text-align: center; margin: 1.5rem 0;">
-                        <img src="images/qianfan_vl_arch.png" alt="Qianfan-VL Architecture" class="architecture-image">
+                        <img src="images/qianfan_vl_arch_professional.svg" alt="Qianfan-VL Architecture" class="architecture-image">
                     </div>
                     <p style="text-align: center; color: #666; font-size: 0.9rem;">
                         Qianfan-VL采用先进的多模态架构，融合了业界最佳实践和自主创新
