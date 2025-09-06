@@ -1085,20 +1085,35 @@
                                                         <strong>用户：</strong> 请帮我解这道题
                                                     </div>
                                                     <div class="model-response">
-                                                        <strong>Qianfan-VL：</strong> 
-                                                        <div style="background: #f5f5f5; padding: 1rem; border-radius: 4px; margin-top: 0.5rem;">
-                                                            <strong>解题思路：</strong><br>
-                                                            1. 利用角关系∠B=2∠C和正弦定理<br>
-                                                            2. 构造辅助线，利用直角三角形性质<br>
-                                                            3. 通过中点性质求解DM<br><br>
-                                                            <strong>详细步骤：</strong><br>
-                                                            设∠C=θ，则∠B=2θ<br>
-                                                            在Rt△ABD中：BD = 10cos2θ<br>
-                                                            在Rt△ACD中：DC = 20cos²θ<br>
-                                                            BC = BD + DC = 40cos²θ - 10<br>
-                                                            M为BC中点，BM = 20cos²θ - 5<br>
-                                                            DM = BM - BD = 5<br><br>
-                                                            <strong>答案：DM = 5</strong>
+                                                        <strong>Qianfan-VL：</strong> 要解决在△ABC中，∠B=2∠C，AD⊥BC于D，M为BC中点，AB=10，求DM长度的问题，可按以下步骤进行：
+                                                        
+                                                        <div style="background: #f8f9fa; padding: 1rem; border-radius: 4px; margin: 0.5rem 0;">
+                                                            <strong>关键思路</strong><br>
+                                                            1. <strong>利用角关系与正弦定理</strong>：通过∠B=2∠C，结合正弦定理表示边与角的关系<br>
+                                                            2. <strong>直角三角形斜边中线性质</strong>：在Rt△ABD中，取AB中点E，连接DE，则DE为斜边AB的中线，故DE=BE=AE=5<br>
+                                                            3. <strong>中点构造与中位线</strong>：M为BC中点，结合辅助线构造平行四边形或等腰三角形，转化线段关系
+                                                        </div>
+                                                        
+                                                        <div style="background: #f5f5f5; padding: 1rem; border-radius: 4px; margin: 0.5rem 0;">
+                                                            <strong>详细步骤</strong><br>
+                                                            设∠C=θ，则∠B=2θ，∠A=180°-3θ。<br>
+                                                            • <strong>在Rt△ABD中</strong>：AD⊥BC，故∠ADB=90°。由正弦定理：<br>
+                                                            &nbsp;&nbsp;AB/sin θ = AC/sin 2θ，得 AC = AB·sin 2θ/sin θ = 20cos θ<br>
+                                                            • <strong>求BD与DC</strong>：<br>
+                                                            &nbsp;&nbsp;在Rt△ABD中，BD = AB·cos 2θ = 10cos 2θ；<br>
+                                                            &nbsp;&nbsp;在Rt△ACD中，DC = AC·cos θ = 20cos²θ。<br>
+                                                            • <strong>求BC与BM</strong>：<br>
+                                                            &nbsp;&nbsp;BC = BD + DC = 10cos 2θ + 20cos²θ<br>
+                                                            &nbsp;&nbsp;因为cos 2θ = 2cos²θ - 1，代入得：BC = 40cos²θ - 10<br>
+                                                            &nbsp;&nbsp;M为BC中点，故BM = BC/2 = 20cos²θ - 5
+                                                        </div>
+                                                        
+                                                        <div style="background: #e8f5e8; padding: 1rem; border-radius: 4px; margin: 0.5rem 0;">
+                                                            <strong>求DM</strong><br>
+                                                            由BD = 10cos 2θ = 20cos²θ - 10，则：<br>
+                                                            DM = BM - BD = (20cos²θ - 5) - (20cos²θ - 10) = 5<br><br>
+                                                            <strong>结论：DM的长度为5</strong><br><br>
+                                                            <strong>答案：</strong> <span style="border: 2px solid #333; padding: 0.25rem 0.5rem; border-radius: 4px;">5</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1116,7 +1131,17 @@
                                                         <strong>用户：</strong> 将图中的公式转换为LaTeX
                                                     </div>
                                                     <div class="model-response">
-                                                        <strong>Qianfan-VL：</strong> <code>\begin{align*}r_d(G):=\sum_{F\in\mathcal{F}_G^+}\frac{R_d(F)}{d_F^2},\end{align*}</code>
+                                                        <strong>Qianfan-VL：</strong> 
+                                                        <div style="word-wrap: break-word; word-break: break-all; white-space: normal; overflow-wrap: break-word;">
+                                                            \begin{align*}r_d(G):=\sum_{F\in\mathcal{F}_G^+}\frac{R_d(F)}{d_F^2},\end{align*}
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div style="margin: 1rem 0;">
+                                                        <strong>渲染效果：</strong>
+                                                    </div>
+                                                    <div style="background: white; padding: 1rem; border: 1px solid #ddd; border-radius: 4px; text-align: center; font-size: 1.2rem; font-family: 'Times New Roman', serif; margin: 0.5rem 0;">
+                                                        <i>r</i><sub><i>d</i></sub>(<i>G</i>) := ∑<sub><i>F</i>∈ℱ<sub><i>G</i></sub><sup>+</sup></sub> <sup><i>R</i><sub><i>d</i></sub>(<i>F</i>)</sup>⁄<sub><i>d</i><sub><i>F</i></sub><sup>2</sup></sub>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1141,15 +1166,10 @@
                                                 </div>
                                                 <div class="showcase-dialogue">
                                                     <div class="user-prompt">
-                                                        <strong>用户：</strong> 中国银监会在文件中强调了哪些管理要求？
+                                                        <strong>用户：</strong> 根据文档内容，中国银监会在文件中强调了对商业性房地产信贷的哪些具体管理要求？这些要求对银行的风险控制有何影响？
                                                     </div>
                                                     <div class="model-response">
-                                                        <strong>Qianfan-VL：</strong> 文件提出四项核心要求：
-                                                        1）严格房地产开发贷款管理，限制资金流向未合规项目
-                                                        2）规范土地储备贷款，限制贷款比例和期限
-                                                        3）加强住房消费贷款管理，实施差异化首付比例和利率
-                                                        4）严控商业用房贷款
-                                                        这些措施有效降低了银行信贷风险，防止房地产泡沫。
+                                                        <strong>Qianfan-VL：</strong> 文件提出了四项核心要求：1）严格房地产开发贷款管理，限制资金流向未合规项目；2）规范土地储备贷款，限制贷款比例和期限；3）加强住房消费贷款管理，实施差异化首付比例和利率；4）严控商业用房贷款。这些要求通过限制资金过度流入房地产、提高贷款门槛和差异化定价，有效降低了银行信贷风险，防止了房地产泡沫。
                                                     </div>
                                                 </div>
                                             </div>
@@ -1163,10 +1183,99 @@
                                                 </div>
                                                 <div class="showcase-dialogue">
                                                     <div class="user-prompt">
-                                                        <strong>用户：</strong> 解析表格为结构化数据
+                                                        <strong>用户：</strong> 你是一位文档解析处理领域的专家，请仔细阅读并理解以下文档截图，将其解析为HTML。遵循以下要求：解析结果中表格行合并、列合并跨度需要与文档一致，使用colspan、rowspan属性来表达；保留表头、文档正文等非表格内容；HTML渲染后的阅读体验必须与文档截图完全一致。
                                                     </div>
                                                     <div class="model-response">
-                                                        <strong>Qianfan-VL：</strong> [准确提取表格结构，保留合并单元格关系，输出HTML/Markdown格式]
+                                                        <strong>Qianfan-VL：</strong> 
+                                                        <div style="margin: 1rem 0;">
+                                                            <strong>HTML代码：</strong>
+                                                        </div>
+                                                        <pre>&lt;table border="1"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;项目&lt;/th&gt; &lt;th&gt;期末余额&lt;/th&gt; &lt;th&gt;年初余额&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;  &lt;td colspan="3"&gt;流动资产：&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;货币资金&lt;/td&gt; &lt;td&gt;5,288,011,738.39&lt;/td&gt; &lt;td&gt;2,629,981,089.49&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;结算备付金&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;拆出资金&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;以公允价值计量且其变动计入当期损益的金融资产&lt;/td&gt; &lt;td&gt;3,226,301.37&lt;/td&gt; &lt;td&gt;6,830,273.97&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;衍生金融资产&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;应收票据&lt;/td&gt; &lt;td&gt;1,010,636.94&lt;/td&gt; &lt;td&gt;888,800.00&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;应收账款&lt;/td&gt; &lt;td&gt;389,409,537.65&lt;/td&gt; &lt;td&gt;290,733,812.62&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;预付款项&lt;/td&gt; &lt;td&gt;474,301,533.93&lt;/td&gt; &lt;td&gt;509,510,514.92&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;应收保费&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;应收分保账款&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;应收分保合同准备金&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;应收利息&lt;/td&gt; &lt;td&gt;8,746,899.35&lt;/td&gt; &lt;td&gt;1,645,890.39&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;应收股利&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;其他应收款&lt;/td&gt; &lt;td&gt;291,499,926.83&lt;/td&gt; &lt;td&gt;364,426,205.02&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;买入返售金融资产&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;存货&lt;/td&gt; &lt;td&gt;69,558,687.59&lt;/td&gt; &lt;td&gt;79,651,862.50&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;划分为持有待售的资产&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;一年内到期的非流动资产&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;其他流动资产&lt;/td&gt; &lt;td&gt;533,938,653.95&lt;/td&gt; &lt;td&gt;545,184,036.20&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;流动资产合计&lt;/td&gt; &lt;td&gt;7,059,703,916.00&lt;/td&gt; &lt;td&gt;4,428,852,485.11&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td colspan="3"&gt;非流动资产：&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;发放贷款和垫款&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;可供出售金融资产&lt;/td&gt; &lt;td&gt;981,477,845.00&lt;/td&gt; &lt;td&gt;42,732,350.00&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;持有至到期投资&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;长期应收款&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;长期股权投资&lt;/td&gt; &lt;td&gt;478,328,423.92&lt;/td&gt; &lt;td&gt;482,914,333.17&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;投资性房地产&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;固定资产&lt;/td&gt; &lt;td&gt;11,211,345,599.37&lt;/td&gt; &lt;td&gt;11,517,509,788.66&lt;/td&gt;  &lt;/tr&gt;
+        &lt;tr&gt;  &lt;td&gt;在建工程&lt;/td&gt; &lt;td&gt;344,034,065.45&lt;/td&gt; &lt;td&gt;558,797,792.68&lt;/td&gt;  &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</pre>
+                                                    </div>
+                                                    
+                                                    <div style="margin: 1rem 0;">
+                                                        <strong>渲染效果：</strong>
+                                                    </div>
+                                                    <div style="background: white; padding: 1rem; border: 1px solid #ddd; border-radius: 4px; overflow-x: auto; margin: 0.5rem 0;">
+                                                        <table border="1" style="border-collapse: collapse; width: 100%; font-size: 0.75rem;">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th style="padding: 0.4rem; background: #f5f5f5; border: 1px solid #ccc;">项目</th>
+                                                                    <th style="padding: 0.4rem; background: #f5f5f5; border: 1px solid #ccc;">期末余额</th>
+                                                                    <th style="padding: 0.4rem; background: #f5f5f5; border: 1px solid #ccc;">年初余额</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr><td colspan="3" style="padding: 0.4rem; border: 1px solid #ccc; font-weight: bold; background: #fafafa;">流动资产：</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc;">货币资金</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">5,288,011,738.39</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">2,629,981,089.49</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc; color: #999;">结算备付金</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc; color: #999;">拆出资金</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc;">以公允价值计量且其变动计入当期损益的金融资产</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">3,226,301.37</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">6,830,273.97</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc; color: #999;">衍生金融资产</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc;">应收票据</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">1,010,636.94</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">888,800.00</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc;">应收账款</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">389,409,537.65</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">290,733,812.62</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc;">预付款项</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">474,301,533.93</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">509,510,514.92</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc; color: #999;">应收保费</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc; color: #999;">应收分保账款</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc; color: #999;">应收分保合同准备金</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc;">应收利息</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">8,746,899.35</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">1,645,890.39</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc; color: #999;">应收股利</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc;">其他应收款</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">291,499,926.83</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">364,426,205.02</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc; color: #999;">买入返售金融资产</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc;">存货</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">69,558,687.59</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">79,651,862.50</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc; color: #999;">划分为持有待售的资产</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc; color: #999;">一年内到期的非流动资产</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc;">其他流动资产</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">533,938,653.95</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">545,184,036.20</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc; font-weight: bold;">流动资产合计</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; font-weight: bold;">7,059,703,916.00</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; font-weight: bold;">4,428,852,485.11</td></tr>
+                                                                <tr><td colspan="3" style="padding: 0.4rem; border: 1px solid #ccc; font-weight: bold; background: #fafafa;">非流动资产：</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc; color: #999;">发放贷款和垫款</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc;">可供出售金融资产</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">981,477,845.00</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">42,732,350.00</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc; color: #999;">持有至到期投资</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc; color: #999;">长期应收款</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc;">长期股权投资</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">478,328,423.92</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">482,914,333.17</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc; color: #999;">投资性房地产</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right; color: #999;">—</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc;">固定资产</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">11,211,345,599.37</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">11,517,509,788.66</td></tr>
+                                                                <tr><td style="padding: 0.4rem; border: 1px solid #ccc;">在建工程</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">344,034,065.45</td><td style="padding: 0.4rem; border: 1px solid #ccc; text-align: right;">558,797,792.68</td></tr>
+                                                            </tbody>
+                                                        </table>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1191,16 +1300,30 @@
                                                 </div>
                                                 <div class="showcase-dialogue">
                                                     <div class="user-prompt">
-                                                        <strong>用户：</strong> 小明是男生，哪样物品最适合作为七夕礼物？
+                                                        <strong>用户：</strong> 小明是一位男生，下面哪样物品最适合作为他的七夕节礼物 a) Iphone 17 b) Dior香水 c) 一束美丽的鲜花 d) 巧克力套装
                                                     </div>
                                                     <div class="model-response">
-                                                        <strong>Qianfan-VL：</strong> 根据图表数据分析：
-                                                        - iPhone17：男生对电子产品偏好度44.36，仅次于游戏设备
-                                                        - Dior香水：女生偏好87.13，男生仅47.62
-                                                        - 鲜花：男生兴趣最低41.22
-                                                        - 巧克力：偏好度42.48，较为普通
+                                                        <strong>Qianfan-VL：</strong> 
+                                                        <div style="background: #f0f8ff; padding: 0.75rem; border-radius: 4px; margin: 0.5rem 0; font-size: 0.85rem; border-left: 3px solid #007bff;">
+                                                            <strong>&lt;think&gt;</strong><br>
+                                                            用户现在需要帮小明选七夕节礼物，小明是男生。首先，我需要回忆一下之前提到的男生最想收到的礼物。根据提供的图表，男生最想收到的礼物热度指数最高的是"游戏和游戏配套设备"，热度指数100.00，其次是耳机63.53，键盘63.16，剃须刀58.90，手表57.27，香水47.62，手机44.36，等等。<br><br>现在看选项：a) iphone17，属于手机类，手机在男生中的热度指数是44.36，虽然比香水、手表高，但手机在男生中的热度指数不算特别特别高，尤其是iphone17可能比较贵，而且手机本身在男生中的热度可能不如游戏设备。b) Dior香水，女生最想收到的礼物中香水热度87.13，而男生对香水的热度只有47.62，明显男生对香水的兴趣较低，所以女生送的香水可能不太适合男生。c) 一束美丽的鲜花，图表中女生最想收到的礼物有花，热度41.22，但男生对花的兴趣可能不高，通常男生可能不太喜欢收到花作为礼物。d) 巧克力套装，女生最想收到的礼物有巧克力，热度42.48，同样男生对巧克力的兴趣可能不如游戏设备、耳机等。<br><br>不过这里可能需要考虑，七夕节女生送男生礼物，通常男生更喜欢的可能是实用或兴趣相关的。游戏和游戏设备热度最高，但选项里没有游戏设备，剩下的手机（iphone17）属于电子产品，可能比香水、巧克力、鲜花更合适。虽然手机在男生中的热度指数44.36，但相比其他选项，可能巧克力套装（d）热度42.48，手机（a）44.36，可能手机稍微高一点？不过需要确认选项中的手机是否是男生喜欢的类型。另外，七夕节男生可能更期待实用或有意义的礼物，手机作为电子产品，可能比香水、鲜花更受欢迎，因为香水男生可能不太喜欢，花可能觉得俗，巧克力套装虽然女生喜欢，但男生可能觉得普通。而游戏设备虽然热度最高，但选项里没有，所以只能从现有选项中选择。因此，可能选项a) iphone17更适合，因为手机在男生中的热度比香水、巧克力、鲜花高，虽然不如游戏设备，但其他选项更次。<br>
+                                                            <strong>&lt;/think&gt;</strong>
+                                                        </div>
                                                         
-                                                        <strong>答案：a) iPhone17最适合</strong>
+                                                        <div style="background: #f8f9fa; padding: 1rem; border-radius: 4px; margin: 0.5rem 0;">
+                                                            <strong>&lt;answer&gt;</strong><br>
+                                                            根据图表数据，男生最想收到的礼物中，<strong>手机</strong>的热度指数为44.36，高于香水（47.62）、巧克力套装（42.48）和鲜花（41.22）。<br><br>
+                                                            
+                                                            选项分析：<br>
+                                                            - <strong>a) iphone17</strong>：属于手机类，符合男生对电子产品的偏好，热度指数在男生礼物中处于较高水平（仅次于游戏设备）。<br>
+                                                            - <strong>b) Dior香水</strong>：女生对香水的热度（87.13）远高于男生（47.62），且男生对香水的兴趣较低。<br>
+                                                            - <strong>c) 一束美丽的鲜花</strong>：男生对花的兴趣明显低于女生（男生花的热度41.22），通常不被视为男生偏好的礼物。<br>
+                                                            - <strong>d) 巧克力套装</strong>：女生对巧克力的热度（42.48）高于男生（47.62），且巧克力作为礼物更偏向"大众化"，而非男生核心兴趣。<br><br>
+                                                            
+                                                            <strong>最适合的礼物是a) iphone17</strong><br>
+                                                            <strong>答案：a</strong><br>
+                                                            <strong>&lt;/answer&gt;</strong>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1217,7 +1340,7 @@
                                                         <strong>用户：</strong> 描述8月27号的走势
                                                     </div>
                                                     <div class="model-response">
-                                                        <strong>Qianfan-VL：</strong> 8月27日上证指数全天震荡下跌。开盘3869.61点，最高触及3887.20点，午后14:30出现明显跳水，最终收于3800.35点，下跌68.03点（-1.76%）。成交量8.59亿手，成交额1.33万亿元，市场交投活跃。
+                                                        <strong>Qianfan-VL：</strong> 8月27日，上证指数全天呈现震荡下跌走势。开盘后指数在3869.61点起步，最高触及3887.20点，随后逐步回落。早盘维持震荡整理态势，午市后跌幅逐渐扩大，最终收于3800.35点，下跌68.03点，跌幅1.76%。全天成交量达8.59亿手，成交额为1.33万亿元，市场交投活跃。从分时图看，指数在午后14:30左右出现明显跳水，跌幅进一步扩大，最终以全日低点收盘。
                                                     </div>
                                                 </div>
                                             </div>
