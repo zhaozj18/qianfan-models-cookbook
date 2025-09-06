@@ -169,24 +169,43 @@
                     updateCarousel();
                 });
             });
+            
+            // Image modal functionality
+            const showcaseImages = document.querySelectorAll('.showcase-image img');
+            const modal = document.createElement('div');
+            modal.className = 'image-modal';
+            modal.innerHTML = `
+                <span class="image-modal-close">&times;</span>
+                <div class="image-modal-content">
+                    <img src="" alt="">
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            const modalImg = modal.querySelector('.image-modal-content img');
+            const closeBtn = modal.querySelector('.image-modal-close');
+            
+            showcaseImages.forEach(img => {
+                img.addEventListener('click', () => {
+                    modal.style.display = 'block';
+                    modalImg.src = img.src;
+                    modalImg.alt = img.alt;
+                });
+            });
+            
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+            
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
         });
     </script>
 </head>
 <body>
-    <header class="site-header">
-        <div class="container">
-            <div class="header-content">
-                <h1 class="site-title">Qianfan-VL: 领域增强通用视觉-语言模型技术文档</h1>
-                <nav class="main-nav">
-                    <a href="#core-features">核心功能</a>
-                    <a href="#tech-highlights">技术特色</a>
-                    <a href="#benchmarks">性能基准</a>
-                    <a href="#applications">应用案例</a>
-                    <a href="#api">API使用</a>
-                </nav>
-            </div>
-        </div>
-    </header>
 
     <main class="main-content">
         <div class="container">
@@ -743,47 +762,19 @@
                     <!-- 技术特色1：能力增强训练管线 -->
                     <div class="tech-highlight-detail">
                         <h3>能力增强训练管线</h3>
-                        <p>创新的三阶段训练策略，在保持通用能力的基础上实现领域能力的显著提升</p>
+                        <p>创新的四阶段渐进式训练策略，在保持通用能力的基础上实现领域能力的显著提升</p>
+                        
+                        <!-- 训练管线示意图 -->
+                        <div style="text-align: center; margin: 2rem 0;">
+                            <img src="images/training_pipeline_professional.svg" alt="Qianfan-VL Training Pipeline" class="architecture-image" style="max-width: 100%; height: auto;">
+                        </div>
                         
                         <div class="training-stages" style="margin-top: 2rem;">
-                            <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem;">
-                                <div style="flex: 1;">
-                                    <h4>第一阶段：跨模态对齐</h4>
-                                    <ul>
-                                        <li>建立视觉-语言基础连接</li>
-                                        <li>训练MLP适配器</li>
-                                        <li>使用通用数据进行预训练</li>
-                                        <li>规模：1.2T tokens</li>
-                                    </ul>
-                                </div>
-                                <div style="flex: 1;">
-                                    <h4>第1.5阶段：知识注入</h4>
-                                    <ul>
-                                        <li>大规模多模态知识注入</li>
-                                        <li>300B VLM tokens + 30B文本</li>
-                                        <li>领域特定增强训练</li>
-                                        <li>多任务学习框架</li>
-                                    </ul>
-                                </div>
-                                <div style="flex: 1;">
-                                    <h4>第二阶段：质量精调</h4>
-                                    <ul>
-                                        <li>高质量指令微调</li>
-                                        <li>偏好学习减少幻觉</li>
-                                        <li>思考数据增强推理</li>
-                                        <li>1B精选tokens</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 4px; margin-top: 1.5rem;">
-                            <h4>训练效果</h4>
-                            <p>
-                                通过这种渐进式的训练方法，模型在特定领域的性能提升了<strong>15-30%</strong>，
-                                同时通用能力保持在业界一流水平。特别是在OCR和文档理解任务上，
-                                仅用<strong>1/15</strong>的训练成本就达到了专用模型的效果。
-                            </p>
+                            <p><strong>Stage 1：跨模态对齐</strong> - 该阶段旨在建立视觉-语言基础连接映射，采用仅更新MLP Adapter、冻结Vision Encoder和LLM的训练策略，使用100B tokens通用知识数据进行训练。这一阶段是必要的，否则会影响整体性能。</p>
+                            
+                            <p><strong>Stage 1.5：知识注入</strong> - 分为两个子阶段：1）通用知识注入阶段，重点关注注入的数据量，尽量覆盖所有训练数据，采用全参数更新训练策略，使用3.5T tokens通用知识数据；2）领域增强知识注入阶段，精选要增强领域的高质量数据，包含所增强领域的任务数据，同时融合通用数据采样以维持通用知识、防止灾难性遗忘，采用全参数更新训练，使用300B tokens领域特定数据和通用采样数据。两个阶段都会放入足够比例的文本语料防止LLM知识被灾难性遗忘，通常在几百B tokens。</p>
+                            
+                            <p><strong>Stage 2：后训练</strong> - 该阶段旨在提升指令跟随能力和偏好对齐，采用全参数更新训练策略，使用1B tokens指令微调数据进行训练。会使用高质量的对齐数据，包括复杂指令跟随、写作、问答、编程、OCR、信息抽取、数学、推理计算等任务，同时放入足量的纯文本指令微调数据，维持文本模型的能力。</p>
                         </div>
                     </div>
 
@@ -945,71 +936,37 @@
                         
                         <!-- 集群规模与数据规模 -->
                         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem;">
-                            <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px; text-align: center;">
-                                <h4>集群卡规模</h4>
-                                <div style="font-size: 2rem; font-weight: bold; color: #007bff; margin: 1rem 0;">5000+</div>
-                                <div>昆仑芯P800并行</div>
+                            <div style="background: #f5f5f5; padding: 0.75rem 1.5rem; border-radius: 8px; text-align: center;">
+                                <h4 style="margin-bottom: 0.25rem; font-size: 1rem;">集群卡规模</h4>
+                                <div style="font-size: 1.75rem; font-weight: bold; color: #007bff; margin: 0.25rem 0;">5000+</div>
+                                <div style="margin-top: 0.25rem; font-size: 0.9rem;">昆仑芯P800并行</div>
                             </div>
-                            <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px; text-align: center;">
-                                <h4>训练数据规模</h4>
-                                <div style="font-size: 2rem; font-weight: bold; color: #28a745; margin: 1rem 0;">3.5T</div>
-                                <div>Tokens训练数据</div>
+                            <div style="background: #f5f5f5; padding: 0.75rem 1.5rem; border-radius: 8px; text-align: center;">
+                                <h4 style="margin-bottom: 0.25rem; font-size: 1rem;">训练数据规模</h4>
+                                <div style="font-size: 1.75rem; font-weight: bold; color: #28a745; margin: 0.25rem 0;">3.5T</div>
+                                <div style="margin-top: 0.25rem; font-size: 0.9rem;">Tokens训练数据</div>
                             </div>
-                            <div style="background: #f5f5f5; padding: 1.5rem; border-radius: 8px; text-align: center;">
-                                <h4>扩展效率</h4>
-                                <div style="font-size: 2rem; font-weight: bold; color: #6f42c1; margin: 1rem 0;">90%+</div>
-                                <div>大规模集群扩展效率</div>
-                            </div>
-                        </div>
-
-                        <!-- 并行训练策略 -->
-                        <div style="margin-top: 2rem;">
-                            <h4>多维度并行训练策略</h4>
-                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 1rem;">
-                                <div>
-                                    <h5>数据并行(DP) + 张量并行(TP)</h5>
-                                    <ul>
-                                        <li><strong>3D并行：</strong>DP×TP×PP三维并行组合</li>
-                                        <li><strong>动态负载均衡：</strong>根据模型层特性优化分布</li>
-                                        <li><strong>梯度同步优化：</strong>AllReduce通信时间减少60%</li>
-                                        <li><strong>内存优化：</strong>ZeRO-3状态分片技术</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h5>流水线并行(PP) + 序列并行</h5>
-                                    <ul>
-                                        <li><strong>流水线调度：</strong>1F1B调度策略，气泡率<5%</li>
-                                        <li><strong>序列维度切分：</strong>长序列训练内存占用减半</li>
-                                        <li><strong>动态批次：</strong>根据序列长度自适应批大小</li>
-                                        <li><strong>检查点优化：</strong>选择性激活重计算</li>
-                                    </ul>
-                                </div>
+                            <div style="background: #f5f5f5; padding: 0.75rem 1.5rem; border-radius: 8px; text-align: center;">
+                                <h4 style="margin-bottom: 0.25rem; font-size: 1rem;">扩展效率</h4>
+                                <div style="font-size: 1.75rem; font-weight: bold; color: #6f42c1; margin: 0.25rem 0;">90%+</div>
+                                <div style="margin-top: 0.25rem; font-size: 0.9rem;">大规模集群扩展效率</div>
                             </div>
                         </div>
 
-                        <!-- 算子优化 -->
+                        <!-- 3D并行训练策略 -->
                         <div style="margin-top: 2rem;">
-                            <h4>昆仑芯算子优化</h4>
-                            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 1rem;">
-                                <div>
-                                    <h5>核心算子优化</h5>
-                                    <ul>
-                                        <li><strong>Attention算子：</strong>Flash Attention实现，内存占用减少80%</li>
-                                        <li><strong>LayerNorm融合：</strong>前后向计算融合，性能提升45%</li>
-                                        <li><strong>矩阵乘法：</strong>针对昆仑芯特定指令集优化</li>
-                                        <li><strong>激活函数：</strong>SiLU/GeLU等激活函数硬件加速</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <h5>通信算子优化</h5>
-                                    <ul>
-                                        <li><strong>AllReduce优化：</strong>Ring-AllReduce + Tree-AllReduce混合</li>
-                                        <li><strong>AllGather加速：</strong>分层通信拓扑优化</li>
-                                        <li><strong>点对点通信：</strong>RDMA零拷贝传输</li>
-                                        <li><strong>计算通信重叠：</strong>异步执行，隐藏通信延迟</li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <h4>3D并行训练策略</h4>
+                            <p>采用数据并行(DP)、张量并行(TP)、流水线并行(PP)三维并行组合，通过动态负载均衡根据模型层特性优化分布。梯度同步优化使AllReduce通信时间减少60%，结合ZeRO-3状态分片技术实现内存优化。流水线调度采用1F1B策略，气泡率控制在5%以下，序列维度切分使长序列训练内存占用减半，动态批次根据序列长度自适应调整批大小，并通过选择性激活重计算进行检查点优化。</p>
+                        </div>
+
+                        <!-- 昆仑芯通算融合技术 -->
+                        <div style="margin-top: 2rem;">
+                            <h4>昆仑芯通算融合技术</h4>
+                            <p><strong>架构优势：</strong>P800架构中通信算子与矩阵乘法算子分属不同硬件单元，与传统GPGPU架构形成显著差异。在传统GPU架构中，通信和计算往往竞争相同的硬件资源，导致执行时的相互阻塞。而P800架构通过专用的通信处理单元和矩阵乘法处理单元的硬件分离设计，实现了真正的通信计算并行。这种设计带来的核心优势在于资源隔离，通信算子执行完全不受矩阵乘法算子影响，避免了传统架构中的资源竞争。同时，通过并行执行机制，可同时进行数据传输和矩阵运算，显著提升硬件利用率。更重要的是，这种架构能够通过overlap技术，将通信延迟与计算过程进行互相掩盖。</p>
+                            
+                            <p><strong>GEMM通算融合技术：</strong>通过建立额外的旁路stream(BypassStream），我们可在矩阵乘法运算前后无缝接入通信算子。这种机制的核心思想是建立独立的调度系统，旁路stream独立于主计算stream运行，不会阻塞主要的矩阵乘法流水线。同时，通过数据预取机制，提前启动数据通信，确保计算所需数据及时到位。在计算完成后，立即启动结果的通信传输，形成完整的流水线。</p>
+                            
+                            <p><strong>多流优化实现：</strong>以AllGather与矩阵乘法融合为例，通过精细数据分块策略，实现计算与通信的深度融合。传统方式需要先完成完整的AllGather操作，等待所有数据传输完成后才能开始GEMM计算。而融合方式将数据分解为多个块，每个数据块在通信完成后立即启动对应的计算，形成流水线并行。当通信算子准备好原子数据块后，矩阵乘法可立即启动运算，无需等待全部数据就绪，实现真正的流水线并行。</p>
                         </div>
 
                     </div>
@@ -1293,7 +1250,7 @@ import os
 # 初始化客户端
 client = OpenAI(
     api_key = os.environ.get("QIANFAN_SECRET_KEY"),
-    base_url = "https://api.qianfan.com/v1",
+    base_url = "https://qianfan.baidubce.com/v2",
     default_headers = {
         "X-Access-Key": os.environ.get("QIANFAN_ACCESS_KEY")
     }
@@ -1325,7 +1282,7 @@ import os
 
 client = OpenAI(
     api_key = os.environ.get("QIANFAN_SECRET_KEY"),
-    base_url = "https://api.qianfan.com/v1",
+    base_url = "https://qianfan.baidubce.com/v2",
     default_headers = {"X-Access-Key": os.environ.get("QIANFAN_ACCESS_KEY")}
 )
 
@@ -1364,7 +1321,7 @@ import os
 
 client = OpenAI(
     api_key = os.environ.get("QIANFAN_SECRET_KEY"),
-    base_url = "https://api.qianfan.com/v1",
+    base_url = "https://qianfan.baidubce.com/v2",
     default_headers = {"X-Access-Key": os.environ.get("QIANFAN_ACCESS_KEY")}
 )
 
@@ -1410,7 +1367,7 @@ import os
 
 client = OpenAI(
     api_key = os.environ.get("QIANFAN_SECRET_KEY"),
-    base_url = "https://api.qianfan.com/v1",
+    base_url = "https://qianfan.baidubce.com/v2",
     default_headers = {"X-Access-Key": os.environ.get("QIANFAN_ACCESS_KEY")}
 )
 
@@ -1459,7 +1416,7 @@ import os
 
 client = OpenAI(
     api_key = os.environ.get("QIANFAN_SECRET_KEY"),
-    base_url = "https://api.qianfan.com/v1",
+    base_url = "https://qianfan.baidubce.com/v2",
     default_headers = {"X-Access-Key": os.environ.get("QIANFAN_ACCESS_KEY")}
 )
 
@@ -1503,96 +1460,28 @@ print(response.choices[0].message.content)</code></pre>
                 </div>
 
                 <h3>API参数说明</h3>
-                <table class="api-table">
-                    <thead>
-                        <tr>
-                            <th>参数</th>
-                            <th>类型</th>
-                            <th>默认值</th>
-                            <th>说明</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>model</code></td>
-                            <td>string</td>
-                            <td>必填</td>
-                            <td>可选: "Qianfan-VL-8B", "Qianfan-VL-70B" (3B即将上线)</td>
-                        </tr>
-                        <tr>
-                            <td><code>messages</code></td>
-                            <td>array</td>
-                            <td>必填</td>
-                            <td>消息数组，包含role和content</td>
-                        </tr>
-                        <tr>
-                            <td><code>temperature</code></td>
-                            <td>float</td>
-                            <td>0.7</td>
-                            <td>采样温度 (0.0-2.0)，越低越确定</td>
-                        </tr>
-                        <tr>
-                            <td><code>max_tokens</code></td>
-                            <td>integer</td>
-                            <td>2048</td>
-                            <td>最大生成token数</td>
-                        </tr>
-                        <tr>
-                            <td><code>top_p</code></td>
-                            <td>float</td>
-                            <td>1.0</td>
-                            <td>核采样参数</td>
-                        </tr>
-                        <tr>
-                            <td><code>stream</code></td>
-                            <td>boolean</td>
-                            <td>false</td>
-                            <td>是否启用流式输出</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <p>详细的API参数说明和调用文档请参考：<a href="https://cloud.baidu.com/doc/qianfan-docs/s/Fm9l6ocai" target="_blank">千帆ModelBuilder API文档</a></p>
             </section>
 
             <section id="conclusion" class="section">
                 <h2>总结</h2>
                 
                 <p>
-                    <strong>Qianfan-VL系列</strong>通过创新的技术架构和训练方法，成功实现了多模态AI在企业级应用中的突破。
-                    其核心优势在于：
+                    <strong>Qianfan-VL系列模型</strong>基于Llama 3.1架构和InternViT视觉编码器构建，提供3B、8B、70B三种规格，覆盖从边缘部署到复杂推理的多种应用场景。模型具备全场景OCR识别、复杂版面文档理解和思考推理三大核心功能，在文档解析、数学计算、图表分析等任务中表现卓越。
                 </p>
                 
-                <ul class="summary-list">
-                    <li><strong>精准的场景定位：</strong>专注于文档理解、OCR、数学推理等高频应用场景</li>
-                    <li><strong>灵活的模型选择：</strong>3B到70B全系列覆盖，满足不同规模需求</li>
-                    <li><strong>领先的技术创新：</strong>能力增强训练、数据合成、昆仑芯训练三大技术特色</li>
-                    <li><strong>卓越的性能表现：</strong>多项基准测试达到或超越业界最优水平</li>
-                </ul>
-
                 <p>
-                    作为百度智能云千帆大模型平台的重要组成部分，Qianfan-VL为企业数字化转型提供了
-                    强大的多模态理解能力，助力各行业实现智能化升级。
+                    <strong>模型训练采用四阶段渐进式策略</strong>：跨模态对齐阶段建立基础连接映射，通用知识注入阶段构建强大基础能力，领域增强知识注入阶段在保持通用性基础上强化专业能力，后训练阶段优化指令跟随和偏好对齐。训练过程结合高精度数据合成技术和昆仑芯通算融合优化，实现了高效的大规模分布式训练。
+                </p>
+                
+                <p>
+                    <strong>Qianfan-VL系列具备强大的通用能力</strong>，在MMMU、AI2D、RealWorldQA等通用基准测试中表现优异，同时在领域增强场景展现突出表现，OCRBench达到850分业界领先水平，数学推理任务MathVision和MathVerse等专业基准中显著超越同规模模型，为多模态AI的产业化应用提供了高性能解决方案。
                 </p>
 
             </section>
         </div>
     </main>
 
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <p>&copy; 2025 Baidu, Inc. 保留所有权利</p>
-                    <p>Qianfan-VL是百度智能云的产品</p>
-                </div>
-                <div class="footer-links">
-                    <a href="https://cloud.baidu.com">百度智能云</a>
-                    <a href="https://ai.baidu.com">百度AI</a>
-                    <a href="https://ir.baidu.com">投资者关系</a>
-                    <a href="https://www.baidu.com/duty">法律声明</a>
-                </div>
-            </div>
-        </div>
-    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>

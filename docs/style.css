@@ -566,7 +566,7 @@ pre[class*="language-"] code {
     border: 1px solid #e0e0e0;
     padding: 0.5rem;
     margin-bottom: 1rem;
-    min-height: 150px;
+    min-height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -574,8 +574,55 @@ pre[class*="language-"] code {
 
 .showcase-image img {
     max-width: 100%;
-    max-height: 200px;
+    max-height: 280px;
     object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.showcase-image img:hover {
+    transform: scale(1.02);
+}
+
+/* Modal for enlarged images */
+.image-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.image-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.image-modal-content img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.image-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.image-modal-close:hover {
+    color: #ccc;
 }
 
 .showcase-dialogue {
