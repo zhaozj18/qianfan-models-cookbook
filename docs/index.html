@@ -985,6 +985,7 @@
                         <button class="capability-tab" data-tab="math">数学推理</button>
                         <button class="capability-tab" data-tab="document">文档理解</button>
                         <button class="capability-tab" data-tab="chart">图表分析</button>
+                        <button class="capability-tab" data-tab="video">视频理解</button>
                     </div>
 
                     <!-- Tab Content -->
@@ -1062,6 +1063,7 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                                 <button class="carousel-btn carousel-next" aria-label="Next">›</button>
@@ -1350,6 +1352,40 @@
                                 <button class="carousel-btn carousel-next" aria-label="Next">›</button>
                             </div>
                         </div>
+
+                        <!-- Video Panel -->
+                        <div class="capability-panel" id="video-panel">
+                            <div class="carousel-container">
+                                <button class="carousel-btn carousel-prev" aria-label="Previous">‹</button>
+                                <div class="carousel-wrapper">
+                                    <div class="carousel-track">
+                                        <div class="capability-card">
+                                            <h4>视频理解</h4>
+                                            <div class="showcase-content">
+                                                <div class="showcase-image">
+                                                    <video controls poster="images/video_understanding_thumbnail.jpg" style="width: 100%; max-height: 280px; cursor: pointer;">
+                                                        <source src="images/video_understanding.mp4" type="video/mp4">
+                                                        您的浏览器不支持视频播放。
+                                                    </video>
+                                                    <div style="text-align: center; font-size: 0.8rem; color: #666; margin-top: 0.5rem;">
+                                                        点击播放视频
+                                                    </div>
+                                                </div>
+                                                <div class="showcase-dialogue">
+                                                    <div class="user-prompt">
+                                                        <strong>用户：</strong> 请描述一下视频中的内容
+                                                    </div>
+                                                    <div class="model-response">
+                                                        <strong>Qianfan-VL：</strong> 在这段宁静祥和的视频中，一片宽阔的湖泊映入眼帘，湖面波光粼粼，反射着温暖的阳光，形成闪烁的光斑。几艘小船散布在湖面上，有的靠近岸边，有的在湖心悠然行驶，船上的人们沉浸在这片宁静之中。远处，茂密的树林和连绵起伏的山脉构成了一幅美丽的画卷，天空晴朗，淡蓝色的天幕下，偶尔可见一座塔楼矗立在山间。随着镜头的缓慢移动，更多细节逐渐展现，阳光照射在水面上，闪烁着耀眼的光芒，整个场景充满了自然之美和平和的气息。这段视频不仅展示了大自然的宁静与和谐，还让人感受到一种悠闲自在的生活方式，仿佛置身于一幅动人的山水画中。
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="carousel-btn carousel-next" aria-label="Next">›</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -1358,30 +1394,8 @@
                 <h2>快速开始</h2>
                 
                 <h3>安装配置</h3>
-                <pre><code class="language-bash"># 安装OpenAI SDK
-pip install openai
-
-# 设置千帆认证信息
-export QIANFAN_ACCESS_KEY="your_access_key"
-export QIANFAN_SECRET_KEY="your_secret_key"</code></pre>
-
-                <h3>基础示例</h3>
-                <pre><code class="language-python">from openai import OpenAI
-import base64
-import os
-
-# 初始化客户端
-client = OpenAI(
-    api_key = os.environ.get("QIANFAN_SECRET_KEY"),
-    base_url = "https://qianfan.baidubce.com/v2",
-    default_headers = {
-        "X-Access-Key": os.environ.get("QIANFAN_ACCESS_KEY")
-    }
-)
-
-# 可用模型: Qianfan-VL-8B, Qianfan-VL-70B
-# 注意: Qianfan-VL-3B 即将上线
-model = "Qianfan-VL-8B"</code></pre>
+                <p>安装OpenAI SDK即可使用千帆大模型平台上的Qianfan-VL系列模型：</p>
+                <pre><code class="language-bash">pip install openai</code></pre>
 
                 <h3>功能示例代码</h3>
                 
