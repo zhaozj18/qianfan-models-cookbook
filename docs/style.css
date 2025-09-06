@@ -108,9 +108,6 @@ body {
 .section {
     margin-bottom: 4rem;
     padding: 2rem 0;
-}
-
-.section:nth-child(even) {
     background: #fafbfc;
     margin-left: -2rem;
     margin-right: -2rem;
@@ -118,6 +115,7 @@ body {
     padding-right: 2rem;
     border-radius: 0;
 }
+
 
 .section h2 {
     font-size: 1.75rem;
@@ -860,14 +858,12 @@ pre[class*="language-"] code {
     .section {
         margin-bottom: 2rem;
         padding: 1rem 0;
-    }
-    
-    .section:nth-child(even) {
         margin-left: -1rem;
         margin-right: -1rem;
         padding-left: 1rem;
         padding-right: 1rem;
     }
+    
     
     /* Typography */
     .hero-title {
