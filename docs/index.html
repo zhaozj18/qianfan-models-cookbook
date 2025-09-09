@@ -580,8 +580,8 @@
                                 <ul>
                                     <li><strong>手写识别：</strong>中英文手写体识别，支持草书、行书等多种字体</li>
                                     <li><strong>公式识别：</strong>数学公式精确识别并转换为LaTeX格式</li>
-                                    <li><strong>自然场景文字识别：</strong>街景、招牌、标识等复杂环境文字检测</li>
-                                    <li><strong>卡证信息抽取：</strong>身份证、驾驶证、营业执照等证件信息结构化提取</li>
+                                    <li><strong>自然场景文字识别：</strong>街景、招牌、标识等复杂场景文字检测与识别</li>
+                                    <li><strong>卡证票据信息抽取：</strong>可对驾驶证、营业执照、发票等进行结构化信息提取</li>
                                 </ul>
                             </div>
                             <div style="padding: 0.75rem;">
@@ -1054,17 +1054,16 @@
                                 <div style="background: #fafafa; padding: 1.5rem; border-radius: 8px;">
                                     <h5>公式识别管线</h5>
                                     <div style="font-size: 0.85rem; margin-bottom: 1rem; color: #555;">
-                                        <strong>核心能力：</strong>符号识别+语法解析+语义理解一体化
+                                        <strong>核心能力：</strong>公式图像精确恢复为LaTeX，支持印刷体、手写体公式识别，能够处理复杂嵌套表达式、矩阵方程组等各类复杂版式
                                     </div>
                                     <ul style="font-size: 0.9rem;">
-                                        <li><strong>符号识别：</strong>数学符号、希腊字母、特殊记号精确识别</li>
-                                        <li><strong>结构解析：</strong>分式、根式、上下标、矩阵等复杂结构</li>
-                                        <li><strong>语义理解：</strong>公式语义与数学概念关联映射</li>
-                                        <li><strong>多引擎渲染：</strong>MathJax/KaTeX确保渲染一致性</li>
-                                        <li><strong>手写模拟：</strong>多样笔迹特征+纸张纹理+噪声干扰</li>
+                                        <li><strong>大规模公式语料库：</strong>融合真实世界文档（如arXiv学术论文库）提取与程序化合成（如LLM生成），确保了公式来源的广度与复杂度</li>
+                                        <li><strong>高保真图像渲染：</strong>采用MathJax/KaTeX双引擎和300+专业字体进行高质量渲染</li>
+                                        <li><strong>高级增强与手写模拟：</strong>通过风格迁移技术模拟逼真手写笔迹，并结合几何变换、噪声扰动等手段全面增强数据的多样性和鲁棒性</li>
+                                        <li><strong>关键流程：</strong>大规模公式采集与智能合成 → 多引擎高保真渲染 → 高级图像增强与手写风格模拟 → 高质量公式图像数据集</li>
                                     </ul>
                                     <div style="color: #666; font-size: 0.8rem; margin-top: 0.5rem;">
-                                        合成规模：95M公式 | 支持：代数+几何+微积分+线性代数全覆盖
+                                        合成规模：95M高质量公式样本 | 涵盖代数、几何、微积分、线性代数等多个核心数学分支
                                     </div>
                                 </div>
                                 
