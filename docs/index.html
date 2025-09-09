@@ -1234,45 +1234,61 @@
                                 <div class="carousel-wrapper">
                                     <div class="carousel-track">
                                         <div class="capability-card">
-                                            <h4>几何问题求解</h4>
+                                            <h4>二次函数解题</h4>
                                             <div class="showcase-content">
                                                 <div class="showcase-image">
-                                                    <img src="images/geometry_problem_solving.jpg" alt="几何题">
+                                                    <img src="images/geometry_new.png" alt="二次函数几何题">
                                                 </div>
                                                 <div class="showcase-dialogue">
                                                     <div class="user-prompt">
-                                                        <strong>用户：</strong> 请帮我解这道题
+                                                        <strong>用户：</strong> 帮我求解这道题，给出详细步骤。
                                                     </div>
-                                                    <div class="model-response">
-                                                        <strong>Qianfan-VL：</strong> 要解决在△ABC中，∠B=2∠C，AD⊥BC于D，M为BC中点，AB=10，求DM长度的问题，可按以下步骤进行：
+                                                    <div class="model-response" style="max-height: 400px; overflow-y: auto;">
+                                                        <strong>Qianfan-VL：</strong> 用户现在需要解决这个二次函数的问题，题目分为两问。首先，我需要仔细阅读题目，理解已知条件和需要求解的内容。题目给出的是二次函数\( y = -x^2 + 2mx + 2m + 1 \)，其中\( m > 0 \)，图像与x轴交于A、B两点（A在B左侧），与y轴交于C点，顶点为D，对称轴与线段BC交于E，与x轴交于F，连接AC、BD。第一问要求求A、B、C三点的坐标（用数字或含m的式子表示），并求∠OBC的度数；第二问若∠ACO=∠CBD，求m的值。
                                                         
                                                         <div style="background: #f8f9fa; padding: 1rem; border-radius: 4px; margin: 0.5rem 0;">
-                                                            <strong>关键思路</strong><br>
-                                                            1. <strong>利用角关系与正弦定理</strong>：通过∠B=2∠C，结合正弦定理表示边与角的关系<br>
-                                                            2. <strong>直角三角形斜边中线性质</strong>：在Rt△ABD中，取AB中点E，连接DE，则DE为斜边AB的中线，故DE=BE=AE=5<br>
-                                                            3. <strong>中点构造与中位线</strong>：M为BC中点，结合辅助线构造平行四边形或等腰三角形，转化线段关系
+                                                            <strong>第一问：求A、B、C三点坐标</strong><br>
+                                                            <strong>求A、B坐标：</strong>与x轴交点需解方程\( -x^2 + 2mx + 2m + 1 = 0 \)<br>
+                                                            使用求根公式：\( x = \frac{-2m \pm \sqrt{4m^2 + 8m + 4}}{-2} = \frac{-2m \pm \sqrt{(2m + 2)^2}}{-2} \)<br>
+                                                            因为\( m > 0 \)，所以\( \sqrt{(2m + 2)^2} = 2m + 2 \)<br>
+                                                            第一个解：\( x = \frac{-2m + 2m + 2}{-2} = -1 \)<br>
+                                                            第二个解：\( x = \frac{-2m - (2m + 2)}{-2} = 2m + 1 \)<br>
+                                                            因此：<strong>A(-1, 0)</strong>，<strong>B(2m + 1, 0)</strong><br><br>
+                                                            <strong>求C坐标：</strong>与y轴交点，令x=0得：\( y = 2m + 1 \)<br>
+                                                            因此：<strong>C(0, 2m + 1)</strong>
                                                         </div>
                                                         
-                                                        <div style="background: #f5f5f5; padding: 1rem; border-radius: 4px; margin: 0.5rem 0;">
-                                                            <strong>详细步骤</strong><br>
-                                                            设∠C=θ，则∠B=2θ，∠A=180°-3θ。<br>
-                                                            • <strong>在Rt△ABD中</strong>：AD⊥BC，故∠ADB=90°。由正弦定理：<br>
-                                                            &nbsp;&nbsp;AB/sin θ = AC/sin 2θ，得 AC = AB·sin 2θ/sin θ = 20cos θ<br>
-                                                            • <strong>求BD与DC</strong>：<br>
-                                                            &nbsp;&nbsp;在Rt△ABD中，BD = AB·cos 2θ = 10cos 2θ；<br>
-                                                            &nbsp;&nbsp;在Rt△ACD中，DC = AC·cos θ = 20cos²θ。<br>
-                                                            • <strong>求BC与BM</strong>：<br>
-                                                            &nbsp;&nbsp;BC = BD + DC = 10cos 2θ + 20cos²θ<br>
-                                                            &nbsp;&nbsp;因为cos 2θ = 2cos²θ - 1，代入得：BC = 40cos²θ - 10<br>
-                                                            &nbsp;&nbsp;M为BC中点，故BM = BC/2 = 20cos²θ - 5
+                                                        <div style="background: #f0f8ff; padding: 1rem; border-radius: 4px; margin: 0.5rem 0;">
+                                                            <strong>求∠OBC的度数</strong><br>
+                                                            在三角形OBC中：<br>
+                                                            • OB = 2m + 1（B点到原点距离）<br>
+                                                            • OC = 2m + 1（C点到原点距离）<br>
+                                                            • BC = \( \sqrt{(2m + 1)^2 + (2m + 1)^2} = (2m + 1)\sqrt{2} \)<br><br>
+                                                            因为OB = OC且OB² + OC² = BC²，所以三角形OBC是等腰直角三角形<br>
+                                                            因此：<strong>∠OBC = 45°</strong>
+                                                        </div>
+                                                        
+                                                        <div style="background: #fff8dc; padding: 1rem; border-radius: 4px; margin: 0.5rem 0;">
+                                                            <strong>第二问：若∠ACO=∠CBD，求m的值</strong><br>
+                                                            首先求顶点D坐标：\( D(m, (m + 1)^2) \)<br><br>
+                                                            <strong>求∠ACO的正切值：</strong><br>
+                                                            在直角三角形ACO中，∠ACO的对边AO=1，邻边CO=2m+1<br>
+                                                            \( \tan(\angle ACO) = \frac{AO}{CO} = \frac{1}{2m + 1} \)<br><br>
+                                                            <strong>求∠CBD的正切值：</strong><br>
+                                                            直线BC斜率：\( k_{BC} = \frac{2m + 1}{-(2m + 1)} = -1 \)<br>
+                                                            直线BD斜率：\( k_{BD} = \frac{(m + 1)^2}{m - (2m + 1)} = -(m + 1) \)<br>
+                                                            \( \tan(\angle CBD) = \left| \frac{-(m + 1) - (-1)}{1 + (-1)[-(m + 1)]} \right| = \frac{m}{m + 2} \)
                                                         </div>
                                                         
                                                         <div style="background: #e8f5e8; padding: 1rem; border-radius: 4px; margin: 0.5rem 0;">
-                                                            <strong>求DM</strong><br>
-                                                            由BD = 10cos 2θ = 20cos²θ - 10，则：<br>
-                                                            DM = BM - BD = (20cos²θ - 5) - (20cos²θ - 10) = 5<br><br>
-                                                            <strong>结论：DM的长度为5</strong><br><br>
-                                                            <strong>答案：</strong> <span style="border: 2px solid #333; padding: 0.25rem 0.5rem; border-radius: 4px;">5</span>
+                                                            <strong>解方程：</strong><br>
+                                                            因为∠ACO = ∠CBD，所以：\( \frac{1}{2m + 1} = \frac{m}{m + 2} \)<br>
+                                                            交叉相乘：\( m + 2 = m(2m + 1) \)<br>
+                                                            整理得：\( m + 2 = 2m^2 + m \)<br>
+                                                            化简：\( 2m^2 = 2 \Rightarrow m^2 = 1 \)<br>
+                                                            因为\( m > 0 \)，所以：<strong>m = 1</strong><br><br>
+                                                            <strong>验证：</strong>当m=1时，\( \tan(\angle ACO) = \frac{1}{3} \)，\( \tan(\angle CBD) = \frac{1}{3} \)，相等✓<br><br>
+                                                            <strong>答案：</strong><span style="border: 2px solid #333; padding: 0.25rem 0.5rem; border-radius: 4px;">m = 1</span>
                                                         </div>
                                                     </div>
                                                 </div>

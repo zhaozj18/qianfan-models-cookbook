@@ -1230,45 +1230,61 @@
                                 <div class="carousel-wrapper">
                                     <div class="carousel-track">
                                         <div class="capability-card">
-                                            <h4>Geometric Problem Solving</h4>
+                                            <h4>Quadratic Function Problem Solving</h4>
                                             <div class="showcase-content">
                                                 <div class="showcase-image">
-                                                    <img src="images/geometry_problem_solving.jpg" alt="Geometry problem">
+                                                    <img src="images/geometry_new.png" alt="Quadratic function geometry problem">
                                                 </div>
                                                 <div class="showcase-dialogue">
                                                     <div class="user-prompt">
-                                                        <strong>User:</strong> Please help me solve this problem
+                                                        <strong>User:</strong> Please solve this problem and provide detailed steps.
                                                     </div>
-                                                    <div class="model-response">
-                                                        <strong>Qianfan-VL:</strong> To solve the problem in triangle ABC where ∠B=2∠C, AD⊥BC at D, M is the midpoint of BC, AB=10, and find the length of DM, follow these steps:
+                                                    <div class="model-response" style="max-height: 400px; overflow-y: auto;">
+                                                        <strong>Qianfan-VL:</strong> The user needs to solve this quadratic function problem, which consists of two questions. First, I need to carefully read the problem and understand the given conditions and what needs to be solved. The problem gives the quadratic function \( y = -x^2 + 2mx + 2m + 1 \) where \( m > 0 \), with the graph intersecting the x-axis at points A and B (A to the left of B), intersecting the y-axis at point C, with vertex D. The axis of symmetry intersects segment BC at E and the x-axis at F. Connect AC and BD. The first question asks for the coordinates of points A, B, and C (expressed as numbers or expressions containing m), and find the measure of ∠OBC. The second question asks for the value of m if ∠ACO = ∠CBD.
                                                         
                                                         <div style="background: #f8f9fa; padding: 1rem; border-radius: 4px; margin: 0.5rem 0;">
-                                                            <strong>Key Approach</strong><br>
-                                                            1. <strong>Use angle relationships with sine rule</strong>: Through ∠B=2∠C, combined with sine rule to express relationships between sides and angles<br>
-                                                            2. <strong>Right triangle hypotenuse median property</strong>: In Rt△ABD, take midpoint E of AB, connect DE, then DE is the median to hypotenuse AB, so DE=BE=AE=5<br>
-                                                            3. <strong>Midpoint construction and midline</strong>: M is the midpoint of BC, combined with auxiliary lines to construct parallelograms or isosceles triangles, transforming segment relationships
+                                                            <strong>Question 1: Find coordinates of A, B, C</strong><br>
+                                                            <strong>Find A, B coordinates:</strong> Intersections with x-axis require solving \( -x^2 + 2mx + 2m + 1 = 0 \)<br>
+                                                            Using quadratic formula: \( x = \frac{-2m \pm \sqrt{4m^2 + 8m + 4}}{-2} = \frac{-2m \pm \sqrt{(2m + 2)^2}}{-2} \)<br>
+                                                            Since \( m > 0 \), \( \sqrt{(2m + 2)^2} = 2m + 2 \)<br>
+                                                            First solution: \( x = \frac{-2m + 2m + 2}{-2} = -1 \)<br>
+                                                            Second solution: \( x = \frac{-2m - (2m + 2)}{-2} = 2m + 1 \)<br>
+                                                            Therefore: <strong>A(-1, 0)</strong>, <strong>B(2m + 1, 0)</strong><br><br>
+                                                            <strong>Find C coordinate:</strong> y-axis intersection, let x=0: \( y = 2m + 1 \)<br>
+                                                            Therefore: <strong>C(0, 2m + 1)</strong>
                                                         </div>
                                                         
-                                                        <div style="background: #f5f5f5; padding: 1rem; border-radius: 4px; margin: 0.5rem 0;">
-                                                            <strong>Detailed Steps</strong><br>
-                                                            Let ∠C=θ, then ∠B=2θ, ∠A=180°-3θ.<br>
-                                                            • <strong>In Rt△ABD</strong>: AD⊥BC, so ∠ADB=90°. By sine rule:<br>
-                                                            &nbsp;&nbsp;AB/sin θ = AC/sin 2θ, get AC = AB·sin 2θ/sin θ = 20cos θ<br>
-                                                            • <strong>Find BD and DC</strong>:<br>
-                                                            &nbsp;&nbsp;In Rt△ABD, BD = AB·cos 2θ = 10cos 2θ;<br>
-                                                            &nbsp;&nbsp;In Rt△ACD, DC = AC·cos θ = 20cos²θ.<br>
-                                                            • <strong>Find BC and BM</strong>:<br>
-                                                            &nbsp;&nbsp;BC = BD + DC = 10cos 2θ + 20cos²θ<br>
-                                                            &nbsp;&nbsp;Since cos 2θ = 2cos²θ - 1, substituting: BC = 40cos²θ - 10<br>
-                                                            &nbsp;&nbsp;M is the midpoint of BC, so BM = BC/2 = 20cos²θ - 5
+                                                        <div style="background: #f0f8ff; padding: 1rem; border-radius: 4px; margin: 0.5rem 0;">
+                                                            <strong>Find measure of ∠OBC</strong><br>
+                                                            In triangle OBC:<br>
+                                                            • OB = 2m + 1 (distance from B to origin)<br>
+                                                            • OC = 2m + 1 (distance from C to origin)<br>
+                                                            • BC = \( \sqrt{(2m + 1)^2 + (2m + 1)^2} = (2m + 1)\sqrt{2} \)<br><br>
+                                                            Since OB = OC and OB² + OC² = BC², triangle OBC is an isosceles right triangle<br>
+                                                            Therefore: <strong>∠OBC = 45°</strong>
+                                                        </div>
+                                                        
+                                                        <div style="background: #fff8dc; padding: 1rem; border-radius: 4px; margin: 0.5rem 0;">
+                                                            <strong>Question 2: If ∠ACO = ∠CBD, find value of m</strong><br>
+                                                            First find vertex D coordinates: \( D(m, (m + 1)^2) \)<br><br>
+                                                            <strong>Find tangent of ∠ACO:</strong><br>
+                                                            In right triangle ACO, opposite side AO=1, adjacent side CO=2m+1<br>
+                                                            \( \tan(\angle ACO) = \frac{AO}{CO} = \frac{1}{2m + 1} \)<br><br>
+                                                            <strong>Find tangent of ∠CBD:</strong><br>
+                                                            Slope of line BC: \( k_{BC} = \frac{2m + 1}{-(2m + 1)} = -1 \)<br>
+                                                            Slope of line BD: \( k_{BD} = \frac{(m + 1)^2}{m - (2m + 1)} = -(m + 1) \)<br>
+                                                            \( \tan(\angle CBD) = \left| \frac{-(m + 1) - (-1)}{1 + (-1)[-(m + 1)]} \right| = \frac{m}{m + 2} \)
                                                         </div>
                                                         
                                                         <div style="background: #e8f5e8; padding: 1rem; border-radius: 4px; margin: 0.5rem 0;">
-                                                            <strong>Find DM</strong><br>
-                                                            Since BD = 10cos 2θ = 20cos²θ - 10, then:<br>
-                                                            DM = BM - BD = (20cos²θ - 5) - (20cos²θ - 10) = 5<br><br>
-                                                            <strong>Conclusion: The length of DM is 5</strong><br><br>
-                                                            <strong>Answer:</strong> <span style="border: 2px solid #333; padding: 0.25rem 0.5rem; border-radius: 4px;">5</span>
+                                                            <strong>Solve the equation:</strong><br>
+                                                            Since ∠ACO = ∠CBD: \( \frac{1}{2m + 1} = \frac{m}{m + 2} \)<br>
+                                                            Cross multiply: \( m + 2 = m(2m + 1) \)<br>
+                                                            Simplify: \( m + 2 = 2m^2 + m \)<br>
+                                                            Reduce: \( 2m^2 = 2 \Rightarrow m^2 = 1 \)<br>
+                                                            Since \( m > 0 \): <strong>m = 1</strong><br><br>
+                                                            <strong>Verification:</strong> When m=1, \( \tan(\angle ACO) = \frac{1}{3} \), \( \tan(\angle CBD) = \frac{1}{3} \), equal ✓<br><br>
+                                                            <strong>Answer:</strong><span style="border: 2px solid #333; padding: 0.25rem 0.5rem; border-radius: 4px;">m = 1</span>
                                                         </div>
                                                     </div>
                                                 </div>
