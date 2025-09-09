@@ -64,7 +64,7 @@
   <!-- Stage 2: Knowledge Injection -->
   <g id="stage2">
     <!-- Stage Title -->
-    <text x="450" y="60" text-anchor="middle" font-family="Times, serif" font-size="12" font-weight="bold" fill="#000000">Stage 1.5.1: General Knowledge Injection</text>
+    <text x="450" y="60" text-anchor="middle" font-family="Times, serif" font-size="12" font-weight="bold" fill="#000000">Stage 2: General Knowledge Injection</text>
     <text x="450" y="75" text-anchor="middle" font-family="Times, serif" font-size="9" fill="#666666">3.5T tokens • Full Parameters</text>
     
     <!-- Output -->
@@ -109,7 +109,7 @@
   <!-- Stage 3: Domain Enhancement -->
   <g id="stage3">
     <!-- Stage Title -->
-    <text x="750" y="60" text-anchor="middle" font-family="Times, serif" font-size="12" font-weight="bold" fill="#000000">Stage 1.5.2: Domain Enhanced Knowledge Injection</text>
+    <text x="750" y="60" text-anchor="middle" font-family="Times, serif" font-size="12" font-weight="bold" fill="#000000">Stage 3: Domain Enhanced Knowledge Injection</text>
     <text x="750" y="75" text-anchor="middle" font-family="Times, serif" font-size="9" fill="#666666">300B tokens • Full Parameters</text>
     
     <!-- Output -->
@@ -156,7 +156,7 @@
   <!-- Stage 4: Post-training -->
   <g id="stage4">
     <!-- Stage Title -->
-    <text x="1050" y="60" text-anchor="middle" font-family="Times, serif" font-size="12" font-weight="bold" fill="#000000">Stage 2: Post-training</text>
+    <text x="1050" y="60" text-anchor="middle" font-family="Times, serif" font-size="12" font-weight="bold" fill="#000000">Stage 4: Post-training</text>
     <text x="1050" y="75" text-anchor="middle" font-family="Times, serif" font-size="9" fill="#666666">1B tokens • Full Parameters</text>
     
     <!-- Output -->
