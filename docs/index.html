@@ -1090,14 +1090,14 @@
                                     <ul style="font-size: 0.9rem;">
                                         <li><strong>背景筛选：</strong>轻量级OCR模型+图像类型检测剔除含文本/非静态样本</li>
                                         <li><strong>场景理解：</strong>语义分割模型+单目深度估计获取区域划分与3D结构</li>
-                                        <li><strong>语义匹配：</strong>Qwen-VL图像描述+CLIP模型实现文本区域细粒度匹配</li>
+                                        <li><strong>语义匹配：</strong>图像描述文本与分割区域对齐，实现文本区域细粒度匹配</li>
                                         <li><strong>真实投影：</strong>平面检测+透视投影+随机文本样式自然投影</li>
                                         <li><strong>融合增强：</strong>Poisson融合确保遮挡、阴影、纹理一致性</li>
                                     </ul>
                                     <div style="background: #f0f0f0; padding: 0.75rem; border-radius: 4px; margin-top: 0.75rem;">
                                         <div style="font-size: 0.8rem; font-weight: bold; margin-bottom: 0.25rem;">关键技术点</div>
                                         <div style="font-size: 0.8rem; line-height: 1.4;">
-                                            OCR筛选背景 → 语义分割+深度估计 → Qwen-VL+CLIP语义匹配 → 透视投影 → Poisson融合 → 字符级+单词级标注
+                                            背景图像筛选 → 语义分割+深度估计 → 图像描述+文本区域匹配 → 透视投影 → Poisson融合 → 字符级+单词级标注
                                         </div>
                                     </div>
                                     <div style="color: #666; font-size: 0.8rem; margin-top: 0.5rem;">
