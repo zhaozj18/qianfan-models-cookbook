@@ -973,13 +973,15 @@
                                         <strong>核心任务：</strong>文档解析、格式转换、智能问答三大功能
                                     </div>
                                     <ul style="font-size: 0.9rem;">
-                                        <li><strong>全方位解析：</strong>融合 PaddleOCR 和 TextMind 等技术，对文档进行深度解析。这包括精准的版面分析、内容提取和阅读顺序识别，支持多语言和手写扫描件，实现对文档内容的全面理解</li>
-                                        <li><strong>格式转换（文档转Markdown）：</strong>将单页或多页文档无缝转换为结构化的 Markdown 格式</li>
+                                        <li><strong>全方位解析：</strong>融合PaddleOCR和TextMind等技术，对文档进行深度解析。包括精准的版面分析、内容提取和阅读顺序识别，支持多语言和手写扫描件</li>
+                                        <li><strong>格式转换（文档转Markdown）：</strong>将单页或多页文档无缝转换为结构化的Markdown格式</li>
                                         <li><strong>智能问答：</strong>利用多个大型语言模型（LLM）和视觉语言模型（VLM）进行交叉验证，生成高质量的文档摘要和问答数据，实现对文档内容的智能交互</li>
-                                        <li><strong>数据来源：</strong>该模型基于 DocVQA、DocReason25K、BigDocs 等开源数据集和我们自有的数据进行二次合成和增强</li>
-                                        <li><strong>鲁棒性增强：</strong>通过位图化、腐蚀膨胀和高斯模糊等多种数据增强策略，模拟真实噪声，显著提升模型的鲁棒性</li>
-                                        <li><strong>数据规模：</strong>450M样本</li>
+                                        <li><strong>数据来源：</strong>基于DocVQA、DocReason25K、BigDocs等开源数据集和自有数据进行二次合成和增强</li>
+                                        <li><strong>数据增强：</strong>通过位图化、腐蚀膨胀和高斯模糊等多种数据增强策略，模拟真实噪声，显著提升模型的鲁棒性</li>
                                     </ul>
+                                    <div style="color: #666; font-size: 0.8rem; margin-top: 0.5rem;">
+                                        合成规模：450M样本
+                                    </div>
                                 </div>
                                 
                                 <div style="background: #fafafa; padding: 1.5rem; border-radius: 8px;">
@@ -1031,15 +1033,17 @@
                                 <div style="background: #fafafa; padding: 1.5rem; border-radius: 8px;">
                                     <h5>表格识别管线</h5>
                                     <div style="font-size: 0.85rem; margin-bottom: 1rem; color: #555;">
-                                        <strong>核心目标：</strong>程序化生成高质量的表格数据，为表格结构化解析任务提供坚实基础
+                                        <strong>核心目标：</strong>程序化生成高质量的表格结构化数据
                                     </div>
                                     <ul style="font-size: 0.9rem;">
-                                        <li><strong>表格内容与结构生成：</strong>我们采用程序化方式，首先生成随机的表格结构（3-20行，3-20列），然后利用 Faker 库和 LLM 填充内容，并支持随机单元格合并，从而生成逼真的表格数据</li>
-                                        <li><strong>图像渲染与样式：</strong>通过 Jinja2 和 KaTeX 引擎，结合超过 50 种专业级 CSS 主题（如统计报告、技术文档），将表格渲染成高质量图像，呈现出多样化的视觉风格</li>
-                                        <li><strong>结构化表示：</strong>同时生成表格的 HTML 和 LaTeX 两种结构化表示，方便不同场景下的应用</li>
-                                        <li><strong>鲁棒性增强：</strong>通过几何变换、色彩扰动、模糊处理等多种策略，极大地丰富了数据集的多样性</li>
-                                        <li><strong>数据规模：</strong>120M样本</li>
+                                        <li><strong>表格内容与结构生成：</strong>采用程序化方式，生成随机的表格结构，利用Faker库和LLM填充内容，并支持随机单元格合并</li>
+                                        <li><strong>图像渲染与样式：</strong>通过Jinja2和KaTeX引擎，结合超过50种专业级CSS主题（如统计报告、技术文档），将表格渲染成高质量图像</li>
+                                        <li><strong>结构化表示：</strong>同时生成表格的HTML和LaTeX两种结构化表示</li>
+                                        <li><strong>数据增强：</strong>通过几何变换、色彩扰动、模糊处理等多种策略丰富数据多样性</li>
                                     </ul>
+                                    <div style="color: #666; font-size: 0.8rem; margin-top: 0.5rem;">
+                                        合成规模：120M样本
+                                    </div>
                                 </div>
                                 
                                 <div style="background: #fafafa; padding: 1.5rem; border-radius: 8px;">
