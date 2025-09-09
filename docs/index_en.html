@@ -933,7 +933,7 @@
                     <!-- Technical Feature 1: Capability Enhancement Training Pipeline -->
                     <div class="tech-highlight-column">
                         <h3>Capability Enhancement Training Pipeline</h3>
-                        <p>Innovative three-stage training strategy that significantly enhances domain capabilities while maintaining general capabilities</p>
+                        <p>Innovative four-stage training strategy that significantly enhances domain capabilities while maintaining general capabilities</p>
                     </div>
 
                     <!-- Technical Feature 2: High-Precision Data Synthesis Technology -->
@@ -964,9 +964,11 @@
                         <div class="training-stages" style="margin-top: 2rem;">
                             <p><strong>Stage 1: Cross-modal Alignment</strong> - This stage aims to establish basic vision-language connection mapping, using a training strategy that only updates MLP Adapter while freezing Vision Encoder and LLM, trained with 100B tokens of general knowledge data. This stage is necessary, otherwise it will affect overall performance.</p>
                             
-                            <p><strong>Stage 1.5: Knowledge Injection</strong> - Divided into two sub-stages: 1) General knowledge injection stage, focusing on the amount of injected data, trying to cover all training data, using full-parameter update training strategy with 3.5T tokens of general knowledge data; 2) Domain-enhanced knowledge injection stage, carefully selecting high-quality data for domains to be enhanced, including task data for enhanced domains while integrating general data sampling to maintain general knowledge and prevent catastrophic forgetting, using full-parameter update training with 300B tokens of domain-specific data and general sampled data. Both stages include sufficient proportion of text corpus to prevent catastrophic forgetting of LLM knowledge, typically several hundred billion tokens.</p>
+                            <p><strong>Stage 2: General Knowledge Injection</strong> - Focusing on the amount of injected data, trying to cover all training data, using full-parameter update training strategy with 3.5T tokens of general knowledge data. This stage builds the model's strong foundational capabilities while including sufficient proportion of text corpus to prevent catastrophic forgetting of LLM knowledge.</p>
                             
-                            <p><strong>Stage 2: Post-training</strong> - This stage aims to improve instruction following ability and preference alignment, using full-parameter update training strategy with 1B tokens of instruction fine-tuning data. Uses high-quality alignment data including complex instruction following, writing, Q&A, programming, OCR, information extraction, mathematics, reasoning computation tasks, while incorporating sufficient pure text instruction fine-tuning data to maintain text model capabilities.</p>
+                            <p><strong>Stage 3: Domain-Enhanced Knowledge Injection</strong> - Carefully selecting high-quality data for domains to be enhanced, including task data for enhanced domains while integrating general data sampling to maintain general knowledge and prevent catastrophic forgetting, using full-parameter update training with 300B tokens of domain-specific data and general sampled data. This stage achieves significant enhancement of professional capabilities.</p>
+                            
+                            <p><strong>Stage 4: Post-training</strong> - This stage aims to improve instruction following ability and preference alignment, using full-parameter update training strategy with 1B tokens of instruction fine-tuning data. Uses high-quality alignment data including complex instruction following, writing, Q&A, programming, OCR, information extraction, mathematics, reasoning computation tasks, while incorporating sufficient pure text instruction fine-tuning data to maintain text model capabilities.</p>
                         </div>
                     </div>
 
