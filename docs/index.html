@@ -993,19 +993,19 @@
                             <h4>多任务数据合成管线</h4>
                             <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 1rem;">
                                 <div style="background: #fafafa; padding: 1.5rem; border-radius: 8px;">
-                                    <h5>文档识别OCR管线</h5>
+                                    <h5>文档理解管线</h5>
                                     <div style="font-size: 0.85rem; margin-bottom: 1rem; color: #555;">
-                                        <strong>核心任务：</strong>全方位解析、图像转Markdown、文档问答三大功能
+                                        <strong>核心任务：</strong>文档解析、文档转Markdown、智能问答三大功能
                                     </div>
                                     <ul style="font-size: 0.9rem;">
-                                        <li><strong>全方位解析：</strong>融合布局、类别、内容的多维度解析，支持多语言及手写扫描件</li>
-                                        <li><strong>图像转Markdown：</strong>单页/多页文档高效转换为结构化Markdown</li>
-                                        <li><strong>文档问答：</strong>支持总结、推理、多轮对话的深度理解</li>
-                                        <li><strong>数据来源：</strong>DocVQA/DocReason25K等开源+自有合成+二次增强</li>
-                                        <li><strong>鲁棒性增强：</strong>位图化、腐蚀膨胀、高斯模糊等真实噪声模拟</li>
+                                        <li><strong>全方位解析：</strong>融合PaddleOCR和TextMind等技术，对文档进行深度解析。包括精准的版面分析、内容提取和阅读顺序识别，支持多语言和手写扫描件</li>
+                                        <li><strong>文档转Markdown：</strong>将单页或多页文档无缝转换为结构化的Markdown格式</li>
+                                        <li><strong>智能问答：</strong>利用多个大型语言模型（LLM）和视觉语言模型（VLM）进行交叉验证，生成高质量的文档摘要和问答数据</li>
+                                        <li><strong>数据来源：</strong>基于DocVQA、DocReason25K、BigDocs等开源数据集和自有数据进行二次合成和增强</li>
+                                        <li><strong>数据增强：</strong>通过位图化、腐蚀膨胀和高斯模糊等多种数据增强策略，模拟真实噪声</li>
                                     </ul>
                                     <div style="color: #666; font-size: 0.8rem; margin-top: 0.5rem;">
-                                        合成规模：450M样本 | 质量闭环：多VLM交叉验证
+                                        合成规模：450M样本
                                     </div>
                                 </div>
                                 
@@ -1046,17 +1046,16 @@
                                 <div style="background: #fafafa; padding: 1.5rem; border-radius: 8px;">
                                     <h5>表格识别管线</h5>
                                     <div style="font-size: 0.85rem; margin-bottom: 1rem; color: #555;">
-                                        <strong>核心任务：</strong>表格结构化识别、表格问答两大功能
+                                        <strong>核心目标：</strong>程序化生成高质量的表格结构化数据
                                     </div>
                                     <ul style="font-size: 0.9rem;">
-                                        <li><strong>表格结构化：</strong>图像表格精确恢复为HTML/LaTeX，支持无线表格、合同表格等复杂版式</li>
-                                        <li><strong>表格问答：</strong>基于表格图像的数值计算、比较分析、信息检索</li>
-                                        <li><strong>内容生成：</strong>随机表格结构(3-20行列)+Faker库/LLM填充+随机单元格合并</li>
-                                        <li><strong>图像渲染：</strong>50+专业级CSS主题(统计报告/技术文档)+Jinja2+KaTeX引擎</li>
-                                        <li><strong>数据增强：</strong>几何变换+色彩扰动+模糊处理丰富多样性</li>
+                                        <li><strong>表格内容与结构生成：</strong>采用程序化方式，生成随机的表格结构，利用Faker库和LLM填充内容，并支持随机单元格合并</li>
+                                        <li><strong>图像渲染与样式：</strong>通过Jinja2和KaTeX引擎，结合超过50种专业级CSS主题（如统计报告、技术文档），将表格渲染成高质量图像</li>
+                                        <li><strong>结构化表示：</strong>同时生成表格的HTML和LaTeX两种结构化表示</li>
+                                        <li><strong>数据增强：</strong>通过几何变换、色彩扰动、模糊处理等多种策略丰富数据多样性</li>
                                     </ul>
                                     <div style="color: #666; font-size: 0.8rem; margin-top: 0.5rem;">
-                                        合成规模：120M表格 | 数据来源：TabMWP+MMC-Inst+BigDocs+自研合成
+                                        合成规模：120M样本
                                     </div>
                                 </div>
                                 
