@@ -210,10 +210,7 @@
     <main class="main-content">
         <div class="container">
             <div class="hero-section">
-                <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; flex-wrap: wrap;">
-                    <img src="images/qianfan_logo.png" alt="千帆 Logo" style="height: 60px; margin: 0 1rem 0.5rem 0;">
-                    <h2 class="hero-title" style="margin: 0; text-align: center;">Qianfan-VL: 领域增强通用视觉-语言模型</h2>
-                </div>
+                <h2 class="hero-title" style="margin: 0 0 1.5rem 0; text-align: center;">Qianfan-VL: 领域增强通用视觉-语言模型</h2>
                 <p class="hero-subtitle">通过持续预训练实现领域能力增强 | 3B到70B参数规模 | 文档理解与OCR能力增强 | 支持思考推理能力</p>
                 <p class="hero-meta">2025年8月发布 | 百度智能云千帆大模型平台</p>
             </div>
@@ -261,9 +258,8 @@
                         <div style="margin-bottom: 0.8rem;">
                             <strong><a href="#api" style="color: var(--text-primary);">4. 快速开始</a></strong>
                             <div style="margin-left: 1rem; margin-top: 0.3rem; color: #666;">
-                                <a href="#installation" style="color: inherit; text-decoration: none;">4.1 安装配置</a><br>
-                                <a href="#examples" style="color: inherit; text-decoration: none;">4.2 示例代码</a><br>
-                                <a href="#api-params" style="color: inherit; text-decoration: none;">4.3 API参数</a>
+                                <a href="#examples" style="color: inherit; text-decoration: none;">4.1 示例代码</a><br>
+                                <a href="#api-params" style="color: inherit; text-decoration: none;">4.2 API参数</a>
                             </div>
                         </div>
                         
@@ -356,8 +352,6 @@
                                             <th>Qianfan-VL-3B</th>
                                             <th>Qianfan-VL-8B</th>
                                             <th>Qianfan-VL-70B</th>
-                                            <th>Intern2.5-VL-8B</th>
-                                            <th>Intern2.5-VL-78B</th>
                                             <th>Intern3-VL-8B</th>
                                             <th>Intern3-VL-78B</th>
                                             <th>Qwen2.5-VL-7B</th>
@@ -369,11 +363,9 @@
                                     <tbody>
                                         <tr>
                                             <td>A-Bench_VAL</td>
-                                            <td>74.25</td>
                                             <td>75.65</td>
-                                            <td><strong>79.15</strong></td>
-                                            <td>76.91</td>
-                                            <td>76.14</td>
+                                            <td>75.72</td>
+                                            <td><strong>78.1</strong></td>
                                             <td>75.86</td>
                                             <td>75.86</td>
                                             <td>76.49</td>
@@ -383,13 +375,11 @@
                                         </tr>
                                         <tr>
                                             <td>CCBench</td>
-                                            <td>66.27</td>
-                                            <td>70</td>
-                                            <td>77.65</td>
-                                            <td><strong>78.43</strong></td>
-                                            <td>71.37</td>
-                                            <td><strong>77.84</strong></td>
-                                            <td>70.76</td>
+                                            <td>66.86</td>
+                                            <td>70.39</td>
+                                            <td><strong>80.98</strong></td>
+                                            <td>77.84</td>
+                                            <td>70.78</td>
                                             <td>57.65</td>
                                             <td>73.73</td>
                                             <td>27.25</td>
@@ -397,11 +387,9 @@
                                         </tr>
                                         <tr>
                                             <td>SEEDBench_IMG</td>
-                                            <td>75.74</td>
-                                            <td>78.21</td>
-                                            <td><strong>78.85</strong></td>
-                                            <td>77.17</td>
-                                            <td>77.15</td>
+                                            <td>76.55</td>
+                                            <td>78.02</td>
+                                            <td><strong>79.13</strong></td>
                                             <td>77.00</td>
                                             <td>77.52</td>
                                             <td>76.98</td>
@@ -411,11 +399,9 @@
                                         </tr>
                                         <tr>
                                             <td>SEEDBench2_Plus</td>
-                                            <td>68.25</td>
-                                            <td>70.53</td>
-                                            <td>71.37</td>
-                                            <td>69.52</td>
-                                            <td>69.26</td>
+                                            <td>67.59</td>
+                                            <td>70.97</td>
+                                            <td><strong>73.17</strong></td>
                                             <td>69.52</td>
                                             <td>68.47</td>
                                             <td>70.93</td>
@@ -425,11 +411,9 @@
                                         </tr>
                                         <tr>
                                             <td>MMVet</td>
-                                            <td>47.25</td>
-                                            <td>54.13</td>
-                                            <td>56.42</td>
-                                            <td>65.14</td>
-                                            <td>69.72</td>
+                                            <td>48.17</td>
+                                            <td>53.21</td>
+                                            <td>57.34</td>
                                             <td><strong>80.28</strong></td>
                                             <td><strong>78.90</strong></td>
                                             <td>70.64</td>
@@ -438,12 +422,22 @@
                                             <td>69.72</td>
                                         </tr>
                                         <tr>
+                                            <td>MMMU_VAL</td>
+                                            <td>46.44</td>
+                                            <td>47.11</td>
+                                            <td>58.33</td>
+                                            <td>56.11</td>
+                                            <td><strong>60.78</strong></td>
+                                            <td>51.0</td>
+                                            <td><strong>65.78</strong></td>
+                                            <td>46.0</td>
+                                            <td>47.56</td>
+                                        </tr>
+                                        <tr>
                                             <td>ScienceQA_TEST</td>
-                                            <td>95.24</td>
-                                            <td><strong>98.17</strong></td>
-                                            <td><strong>98.17</strong></td>
-                                            <td>98.07</td>
-                                            <td>97.72</td>
+                                            <td>95.19</td>
+                                            <td>97.62</td>
+                                            <td><strong>98.76</strong></td>
                                             <td>97.97</td>
                                             <td>97.17</td>
                                             <td>85.47</td>
@@ -453,11 +447,9 @@
                                         </tr>
                                         <tr>
                                             <td>ScienceQA_VAL</td>
-                                            <td>94.71</td>
-                                            <td>97.38</td>
-                                            <td><strong>98.28</strong></td>
-                                            <td>97.42</td>
-                                            <td>96.14</td>
+                                            <td>93.85</td>
+                                            <td>97.62</td>
+                                            <td><strong>98.81</strong></td>
                                             <td><strong>97.81</strong></td>
                                             <td>95.14</td>
                                             <td>83.59</td>
@@ -467,11 +459,9 @@
                                         </tr>
                                         <tr>
                                             <td>MMT-Bench_VAL</td>
-                                            <td>61.21</td>
-                                            <td>63.83</td>
-                                            <td>69.17</td>
-                                            <td>62.49</td>
-                                            <td>65.14</td>
+                                            <td>62.23</td>
+                                            <td>63.22</td>
+                                            <td><strong>71.06</strong></td>
                                             <td>65.17</td>
                                             <td>63.67</td>
                                             <td>61.40</td>
@@ -481,11 +471,9 @@
                                         </tr>
                                         <tr>
                                             <td>MTVQA_TEST</td>
-                                            <td>26.95</td>
-                                            <td>30.17</td>
-                                            <td>31.03</td>
-                                            <td>27.71</td>
-                                            <td>30.70</td>
+                                            <td>26.5</td>
+                                            <td>30.14</td>
+                                            <td><strong>32.18</strong></td>
                                             <td>30.30</td>
                                             <td>27.62</td>
                                             <td>29.08</td>
@@ -495,11 +483,9 @@
                                         </tr>
                                         <tr>
                                             <td>BLINK</td>
-                                            <td>51.08</td>
-                                            <td>56.23</td>
-                                            <td>58.34</td>
-                                            <td>54.44</td>
-                                            <td>53.34</td>
+                                            <td>49.97</td>
+                                            <td>56.81</td>
+                                            <td><strong>59.44</strong></td>
                                             <td>55.87</td>
                                             <td>51.87</td>
                                             <td>54.55</td>
@@ -509,11 +495,9 @@
                                         </tr>
                                         <tr>
                                             <td>MMStar</td>
-                                            <td>59.07</td>
-                                            <td>67.4</td>
-                                            <td><strong>69.07</strong></td>
-                                            <td>62.86</td>
-                                            <td>64.13</td>
+                                            <td>57.93</td>
+                                            <td>64.07</td>
+                                            <td><strong>69.47</strong></td>
                                             <td><strong>68.40</strong></td>
                                             <td>66.07</td>
                                             <td>61.53</td>
@@ -523,11 +507,9 @@
                                         </tr>
                                         <tr>
                                             <td>RealWorldQA</td>
-                                            <td>64.97</td>
-                                            <td>70.98</td>
-                                            <td>71.76</td>
-                                            <td>69.41</td>
-                                            <td><strong>74.12</strong></td>
+                                            <td>65.75</td>
+                                            <td>70.59</td>
+                                            <td>71.63</td>
                                             <td>71.11</td>
                                             <td><strong>74.25</strong></td>
                                             <td>69.28</td>
@@ -537,11 +519,9 @@
                                         </tr>
                                         <tr>
                                             <td>Q-Bench1_VAL</td>
-                                            <td>72.57</td>
-                                            <td>75.99</td>
-                                            <td><strong>78.33</strong></td>
-                                            <td>73.90</td>
-                                            <td>74.98</td>
+                                            <td>73.51</td>
+                                            <td>75.25</td>
+                                            <td>77.46</td>
                                             <td>75.99</td>
                                             <td>77.99</td>
                                             <td>78.10</td>
@@ -551,17 +531,27 @@
                                         </tr>
                                         <tr>
                                             <td>POPE</td>
-                                            <td>85.15</td>
-                                            <td>86.84</td>
-                                            <td>88.79</td>
-                                            <td>89.06</td>
-                                            <td>87.14</td>
+                                            <td>85.08</td>
+                                            <td>86.06</td>
+                                            <td>88.97</td>
                                             <td><strong>90.59</strong></td>
                                             <td>88.87</td>
                                             <td>85.97</td>
                                             <td>83.35</td>
                                             <td>82.15</td>
                                             <td>82.07</td>
+                                        </tr>
+                                        <tr>
+                                            <td>RefCOCO (Avg)</td>
+                                            <td>85.94</td>
+                                            <td>89.37</td>
+                                            <td><strong>91.01</strong></td>
+                                            <td>89.65</td>
+                                            <td><strong>91.40</strong></td>
+                                            <td>86.56</td>
+                                            <td>90.25</td>
+                                            <td>78.45</td>
+                                            <td>80.12</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -611,8 +601,6 @@
                                             <th>Qianfan-VL-8B</th>
                                             <th>Qianfan-VL-70B</th>
                                             <th>Qwen2.5-VL-3B</th>
-                                            <th>Intern2.5-VL-8B</th>
-                                            <th>Intern2.5-VL-78B</th>
                                             <th>Intern3-VL-8B</th>
                                             <th>Intern3-VL-78B</th>
                                             <th>Qwen2.5-VL-7B</th>
@@ -624,12 +612,10 @@
                                     <tbody>
                                         <tr>
                                             <td>OCRBench</td>
-                                            <td>834</td>
-                                            <td>852</td>
-                                            <td>847</td>
+                                            <td>831</td>
+                                            <td>854</td>
+                                            <td>873</td>
                                             <td>810</td>
-                                            <td>822</td>
-                                            <td>822</td>
                                             <td><strong>881</strong></td>
                                             <td>847</td>
                                             <td><strong>883</strong></td>
@@ -639,12 +625,10 @@
                                         </tr>
                                         <tr>
                                             <td>AI2D_TEST</td>
-                                            <td>81.76</td>
-                                            <td>85.33</td>
-                                            <td><strong>86.76</strong></td>
+                                            <td>81.38</td>
+                                            <td><strong>85.07</strong></td>
+                                            <td><strong>87.73</strong></td>
                                             <td>77.07</td>
-                                            <td>84.391</td>
-                                            <td>83.48</td>
                                             <td><strong>85.07</strong></td>
                                             <td>83.55</td>
                                             <td>80.472</td>
@@ -654,12 +638,10 @@
                                         </tr>
                                         <tr>
                                             <td>OCRVQA_TEST</td>
-                                            <td>66.5</td>
-                                            <td>69.14</td>
-                                            <td><strong>72.56</strong></td>
+                                            <td>66.15</td>
+                                            <td>68.98</td>
+                                            <td><strong>74.06</strong></td>
                                             <td>69.24</td>
-                                            <td>30.85</td>
-                                            <td>43.32</td>
                                             <td>39.03</td>
                                             <td>35.58</td>
                                             <td><strong>71.02</strong></td>
@@ -669,12 +651,10 @@
                                         </tr>
                                         <tr>
                                             <td>TextVQA_VAL</td>
-                                            <td>79.67</td>
-                                            <td>82.42</td>
-                                            <td>82.97</td>
+                                            <td>80.11</td>
+                                            <td>82.13</td>
+                                            <td><strong>84.48</strong></td>
                                             <td>79.09</td>
-                                            <td>78.96</td>
-                                            <td><strong>84.27</strong></td>
                                             <td>82.15</td>
                                             <td>83.52</td>
                                             <td><strong>84.962</strong></td>
@@ -684,12 +664,10 @@
                                         </tr>
                                         <tr>
                                             <td>DocVQA_VAL</td>
-                                            <td>90.47</td>
-                                            <td><strong>94.13</strong></td>
-                                            <td>93.63</td>
+                                            <td>90.85</td>
+                                            <td>93.54</td>
+                                            <td><strong>94.75</strong></td>
                                             <td>92.71</td>
-                                            <td>92</td>
-                                            <td>93.59</td>
                                             <td>92.04</td>
                                             <td>83.82</td>
                                             <td>94.91</td>
@@ -699,12 +677,10 @@
                                         </tr>
                                         <tr>
                                             <td>ChartQA_TEST</td>
-                                            <td>81.76</td>
-                                            <td><strong>88</strong></td>
-                                            <td><strong>88</strong></td>
+                                            <td>81.79</td>
+                                            <td><strong>87.72</strong></td>
+                                            <td><strong>89.6</strong></td>
                                             <td>83.4</td>
-                                            <td>83.32</td>
-                                            <td>85.32</td>
                                             <td>85.76</td>
                                             <td>82.04</td>
                                             <td>86.68</td>
@@ -714,12 +690,10 @@
                                         </tr>
                                         <tr>
                                             <td>CharXiv_DQ</td>
-                                            <td>90.88</td>
-                                            <td><strong>94.98</strong></td>
-                                            <td><strong>96.38</strong></td>
+                                            <td>90.05</td>
+                                            <td><strong>94.85</strong></td>
+                                            <td><strong>96.82</strong></td>
                                             <td>79.22</td>
-                                            <td>73.85</td>
-                                            <td>83.92</td>
                                             <td>75.7</td>
                                             <td>84.9</td>
                                             <td>78.6</td>
@@ -729,12 +703,10 @@
                                         </tr>
                                         <tr>
                                             <td>CharXiv_RQ</td>
-                                            <td>66.9</td>
-                                            <td><strong>90.8</strong></td>
-                                            <td><strong>97.4</strong></td>
+                                            <td>65.8</td>
+                                            <td><strong>89.1</strong></td>
+                                            <td><strong>98.2</strong></td>
                                             <td>33</td>
-                                            <td>37.4</td>
-                                            <td>40.9</td>
                                             <td>40.2</td>
                                             <td>40.3</td>
                                             <td>44.2</td>
@@ -788,8 +760,6 @@
                                                 <th>基准测试</th>
                                                 <th>Qianfan-VL-8B</th>
                                                 <th>Qianfan-VL-70B</th>
-                                                <th>Intern2.5-VL-8B</th>
-                                                <th>Intern2.5-VL-78B</th>
                                                 <th>Intern3-VL-8B</th>
                                                 <th>Intern3-VL-78B</th>
                                                 <th>Qwen2.5-VL-7B</th>
@@ -801,10 +771,8 @@
                                         <tbody>
                                             <tr>
                                                 <td>Mathvista-mini</td>
-                                                <td>69.5</td>
-                                                <td><strong>75.5</strong></td>
-                                                <td>69.5</td>
-                                                <td>71.1</td>
+                                                <td>69.19</td>
+                                                <td><strong>78.6</strong></td>
                                                 <td>69.5</td>
                                                 <td>70.1</td>
                                                 <td>67.20</td>
@@ -813,11 +781,9 @@
                                                 <td>72.20</td>
                                             </tr>
                                             <tr>
-                                                <td>MathVision</td>
-                                                <td>27.46</td>
-                                                <td><strong>45.52</strong></td>
-                                                <td>21.48</td>
-                                                <td>33.48</td>
+                                                <td>Mathvision</td>
+                                                <td>32.82</td>
+                                                <td><strong>50.29</strong></td>
                                                 <td>29.61</td>
                                                 <td>34.8</td>
                                                 <td>25.95</td>
@@ -826,11 +792,9 @@
                                                 <td>43.91</td>
                                             </tr>
                                             <tr>
-                                                <td>MathVerse</td>
-                                                <td>44.7</td>
-                                                <td><strong>57.34</strong></td>
-                                                <td>30.96</td>
-                                                <td>43.32</td>
+                                                <td>Mathverse</td>
+                                                <td>48.4</td>
+                                                <td><strong>61.04</strong></td>
                                                 <td>43.68</td>
                                                 <td>49.26</td>
                                                 <td>44.21</td>
@@ -839,11 +803,9 @@
                                                 <td>50.56</td>
                                             </tr>
                                             <tr>
-                                                <td>ChartQA_Pro</td>
-                                                <td>50.52</td>
-                                                <td><strong>51.36</strong></td>
-                                                <td>19.38</td>
-                                                <td>47.92</td>
+                                                <td>ChartQA Pro</td>
+                                                <td>50.41</td>
+                                                <td><strong>52</strong></td>
                                                 <td>37.32</td>
                                                 <td>44.43</td>
                                                 <td>43.73</td>
@@ -853,10 +815,8 @@
                                             </tr>
                                             <tr>
                                                 <td>HallusionBench</td>
-                                                <td>49.1</td>
-                                                <td><strong>54.1</strong></td>
-                                                <td>49.7</td>
-                                                <td>40.5</td>
+                                                <td>51.72</td>
+                                                <td><strong>54.52</strong></td>
                                                 <td>49.2</td>
                                                 <td>40.2</td>
                                                 <td>47.9</td>
@@ -866,10 +826,8 @@
                                             </tr>
                                             <tr>
                                                 <td>InHouse Dataset A</td>
-                                                <td>48.78</td>
-                                                <td><strong>59.28</strong></td>
-                                                <td>26</td>
-                                                <td>43.40</td>
+                                                <td>59.87</td>
+                                                <td><strong>71.78</strong></td>
                                                 <td>40.64</td>
                                                 <td>41.47</td>
                                                 <td>45.58</td>
@@ -879,10 +837,8 @@
                                             </tr>
                                             <tr>
                                                 <td>InHouse Dataset B</td>
-                                                <td>61.85</td>
-                                                <td><strong>65.83</strong></td>
-                                                <td>26.81</td>
-                                                <td>39.7</td>
+                                                <td>61.33</td>
+                                                <td><strong>75.6</strong></td>
                                                 <td>36.25</td>
                                                 <td>42.65</td>
                                                 <td>30.62</td>
@@ -975,9 +931,9 @@
                         <div class="training-stages" style="margin-top: 2rem;">
                             <p><strong>Stage 1：跨模态对齐</strong> - 该阶段旨在建立视觉-语言基础连接映射，采用仅更新MLP Adapter、冻结Vision Encoder和LLM的训练策略，使用100B tokens通用知识数据进行训练。这一阶段是必要的，否则会影响整体性能。</p>
                             
-                            <p><strong>Stage 2：通用知识注入</strong> - 重点关注注入的数据量，尽量覆盖所有训练数据，采用全参数更新训练策略，使用3.5T tokens通用知识数据。该阶段建立模型的强大基础能力，同时放入足够比例的文本语料防止LLM知识被灾难性遗忘。</p>
+                            <p><strong>Stage 2：通用知识注入</strong> - 重点关注注入的数据量，尽量覆盖所有训练数据，采用全参数更新训练策略，使用2.66T tokens通用知识数据。该阶段建立模型的强大基础能力，同时放入足够比例的文本语料防止LLM知识被灾难性遗忘。</p>
                             
-                            <p><strong>Stage 3：领域增强知识注入</strong> - 精选要增强领域的高质量数据，包含所增强领域的任务数据，同时融合通用数据采样以维持通用知识、防止灾难性遗忘，采用全参数更新训练，使用300B tokens领域特定数据和通用采样数据。该阶段实现专业能力的显著提升。</p>
+                            <p><strong>Stage 3：领域增强知识注入</strong> - 精选要增强领域的高质量数据，包含所增强领域的任务数据，同时融合通用数据采样以维持通用知识、防止灾难性遗忘，采用全参数更新训练，使用0.32T tokens领域特定数据和通用采样数据。该阶段实现专业能力的显著提升。</p>
                             
                             <p><strong>Stage 4：后训练</strong> - 该阶段旨在提升指令跟随能力和偏好对齐，采用全参数更新训练策略，使用1B tokens指令微调数据进行训练。会使用高质量的对齐数据，包括复杂指令跟随、写作、问答、编程、OCR、信息抽取、数学、推理计算等任务，同时放入足量的纯文本指令微调数据，维持文本模型的能力。</p>
                         </div>
@@ -997,15 +953,11 @@
                                     <div style="font-size: 0.85rem; margin-bottom: 1rem; color: #555;">
                                         <strong>核心任务：</strong>文档解析、文档转Markdown、智能问答三大功能
                                     </div>
-                                    <ul style="font-size: 0.9rem;">
-                                        <li><strong>全方位解析：</strong>融合PaddleOCR和TextMind等技术，对文档进行深度解析。包括精准的版面分析、内容提取和阅读顺序识别，支持多语言和手写扫描件</li>
-                                        <li><strong>文档转Markdown：</strong>将单页或多页文档无缝转换为结构化的Markdown格式</li>
-                                        <li><strong>智能问答：</strong>利用多个大型语言模型（LLM）和视觉语言模型（VLM）进行交叉验证，生成高质量的文档摘要和问答数据</li>
-                                        <li><strong>数据来源：</strong>基于DocVQA、DocReason25K、BigDocs等开源数据集和自有数据进行二次合成和增强</li>
-                                        <li><strong>数据增强：</strong>通过位图化、腐蚀膨胀和高斯模糊等多种数据增强策略，模拟真实噪声</li>
+                                    <ul style="font-size: 0.9rem;"><li><strong>全方位解析：</strong>融合布局、类别、内容的多维度解析，支持多语言及手写扫描件</li>
+                                        <li><strong>图像转Markdown：</strong>单页/多页文档高效转换为结构化Markdown</li>
+                                        <li><strong>文档问答：</strong>支持总结、推理、多轮对话的深度理解</li>
                                     </ul>
                                     <div style="color: #666; font-size: 0.8rem; margin-top: 0.5rem;">
-                                        合成规模：450M样本
                                     </div>
                                 </div>
                                 
@@ -1014,32 +966,12 @@
                                     <div style="font-size: 0.85rem; margin-bottom: 1rem; color: #555;">
                                         <strong>核心优势：</strong>教育场景定制化数据构建+视觉数学推理强化
                                     </div>
-                                    <ul style="font-size: 0.9rem;">
-                                        <li><strong>教育数据预处理：</strong>收集多语言高质量解题数据，标准化术语与符号，结构化题干/条件/步骤/公式，构建教育场景数据源</li>
+                                    <ul style="font-size: 0.9rem;"><li><strong>教育数据预处理：</strong>收集多语言高质量解题数据，标准化术语符号，结构化题干/条件/步骤/公式</li>
                                         <li><strong>解题数据合成：</strong>结合知识体系，通过结构化表述→LaTeX→HTML→图像的管线合成拍照解题场景数据</li>
-                                        <li><strong>视觉抽取强化：</strong>针对图表、公式、几何等复杂场景，通过Markdown、LaTeX和Asymptote等形式化描述语言结合HTML渲染构造高质量数据</li>
-                                        <li><strong>场景多样合成：</strong>多笔迹风格和纸张背景渲染等数据增强，构造K12到大学难度的多场景多层次数据</li>
-                                        <li><strong>严格质量校验：</strong>基于规则过滤、拒绝采样、多模型投票以及OCR逐字段回读等方式校验，保证数据质量</li>
+                                        <li><strong>视觉抽取强化：</strong>针对图表、公式、几何等复杂场景，通过形式化描述语言结合HTML渲染构造高质量数据</li>
                                     </ul>
                                     <div style="color: #666; font-size: 0.8rem; margin-top: 0.5rem;">
-                                        合成规模：85M道题｜覆盖：K12-大学全学段｜质量保证：多重校验机制
-                                    </div>
-                                </div>
-                                
-                                <div style="background: #fafafa; padding: 1.5rem; border-radius: 8px;">
-                                    <h5>图表理解管线</h5>
-                                    <div style="font-size: 0.85rem; margin-bottom: 1rem; color: #555;">
-                                        <strong>核心目标：</strong>自动化生成高质量图表问答对，涵盖数据检索、视觉属性、计算问答
-                                    </div>
-                                    <ul style="font-size: 0.9rem;">
-                                        <li><strong>数据扩展：</strong>开源数据集采样+百度图搜API扩展+去重处理</li>
-                                        <li><strong>图表摘要：</strong>预训练VLM生成包含视觉和数字信息的结构化摘要</li>
-                                        <li><strong>两阶段生成：</strong>基于摘要生成问题→基于问题和摘要生成答案</li>
-                                        <li><strong>LaTeX渲染：</strong>arxiv数据爬取+正则抽取+TexLive重渲染获得精确描述</li>
-                                        <li><strong>质量控制：</strong>思考模型质检+人工review双重保障</li>
-                                    </ul>
-                                    <div style="color: #666; font-size: 0.8rem; margin-top: 0.5rem;">
-                                        合成规模：180M图表 | 问题类型：数据检索+视觉属性+计算问答
+                                        问题类型：数据检索+视觉属性+计算问答
                                     </div>
                                 </div>
                                 
@@ -1048,14 +980,12 @@
                                     <div style="font-size: 0.85rem; margin-bottom: 1rem; color: #555;">
                                         <strong>核心目标：</strong>程序化生成高质量的表格结构化数据
                                     </div>
-                                    <ul style="font-size: 0.9rem;">
-                                        <li><strong>表格内容与结构生成：</strong>采用程序化方式，生成随机的表格结构，利用Faker库和LLM填充内容，并支持随机单元格合并</li>
-                                        <li><strong>图像渲染与样式：</strong>通过Jinja2和KaTeX引擎，结合超过50种专业级CSS主题（如统计报告、技术文档），将表格渲染成高质量图像</li>
-                                        <li><strong>结构化表示：</strong>同时生成表格的HTML和LaTeX两种结构化表示</li>
-                                        <li><strong>数据增强：</strong>通过几何变换、色彩扰动、模糊处理等多种策略丰富数据多样性</li>
+                                    <ul style="font-size: 0.9rem;"><li><strong>表格结构化：</strong>图表表格精确恢复为HTML/LaTeX，支持无线表格、合同表格等复杂版式</li>
+                                        <li><strong>表格问答：</strong>基于表格图像的数值计算、比较分析、信息检索</li>
+                                        <li><strong>内容生成：</strong>随机表格结构+Faker库/LLM填充+随机单元格合并并通过专业CSS主题渲染</li>
                                     </ul>
                                     <div style="color: #666; font-size: 0.8rem; margin-top: 0.5rem;">
-                                        合成规模：120M样本
+                                        数据来源：TabMWP+MMC-Inst+BigDocs+自研合成
                                     </div>
                                 </div>
                                 
@@ -1064,14 +994,12 @@
                                     <div style="font-size: 0.85rem; margin-bottom: 1rem; color: #555;">
                                         <strong>核心能力：</strong>公式图像精确恢复为LaTeX，支持印刷体、手写体公式识别，能够处理复杂嵌套表达式、矩阵方程组等各类复杂版式
                                     </div>
-                                    <ul style="font-size: 0.9rem;">
-                                        <li><strong>大规模公式语料库：</strong>融合真实世界文档（如arXiv学术论文库）提取与程序化合成（如LLM生成），确保了公式来源的广度与复杂度</li>
-                                        <li><strong>高保真图像渲染：</strong>采用MathJax/KaTeX双引擎和300+专业字体进行高质量渲染</li>
-                                        <li><strong>高级增强与手写模拟：</strong>通过风格迁移技术模拟逼真手写笔迹，并结合几何变换、噪声扰动等手段全面增强数据的多样性和鲁棒性</li>
-                                        <li><strong>关键流程：</strong>大规模公式采集与智能合成 → 多引擎高保真渲染 → 高级图像增强与手写风格模拟 → 高质量公式图像数据集</li>
+                                    <ul style="font-size: 0.9rem;"><li><strong>符号识别：</strong>数学符号、希腊字母、特殊记号精确识别</li>
+                                        <li><strong>结构解析：</strong>分式、根式、上下标、矩阵等复杂结构</li>
+                                        <li><strong>多引擎渲染：</strong>MathJax/KaTeX确保渲染一致性</li>
                                     </ul>
                                     <div style="color: #666; font-size: 0.8rem; margin-top: 0.5rem;">
-                                        合成规模：95M高质量公式样本 | 涵盖代数、几何、微积分、线性代数等多个核心数学分支
+                                        支持：代数+几何+微积分+线性代数全覆盖
                                     </div>
                                 </div>
                                 
@@ -1080,14 +1008,12 @@
                                     <div style="font-size: 0.85rem; margin-bottom: 1rem; color: #555;">
                                         <strong>核心创新：</strong>Synthtext-pipeline系统化文本图像合成方法
                                     </div>
-                                    <ul style="font-size: 0.9rem;">
-                                        <li><strong>背景筛选：</strong>轻量级OCR模型+图像类型检测剔除含文本/非静态样本</li>
+                                    <ul style="font-size: 0.9rem;"><li><strong>背景筛选：</strong>轻量级OCR模型+图像类型检测剔除含文本/非静态样本</li>
                                         <li><strong>场景理解：</strong>语义分割模型+单目深度估计获取区域划分与3D结构</li>
                                         <li><strong>真实投影：</strong>平面检测+透视投影+随机文本样式自然投影</li>
-                                        <li><strong>融合增强：</strong>Poisson融合确保遮挡、阴影、纹理一致性</li>
                                     </ul>
                                     <div style="color: #666; font-size: 0.8rem; margin-top: 0.5rem;">
-                                        合成规模：320M场景 | 标注精度：字符级+单词级bounding box
+                                        标注精度：字符级+单词级bounding box
                                     </div>
                                 </div>
                             </div>
@@ -1109,7 +1035,7 @@
                             </div>
                             <div style="background: #f5f5f5; padding: 0.75rem 1.5rem; border-radius: 8px; text-align: center;">
                                 <h4 style="margin-bottom: 0.25rem; font-size: 1rem;">训练数据规模</h4>
-                                <div style="font-size: 1.75rem; font-weight: bold; color: #28a745; margin: 0.25rem 0;">3.5T</div>
+                                <div style="font-size: 1.75rem; font-weight: bold; color: #28a745; margin: 0.25rem 0;">3T+</div>
                                 <div style="margin-top: 0.25rem; font-size: 0.9rem;">Tokens训练数据</div>
                             </div>
                             <div style="background: #f5f5f5; padding: 0.75rem 1.5rem; border-radius: 8px; text-align: center;">
@@ -1575,208 +1501,8 @@
             <section id="api" class="section">
                 <h2>快速开始</h2>
                 
-                <h3 id="installation">安装配置</h3>
-                <p>安装OpenAI SDK即可使用千帆大模型平台上的Qianfan-VL系列模型：</p>
-                <pre><code class="language-bash">pip install openai</code></pre>
-
                 <h3 id="examples">功能示例代码</h3>
-                
-                <div class="code-examples-container">
-                    <!-- Code Example Tabs -->
-                    <div class="code-tabs">
-                        <button class="code-tab active" data-tab="ocr-code">OCR识别</button>
-                        <button class="code-tab" data-tab="math-code">数学推理</button>
-                        <button class="code-tab" data-tab="document-code">文档理解</button>
-                        <button class="code-tab" data-tab="reasoning-code">思考推理</button>
-                    </div>
-
-                    <!-- Code Panels -->
-                    <div class="code-panels">
-                        <!-- OCR Code Panel -->
-                        <div class="code-panel active" id="ocr-code-panel">
-                            <h4>OCR文字识别</h4>
-                            <pre><code class="language-python">from openai import OpenAI
-import base64
-import os
-
-client = OpenAI(
-    api_key = os.environ.get("QIANFAN_SECRET_KEY"),
-    base_url = "https://qianfan.baidubce.com/v2",
-    default_headers = {"X-Access-Key": os.environ.get("QIANFAN_ACCESS_KEY")}
-)
-
-# 读取并编码图像
-with open("document.jpg", "rb") as image_file:
-    image_base64 = base64.b64encode(image_file.read()).decode('utf-8')
-
-# OCR识别
-response = client.chat.completions.create(
-    model = "Qianfan-VL-8B",
-    messages=[
-        {
-            "role": "user",
-            "content": [
-                {"type": "text", "text": "请识别图中的所有文字，保持原始格式"},
-                {
-                    "type": "image_url",
-                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
-                }
-            ]
-        }
-    ],
-    temperature = 0.1,  # 低温度保证准确性
-    max_tokens = 2048
-)
-
-print(response.choices[0].message.content)</code></pre>
-                        </div>
-
-                        <!-- Math Code Panel -->
-                        <div class="code-panel" id="math-code-panel">
-                            <h4>数学问题求解</h4>
-                            <pre><code class="language-python">from openai import OpenAI
-import base64
-import os
-
-client = OpenAI(
-    api_key = os.environ.get("QIANFAN_SECRET_KEY"),
-    base_url = "https://qianfan.baidubce.com/v2",
-    default_headers = {"X-Access-Key": os.environ.get("QIANFAN_ACCESS_KEY")}
-)
-
-# 读取数学题图片
-with open("math_problem.jpg", "rb") as image_file:
-    image_base64 = base64.b64encode(image_file.read()).decode('utf-8')
-
-# 激活思考推理求解
-response = client.chat.completions.create(
-    model = "Qianfan-VL-70B",  # 使用大模型获得更强推理能力
-    messages=[
-        {
-            "role": "user",
-            "content": [
-                {
-                    "type": "text", 
-                    "text": """请解决这道数学题：
-1. 详细说明解题思路
-2. 给出每一步的推导过程
-3. 使用LaTeX格式书写数学公式
-4. 最后给出答案"""
-                },
-                {
-                    "type": "image_url",
-                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
-                }
-            ]
-        }
-    ],
-    temperature = 0.2,
-    max_tokens = 4096
-)
-
-print(response.choices[0].message.content)</code></pre>
-                        </div>
-
-                        <!-- Document Code Panel -->
-                        <div class="code-panel" id="document-code-panel">
-                            <h4>文档理解与提取</h4>
-                            <pre><code class="language-python">from openai import OpenAI
-import base64
-import os
-
-client = OpenAI(
-    api_key = os.environ.get("QIANFAN_SECRET_KEY"),
-    base_url = "https://qianfan.baidubce.com/v2",
-    default_headers = {"X-Access-Key": os.environ.get("QIANFAN_ACCESS_KEY")}
-)
-
-# 读取文档图像
-with open("contract.jpg", "rb") as image_file:
-    image_base64 = base64.b64encode(image_file.read()).decode('utf-8')
-
-# 文档理解和信息提取
-response = client.chat.completions.create(
-    model = "Qianfan-VL-8B",
-    messages=[
-        {
-            "role": "user",
-            "content": [
-                {
-                    "type": "text",
-                    "text": """分析这份合同文档：
-1. 识别文档类型和关键条款
-2. 提取甲乙双方信息
-3. 标注重要日期和金额
-4. 识别潜在风险条款
-5. 输出为JSON格式"""
-                },
-                {
-                    "type": "image_url",
-                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
-                }
-            ]
-        }
-    ],
-    temperature = 0.1,
-    max_tokens = 3000
-)
-
-import json
-result = json.loads(response.choices[0].message.content)
-print(json.dumps(result, ensure_ascii=False, indent=2))</code></pre>
-                        </div>
-
-                        <!-- Reasoning Code Panel -->
-                        <div class="code-panel" id="reasoning-code-panel">
-                            <h4>思考推理能力</h4>
-                            <pre><code class="language-python">from openai import OpenAI
-import base64
-import os
-
-client = OpenAI(
-    api_key = os.environ.get("QIANFAN_SECRET_KEY"),
-    base_url = "https://qianfan.baidubce.com/v2",
-    default_headers = {"X-Access-Key": os.environ.get("QIANFAN_ACCESS_KEY")}
-)
-
-# 读取复杂图表
-with open("complex_chart.jpg", "rb") as image_file:
-    image_base64 = base64.b64encode(image_file.read()).decode('utf-8')
-
-# 使用思考链进行深度分析
-response = client.chat.completions.create(
-    model = "Qianfan-VL-70B",
-    messages=[
-        {
-            "role": "system",
-            "content": "你是一个数据分析专家，请使用思考链方法进行分析"
-        },
-        {
-            "role": "user",
-            "content": [
-                {
-                    "type": "text",
-                    "text": """分析这个图表并回答：
-1. 数据的整体趋势是什么？
-2. 有哪些异常点需要关注？
-3. 基于当前数据，未来3个月的预测是什么？
-4. 给出你的推理过程和依据"""
-                },
-                {
-                    "type": "image_url",
-                    "image_url": {"url": f"data:image/jpeg;base64,{image_base64}"}
-                }
-            ]
-        }
-    ],
-    temperature = 0.3,
-    max_tokens = 2048
-)
-
-print(response.choices[0].message.content)</code></pre>
-                        </div>
-                    </div>
-                </div>
+                <p>完整的使用示例和代码请参考我们的Cookbook：<a href="https://github.com/baidubce/qianfan-models-cookbook/blob/main/qianfan-vl/qianfan_vl_example.ipynb" target="_blank">Qianfan-VL Example Notebook</a></p>
 
                 <h3 id="api-params">API参数说明</h3>
                 <p>详细的API参数说明和调用文档请参考：<a href="https://cloud.baidu.com/doc/qianfan-docs/s/Fm9l6ocai" target="_blank">千帆ModelBuilder API文档</a></p>
